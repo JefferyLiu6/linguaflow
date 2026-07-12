@@ -186,7 +186,7 @@ Added Supabase Auth + Postgres persistence, JWT-cookie session handling, protect
 ### Phase 6 — SSE streaming + deployment prep
 Added `/tutor/stream` SSE endpoint. Streaming path reuses router + specialist policies and delivers incremental tokens with runtime metadata (`route`, `hint_level`, `elapsed_ms`).
 
-### Phase 7 — Contrastive RAG (metadata, Phase 1a/1b)
+### Phase 7 — Contrastive RAG (metadata)
 Built a 31-note English contrast corpus and a metadata-first retrieval scorer (drill id, type, category, topic, taxonomy tags, authoring item IDs). Added a 31-case eval harness with per-bucket metrics. Grounded `explain` and `clarify` routes. Added `Coach reference` label to the tutor panel.
 
 ### Phase 8 — Session planner
