@@ -4,12 +4,21 @@ import json
 from functools import lru_cache
 from pathlib import Path
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
 class ContrastExample(BaseModel):
     text: str
-    source_item_id: str
+    source_item_id: str | None = None
+    example_id: str = ""
+    origin: Literal["original", "drill_adaptation"] = "original"
+
+
+class Counterexample(BaseModel):
+    text: str
+    reason: str
 
 
 class ContrastNote(BaseModel):
@@ -25,6 +34,13 @@ class ContrastNote(BaseModel):
     authoring_item_ids: list[str] = Field(default_factory=list)
     avoid: list[str] = Field(default_factory=list)
     good_for_routes: list[str] = Field(default_factory=list)
+    version: str = "1.0.0"
+    selection_rationale: str = ""
+    reference_ids: list[str] = Field(default_factory=list)
+    reference_scope: str = ""
+    review_status: str = ""
+    human_review_status: str = "pending"
+    counterexamples: list[Counterexample] = Field(default_factory=list)
 
 
 KNOWLEDGE_ROOT = Path(__file__).resolve().parent.parent / "knowledge"
@@ -38,9 +54,15 @@ def load_contrast_docs(language: str) -> list[ContrastNote]:
 
     docs: list[ContrastNote] = []
     with path.open("r", encoding="utf-8") as handle:
-        for line in handle:
+        for line_number, line in enumerate(handle, 1):
             line = line.strip()
             if not line:
                 continue
-            docs.append(ContrastNote.model_validate(json.loads(line)))
+            try:
+                docs.append(ContrastNote.model_validate(json.loads(line)))
+            except (ValueError, TypeError) as exc:
+                raise ValueError(f"{path}:{line_number}: {exc}") from exc
+    ids = [doc.id for doc in docs]
+    if len(ids) != len(set(ids)):
+        raise ValueError(f"{path}: duplicate document IDs")
     return docs

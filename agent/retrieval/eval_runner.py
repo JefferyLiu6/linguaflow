@@ -237,12 +237,21 @@ class FreeformEvalResult:
 
 def evaluate_freeform_case(case: FreeformEvalCase) -> FreeformEvalResult:
     """Evaluate a freeform case using hybrid retrieval (requires DB + embeddings)."""
-    from .hybrid import retrieve_for_freeform_question
+    from .hybrid import (
+        REASON_DB_UNAVAILABLE, REASON_EMBEDDINGS_UNAVAILABLE,
+        retrieve_for_freeform_question,
+    )
     debug = retrieve_for_freeform_question(
         case.question,
         language="English",
         current_item=case.current_item,
     )
+    if debug["reason"] in {REASON_DB_UNAVAILABLE, REASON_EMBEDDINGS_UNAVAILABLE} or str(debug["reason"]).startswith("index_"):
+        raise RuntimeError(
+            f"Hybrid evaluation invalid at {case.case_id}: {debug['reason']}. "
+            "Check credentials, database connectivity, and the populated vector index. "
+            "Infrastructure fallback is not a relevance judgment."
+        )
     selected = debug["note"].id if debug["note"] else None
     return FreeformEvalResult(
         case_id=case.case_id,
@@ -430,6 +439,7 @@ def main() -> int:
 
     parser = argparse.ArgumentParser(prog="retrieval.eval_runner")
     parser.add_argument("--output", type=Path, default=None, help="Optional JSON output path.")
+    parser.add_argument("--challenge", action="store_true", help="Evaluate the concept/scope challenge set (not held out).")
     parser.add_argument("--grounding", action="store_true", help="Run grounding checks.")
     parser.add_argument(
         "--arm",
@@ -457,12 +467,13 @@ def main() -> int:
     if args.arm in ("freeform", "hybrid", "both"):
         print("\n")
         # Metadata baseline always runs (no DB / embedding required).
-        meta_freeform = run_freeform_eval_metadata()
+        selected_cases = all_freeform_cases(challenge=args.challenge)
+        meta_freeform = run_freeform_eval_metadata(selected_cases)
         print(freeform_summary_markdown(meta_freeform, arm="metadata"))
 
         # Hybrid arm requires DB + embeddings; fail-open.
         try:
-            hybrid_freeform = run_freeform_eval()
+            hybrid_freeform = run_freeform_eval(selected_cases)
             print("\n")
             print(freeform_summary_markdown(hybrid_freeform, arm="hybrid"))
             print("\n")
@@ -488,6 +499,7 @@ def main() -> int:
             print(f"[freeform hybrid eval] Could not run hybrid arm: {exc}")
             print("Ensure DATABASE_URL and OPENAI_API_KEY are set and sync_embeddings has been run.")
             print("(Metadata baseline above is still valid.)")
+            return 2
 
     return 0
 

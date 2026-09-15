@@ -1,0 +1,2139 @@
+[
+  {
+    "id": "en01",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Replace the bracketed word with a more advanced synonym.",
+    "prompt": "The project was very [big].",
+    "answer": "substantial",
+    "variants": [
+      "considerable",
+      "extensive",
+      "significant"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en02",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Replace the bracketed word with a formal alternative; the original is also clear.",
+    "prompt": "Please [use] the correct procedure.",
+    "answer": "utilize",
+    "variants": [
+      "employ"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en03",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Replace the bracketed word with a more formal synonym.",
+    "prompt": "We need to [get] approval first.",
+    "answer": "obtain",
+    "variants": [
+      "acquire",
+      "secure",
+      "procure"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en04",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Replace the bracketed word with a more precise synonym.",
+    "prompt": "She wants to [show] her findings.",
+    "answer": "present",
+    "variants": [
+      "demonstrate",
+      "exhibit",
+      "illustrate"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en05",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Replace the bracketed word with a more formal synonym.",
+    "prompt": "Can you [help] me with this task?",
+    "answer": "assist",
+    "variants": [
+      "aid"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en06",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Replace the bracketed adjective with a more precise one.",
+    "prompt": "That was a [good] decision.",
+    "answer": "sound",
+    "variants": [
+      "prudent",
+      "judicious",
+      "astute"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en07",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Replace the bracketed phrase with a single precise verb.",
+    "prompt": "He [talked about] the risks at length.",
+    "answer": "addressed",
+    "variants": [
+      "discussed"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en08",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Replace the bracketed word with a more precise synonym.",
+    "prompt": "The plan has a [bad] flaw.",
+    "answer": "critical",
+    "variants": [
+      "fundamental",
+      "significant",
+      "severe"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en09",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Rewrite in formal register.",
+    "prompt": "I think you should probably reconsider this.",
+    "answer": "I would recommend reconsidering this course of action.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en10",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Transform to passive voice.",
+    "prompt": "The committee reviewed the proposal.",
+    "answer": "The proposal was reviewed by the committee.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en11",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Combine into one complex sentence using a participle.",
+    "prompt": "She studied the data. She reached a conclusion.",
+    "answer": "Having studied the data, she reached a conclusion.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en12",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Rewrite in formal register.",
+    "prompt": "We can't do this because we don't have enough money.",
+    "answer": "This is not feasible due to insufficient funding.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en13",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Combine using a defining relative clause to identify which manager approved the budget.",
+    "prompt": "The manager approved the budget. She leads the project.",
+    "answer": "The manager who leads the project approved the budget.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en14",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Rewrite more concisely in formal style.",
+    "prompt": "Due to the fact that the deadline was missed, we lost the contract.",
+    "answer": "Because the deadline was missed, we lost the contract.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en15",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Transform to active voice.",
+    "prompt": "Mistakes were made by the team during the rollout.",
+    "answer": "The team made mistakes during the rollout.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en16",
+    "type": "translation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Express this casually-worded idea in formal English.",
+    "prompt": "He's really good at his job.",
+    "answer": "He performs his job very well.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en17",
+    "type": "translation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Express formally.",
+    "prompt": "We messed up the launch.",
+    "answer": "We made mistakes during the launch.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en18",
+    "type": "translation",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Paraphrase in academic style.",
+    "prompt": "Everyone knows this doesn't work.",
+    "answer": "It is generally known that this approach is ineffective.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en19",
+    "type": "translation",
+    "category": "sentence",
+    "topic": "daily",
+    "instruction": "Express formally.",
+    "prompt": "Things are getting better.",
+    "answer": "The situation is improving.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en20",
+    "type": "translation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Express this casually-worded idea in formal English.",
+    "prompt": "She basically runs the whole company.",
+    "answer": "She effectively oversees the entire organization.",
+    "promptLang": "en-US",
+    "group": "DB_EN"
+  },
+  {
+    "id": "en_v1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "start (verb)",
+    "answer": "initiate",
+    "variants": [
+      "commence",
+      "launch"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "end (verb)",
+    "answer": "conclude",
+    "variants": [
+      "terminate",
+      "finalize"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "ask a question to obtain information (verb)",
+    "answer": "inquire",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "tell (verb)",
+    "answer": "inform",
+    "variants": [
+      "notify",
+      "advise"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "need (verb)",
+    "answer": "require",
+    "variants": [
+      "necessitate",
+      "demand"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v6",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "change (verb)",
+    "answer": "modify",
+    "variants": [
+      "alter",
+      "revise",
+      "amend"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v7",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "look at (verb)",
+    "answer": "examine",
+    "variants": [
+      "analyze",
+      "inspect",
+      "scrutinize"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v8",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "smart (adj)",
+    "answer": "astute",
+    "variants": [
+      "perceptive",
+      "shrewd"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v9",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "wrong (adj)",
+    "answer": "erroneous",
+    "variants": [
+      "fallacious",
+      "flawed"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v10",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "more important than everything else (adjective)",
+    "answer": "paramount",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v11",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "fair (adj)",
+    "answer": "equitable",
+    "variants": [
+      "impartial",
+      "unbiased"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v12",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "completed promptly and efficiently (adjective)",
+    "answer": "expeditious",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v13",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "daily",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "clear (adj)",
+    "answer": "unambiguous",
+    "variants": [
+      "lucid",
+      "transparent",
+      "explicit"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v14",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "agree with an opinion (verb)",
+    "answer": "concur",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_v15",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "build something (verb)",
+    "answer": "construct",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_VOCAB"
+  },
+  {
+    "id": "en_p1",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Express formally.",
+    "prompt": "Let's talk about this later.",
+    "answer": "I suggest we revisit this matter at a later time.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p2",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Express this casually-worded phrase in formal English.",
+    "prompt": "Can you look into that?",
+    "answer": "Could you investigate that matter?",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p3",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "daily",
+    "instruction": "Express formally.",
+    "prompt": "I don't get what you mean.",
+    "answer": "I am uncertain I understand your point.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p4",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Rephrase using formal language.",
+    "prompt": "That's a great idea.",
+    "answer": "That is an excellent idea.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p5",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "daily",
+    "instruction": "Express formally.",
+    "prompt": "I'll get back to you.",
+    "answer": "I will respond to you.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p6",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Express formally.",
+    "prompt": "We need to figure this out.",
+    "answer": "We must resolve this matter.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p7",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "daily",
+    "instruction": "Rephrase using formal language.",
+    "prompt": "Things went wrong.",
+    "answer": "Problems occurred.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p8",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Express formally.",
+    "prompt": "My bad.",
+    "answer": "I apologize for my mistake.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Express formally.",
+    "prompt": "We're running out of time.",
+    "answer": "We are approaching the deadline.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_p10",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Rephrase using formal language.",
+    "prompt": "The boss wants this done ASAP.",
+    "answer": "The matter requires immediate attention per management.",
+    "promptLang": "en-US",
+    "group": "DB_EN_PHRASES"
+  },
+  {
+    "id": "en_sp1",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "sport",
+    "instruction": "Replace the bracketed phrase with a single precise verb.",
+    "prompt": "The player [did well] in the match.",
+    "answer": "excelled",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp2",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "sport",
+    "instruction": "Replace the bracketed phrase with a single precise verb.",
+    "prompt": "She [improved] her technique through practice.",
+    "answer": "refined",
+    "variants": [
+      "honed"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp3",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "sport",
+    "instruction": "Replace the bracketed word with a more precise synonym.",
+    "prompt": "The team had a [big] win.",
+    "answer": "decisive",
+    "variants": [
+      "commanding",
+      "dominant",
+      "resounding"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp4",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "sport",
+    "instruction": "Rewrite in formal sports commentary style.",
+    "prompt": "He ran really fast to the finish line.",
+    "answer": "He ran at high speed to the finish line.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp5",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "sport",
+    "instruction": "Rewrite in formal commentary style.",
+    "prompt": "She played really well under pressure.",
+    "answer": "She performed very well under pressure.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp6",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "sport",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "win (verb)",
+    "answer": "triumph",
+    "variants": [
+      "prevail"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp7",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "sport",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "admit defeat (phrase, competition)",
+    "answer": "concede",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp8",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "sport",
+    "instruction": "Give the precise sports term.",
+    "prompt": "practice session (noun)",
+    "answer": "training session",
+    "variants": [
+      "practice"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_sp9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "sport",
+    "instruction": "Express in formal commentary style.",
+    "prompt": "They're going to lose.",
+    "answer": "They are expected to lose.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SPORT"
+  },
+  {
+    "id": "en_t1",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "tech",
+    "instruction": "Replace the bracketed word with a precise technical term.",
+    "prompt": "The app [crashed].",
+    "answer": "terminated unexpectedly",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t2",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "tech",
+    "instruction": "Replace the bracketed phrase with a precise technical term.",
+    "prompt": "We need to [fix the bug].",
+    "answer": "resolve the defect",
+    "variants": [
+      "remediate the issue"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "tech",
+    "instruction": "Give the advanced technical synonym.",
+    "prompt": "make execution faster (phrase)",
+    "answer": "improve execution speed",
+    "variants": [
+      "accelerate execution"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "tech",
+    "instruction": "Give the advanced technical synonym.",
+    "prompt": "check code (phrase)",
+    "answer": "review code",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t5",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "tech",
+    "instruction": "Rewrite in formal technical documentation style.",
+    "prompt": "The system broke because of too much traffic.",
+    "answer": "The system failure was attributed to excessive traffic load.",
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "tech",
+    "instruction": "Rewrite in formal technical style.",
+    "prompt": "We added a new feature.",
+    "answer": "We implemented a new feature.",
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t7",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "tech",
+    "instruction": "Give the precise technical term.",
+    "prompt": "organized collection of electronically stored data (noun)",
+    "answer": "database",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t8",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "tech",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "check whether software meets user requirements (phrase)",
+    "answer": "validate the software",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_t9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "tech",
+    "instruction": "Express in formal technical language.",
+    "prompt": "The website went down.",
+    "answer": "The website became unavailable.",
+    "promptLang": "en-US",
+    "group": "DB_EN_TECH"
+  },
+  {
+    "id": "en_f1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "food",
+    "instruction": "Give the advanced culinary term.",
+    "prompt": "tasty (adj)",
+    "answer": "delectable",
+    "variants": [
+      "delicious"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "food",
+    "instruction": "Give the precise culinary term.",
+    "prompt": "cook liquid gently just below boiling (verb)",
+    "answer": "simmer",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "food",
+    "instruction": "Give the advanced culinary term.",
+    "prompt": "sour (adj, flavor)",
+    "answer": "acidic",
+    "variants": [
+      "tart"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "food",
+    "instruction": "Give the precise culinary term.",
+    "prompt": "cut into tiny pieces (phrase)",
+    "answer": "mince",
+    "variants": [
+      "chop finely"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f5",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "food",
+    "instruction": "Rewrite in formal culinary description style.",
+    "prompt": "The steak was cooked just right.",
+    "answer": "The steak was cooked to the desired degree of doneness.",
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f6",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "food",
+    "instruction": "Give the advanced culinary term.",
+    "prompt": "smooth and creamy texture",
+    "answer": "velvety",
+    "variants": [
+      "silky",
+      "unctuous"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f7",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "food",
+    "instruction": "Give the precise culinary term.",
+    "prompt": "add salt and spices (phrase)",
+    "answer": "season",
+    "variants": [
+      "season to taste"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "food",
+    "instruction": "Rewrite as a formal menu description.",
+    "prompt": "The soup is really thick and filling.",
+    "answer": "The soup is thick and satisfying.",
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_f9",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "food",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "cook food using dry heat in an oven, especially meat (verb)",
+    "answer": "roast",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_FOOD"
+  },
+  {
+    "id": "en_w1",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Replace the bracketed phrase with a professional term.",
+    "prompt": "I [quit] the project.",
+    "answer": "withdrew from",
+    "variants": [
+      "relinquished my role in"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w2",
+    "type": "substitution",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Replace the bracketed phrase with a precise professional term.",
+    "prompt": "She [got promoted] to director.",
+    "answer": "was promoted",
+    "variants": [
+      "was elevated"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w3",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Rewrite in formal business language.",
+    "prompt": "We didn't hit our targets this quarter.",
+    "answer": "We did not meet our targets this quarter.",
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w4",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "work",
+    "instruction": "Rewrite as a formal business email opening.",
+    "prompt": "Hi, just checking in.",
+    "answer": "I am writing to follow up on the matter.",
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the advanced business synonym.",
+    "prompt": "meeting to seek professional advice (noun)",
+    "answer": "consultation",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w6",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "end an employment contract (phrase)",
+    "answer": "terminate employment",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w7",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "work",
+    "instruction": "Give the precise business term.",
+    "prompt": "work together (phrase)",
+    "answer": "collaborate",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w8",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Express in formal business language.",
+    "prompt": "We're losing money.",
+    "answer": "We are making a financial loss.",
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_w9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "work",
+    "instruction": "Express formally.",
+    "prompt": "Let's wrap up.",
+    "answer": "I suggest we bring this meeting to a close.",
+    "promptLang": "en-US",
+    "group": "DB_EN_WORK"
+  },
+  {
+    "id": "en_he1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "health",
+    "instruction": "Give the medical/advanced term.",
+    "prompt": "high blood pressure",
+    "answer": "hypertension",
+    "variants": [
+      "elevated blood pressure"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "health",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "get better (verb)",
+    "answer": "recover",
+    "variants": [
+      "recuperate",
+      "convalesce"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "health",
+    "instruction": "Give the medical term.",
+    "prompt": "feel dizzy (phrase)",
+    "answer": "experience dizziness",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "health",
+    "instruction": "Give the medical/advanced term.",
+    "prompt": "painkiller (noun)",
+    "answer": "analgesic",
+    "variants": [
+      "pain reliever"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "health",
+    "instruction": "Give the medical term.",
+    "prompt": "low blood pressure",
+    "answer": "hypotension",
+    "variants": [
+      "low BP"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "health",
+    "instruction": "Rewrite in formal medical language.",
+    "prompt": "She's really tired all the time.",
+    "answer": "She experiences persistent fatigue.",
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "health",
+    "instruction": "Express formally.",
+    "prompt": "I have a really bad headache.",
+    "answer": "I am experiencing a severe headache.",
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he8",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "health",
+    "instruction": "Give the advanced medical term.",
+    "prompt": "spreading of disease",
+    "answer": "transmission",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_he9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "health",
+    "instruction": "Express in clinical language.",
+    "prompt": "I feel sick to my stomach.",
+    "answer": "I am experiencing nausea.",
+    "promptLang": "en-US",
+    "group": "DB_EN_HEALTH"
+  },
+  {
+    "id": "en_mo1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "money",
+    "instruction": "Give the advanced financial term.",
+    "prompt": "money earned from sales before expenses (noun)",
+    "answer": "revenue",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "money",
+    "instruction": "Give the advanced financial term.",
+    "prompt": "money going out (noun)",
+    "answer": "expenditure",
+    "variants": [
+      "expenses",
+      "outlay"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "money",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "save money (phrase)",
+    "answer": "economize",
+    "variants": [
+      "conserve funds"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "money",
+    "instruction": "Give the broader financial category.",
+    "prompt": "a financial obligation such as a debt (noun)",
+    "answer": "liability",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "money",
+    "instruction": "Give the precise financial term.",
+    "prompt": "ownership share (noun)",
+    "answer": "equity",
+    "variants": [
+      "stake",
+      "shareholding"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo6",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "money",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "recover money previously spent or lost (verb)",
+    "answer": "recoup",
+    "variants": [
+      "recover"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "money",
+    "instruction": "Rewrite in formal financial language.",
+    "prompt": "We lost a lot of money this year.",
+    "answer": "We incurred substantial financial losses this year.",
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "money",
+    "instruction": "Express formally.",
+    "prompt": "The price went up a lot.",
+    "answer": "The price increased substantially.",
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_mo9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "money",
+    "instruction": "Express in formal financial language.",
+    "prompt": "We're in the red.",
+    "answer": "The organization is operating at a deficit.",
+    "promptLang": "en-US",
+    "group": "DB_EN_MONEY"
+  },
+  {
+    "id": "en_fa1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "family",
+    "instruction": "Give the precise/formal term.",
+    "prompt": "kids (noun)",
+    "answer": "children",
+    "variants": [
+      "offspring",
+      "progeny"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "family",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "raise children (phrase)",
+    "answer": "rear children",
+    "variants": [
+      "bring up"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "family",
+    "instruction": "Give the advanced/precise term.",
+    "prompt": "family bond (noun phrase)",
+    "answer": "familial bond",
+    "variants": [
+      "familial tie"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "family",
+    "instruction": "Give the formal term.",
+    "prompt": "related by blood (phrase)",
+    "answer": "consanguineous",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "family",
+    "instruction": "Give the formal/legal term.",
+    "prompt": "person legally responsible for a child (noun)",
+    "answer": "legal guardian",
+    "variants": [
+      "guardian"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "family",
+    "instruction": "Express in formal language.",
+    "prompt": "My parents split up.",
+    "answer": "My parents separated.",
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "family",
+    "instruction": "Rewrite in formal register.",
+    "prompt": "She takes care of her grandma.",
+    "answer": "She provides care for her grandmother.",
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "family",
+    "instruction": "Express formally.",
+    "prompt": "My brother is getting married.",
+    "answer": "My brother is going to marry.",
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_fa9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "family",
+    "instruction": "Express formally.",
+    "prompt": "We're a close family.",
+    "answer": "We maintain strong familial bonds.",
+    "promptLang": "en-US",
+    "group": "DB_EN_FAMILY"
+  },
+  {
+    "id": "en_na1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "nature",
+    "instruction": "Give the broader scientific category.",
+    "prompt": "an earthquake is one example of this broader category (noun phrase)",
+    "answer": "seismic event",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "nature",
+    "instruction": "Give the scientific term.",
+    "prompt": "plant life (collective)",
+    "answer": "flora",
+    "variants": [
+      "vegetation"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "nature",
+    "instruction": "Give the scientific term.",
+    "prompt": "animal life (collective)",
+    "answer": "fauna",
+    "variants": [
+      "wildlife"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "nature",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "prolonged period of unusually low rainfall (noun)",
+    "answer": "drought",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "nature",
+    "instruction": "Give the scientific term.",
+    "prompt": "cutting down forests",
+    "answer": "deforestation",
+    "variants": [
+      "forest clearance"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na6",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "nature",
+    "instruction": "Give the scientific term.",
+    "prompt": "carbon in the atmosphere",
+    "answer": "atmospheric carbon",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "nature",
+    "instruction": "Express in scientific language.",
+    "prompt": "The river flooded badly.",
+    "answer": "The river experienced significant inundation.",
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "nature",
+    "instruction": "Rewrite in formal environmental language.",
+    "prompt": "The air is really dirty here.",
+    "answer": "The local air quality is severely compromised.",
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_na9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "nature",
+    "instruction": "Express formally.",
+    "prompt": "It's really hot today.",
+    "answer": "Temperatures are elevated considerably today.",
+    "promptLang": "en-US",
+    "group": "DB_EN_NATURE"
+  },
+  {
+    "id": "en_ed1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "education",
+    "instruction": "Give the advanced academic term.",
+    "prompt": "test (noun, academic)",
+    "answer": "assessment",
+    "variants": [
+      "evaluation",
+      "examination"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "education",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "teacher (noun)",
+    "answer": "instructor",
+    "variants": [
+      "educator"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "education",
+    "instruction": "Give the advanced academic term.",
+    "prompt": "homework (noun)",
+    "answer": "assigned work to complete outside class",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "education",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "learn (verb)",
+    "answer": "acquire knowledge",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "education",
+    "instruction": "Give the advanced academic term.",
+    "prompt": "school essay (noun)",
+    "answer": "school composition",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "education",
+    "instruction": "Rewrite in academic language.",
+    "prompt": "I failed the test.",
+    "answer": "I did not achieve a satisfactory score on the assessment.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "education",
+    "instruction": "Express in formal academic style.",
+    "prompt": "The students really liked the lecture.",
+    "answer": "The students responded favorably to the lecture.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "education",
+    "instruction": "Rewrite as a formal academic statement.",
+    "prompt": "This book is really hard to understand.",
+    "answer": "This text presents considerable interpretive challenges.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_ed9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "education",
+    "instruction": "Express formally.",
+    "prompt": "I got a bad grade.",
+    "answer": "I received an unsatisfactory grade.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EDUCATION"
+  },
+  {
+    "id": "en_cu1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "culture",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "outdated in style (adjective)",
+    "answer": "antiquated",
+    "variants": [
+      "archaic"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "culture",
+    "instruction": "Give the advanced term.",
+    "prompt": "handed-down tradition",
+    "answer": "heritage",
+    "variants": [
+      "cultural inheritance",
+      "legacy"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "culture",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "art show (noun)",
+    "answer": "exhibition",
+    "variants": [
+      "exposition"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "culture",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "music style (noun)",
+    "answer": "genre",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "culture",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "old custom (noun)",
+    "answer": "tradition",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "culture",
+    "instruction": "Rewrite in formal cultural commentary.",
+    "prompt": "This painting looks really nice.",
+    "answer": "This painting is visually appealing.",
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "culture",
+    "instruction": "Express in formal critical language.",
+    "prompt": "The movie was really boring.",
+    "answer": "The film was unengaging.",
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "culture",
+    "instruction": "Express in formal literary criticism.",
+    "prompt": "The book has a really interesting plot.",
+    "answer": "The book has a compelling plot.",
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_cu9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "culture",
+    "instruction": "Express in formal critical language.",
+    "prompt": "That show was amazing.",
+    "answer": "That show was outstanding.",
+    "promptLang": "en-US",
+    "group": "DB_EN_CULTURE"
+  },
+  {
+    "id": "en_po1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "politics",
+    "instruction": "Give the advanced political term.",
+    "prompt": "the right to vote (noun)",
+    "answer": "suffrage",
+    "variants": [
+      "franchise"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "politics",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "law (noun)",
+    "answer": "legislation",
+    "variants": [
+      "statute",
+      "ordinance"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "politics",
+    "instruction": "Give the advanced political term.",
+    "prompt": "negotiation intended to establish peace (noun phrase)",
+    "answer": "peace negotiation",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "politics",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "ban (verb)",
+    "answer": "prohibit",
+    "variants": [
+      "proscribe",
+      "forbid"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "politics",
+    "instruction": "Give the advanced term.",
+    "prompt": "entrust some of your decision-making authority to another person (phrase)",
+    "answer": "delegate authority",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "politics",
+    "instruction": "Rewrite in formal political language.",
+    "prompt": "The government messed up.",
+    "answer": "The government made mistakes.",
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "politics",
+    "instruction": "Express in formal political commentary.",
+    "prompt": "They disagreed on everything.",
+    "answer": "They disagreed on every issue.",
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "politics",
+    "instruction": "Rewrite in formal language.",
+    "prompt": "The president gave a speech.",
+    "answer": "The president delivered a speech.",
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_po9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "politics",
+    "instruction": "Express formally.",
+    "prompt": "The law changed.",
+    "answer": "The legislation was amended.",
+    "promptLang": "en-US",
+    "group": "DB_EN_POLITICS"
+  },
+  {
+    "id": "en_sc1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "science",
+    "instruction": "Give the scientific/advanced term.",
+    "prompt": "carry out a controlled scientific test (phrase)",
+    "answer": "conduct an experiment",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "science",
+    "instruction": "Give the scientific term.",
+    "prompt": "a proposed explanation that can be tested (noun)",
+    "answer": "hypothesis",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "science",
+    "instruction": "Give the scientific term.",
+    "prompt": "information obtained through observation or experiment (noun phrase)",
+    "answer": "empirical evidence",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "science",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "find out (phrase)",
+    "answer": "ascertain",
+    "variants": [
+      "determine"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "science",
+    "instruction": "Give the scientific term.",
+    "prompt": "change over time (verb)",
+    "answer": "evolve",
+    "variants": [
+      "undergo transformation"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "science",
+    "instruction": "Rewrite in formal scientific language.",
+    "prompt": "The experiment worked.",
+    "answer": "The experiment functioned as intended.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "science",
+    "instruction": "Rewrite in scientific reporting style.",
+    "prompt": "We noticed something strange.",
+    "answer": "We observed something unusual.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "science",
+    "instruction": "Express in formal scientific language.",
+    "prompt": "The results showed it worked.",
+    "answer": "The results indicated that it was effective.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sc9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "science",
+    "instruction": "Express in scientific language.",
+    "prompt": "We don't know why this happens.",
+    "answer": "The underlying mechanism remains undetermined.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SCIENCE"
+  },
+  {
+    "id": "en_sh1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "shopping",
+    "instruction": "Give the formal/advanced term.",
+    "prompt": "low in price (adjective)",
+    "answer": "inexpensive",
+    "variants": [
+      "low-priced"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "shopping",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "buy (verb)",
+    "answer": "purchase",
+    "variants": [
+      "acquire",
+      "procure"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "shopping",
+    "instruction": "Give the formal term.",
+    "prompt": "price drop (noun)",
+    "answer": "price reduction",
+    "variants": [
+      "discount",
+      "markdown"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "shopping",
+    "instruction": "Give the advanced synonym.",
+    "prompt": "send back (verb, retail)",
+    "answer": "return",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "shopping",
+    "instruction": "Give the precise retail term.",
+    "prompt": "money back guarantee",
+    "answer": "refund guarantee",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "shopping",
+    "instruction": "Rewrite in formal retail language.",
+    "prompt": "This item is sold out.",
+    "answer": "This item is out of stock.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "shopping",
+    "instruction": "Express in formal retail language.",
+    "prompt": "I want my money back.",
+    "answer": "I would like to request a refund.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "shopping",
+    "instruction": "Rewrite formally.",
+    "prompt": "This store has great deals.",
+    "answer": "This store offers attractive discounts.",
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_sh9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "shopping",
+    "instruction": "Express formally.",
+    "prompt": "Do you have this in another color?",
+    "answer": "Is this available in a different color?",
+    "promptLang": "en-US",
+    "group": "DB_EN_SHOPPING"
+  },
+  {
+    "id": "en_em1",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "emergency",
+    "instruction": "Give the formal emergency term.",
+    "prompt": "call for help (phrase)",
+    "answer": "summon assistance",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em2",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "emergency",
+    "instruction": "Give the precise emergency term.",
+    "prompt": "hurt (adj, in emergency)",
+    "answer": "injured",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em3",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "emergency",
+    "instruction": "Give the precise term.",
+    "prompt": "passed out (phrase)",
+    "answer": "lost consciousness",
+    "variants": [
+      "became unconscious"
+    ],
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em4",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "emergency",
+    "instruction": "Give the medical term; do not confuse this with cardiac arrest.",
+    "prompt": "heart attack (noun)",
+    "answer": "myocardial infarction",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em5",
+    "type": "substitution",
+    "category": "vocab",
+    "topic": "emergency",
+    "instruction": "Give the formal term.",
+    "prompt": "first aid (noun phrase)",
+    "answer": "initial assistance for an injury or illness",
+    "variants": [],
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em6",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "emergency",
+    "instruction": "Express in formal emergency language.",
+    "prompt": "Someone got hurt.",
+    "answer": "An individual has sustained an injury.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em7",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "emergency",
+    "instruction": "Express as a formal emergency report.",
+    "prompt": "There's a fire!",
+    "answer": "There is a fire.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em8",
+    "type": "transformation",
+    "category": "sentence",
+    "topic": "emergency",
+    "instruction": "Express formally.",
+    "prompt": "He can't breathe.",
+    "answer": "He is unable to breathe.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  },
+  {
+    "id": "en_em9",
+    "type": "translation",
+    "category": "phrase",
+    "topic": "emergency",
+    "instruction": "Express in formal emergency language.",
+    "prompt": "We need an ambulance now.",
+    "answer": "An ambulance is needed immediately.",
+    "promptLang": "en-US",
+    "group": "DB_EN_EMERGENCY"
+  }
+]

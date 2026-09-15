@@ -1,8 +1,8 @@
 """
 Canonical chunk text formatter and OpenAI embedding generation for contrast notes.
 
-The chunk format is stable and versioned — changing CHUNK_FORMAT_VERSION triggers
-a full reindex on the next `python -m retrieval.sync_embeddings --rebuild` run.
+The publication manifest binds the chunk format, model, dimensions, and full notes.
+Version-incompatible indexes are rejected at retrieval time.
 
 Two query-time formatters:
   format_query_from_item()     — structured drill item → query text
@@ -21,7 +21,7 @@ log = logging.getLogger("retrieval.embeddings")
 
 EMBED_MODEL = "text-embedding-3-small"
 EMBED_DIM = 1536
-CHUNK_FORMAT_VERSION = "v1"
+CHUNK_FORMAT_VERSION = "v2"
 
 # Minimum cosine similarity required to treat a vector result as a hit.
 VECTOR_MIN_SIMILARITY = 0.30
@@ -32,7 +32,7 @@ VECTOR_MIN_SIMILARITY = 0.30
 def format_chunk_text(note: "ContrastNote") -> str:
     """
     Canonical text representation of a contrast note for embedding and storage.
-    Included: title, when_to_use, explanation, first 4 examples, tags.
+    Included: title, when_to_use, explanation, first 4 examples, one labeled counterexample and its reason, tags.
     Excluded: avoid list, good_for_routes, raw IDs (structural metadata only).
     """
     lines = [
@@ -46,6 +46,11 @@ def format_chunk_text(note: "ContrastNote") -> str:
         lines.append("Examples:")
         for ex in note.examples[:4]:
             lines.append(f"- {ex.text}")
+    if note.counterexamples:
+        lines.append("")
+        lines.append("Boundary (incorrect example; do not imitate):")
+        lines.append(note.counterexamples[0].text)
+        lines.append("Why incorrect: " + note.counterexamples[0].reason)
     if note.tags:
         lines.append("")
         lines.append(f"Tags: {', '.join(note.tags)}")
@@ -113,7 +118,10 @@ def embed_texts(texts: list[str]) -> list[list[float]] | None:
             input=texts,
             dimensions=EMBED_DIM,
         )
-        return [item.embedding for item in resp.data]
+        ordered = sorted(resp.data, key=lambda item: item.index)
+        if [item.index for item in ordered] != list(range(len(texts))):
+            return None
+        return [item.embedding for item in ordered]
     except Exception as exc:  # noqa: BLE001
         log.warning("embed_texts failed: %s", exc)
         return None

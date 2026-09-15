@@ -76,7 +76,7 @@ def test_explain_includes_retrieved_contrast_note():
     assert "When to use:" in prompt
     assert "Avoid framing:" in prompt
     assert "He is really good at his job. -> He demonstrates exceptional professional competence." not in prompt
-    assert "get approval -> obtain approval" in prompt
+    assert debug["safe_examples"][0].text in prompt
 
 
 def test_clarify_includes_retrieved_contrast_note():

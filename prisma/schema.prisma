@@ -74,9 +74,21 @@ model RetrievalDoc {
   authoringItemIds Json     @default("[]")
   active           Boolean  @default(true)
   chunkHash        String   @default("")
+  indexVersion     String?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
   @@index([language, kind, active])
   @@map("retrieval_doc")
+}
+
+model RetrievalIndexManifest {
+  language    String   @id
+  fingerprint String
+  generation  String
+  noteCount   Int
+  config      Json
+  publishedAt DateTime @default(now())
+
+  @@map("retrieval_index_manifest")
 }

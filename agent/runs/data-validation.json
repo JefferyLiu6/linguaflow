@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "dataset_version": "2.0.0",
+  "status": "passed",
+  "bundle_sha256": "9806cd48f30211eab2f84c7e692bc92ebe044eb95aca3d5359852d663984a5f6",
+  "counts": {
+    "drills": 171,
+    "notes": 31,
+    "examples": 121,
+    "references": 11,
+    "evaluation_cases": 99,
+    "positive_gold_notes": 31
+  },
+  "coverage": {
+    "direct": 70,
+    "generic": 90,
+    "unsupported": 11
+  },
+  "chunk_utf8_bytes": {
+    "min": 834,
+    "max": 1285
+  },
+  "errors": [],
+  "limitations": [
+    "Structural validation does not establish linguistic correctness.",
+    "AI-assisted editorial/source review; independent human review pending.",
+    "Evaluation is development/challenge data, not held-out evidence.",
+    "Coverage is a reviewed diagnostic mapping, not enforced runtime routing."
+  ]
+}

@@ -63,8 +63,65 @@ jobs:
       - name: Install agent dependencies
         run: pip install -r agent/requirements.txt
 
+      - name: Validate shared data bundle
+        working-directory: agent
+        run: python -m retrieval.validate_corpus --output runs/data-validation.json
+
       - name: Run agent test suite
         working-directory: agent
         run: python -m pytest tests/ -q --tb=short
         # Tests mock all external services (LLM, DB, Langfuse) and run offline.
         # No OPENAI_API_KEY, DATABASE_URL, or LANGFUSE_* keys are needed.
+
+      - name: Retrieval regression benchmark (offline)
+        working-directory: agent
+        run: python -m retrieval.benchmark --output runs/ci-retrieval.json
+
+      - name: Question-aware lexical diagnostic (offline)
+        working-directory: agent
+        run: python -m retrieval.lexical_benchmark --output runs/lexical-evidence.json --review-output runs/relevance-review.json
+
+      - name: Preserve retrieval evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieval-benchmark
+          path: |
+            agent/runs/ci-retrieval.json
+            agent/runs/data-validation.json
+            agent/runs/lexical-evidence.json
+            agent/runs/relevance-review.json
+          if-no-files-found: warn
+
+  retrieval-integration:
+    name: Disposable pgvector publication tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_PASSWORD: integration-only
+          POSTGRES_DB: retrieval_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r agent/requirements.txt
+      - name: Verify atomic publication on real PostgreSQL
+        working-directory: agent
+        run: python -m pytest tests/test_index_integration.py -q --junitxml=runs/index-integration.xml
+        env:
+          RETRIEVAL_TEST_DATABASE_URL: postgresql://postgres:integration-only@localhost:5432/retrieval_test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: index-integration
+          path: agent/runs/index-integration.xml

@@ -1,0 +1,690 @@
+[
+  {
+    "case_id": "coverage_en_formal_register_precision",
+    "question": "Does replacing get with obtain change the tone or the factual claim?",
+    "current_item": {
+      "id": "eval_coverage_en_formal_register_precision",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_formal_register_precision",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_precise_synonym_choice",
+    "question": "How can I tell whether a replacement word fits the meaning and grammar of this sentence?",
+    "current_item": {
+      "id": "eval_coverage_en_precise_synonym_choice",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_precise_synonym_choice",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_single_precise_verb",
+    "question": "How can I express gave an explanation of using just one verb?",
+    "current_item": {
+      "id": "eval_coverage_en_single_precise_verb",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_single_precise_verb",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_passive_vs_active_voice",
+    "question": "How do I put the object first while keeping the same tense and people involved?",
+    "current_item": {
+      "id": "eval_coverage_en_passive_vs_active_voice",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_passive_vs_active_voice",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_participle_clause_combination",
+    "question": "Who must perform the action in an introductory having-finished phrase?",
+    "current_item": {
+      "id": "eval_coverage_en_participle_clause_combination",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_participle_clause_combination",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_relative_clause_combination",
+    "question": "How do I identify which of several files I mean using a clause?",
+    "current_item": {
+      "id": "eval_coverage_en_relative_clause_combination",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_relative_clause_combination",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_formal_rewrite_sentence",
+    "question": "How can I rewrite a whole casual sentence without adding facts?",
+    "current_item": {
+      "id": "eval_coverage_en_formal_rewrite_sentence",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_formal_rewrite_sentence",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_concise_formal_rewrite",
+    "question": "Can I shorten due to the fact that without changing the reason?",
+    "current_item": {
+      "id": "eval_coverage_en_concise_formal_rewrite",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_concise_formal_rewrite",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_formal_phrase_rephrasing",
+    "question": "How do I make an everyday apology neutral while preserving its intent?",
+    "current_item": {
+      "id": "eval_coverage_en_formal_phrase_rephrasing",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_formal_phrase_rephrasing",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_commentary_and_domain_register",
+    "question": "Should a report say an update caused an outage if I only know the outage followed it?",
+    "current_item": {
+      "id": "eval_coverage_en_commentary_and_domain_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_commentary_and_domain_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_work_formal_register",
+    "question": "Does a professional workplace report need to remove uncertainty from a tentative statement?",
+    "current_item": {
+      "id": "eval_coverage_en_work_formal_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_work_formal_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_academic_formal_register",
+    "question": "Can I turn we think into research proves just to sound scholarly?",
+    "current_item": {
+      "id": "eval_coverage_en_academic_formal_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_academic_formal_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_finance_formal_register",
+    "question": "May a financial rewrite say spending exceeded a budget when the original only says spending rose?",
+    "current_item": {
+      "id": "eval_coverage_en_finance_formal_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_finance_formal_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_health_formal_register",
+    "question": "Should a formal symptom description add a diagnosis?",
+    "current_item": {
+      "id": "eval_coverage_en_health_formal_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_health_formal_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_science_formal_register",
+    "question": "Can I add statistically significant when rewriting a result that only says scores improved?",
+    "current_item": {
+      "id": "eval_coverage_en_science_formal_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_science_formal_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_food_formal_register",
+    "question": "Can I infer a cooking method when a food description only says cooked?",
+    "current_item": {
+      "id": "eval_coverage_en_food_formal_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_food_formal_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_work_phrase_formal",
+    "question": "How do I close a meeting politely without adding a deadline?",
+    "current_item": {
+      "id": "eval_coverage_en_work_phrase_formal",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_work_phrase_formal",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_sport_phrase_formal",
+    "question": "How do I restate a prediction of defeat without making it certain or immediate?",
+    "current_item": {
+      "id": "eval_coverage_en_sport_phrase_formal",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_sport_phrase_formal",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_health_phrase_formal",
+    "question": "How can I restate sick to my stomach without guessing what illness caused it?",
+    "current_item": {
+      "id": "eval_coverage_en_health_phrase_formal",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_health_phrase_formal",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_finance_phrase_formal",
+    "question": "How can I express losing money without making an unsupported accounting claim?",
+    "current_item": {
+      "id": "eval_coverage_en_finance_phrase_formal",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_finance_phrase_formal",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_precise_adjective_choice",
+    "question": "Why is important not a meaning-preserving replacement for large?",
+    "current_item": {
+      "id": "eval_coverage_en_precise_adjective_choice",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_precise_adjective_choice",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_sport_vocabulary_precision",
+    "question": "Why does doing well in a race not mean setting a personal best?",
+    "current_item": {
+      "id": "eval_coverage_en_sport_vocabulary_precision",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_sport_vocabulary_precision",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_tech_vocabulary_precision",
+    "question": "Does implementing a feature mean that it has already been deployed?",
+    "current_item": {
+      "id": "eval_coverage_en_tech_vocabulary_precision",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_tech_vocabulary_precision",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_work_vocabulary_precision",
+    "question": "Is every meeting a consultation or does its purpose matter?",
+    "current_item": {
+      "id": "eval_coverage_en_work_vocabulary_precision",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_work_vocabulary_precision",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_general_vocabulary_precision",
+    "question": "Why is a dictionary synonym not interchangeable in every sentence?",
+    "current_item": {
+      "id": "eval_coverage_en_general_vocabulary_precision",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_general_vocabulary_precision",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_non_restrictive_relative_clause",
+    "question": "When do I put commas around a who-clause about an already identified person?",
+    "current_item": {
+      "id": "eval_coverage_en_non_restrictive_relative_clause",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_non_restrictive_relative_clause",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_formal_conditional",
+    "question": "How do should, were, and had introduce conditionals without if?",
+    "current_item": {
+      "id": "eval_coverage_en_formal_conditional",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_formal_conditional",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_nominalization",
+    "question": "How can I turn a verb into an action noun without hiding who acted?",
+    "current_item": {
+      "id": "eval_coverage_en_nominalization",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_nominalization",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_sport_formal_sentence",
+    "question": "Can a sporting report add a record achievement when the source only describes good performance?",
+    "current_item": {
+      "id": "eval_coverage_en_sport_formal_sentence",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_sport_formal_sentence",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_education_formal_register",
+    "question": "Does a positive student reaction establish that the lesson improved learning?",
+    "current_item": {
+      "id": "eval_coverage_en_education_formal_register",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_education_formal_register",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "coverage_en_money_vocabulary_precision",
+    "question": "Does receiving money necessarily mean earning a profit?",
+    "current_item": {
+      "id": "eval_coverage_en_money_vocabulary_precision",
+      "type": "question",
+      "category": "custom",
+      "topic": "custom",
+      "instruction": "Answer the learner question."
+    },
+    "expected_note_id": "en_money_vocabulary_precision",
+    "bucket": "concept_coverage",
+    "description": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_01",
+    "question": "What is the capital of France?",
+    "current_item": {
+      "id": "eval_scope_01",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "What is the capital of France?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_02",
+    "question": "How do I form the past tense of go?",
+    "current_item": {
+      "id": "eval_scope_02",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "How do I form the past tense of go?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_03",
+    "question": "When should I use a versus an?",
+    "current_item": {
+      "id": "eval_scope_03",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "When should I use a versus an?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_04",
+    "question": "Is she go grammatically correct?",
+    "current_item": {
+      "id": "eval_scope_04",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Is she go grammatically correct?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_05",
+    "question": "What is the difference between past simple and present perfect?",
+    "current_item": {
+      "id": "eval_scope_05",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "What is the difference between past simple and present perfect?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_06",
+    "question": "Translate this paragraph into Japanese.",
+    "current_item": {
+      "id": "eval_scope_06",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Translate this paragraph into Japanese."
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_07",
+    "question": "What medicine should I take for a headache?",
+    "current_item": {
+      "id": "eval_scope_07",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "What medicine should I take for a headache?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_08",
+    "question": "Which stock should I buy tomorrow?",
+    "current_item": {
+      "id": "eval_scope_08",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Which stock should I buy tomorrow?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_09",
+    "question": "Explain how photosynthesis works.",
+    "current_item": {
+      "id": "eval_scope_09",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Explain how photosynthesis works."
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_10",
+    "question": "What is the emergency number in my city?",
+    "current_item": {
+      "id": "eval_scope_10",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "What is the emergency number in my city?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_11",
+    "question": "How do I pronounce the th sound?",
+    "current_item": {
+      "id": "eval_scope_11",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "How do I pronounce the th sound?"
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  },
+  {
+    "case_id": "scope_12",
+    "question": "List every irregular verb in English.",
+    "current_item": {
+      "id": "eval_scope_12",
+      "type": "substitution",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "List every irregular verb in English."
+    },
+    "expected_note_id": null,
+    "bucket": "scope_negative",
+    "description": "Out of the selected writing-reference scope despite ordinary card metadata.",
+    "provenance": "original_synthetic",
+    "split": "challenge"
+  }
+]

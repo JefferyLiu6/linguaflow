@@ -258,6 +258,9 @@ def _build_retrieval_context(
     if debug["safe_examples"]:
         lines.append("Safe examples:")
         lines.extend(f"- {example.text}" for example in debug["safe_examples"])
+    if note.counterexamples:
+        lines.append("Counterexamples (do not imitate):")
+        lines.extend(f"- {example.text} Why: {example.reason}" for example in note.counterexamples)
     if note.avoid:
         lines.append("Avoid framing:")
         lines.extend(f"- {entry}" for entry in note.avoid)

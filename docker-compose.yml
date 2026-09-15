@@ -17,8 +17,8 @@ services:
   #
   # agent:
   #   build:
-  #     context: ./agent
-  #     dockerfile: Dockerfile.agent
+  #     context: .
+  #     dockerfile: agent/Dockerfile.agent
   #   ports:
   #     - "8000:8000"
   #   environment:

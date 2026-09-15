@@ -1,5 +1,9 @@
 # Retrieval RAG Phase 2–3 — System Reference
 
+> Implementation status updated by [dataset release v2](../../docs/DATASET_CARD.md) and [the case study](../../docs/RAG_ENGINEERING_CASE_STUDY.md). Historical phase descriptions below are not current release evidence.
+
+> For the audited current behavior and tradeoffs, see the [engineering case study](../../docs/RAG_ENGINEERING_CASE_STUDY.md). The structured hybrid policy below describes a tested helper; Tutor and Study card handlers currently call metadata retrieval directly. Study freeform help is the live hybrid integration.
+
 > Covers Phase 2 (Study-mode RAG, `/study-assist`) and Phase 3 (hybrid pgvector
 > retrieval, offline embedding sync, freeform eval comparison).
 > Phase 1 foundations are in `RETRIEVAL_RAG_v1.md`.
@@ -71,7 +75,7 @@ structured item (tutor or study-assist action)
 ```
 
 For freeform questions (`retrieve_for_freeform_question`):
-- Always vector-first (no structured item to tag from).
+- Always obtains vector candidates; supplied card metadata contributes to reranking.
 - Falls back to a miss on DB/embedding unavailability.
 - `retrieval_mode` always `"hybrid_vector_win"` on success.
 
@@ -84,7 +88,7 @@ For freeform questions (`retrieve_for_freeform_question`):
 | `VECTOR_MIN_SIMILARITY` | 0.30 | hard-coded in `retrieval/embeddings.py` |
 | `EMBED_MODEL` | `text-embedding-3-small` | hard-coded |
 | `EMBED_DIM` | 1536 | hard-coded |
-| `CHUNK_FORMAT_VERSION` | `v1` | hard-coded — increment triggers full reindex |
+| `CHUNK_FORMAT_VERSION` | `v1` | hard-coded label; not persisted or enforced by sync |
 
 ### DB schema
 
@@ -119,22 +123,13 @@ CREATE INDEX ON retrieval_doc USING ivfflat (embedding vector_cosine_ops) WITH (
 
 ### Offline embedding sync
 
-Embeddings are **never** created at app startup or request time. Run the sync
-command after adding or modifying corpus notes:
+Document embeddings are created by offline sync; query embeddings are created at request time. The current sync embeds before checking hashes, and `--rebuild` does not bypass the unchanged-hash write check. Version-aware rebuild and atomic index publication remain unfinished. Preview the current corpus with:
 
 ```bash
-# Normal sync (skip unchanged rows by chunk hash)
-python -m retrieval.sync_embeddings
-
-# Full reindex (re-embed all rows even if hash matches)
-python -m retrieval.sync_embeddings --rebuild
-
-# Preview without writing
 python -m retrieval.sync_embeddings --dry-run
-
-# Specific language
-python -m retrieval.sync_embeddings --language en
 ```
+
+The normal sync command exists, but review the [index freshness limitations](../../docs/RAG_ENGINEERING_CASE_STUDY.md#7-offline-indexing-and-freshness) before using it to update a persistent index.
 
 Output: `inserted N  updated N  skipped N  failed N  deactivated N`
 

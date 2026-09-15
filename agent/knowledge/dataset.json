@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "language": "en",
+  "purpose": "Explain meaning-preserving English writing transformations and word choice in the existing app.",
+  "selection": "Retain the 31 inspectable curriculum concepts; improve depth, boundaries and provenance before adding volume. Domain contexts are writing examples, not specialist advice.",
+  "origin": "Existing project curriculum revised with AI assistance; independent examples authored for this release.",
+  "human_review_status": "pending",
+  "source_policy": "Reference URLs support named principles only. No full external lessons or scraped exercise collections are redistributed.",
+  "example_policy": "Three original positive examples and one counterexample per concept; optional exact canonical drill adaptation.",
+  "evaluation_policy": "All supplied sets are development or challenge data, not independently held-out data. Canonical fixture IDs must match full source fields; synthetic IDs use eval_.",
+  "exclusions": [
+    "medical/financial/legal advice",
+    "general grammar outside listed concepts",
+    "pronunciation",
+    "translation to other languages",
+    "claims of CEFR certification or measured learning gains"
+  ],
+  "revision_file": "../../data/english-drill-revisions.json"
+}

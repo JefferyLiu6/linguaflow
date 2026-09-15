@@ -102,6 +102,10 @@ def retrieve_contrast_note(*, language: str, route: str, current_item: dict[str,
 
         doc_tags = set(doc.tags)
         matched_tags = sorted(query_tags & doc_tags)
+        # Structural/domain overlap alone is not evidence of a taught concept.
+        concept_matches = set(matched_tags) - {item_type, category, topic, "rewrite", "academic", "work", "finance", "health", "science", "food", "sport"}
+        if not concept_matches and item_id not in doc.authoring_item_ids:
+            continue
         score = 0
 
         if item_id and item_id in doc.authoring_item_ids:
@@ -130,7 +134,7 @@ def retrieve_contrast_note(*, language: str, route: str, current_item: dict[str,
             "latency_ms": int((time.monotonic() - t0) * 1000),
         }
 
-    safe_examples = [example for example in best_note.examples if example.source_item_id != item_id][:2]
+    safe_examples = [example for example in best_note.examples if not example.source_item_id or example.source_item_id != item_id][:2]
     return {
         "hit": True,
         "note": best_note,

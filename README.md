@@ -10,6 +10,21 @@
 
 LinguaFlow is a full-stack AI language-learning system built as a portfolio project. It combines timed drills, a LangGraph-orchestrated tutor, a session planner, a retrieval-augmented coaching layer (metadata + pgvector hybrid), a Study-mode assistant, and a helpfulness-feedback loop — all wired together across a Next.js web app, a FastAPI agent, Supabase Auth, and Postgres.
 
+### RAG engineering case study
+
+**Index update:** [Atomic publication and version checks](docs/INDEX_PUBLICATION.md) are implemented locally. Real pgvector integration is configured in CI and remains pending; no application database migration or live reindex has run.
+
+[Retrieval experiment 01](docs/RETRIEVAL_EXPERIMENT_01.md) compares metadata with question-aware BM25. On the challenge set, BM25 selects 21/31 positive notes but also 10/12 unsupported references; it remains experimental.
+
+The [dataset card](docs/DATASET_CARD.md) explains data selection, primary references, cleaning, coverage, chunking, evaluation, and remaining limitations. Version 2 contains **31 teaching notes, 121 examples, 31 counterexamples, and 11 references**, with one canonical source for all **171 English drills**. Independent editorial review is pending. See the [data changelog](docs/DATA_CHANGELOG.md) for corrections and validation evidence.
+
+See the [RAG update plan](docs/RAG_UPDATE_PLAN.md) for the implementation sequence, evaluation gates, and release criteria.
+
+The [RAG engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) covers the learner problem, RAG alternatives, data validation, chunking, embedding choices, query construction, retrieval tradeoffs, indexing gaps, and evaluation. The offline development benchmark selects the correct note for **27/27 positive cases**, falling to **17/27 when item IDs are removed**; both arms abstain on **4/4 negatives**. The new question-focused challenge exposes the metadata baseline’s limitation: **0/31 positive selections**, since it ignores question text. These are author-written development cases, not evidence of held-out generalization or live hybrid quality.
+
+Run `cd agent && python -m retrieval.benchmark --output runs/retrieval-evidence.json` for case-level results and source/corpus fingerprints. CI enforces the metadata regression gate and retains its report. Live freeform evaluation exits nonzero when embedding or database infrastructure is unavailable.
+
+
 ---
 
 ## Review this project in 5 minutes
@@ -60,13 +75,13 @@ flowchart LR
 
     subgraph tutor["Tutor — LangGraph"]
       ROUTER["Router node\nhint · socratic · explain\nclarify · ready_check"]
-      RAG1["Metadata + hybrid\nRAG retrieval"]
+      RAG1["Metadata retrieval"]
       TRACE1["Langfuse trace\nrequest_id linked"]
     end
 
     subgraph study["Study assist"]
       STUDY_RT["study_assist router\nexplain · similar · what_contrast\nfreeform_help (hybrid)"]
-      RAG2["Metadata + hybrid\nRAG retrieval"]
+      RAG2["Metadata card actions +\nhybrid freeform retrieval"]
       TRACE2["Langfuse trace\nrequest_id linked"]
     end
 
@@ -90,7 +105,6 @@ flowchart LR
   API -->|"POST /api/ai-feedback"| DB
 
   FASTAPI --> ROUTER --> RAG1 --> CORPUS
-  RAG1 --> PVEC
   RAG1 --> TRACE1
   FASTAPI --> STUDY_RT --> RAG2 --> CORPUS
   RAG2 --> PVEC
@@ -107,19 +121,18 @@ flowchart LR
 
 ### 1. Contrastive RAG (Tutor + Study, Phase 1–3)
 
-The tutor's `explain` and `clarify` routes, and the Study assistant's four actions, are grounded by a curated 31-note English contrast corpus. Retrieval is metadata-first (drill `id`, `type`, `category`, `topic`, taxonomy tags, authoring item IDs); when the metadata score is below a strong-hit threshold (8), the system runs a hybrid pgvector rerank (0.6 × vector + 0.4 × normalized metadata).
+Tutor `explain`/`clarify` and Study card actions retrieve from a curated 31-note English contrast corpus using metadata. Study `freeform_help` embeds the learner question plus card context, retrieves pgvector candidates, and reranks with 0.6 × vector + 0.4 × normalized metadata. A structured hybrid helper is implemented and tested but is not wired into the structured request handlers. See the [case study](docs/RAG_ENGINEERING_CASE_STUDY.md) for the actual call paths and limitations.
 
-The frontend surfaces grounding lightly: a "Coach reference" or "Study reference" label shows the matched note title. The full trace is recorded in Langfuse with the same `request_id` that flows back to the UI as `responseId`, so every grounded reply can be joined to its retrieval trace.
+The frontend surfaces grounding lightly: a "Coach reference" or "Study reference" label shows the matched note title. Tracing is designed to record retrieval details in Langfuse using request/response IDs for correlation. Trace delivery is optional and still requires live SDK/infrastructure verification; a displayed source label alone does not verify answer faithfulness.
 
-**Retrieval eval results** (31-case metadata harness, 25-case freeform harness):
+**Current development retrieval results:**
 
-| metric | metadata baseline | hybrid (freeform) |
-|---|---|---|
-| hit rate | 0.90 | — |
-| exact note match | 0.94 | — |
-| true no-hit rate | 1.00 | — |
-| false positive rate | 0.00 | — |
-| freeform exact match | — | +12 pp vs metadata |
+| arm | positive exact match | correct negative abstention |
+|---|---:|---:|
+| Structured metadata | 27/27 | 4/4 |
+| Structured metadata without item IDs | 19/27 | 4/4 |
+| Separate freeform metadata baseline | 15/22 | 0/3 |
+| Live freeform hybrid | Not measured | Not measured |
 
 ### 2. Session planner (Phase 1)
 
@@ -134,7 +147,7 @@ learner clicks 👎
   → AiResponseFeedback row: { sourceId, surface, mode, responseId }
   → Langfuse trace filtered by request_id: what note was retrieved, why
   → fix note's when_to_use or tags
-  → re-run eval → helpful rate improves
+  → re-run eval → measure subsequent helpfulness
 ```
 
 Internal report: `DATABASE_URL=... npx tsx scripts/feedback-report.ts`
@@ -399,11 +412,11 @@ The Next.js API layer maps camelCase frontend payloads to Python snake_case cont
 
 ### 2. LangGraph tutor with retrieval-grounded nodes
 
-The tutor graph routes each learner message to a specialist node. Only `explain` and `clarify` run retrieval — `hint`, `ready_check`, and `socratic` never touch the corpus, preventing answer leakage and keeping grading deterministic.
+The tutor graph routes each learner message to a specialist node. Only `explain` and `clarify` run retrieval — `hint`, `ready_check`, and `socratic` never touch the corpus, reducing reference-based answer exposure; this is not a general guarantee against answer leakage.
 
-### 3. Metadata-first RAG with hybrid fallback
+### 3. Retrieval matched to the product surface
 
-The retriever scores notes by metadata overlap first. If the top score exceeds a threshold, the vector path is skipped entirely (faster + no embedding cost for known items). Hybrid reranking only kicks in for novel items where metadata is weak.
+Structured handlers use local metadata retrieval; Study freeform help uses vector candidates with metadata reranking. The separate structured hybrid helper implements a strong-metadata shortcut, but is not currently called by those handlers. The [case study](docs/RAG_ENGINEERING_CASE_STUDY.md) distinguishes implemented helpers from live routing.
 
 ### 4. End-to-end response_id linkage
 
@@ -411,7 +424,7 @@ The retriever scores notes by metadata overlap first. If the top score exceeds a
 
 ### 5. Fail-open everywhere
 
-DB unavailable → metadata-only retrieval. Embedding API down → metadata-only retrieval. Langfuse credentials unset → no tracing, behavior unchanged. LLM planner below confidence threshold → deterministic heuristic. The system has no hard dependencies on optional infrastructure.
+Structured retrieval uses local metadata. Freeform DB/embedding failures return no reference, and the assistant may answer from card context and model knowledge. Langfuse credentials unset → no tracing, behavior unchanged. LLM planner below confidence threshold → deterministic heuristic. The system has no hard dependencies on optional infrastructure.
 
 ---
 
