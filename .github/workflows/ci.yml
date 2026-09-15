@@ -96,32 +96,18 @@ jobs:
   retrieval-integration:
     name: Disposable pgvector publication tests
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: pgvector/pgvector:pg16
-        env:
-          POSTGRES_PASSWORD: integration-only
-          POSTGRES_DB: retrieval_test
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U postgres"
-          --health-interval 5s
-          --health-timeout 5s
-          --health-retries 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: pip install -r agent/requirements.txt
-      - name: Verify atomic publication on real PostgreSQL
-        working-directory: agent
-        run: python -m pytest tests/test_index_integration.py -q --junitxml=runs/index-integration.xml
-        env:
-          RETRIEVAL_TEST_DATABASE_URL: postgresql://postgres:integration-only@localhost:5432/retrieval_test
+      - name: Verify full suite with real PostgreSQL
+        run: python scripts/check_retrieval_index.py --all
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: index-integration
-          path: agent/runs/index-integration.xml
+          path: |
+            agent/runs/index-integration.xml
+            agent/runs/index-integration.json

@@ -1,6 +1,6 @@
 # English teaching data — dataset card v2.0.0
 
-**Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. Real pgvector integration is configured in CI and remains pending; no application database migration or live reindex has run.
+**Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 
 **Retrieval experiment update:** [Experiment 01](RETRIEVAL_EXPERIMENT_01.md) now provides a fixed BM25 baseline, paired rankings, threshold sensitivity, and a pending relevance-review packet. The data corpus and serving policy are unchanged.
@@ -98,7 +98,7 @@ python -m retrieval.eval_runner --arm freeform --challenge
 
 The first four commands are offline. The last two make external calls and were **not run against a live index for this release**. Build the agent container from the repository root with `docker build -f agent/Dockerfile.agent .`; it includes the shared `data/` directory and uses a Dockerfile-specific ignore file that excludes local secrets/private notes.
 
-Indexing validates the bundle and batches, skips unchanged complete snapshots before embedding, and publishes rows/deactivation/manifest in one transaction. Readers reject incompatible or incomplete versions. See [the publication contract](INDEX_PUBLICATION.md) for migration requirements, failure behavior, and tradeoffs. Real pgvector integration remains pending; the earlier per-row publication gap is addressed in code, not yet verified against a live database.
+Indexing validates the bundle and batches, skips unchanged complete snapshots before embedding, and publishes rows/deactivation/manifest in one transaction. Readers reject incompatible or incomplete versions. See [the publication contract](INDEX_PUBLICATION.md) for migration requirements, failure behavior, and tradeoffs. Real PostgreSQL tests now verify publication, rollback, reader visibility, concurrent writers, vector ordering, and incomplete-index repair. These use synthetic vectors; semantic retrieval quality remains unmeasured.
 
 ## Maintenance and review gates
 

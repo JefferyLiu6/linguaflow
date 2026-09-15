@@ -1,19 +1,19 @@
 # LinguaFlow RAG engineering update plan
 
-**Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. Real pgvector integration is configured in CI and remains pending; no application database migration or live reindex has run.
+**Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 
 **Retrieval experiment update:** [Experiment 01](RETRIEVAL_EXPERIMENT_01.md) now provides a fixed BM25 baseline, paired rankings, threshold sensitivity, and a pending relevance-review packet. The data corpus and serving policy are unchanged.
 
 
-**Status:** data-side v2 implemented locally; independent review, atomic index publication, and live comparative evaluation remain pending. This is a staged plan, not a completed production release.  
+**Status:** data-side v2 implemented locally; atomic index publication verified on a disposable database; independent review and live comparative evaluation remain pending. This is a staged plan, not a completed production release.
 **Objective:** turn the existing RAG prototype into a reproducible, testable engineering project whose data lifecycle, retrieval decisions, failure behavior, and measured limitations can be demonstrated from a clean checkout.  
 **Scope:** one engineer, existing Next.js/FastAPI/PostgreSQL stack, existing English teaching corpus.  
 **Planning estimate:** 15–22 focused engineering days, excluding external reviewer availability and deployment access. Estimates are provisional and should be revised after the first milestone.
 
 ## Data-side progress — 2026-09-15
 
-Completed: canonical shared drills, 99 documented editorial revisions, 31 expanded/reference-linked notes, explicit provenance and coverage, repaired evaluation identities, 43 new challenge cases, deterministic validation, failure tests, CI reports, and indexing failure guards. See [dataset card](DATASET_CARD.md). M1 data contracts are implemented; independent review and a pinned dependency lock remain open. M2 now includes atomic publication, a corpus/configuration manifest, concurrent-publisher checks, and reader version checks; real pgvector integration and controlled release remain pending. M3 has better development/challenge fixtures, but no independent held-out set.
+Completed: canonical shared drills, 99 documented editorial revisions, 31 expanded/reference-linked notes, explicit provenance and coverage, repaired evaluation identities, 43 new challenge cases, deterministic validation, failure tests, CI reports, and indexing failure guards. See [dataset card](DATASET_CARD.md). M1 data contracts are implemented; independent review and a pinned dependency lock remain open. M2 now includes atomic publication, a corpus/configuration manifest, concurrent-publisher checks, and reader version checks; real pgvector integration passed locally; controlled release remains pending. M3 has better development/challenge fixtures, but no independent held-out set.
 
 The historical findings below explain the original priorities. Use the dataset card for current counts and behavior.
 
@@ -257,4 +257,4 @@ Before public release, review the diff and update README claims using only the n
 
 If time is constrained, prioritize M1, M2, M3, one fair retrieval comparison from M4, and explicit fallback/source behavior from M5. Mark unmeasured answer/operational claims as pending. This is a useful intermediate release, not completion of the full plan.
 
-**Next implementation tasks:** independently review the v2 notes/drill corrections and labels; pin the tested Python dependencies; run M2’s new real pgvector integration gate and verify a controlled migration/reindex. Then run the query-aware retrieval comparison against frozen labels. Corpus validation, deterministic reports, and failure fixtures are already implemented.
+**Next implementation tasks:** independently review the v2 notes/drill corrections and labels; pin the tested Python dependencies; verify a controlled migration/provider-backed reindex after M2’s passing real pgvector integration gate. Then run the query-aware retrieval comparison against frozen labels. Corpus validation, deterministic reports, and failure fixtures are already implemented.
