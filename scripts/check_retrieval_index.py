@@ -32,6 +32,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
+    # A setup failure must not leave a prior run's JUnit file looking current.
+    output.unlink(missing_ok=True)
     name = 'linguaflow-retrieval-test-' + uuid.uuid4().hex[:12]
     report = {'started_at_utc': datetime.now(timezone.utc).isoformat(), 'image_requested': args.image, 'status': 'invalid', 'scope': 'synthetic-vector PostgreSQL integration; no external embedding calls'}
     try:
@@ -40,9 +42,11 @@ def main(argv=None):
         command('docker', 'run', '--detach', '--rm', '--name', name, '--publish', '127.0.0.1::5432', '--env', 'POSTGRES_PASSWORD=integration-only', '--env', 'POSTGRES_DB=retrieval_test', args.image, timeout=300)
         report['image_id'] = command('docker', 'inspect', '--format', '{{.Image}}', name)
         report['image_digests'] = json.loads(command('docker', 'image', 'inspect', '--format', '{{json .RepoDigests}}', report['image_id']))
+        # The image init server accepts Unix-socket connections but not TCP.
+        # Wait for TCP so we do not race its shutdown and final server startup.
         deadline = time.monotonic() + 60
         while True:
-            ready = subprocess.run(['docker', 'exec', name, 'pg_isready', '-U', 'postgres', '-d', 'retrieval_test'], capture_output=True, timeout=10)
+            ready = subprocess.run(['docker', 'exec', name, 'pg_isready', '-h', '127.0.0.1', '-U', 'postgres', '-d', 'retrieval_test'], capture_output=True, timeout=10)
             if ready.returncode == 0:
                 break
             if time.monotonic() >= deadline:
