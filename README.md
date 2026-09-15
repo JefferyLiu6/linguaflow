@@ -1,6 +1,6 @@
 # LinguaFlow — AI Language Coaching System
 
-[![CI](https://github.com/JefferyLiu6/fsi-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/JefferyLiu6/fsi-2026/actions/workflows/ci.yml)
+[![CI](https://github.com/JefferyLiu6/linguaflow/actions/workflows/ci.yml/badge.svg)](https://github.com/JefferyLiu6/linguaflow/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/react-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/typescript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -14,7 +14,7 @@ LinguaFlow is a full-stack AI language-learning system built as a portfolio proj
 
 **Semantic comparison:** [Experiment 02](docs/RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
 
-**Index update:** [Atomic publication and version checks](docs/INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
+**Index update:** [Atomic publication and version checks](docs/INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **178 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 [Retrieval experiment 01](docs/RETRIEVAL_EXPERIMENT_01.md) compares metadata with question-aware BM25. On the challenge set, BM25 selects 21/31 positive notes but also 10/12 unsupported references; it remains experimental.
 
@@ -373,7 +373,7 @@ See `.env.example` (web) and `agent/.env.example` (agent) for the full list with
 | `pnpm test:e2e` | Playwright E2E (guest mode; authenticated skips without env vars) |
 | `npx tsx scripts/seed-demo-account.ts <userId>` | Seed or reset the reviewer demo account |
 | `npx tsx scripts/feedback-report.ts` | Print helpfulness rates by surface, mode, source note |
-| `python -m pytest tests/ -q` | Full agent test suite (110 tests, mocked externals) |
+| `python -m pytest tests/ -q` | Agent suite; disposable runner enables the real database checks |
 | `python -m retrieval.sync_embeddings` | Sync corpus embeddings to pgvector |
 | `python -m retrieval.eval_runner` | Run retrieval eval harness |
 | `python -m retrieval.eval_runner --arm freeform` | Freeform eval + metadata-vs-hybrid comparison |
@@ -388,10 +388,10 @@ CI runs on every push and PR (`/.github/workflows/ci.yml`):
 |---|---|
 | `pnpm lint` | ESLint |
 | `npx tsc --noEmit` | TypeScript |
-| `pnpm test` | Vitest (73 tests) |
+| `pnpm test` | Vitest (75 tests) |
 | `pnpm build` | Next.js production build |
 | `pnpm test:e2e` | Playwright (guest flow; authenticated flow skips without env vars) |
-| `pytest tests/ -q` | Full Python agent suite (110 tests, all mocked) |
+| `pytest tests/ -q` | Python suite; 178 tests with disposable pgvector integration |
 
 ---
 
@@ -442,7 +442,7 @@ The answer-generation pilot completed **56/56 structurally valid responses**, wi
 
 [Operational experiment 01](docs/OPERATIONS_EXPERIMENT_01.md) records 600 local database requests at concurrency 1 and 5 with no unexpected results, including missing/incomplete-index guards. These measurements exclude provider and endpoint latency.
 
-See [remaining release gates](docs/RELEASE_EVIDENCE_STATUS.md): the deployment smoke check returned 502, local Study generation has tested timeout handling, and two private reviewer packets are prepared. AI-assisted ratings and deployed performance evidence remain pending.
+See [release status](docs/RELEASE_EVIDENCE_STATUS.md): the warm Study smoke succeeds, local generation/timeout handling is tested, and both AI-assisted evaluations are complete. Deployed load measurements remain pending.
 
 [Evaluation policy](docs/EVALUATION_POLICY.md): external human review is optional. Author and AI-assisted evaluation are supported with explicit provenance; simulated perspectives are not independent human reviewers.
 
