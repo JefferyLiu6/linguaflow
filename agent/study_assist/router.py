@@ -92,6 +92,9 @@ def _build_retrieval_block(note, safe_examples) -> str:
     if safe_examples:
         lines.append("Examples:")
         lines.extend(f"- {ex.text}" for ex in safe_examples)
+    if note.counterexamples:
+        lines.append("Counterexamples (do not imitate):")
+        lines.extend(f"- {example.text} Why: {example.reason}" for example in note.counterexamples)
     if note.avoid:
         lines.append("Avoid framing:")
         lines.extend(f"- {entry}" for entry in note.avoid)

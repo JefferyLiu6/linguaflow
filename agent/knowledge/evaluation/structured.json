@@ -1,0 +1,787 @@
+[
+  {
+    "case_id": "formal_synonym_en03_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en03",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "substitution",
+      "instruction": "Replace the bracketed word with a more formal synonym.",
+      "prompt": "We need to [get] approval first.",
+      "expected_answer": "obtain",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "obtain"
+    },
+    "expected_note_id": "en_formal_register_precision",
+    "expected_tags": [
+      "formal_register",
+      "advanced_synonym_precision"
+    ],
+    "description": "Formal synonym substitution should ground to the formal wording note.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "formal_synonym_en05_clarify",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en05",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "substitution",
+      "instruction": "Replace the bracketed word with a more formal synonym.",
+      "prompt": "Can you [help] me with this task?",
+      "expected_answer": "assist",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "assist"
+    },
+    "expected_note_id": "en_formal_register_precision",
+    "expected_tags": [
+      "formal_register"
+    ],
+    "description": "Clarify route should reuse the same formal wording concept.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "formal_rewrite_en09_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en09",
+      "category": "sentence",
+      "topic": "work",
+      "type": "transformation",
+      "instruction": "Rewrite in formal register.",
+      "prompt": "I think you should probably reconsider this.",
+      "expected_answer": "I would recommend reconsidering this course of action.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "I would recommend reconsidering this course of action."
+    },
+    "expected_note_id": "en_formal_rewrite_sentence",
+    "expected_tags": [
+      "formal_register",
+      "sentence_transformation"
+    ],
+    "description": "Sentence formal rewrite should retrieve the generic formal rewrite note.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "formal_rewrite_non_authoring_en_he7",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en_he7",
+      "category": "sentence",
+      "topic": "health",
+      "type": "transformation",
+      "instruction": "Express formally.",
+      "prompt": "I have a really bad headache.",
+      "expected_answer": "I am experiencing a severe headache.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "I am experiencing a severe headache."
+    },
+    "expected_note_id": "en_health_formal_register",
+    "expected_tags": [
+      "formal_register",
+      "health"
+    ],
+    "description": "Health formal rewrite should retrieve the domain-specific health note.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "concise_rewrite_en14_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en14",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "transformation",
+      "instruction": "Rewrite more concisely in formal style.",
+      "prompt": "Due to the fact that the deadline was missed, we lost the contract.",
+      "expected_answer": "Because the deadline was missed, we lost the contract.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "Because the deadline was missed, we lost the contract."
+    },
+    "expected_note_id": "en_concise_formal_rewrite",
+    "expected_tags": [
+      "concise",
+      "formal_register"
+    ],
+    "description": "Concise formal rewrites should retrieve the concise-specific note instead of the generic one.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "work_formal_en_w3_clarify",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en_w3",
+      "category": "sentence",
+      "topic": "work",
+      "type": "transformation",
+      "instruction": "Rewrite in formal business language.",
+      "prompt": "We didn't hit our targets this quarter.",
+      "expected_answer": "We did not meet our targets this quarter.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "We did not meet our targets this quarter."
+    },
+    "expected_note_id": "en_work_formal_register",
+    "expected_tags": [
+      "formal_register",
+      "work"
+    ],
+    "description": "Business formal rewrite should retrieve the work-domain note.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "academic_formal_en18_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en18",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "translation",
+      "instruction": "Paraphrase in academic style.",
+      "prompt": "Everyone knows this doesn't work.",
+      "expected_answer": "It is generally known that this approach is ineffective.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "It is generally known that this approach is ineffective."
+    },
+    "expected_note_id": "en_academic_formal_register",
+    "expected_tags": [
+      "formal_register",
+      "academic"
+    ],
+    "description": "Academic paraphrase should retrieve the academic register note.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "finance_formal_en_mo7_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en_mo7",
+      "category": "sentence",
+      "topic": "money",
+      "type": "transformation",
+      "instruction": "Rewrite in formal financial language.",
+      "prompt": "We lost a lot of money this year.",
+      "expected_answer": "We incurred substantial financial losses this year.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "We incurred substantial financial losses this year."
+    },
+    "expected_note_id": "en_finance_formal_register",
+    "expected_tags": [
+      "formal_register",
+      "money"
+    ],
+    "description": "Financial formal rewrite should retrieve the finance-domain note.",
+    "bucket": "formal_register_precision",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "single_verb_en07_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en07",
+      "category": "sentence",
+      "topic": "work",
+      "type": "substitution",
+      "instruction": "Replace the bracketed phrase with a single precise verb.",
+      "prompt": "He [talked about] the risks at length.",
+      "expected_answer": "addressed",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "addressed"
+    },
+    "expected_note_id": "en_single_precise_verb",
+    "expected_tags": [
+      "single_precise_verb"
+    ],
+    "description": "Single precise verb items should retrieve the phrase-compression note.",
+    "bucket": "single_precise_verb",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "single_verb_sport_non_authoring",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en_sp2",
+      "category": "sentence",
+      "topic": "sport",
+      "type": "substitution",
+      "instruction": "Replace the bracketed phrase with a single precise verb.",
+      "prompt": "She [improved] her technique through practice.",
+      "expected_answer": "refined",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "refined"
+    },
+    "expected_note_id": "en_single_precise_verb",
+    "expected_tags": [
+      "single_precise_verb",
+      "sport"
+    ],
+    "description": "Sports single-verb drills should match by concept and domain metadata.",
+    "bucket": "single_precise_verb",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "single_verb_non_authoring_tech",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "eval_structured_single_verb_non_authoring_tech",
+      "category": "sentence",
+      "topic": "tech",
+      "type": "substitution",
+      "instruction": "Replace the bracketed phrase with a single precise verb.",
+      "prompt": "The engineer [worked to fix] the bug.",
+      "expected_answer": "",
+      "user_answer": "",
+      "feedback": "incorrect"
+    },
+    "expected_note_id": "en_single_precise_verb",
+    "expected_tags": [
+      "single_precise_verb"
+    ],
+    "description": "Tech context single-verb drill should still match via instruction tags.",
+    "bucket": "single_precise_verb",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "precise_synonym_en02_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en02",
+      "category": "sentence",
+      "topic": "work",
+      "type": "substitution",
+      "instruction": "Replace the bracketed word with a formal alternative; the original is also clear.",
+      "prompt": "Please [use] the correct procedure.",
+      "expected_answer": "utilize",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "utilize"
+    },
+    "expected_note_id": "en_precise_synonym_choice",
+    "expected_tags": [
+      "advanced_synonym_precision"
+    ],
+    "description": "Precise synonym drills should avoid the formal-register note when precision is the main contrast.",
+    "bucket": "single_precise_verb",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "passive_voice_en10_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en10",
+      "category": "sentence",
+      "topic": "work",
+      "type": "transformation",
+      "instruction": "Transform to passive voice.",
+      "prompt": "The committee reviewed the proposal.",
+      "expected_answer": "The proposal was reviewed by the committee.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "The proposal was reviewed by the committee."
+    },
+    "expected_note_id": "en_passive_vs_active_voice",
+    "expected_tags": [
+      "passive_voice",
+      "sentence_transformation"
+    ],
+    "description": "Passive voice transformation should retrieve the voice note.",
+    "bucket": "voice_transformation",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "active_voice_en15_clarify",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en15",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "transformation",
+      "instruction": "Transform to active voice.",
+      "prompt": "Mistakes were made by the team during the rollout.",
+      "expected_answer": "The team made mistakes during the rollout.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "The team made mistakes during the rollout."
+    },
+    "expected_note_id": "en_passive_vs_active_voice",
+    "expected_tags": [
+      "active_voice",
+      "passive_voice"
+    ],
+    "description": "Active voice drill should still reuse the shared voice contrast note.",
+    "bucket": "voice_transformation",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "passive_voice_non_authoring_work",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "eval_structured_passive_voice_non_authoring_work",
+      "category": "sentence",
+      "topic": "work",
+      "type": "transformation",
+      "instruction": "Rewrite in passive voice.",
+      "prompt": "The manager approved all requests.",
+      "expected_answer": "",
+      "user_answer": "",
+      "feedback": "incorrect"
+    },
+    "expected_note_id": "en_passive_vs_active_voice",
+    "expected_tags": [
+      "passive_voice"
+    ],
+    "description": "Non-authoring passive voice drill should generalize via instruction tag.",
+    "bucket": "voice_transformation",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "participle_en11_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en11",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "transformation",
+      "instruction": "Combine into one complex sentence using a participle.",
+      "prompt": "She studied the data. She reached a conclusion.",
+      "expected_answer": "Having studied the data, she reached a conclusion.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "Having studied the data, she reached a conclusion."
+    },
+    "expected_note_id": "en_participle_clause_combination",
+    "expected_tags": [
+      "participle_clause",
+      "complex_sentence_combination"
+    ],
+    "description": "Participle combination should retrieve the participle clause note.",
+    "bucket": "sentence_combination",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "relative_clause_en13_clarify",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en13",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "transformation",
+      "instruction": "Combine using a defining relative clause to identify which manager approved the budget.",
+      "prompt": "The manager approved the budget. She leads the project.",
+      "expected_answer": "The manager who leads the project approved the budget.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "The manager who leads the project approved the budget."
+    },
+    "expected_note_id": "en_relative_clause_combination",
+    "expected_tags": [
+      "relative_clause",
+      "complex_sentence_combination"
+    ],
+    "description": "Relative clause combination should retrieve the relative-clause note.",
+    "bucket": "sentence_combination",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "non_restrictive_relative_non_authoring",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "eval_structured_non_restrictive_relative_non_authoring",
+      "category": "sentence",
+      "topic": "work",
+      "type": "transformation",
+      "instruction": "Combine using a non-restrictive relative clause.",
+      "prompt": "The proposal was approved. It was submitted last week.",
+      "expected_answer": "",
+      "user_answer": "",
+      "feedback": "incorrect"
+    },
+    "expected_note_id": "en_non_restrictive_relative_clause",
+    "expected_tags": [
+      "relative_clause",
+      "non_restrictive"
+    ],
+    "description": "Non-restrictive relative clause instruction should retrieve the specific note.",
+    "bucket": "sentence_combination",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "formal_phrase_en_p6_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en_p6",
+      "category": "phrase",
+      "topic": "work",
+      "type": "translation",
+      "instruction": "Express formally.",
+      "prompt": "We need to figure this out.",
+      "expected_answer": "We must resolve this matter.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "We must resolve this matter."
+    },
+    "expected_note_id": "en_formal_phrase_rephrasing",
+    "expected_tags": [
+      "phrase_idiom",
+      "formal_register"
+    ],
+    "description": "Phrase-level formal rephrasing should map to the phrase note.",
+    "bucket": "phrase_rephrasing",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "formal_phrase_non_authoring_en_p8",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en_p8",
+      "category": "phrase",
+      "topic": "work",
+      "type": "translation",
+      "instruction": "Express formally.",
+      "prompt": "My bad.",
+      "expected_answer": "I apologize for my mistake.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "I apologize for my mistake."
+    },
+    "expected_note_id": "en_formal_phrase_rephrasing",
+    "expected_tags": [
+      "phrase_idiom",
+      "formal_register"
+    ],
+    "description": "Non-authoring phrase rephrasing should generalize through phrase/topic metadata.",
+    "bucket": "phrase_rephrasing",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "work_phrase_en_w8_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en_w8",
+      "category": "phrase",
+      "topic": "work",
+      "type": "translation",
+      "instruction": "Express in formal business language.",
+      "prompt": "We're losing money.",
+      "expected_answer": "We are making a financial loss.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "We are making a financial loss."
+    },
+    "expected_note_id": "en_work_phrase_formal",
+    "expected_tags": [
+      "phrase_idiom",
+      "formal_register",
+      "work"
+    ],
+    "description": "Work phrase with business language instruction should retrieve the work-specific phrase note.",
+    "bucket": "phrase_rephrasing",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "health_phrase_en_he9_clarify",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en_he9",
+      "category": "phrase",
+      "topic": "health",
+      "type": "translation",
+      "instruction": "Express in clinical language.",
+      "prompt": "I feel sick to my stomach.",
+      "expected_answer": "I am experiencing nausea.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "I am experiencing nausea."
+    },
+    "expected_note_id": "en_health_phrase_formal",
+    "expected_tags": [
+      "phrase_idiom",
+      "formal_register",
+      "health"
+    ],
+    "description": "Health phrase should retrieve the health-domain phrase note.",
+    "bucket": "phrase_rephrasing",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "domain_commentary_sport",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en_sp4",
+      "category": "sentence",
+      "topic": "sport",
+      "type": "transformation",
+      "instruction": "Rewrite in formal sports commentary style.",
+      "prompt": "He ran really fast to the finish line.",
+      "expected_answer": "He ran at high speed to the finish line.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "He ran at high speed to the finish line."
+    },
+    "expected_note_id": "en_commentary_and_domain_register",
+    "expected_tags": [
+      "formal_register",
+      "sport",
+      "rewrite"
+    ],
+    "description": "Sports commentary should retrieve the domain-style note.",
+    "bucket": "domain_register",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "domain_commentary_tech",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en_t5",
+      "category": "sentence",
+      "topic": "tech",
+      "type": "transformation",
+      "instruction": "Rewrite in formal technical documentation style.",
+      "prompt": "The system broke because of too much traffic.",
+      "expected_answer": "The system failure was attributed to excessive traffic load.",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "The system failure was attributed to excessive traffic load."
+    },
+    "expected_note_id": "en_commentary_and_domain_register",
+    "expected_tags": [
+      "formal_register",
+      "tech",
+      "rewrite"
+    ],
+    "description": "Technical documentation style should share the domain-register note.",
+    "bucket": "domain_register",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "sport_vocab_en_sp6_explain",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "en_sp6",
+      "category": "vocab",
+      "topic": "sport",
+      "type": "substitution",
+      "instruction": "Give the advanced synonym.",
+      "prompt": "win (verb)",
+      "expected_answer": "triumph",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "triumph"
+    },
+    "expected_note_id": "en_sport_vocabulary_precision",
+    "expected_tags": [
+      "advanced_synonym_precision",
+      "sport"
+    ],
+    "description": "Sport-specific vocabulary should retrieve the sport vocab precision note.",
+    "bucket": "domain_register",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "tech_vocab_en_t1_clarify",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en_t1",
+      "category": "sentence",
+      "topic": "tech",
+      "type": "substitution",
+      "instruction": "Replace the bracketed word with a precise technical term.",
+      "prompt": "The app [crashed].",
+      "expected_answer": "terminated unexpectedly",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "terminated unexpectedly"
+    },
+    "expected_note_id": "en_tech_vocabulary_precision",
+    "expected_tags": [
+      "advanced_synonym_precision",
+      "tech"
+    ],
+    "description": "Tech-specific vocabulary should retrieve the tech vocab precision note.",
+    "bucket": "domain_register",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "precise_adjective_en08_clarify",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "en08",
+      "category": "sentence",
+      "topic": "daily",
+      "type": "substitution",
+      "instruction": "Replace the bracketed word with a more precise synonym.",
+      "prompt": "The plan has a [bad] flaw.",
+      "expected_answer": "critical",
+      "user_answer": "",
+      "feedback": "incorrect",
+      "answer": "critical"
+    },
+    "expected_note_id": "en_precise_adjective_choice",
+    "expected_tags": [
+      "advanced_synonym_precision"
+    ],
+    "description": "Precise adjective replacement should retrieve the adjective precision note.",
+    "bucket": "domain_register",
+    "provenance": "canonical_drill",
+    "split": "development"
+  },
+  {
+    "case_id": "no_hit_custom_astronomy",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "eval_structured_no_hit_custom_astronomy",
+      "category": "custom",
+      "topic": "astronomy",
+      "type": "custom",
+      "instruction": "Describe the image.",
+      "prompt": "A distant galaxy appears in the frame.",
+      "expected_answer": "",
+      "user_answer": "",
+      "feedback": "incorrect"
+    },
+    "expected_note_id": null,
+    "expected_tags": [],
+    "description": "Unrelated English content should not retrieve a contrast note.",
+    "bucket": "no_hit_negative",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "no_hit_vocab_astronomy",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "eval_structured_no_hit_vocab_astronomy",
+      "category": "vocab",
+      "topic": "astronomy",
+      "type": "definition",
+      "instruction": "Define the term precisely.",
+      "prompt": "nebula",
+      "expected_answer": "",
+      "user_answer": "",
+      "feedback": "incorrect"
+    },
+    "expected_note_id": null,
+    "expected_tags": [],
+    "description": "Unsupported astronomy vocab drill should remain a no-hit.",
+    "bucket": "no_hit_negative",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "no_hit_custom_cooking_definition",
+    "language": "English",
+    "route": "explain",
+    "current_item": {
+      "id": "eval_structured_no_hit_custom_cooking_definition",
+      "category": "custom",
+      "topic": "cooking",
+      "type": "definition",
+      "instruction": "Define this cooking term.",
+      "prompt": "sauté",
+      "expected_answer": "",
+      "user_answer": "",
+      "feedback": "incorrect"
+    },
+    "expected_note_id": null,
+    "expected_tags": [],
+    "description": "Custom definition drill with no matching contrast should score below threshold.",
+    "bucket": "no_hit_negative",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "no_hit_sports_trivia",
+    "language": "English",
+    "route": "clarify",
+    "current_item": {
+      "id": "eval_structured_no_hit_sports_trivia",
+      "category": "custom",
+      "topic": "trivia",
+      "type": "fill-in",
+      "instruction": "Fill in the blank with the correct answer.",
+      "prompt": "The FIFA World Cup is held every ___ years.",
+      "expected_answer": "",
+      "user_answer": "",
+      "feedback": "incorrect"
+    },
+    "expected_note_id": null,
+    "expected_tags": [],
+    "description": "Trivia fill-in should not retrieve any contrast note.",
+    "bucket": "no_hit_negative",
+    "provenance": "original_synthetic",
+    "split": "development"
+  }
+]

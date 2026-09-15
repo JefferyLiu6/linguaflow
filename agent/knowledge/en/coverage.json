@@ -1,0 +1,1694 @@
+{
+  "version": "2.0.0",
+  "scope": "Writing guidance, not general English or specialist-domain expertise. Diagnostic mapping; does not automatically route requests.",
+  "items": [
+    {
+      "item_id": "en01",
+      "status": "direct",
+      "note_ids": [
+        "en_precise_synonym_choice"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en02",
+      "status": "direct",
+      "note_ids": [
+        "en_precise_synonym_choice"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en03",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_register_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en04",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en05",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_register_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en06",
+      "status": "direct",
+      "note_ids": [
+        "en_precise_synonym_choice"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en07",
+      "status": "direct",
+      "note_ids": [
+        "en_single_precise_verb"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en08",
+      "status": "direct",
+      "note_ids": [
+        "en_precise_adjective_choice"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en09",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en10",
+      "status": "direct",
+      "note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en11",
+      "status": "direct",
+      "note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en12",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en13",
+      "status": "direct",
+      "note_ids": [
+        "en_relative_clause_combination"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en14",
+      "status": "direct",
+      "note_ids": [
+        "en_concise_formal_rewrite"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en15",
+      "status": "direct",
+      "note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en16",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_register_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en17",
+      "status": "direct",
+      "note_ids": [
+        "en_commentary_and_domain_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en18",
+      "status": "direct",
+      "note_ids": [
+        "en_academic_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en19",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en20",
+      "status": "direct",
+      "note_ids": [
+        "en_work_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v1",
+      "status": "direct",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v2",
+      "status": "direct",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v5",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v6",
+      "status": "direct",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v7",
+      "status": "direct",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v8",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v9",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v10",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v11",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v12",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v13",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v14",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_v15",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p1",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p2",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p3",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p4",
+      "status": "direct",
+      "note_ids": [
+        "en_work_phrase_formal"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p5",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p6",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p7",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_p10",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp1",
+      "status": "direct",
+      "note_ids": [
+        "en_single_precise_verb"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp2",
+      "status": "direct",
+      "note_ids": [
+        "en_single_precise_verb"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp3",
+      "status": "direct",
+      "note_ids": [
+        "en_precise_adjective_choice"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp4",
+      "status": "direct",
+      "note_ids": [
+        "en_commentary_and_domain_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp5",
+      "status": "direct",
+      "note_ids": [
+        "en_sport_formal_sentence"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp6",
+      "status": "direct",
+      "note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp7",
+      "status": "direct",
+      "note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp8",
+      "status": "direct",
+      "note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sp9",
+      "status": "direct",
+      "note_ids": [
+        "en_sport_phrase_formal"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t1",
+      "status": "direct",
+      "note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t2",
+      "status": "direct",
+      "note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t3",
+      "status": "direct",
+      "note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t4",
+      "status": "direct",
+      "note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t5",
+      "status": "direct",
+      "note_ids": [
+        "en_commentary_and_domain_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t6",
+      "status": "direct",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t7",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t8",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_t9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f1",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f5",
+      "status": "direct",
+      "note_ids": [
+        "en_food_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f6",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f7",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f8",
+      "status": "direct",
+      "note_ids": [
+        "en_food_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_f9",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w1",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w2",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w3",
+      "status": "direct",
+      "note_ids": [
+        "en_work_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w4",
+      "status": "direct",
+      "note_ids": [
+        "en_work_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w5",
+      "status": "direct",
+      "note_ids": [
+        "en_work_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w6",
+      "status": "direct",
+      "note_ids": [
+        "en_work_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w7",
+      "status": "direct",
+      "note_ids": [
+        "en_work_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w8",
+      "status": "direct",
+      "note_ids": [
+        "en_work_phrase_formal"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_w9",
+      "status": "direct",
+      "note_ids": [
+        "en_work_phrase_formal"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he1",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he2",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he3",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he4",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he5",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he6",
+      "status": "direct",
+      "note_ids": [
+        "en_health_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he7",
+      "status": "direct",
+      "note_ids": [
+        "en_health_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he8",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_he9",
+      "status": "direct",
+      "note_ids": [
+        "en_health_phrase_formal"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo1",
+      "status": "direct",
+      "note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo2",
+      "status": "direct",
+      "note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo3",
+      "status": "direct",
+      "note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo4",
+      "status": "direct",
+      "note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo5",
+      "status": "direct",
+      "note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo6",
+      "status": "direct",
+      "note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo7",
+      "status": "direct",
+      "note_ids": [
+        "en_finance_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo8",
+      "status": "direct",
+      "note_ids": [
+        "en_finance_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_mo9",
+      "status": "direct",
+      "note_ids": [
+        "en_finance_phrase_formal"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa1",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa5",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa6",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa7",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_fa9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na1",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na5",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na6",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na7",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_na9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed1",
+      "status": "direct",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed5",
+      "status": "direct",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed6",
+      "status": "direct",
+      "note_ids": [
+        "en_academic_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed7",
+      "status": "direct",
+      "note_ids": [
+        "en_academic_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed8",
+      "status": "direct",
+      "note_ids": [
+        "en_education_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_ed9",
+      "status": "direct",
+      "note_ids": [
+        "en_education_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu1",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu5",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu6",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu7",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_cu9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po1",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po5",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po6",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po7",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_po9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc1",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc5",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc6",
+      "status": "direct",
+      "note_ids": [
+        "en_science_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc7",
+      "status": "direct",
+      "note_ids": [
+        "en_science_formal_register"
+      ],
+      "reason": "Existing authored concept relationship reviewed against the canonical task.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sc9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh1",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh2",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh3",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh4",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh5",
+      "status": "generic",
+      "note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "reason": "General sense/usage guidance only; no domain-definition claim.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh6",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh7",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_sh9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em1",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em2",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em3",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em4",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em5",
+      "status": "unsupported",
+      "note_ids": [],
+      "reason": "Domain terminology needs separate expert review; a writing note is not a medical reference.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em6",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em7",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em8",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "reason": "General rewrite guidance; domain-specific factual expertise is outside the corpus.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    },
+    {
+      "item_id": "en_em9",
+      "status": "generic",
+      "note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "reason": "Speech-act and meaning-preservation guidance transfers across topics.",
+      "review_status": "ai_assisted_editorial_review",
+      "human_review_status": "pending"
+    }
+  ]
+}

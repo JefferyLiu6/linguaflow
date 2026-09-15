@@ -1,219 +1,76 @@
-"""
-Tests for the Phase 3 offline embedding sync command.
-
-DB and embedding calls are mocked — these tests verify:
-  - SyncStats tracking and summary
-  - dry-run skips all writes
-  - normal sync batches embed calls and upserts rows
-  - embedding failures are handled gracefully
-  - deactivate_missing is called with the full active-ID set
-  - format_chunk_text produces stable, structured output
-"""
-from __future__ import annotations
-
-from unittest.mock import call, patch, MagicMock
-
-from retrieval.embeddings import CHUNK_FORMAT_VERSION, format_chunk_text
+from dataclasses import replace
+from unittest.mock import patch
+import pytest
 from retrieval.loader import load_contrast_docs
-from retrieval.sync_embeddings import SyncStats, sync_language
+from retrieval.manifest import manifest_for
+from retrieval.sync_embeddings import sync_language
+from retrieval.db import IndexUnavailable
 
 
-# ── SyncStats unit tests ──────────────────────────────────────────────────────
-
-def test_syncstats_record_counts_correctly():
-    s = SyncStats()
-    s.record("inserted", "a")
-    s.record("inserted", "b")
-    s.record("updated", "c")
-    s.record("skipped", "d")
-    s.record("failed", "e")
-    s.record("failed", "f")
-
-    assert s.inserted == 2
-    assert s.updated == 1
-    assert s.skipped == 1
-    assert s.failed == 2
-    assert s.errors == ["e", "f"]
+def test_dry_run_is_offline():
+    with patch('retrieval.sync_embeddings.read_manifest') as read, patch('retrieval.sync_embeddings.publish_corpus') as publish, patch('retrieval.sync_embeddings.embed_texts') as embed:
+        assert sync_language('en', dry_run=True).skipped == 31
+    read.assert_not_called(); publish.assert_not_called(); embed.assert_not_called()
 
 
-def test_syncstats_summary_contains_all_fields():
-    s = SyncStats(inserted=3, updated=1, skipped=10, failed=0, deactivated=2)
-    summary = s.summary()
-
-    assert "inserted 3" in summary
-    assert "updated 1" in summary
-    assert "skipped 10" in summary
-    assert "failed 0" in summary
-    assert "deactivated 2" in summary
+def test_unchanged_snapshot_skips_provider_and_publication():
+    m = manifest_for(load_contrast_docs('en'))
+    with patch('retrieval.sync_embeddings.read_manifest', return_value={**m, 'generation': 'old', 'complete': True}), patch('retrieval.sync_embeddings.publish_corpus') as publish, patch('retrieval.sync_embeddings.embed_texts') as embed:
+        assert sync_language('en').skipped == 31
+    publish.assert_not_called(); embed.assert_not_called()
 
 
-def test_syncstats_unknown_outcome_is_counted_as_failed():
-    s = SyncStats()
-    s.record("unknown_outcome", "x")
-    assert s.failed == 1
-    assert "x" in s.errors
+def test_rebuild_prepares_all_batches_before_single_publication():
+    notes = load_contrast_docs('en'); m = manifest_for(notes)
+    events = []
+    def embed(texts):
+        events.append('embed'); return [[0.1] * 1536 for _ in texts]
+    def publish(notes, vectors, *, expected_generation):
+        events.append('publish')
+        assert len(vectors) == len(notes) == 31
+        assert expected_generation == 'old'
+        return {'updated': 31}
+    with patch('retrieval.sync_embeddings.read_manifest', return_value={**m, 'generation': 'old', 'complete': True}), patch('retrieval.sync_embeddings.publish_corpus', side_effect=publish), patch('retrieval.sync_embeddings.embed_texts', side_effect=embed):
+        assert sync_language('en', rebuild=True).updated == 31
+    assert events == ['embed', 'embed', 'publish']
 
 
-# ── format_chunk_text ─────────────────────────────────────────────────────────
-
-def test_format_chunk_text_includes_required_sections():
-    notes = load_contrast_docs("en")
-    assert notes, "expected at least one English note"
-    text = format_chunk_text(notes[0])
-
-    assert "Title:" in text
-    assert "When to use:" in text
-    assert "Explanation:" in text
+@pytest.mark.parametrize('vectors', [None, [], [[0.1]], [[float('nan')] * 1536], [[0.0] * 1536]])
+def test_bad_batch_cannot_publish(vectors):
+    with patch('retrieval.sync_embeddings.read_manifest', return_value=None), patch('retrieval.sync_embeddings.publish_corpus') as publish, patch('retrieval.sync_embeddings.embed_texts', return_value=vectors):
+        assert sync_language('en', batch_size=1).failed == 31
+    publish.assert_not_called()
 
 
-def test_format_chunk_text_includes_examples_when_present():
-    notes = [n for n in load_contrast_docs("en") if n.examples]
-    assert notes, "expected at least one note with examples"
-    text = format_chunk_text(notes[0])
-    assert "Examples:" in text
+def test_unavailable_database_fails_before_spending_on_embeddings():
+    with patch('retrieval.sync_embeddings.read_manifest', side_effect=IndexUnavailable()), patch('retrieval.sync_embeddings.embed_texts') as embed:
+        assert sync_language('en').failed == 31
+    embed.assert_not_called()
 
 
-def test_format_chunk_text_includes_tags_when_present():
-    notes = [n for n in load_contrast_docs("en") if n.tags]
-    assert notes, "expected at least one note with tags"
-    text = format_chunk_text(notes[0])
-    assert "Tags:" in text
+def test_publish_failure_is_not_counted_as_partial_success():
+    with patch('retrieval.sync_embeddings.read_manifest', return_value=None), patch('retrieval.sync_embeddings.publish_corpus', side_effect=IndexUnavailable('index_publication_conflict')), patch('retrieval.sync_embeddings.embed_texts', side_effect=lambda texts: [[0.1] * 1536 for _ in texts]):
+        stats = sync_language('en')
+    assert stats.failed == 31 and stats.updated == stats.inserted == 0
+    assert stats.errors == ['index_publication_conflict']
 
 
-def test_format_chunk_text_is_deterministic():
-    notes = load_contrast_docs("en")
-    assert notes
-    t1 = format_chunk_text(notes[0])
-    t2 = format_chunk_text(notes[0])
-    assert t1 == t2
+def test_manifest_covers_metadata_prompt_and_configuration():
+    notes = load_contrast_docs('en')
+    original = manifest_for(notes)
+    assert manifest_for(list(reversed(notes))) == original
+    changed = [n.model_copy(deep=True) for n in notes]
+    changed[0].avoid.append('New prompt caution')
+    assert manifest_for(changed)['fingerprint'] != original['fingerprint']
+    with patch('retrieval.manifest.EMBED_MODEL', 'different-model'):
+        assert manifest_for(notes)['fingerprint'] != original['fingerprint']
+    with pytest.raises(ValueError): manifest_for([])
 
 
-# ── dry-run mode ──────────────────────────────────────────────────────────────
-
-def test_dry_run_does_not_call_upsert_or_deactivate():
-    with patch("retrieval.sync_embeddings.upsert_retrieval_doc") as mock_upsert, \
-         patch("retrieval.sync_embeddings.deactivate_missing") as mock_deactivate, \
-         patch("retrieval.sync_embeddings.embed_texts") as mock_embed:
-        stats = sync_language("en", dry_run=True)
-
-    mock_upsert.assert_not_called()
-    mock_deactivate.assert_not_called()
-    # embed_texts should also not be called in dry-run
-    mock_embed.assert_not_called()
-
-
-def test_dry_run_stats_show_all_skipped():
-    with patch("retrieval.sync_embeddings.upsert_retrieval_doc"), \
-         patch("retrieval.sync_embeddings.deactivate_missing"), \
-         patch("retrieval.sync_embeddings.embed_texts"):
-        stats = sync_language("en", dry_run=True)
-
-    assert stats.failed == 0
-    assert stats.inserted == 0
-    assert stats.updated == 0
-    # Every note becomes a dry-run skip
-    notes = load_contrast_docs("en")
-    assert stats.skipped == len(notes)
-
-
-# ── normal sync ───────────────────────────────────────────────────────────────
-
-def test_sync_calls_embed_texts_in_batches():
-    notes = load_contrast_docs("en")
-    batch_size = 20
-    expected_batches = (len(notes) + batch_size - 1) // batch_size
-
-    fake_embeddings = [[0.1] * 1536] * batch_size
-
-    with patch("retrieval.sync_embeddings.embed_texts", return_value=fake_embeddings) as mock_embed, \
-         patch("retrieval.sync_embeddings.upsert_retrieval_doc", return_value="inserted"), \
-         patch("retrieval.sync_embeddings.deactivate_missing", return_value=0):
-        sync_language("en", batch_size=batch_size)
-
-    assert mock_embed.call_count == expected_batches
-
-
-def test_sync_calls_upsert_for_every_note():
-    notes = load_contrast_docs("en")
-    fake_embeddings = [[0.1] * 1536] * len(notes)
-
-    with patch("retrieval.sync_embeddings.embed_texts", return_value=fake_embeddings), \
-         patch("retrieval.sync_embeddings.upsert_retrieval_doc", return_value="inserted") as mock_upsert, \
-         patch("retrieval.sync_embeddings.deactivate_missing", return_value=0):
-        sync_language("en")
-
-    assert mock_upsert.call_count == len(notes)
-
-
-def test_sync_calls_deactivate_missing_with_all_active_ids():
-    notes = load_contrast_docs("en")
-    expected_ids = {n.id for n in notes}
-    fake_embeddings = [[0.1] * 1536] * len(notes)
-
-    captured_ids: set[str] = set()
-
-    def capture_deactivate(language: str, active_ids: set[str]) -> int:
-        captured_ids.update(active_ids)
-        return 0
-
-    with patch("retrieval.sync_embeddings.embed_texts", return_value=fake_embeddings), \
-         patch("retrieval.sync_embeddings.upsert_retrieval_doc", return_value="inserted"), \
-         patch("retrieval.sync_embeddings.deactivate_missing", side_effect=capture_deactivate):
-        sync_language("en")
-
-    assert captured_ids == expected_ids
-
-
-# ── embedding failure handling ────────────────────────────────────────────────
-
-def test_sync_handles_embedding_batch_failure_gracefully():
-    """If embed_texts returns None, upsert should still be called with embedding=None."""
-    upserted_embeddings: list = []
-
-    def capture_upsert(**kwargs):
-        upserted_embeddings.append(kwargs.get("embedding"))
-        return "inserted"
-
-    with patch("retrieval.sync_embeddings.embed_texts", return_value=None), \
-         patch("retrieval.sync_embeddings.upsert_retrieval_doc", side_effect=capture_upsert), \
-         patch("retrieval.sync_embeddings.deactivate_missing", return_value=0):
-        stats = sync_language("en")
-
-    # No crash and no failed rows (upsert itself succeeded)
-    assert stats.failed == 0
-    # All embeddings passed through as None
-    assert all(e is None for e in upserted_embeddings)
-
-
-def test_sync_stats_reflect_upsert_outcomes():
-    """SyncStats should accurately reflect whatever upsert_retrieval_doc returns."""
-    notes = load_contrast_docs("en")
-    fake_embeddings = [[0.1] * 1536] * len(notes)
-
-    outcomes = iter(
-        ["inserted"] * 5
-        + ["updated"] * 5
-        + ["skipped"] * (len(notes) - 10)
-    )
-
-    with patch("retrieval.sync_embeddings.embed_texts", return_value=fake_embeddings), \
-         patch("retrieval.sync_embeddings.upsert_retrieval_doc", side_effect=lambda **_: next(outcomes)), \
-         patch("retrieval.sync_embeddings.deactivate_missing", return_value=0):
-        stats = sync_language("en")
-
-    assert stats.inserted == 5
-    assert stats.updated == 5
-    assert stats.skipped == len(notes) - 10
-    assert stats.failed == 0
-
-
-def test_sync_deactivated_count_tracked_in_stats():
-    notes = load_contrast_docs("en")
-    fake_embeddings = [[0.1] * 1536] * len(notes)
-
-    with patch("retrieval.sync_embeddings.embed_texts", return_value=fake_embeddings), \
-         patch("retrieval.sync_embeddings.upsert_retrieval_doc", return_value="skipped"), \
-         patch("retrieval.sync_embeddings.deactivate_missing", return_value=3):
-        stats = sync_language("en")
-
-    assert stats.deactivated == 3
+def test_version_failure_is_visible_in_freeform_and_invalidates_eval():
+    from retrieval.hybrid import retrieve_for_freeform_question
+    from retrieval.eval_runner import evaluate_freeform_case
+    from retrieval.eval_cases_freeform import all_freeform_cases
+    with patch('retrieval.hybrid.embed_text', return_value=[0.1] * 1536), patch('retrieval.hybrid.query_by_vector', side_effect=IndexUnavailable('index_version_mismatch')):
+        assert retrieve_for_freeform_question('why?')['reason'] == 'index_version_mismatch'
+        with pytest.raises(RuntimeError): evaluate_freeform_case(all_freeform_cases()[0])

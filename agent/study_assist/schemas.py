@@ -33,7 +33,7 @@ class SourceRef(BaseModel):
 
 class SimilarExample(BaseModel):
     text: str
-    source_item_id: str
+    source_item_id: str | None
 
 
 class StudyAssistResponse(BaseModel):

@@ -1,225 +1,143 @@
-"""
-Postgres persistence layer for retrieval_doc rows.
+"""Atomic retrieval publication and version-checked reads.
 
-Uses psycopg2 directly (not Prisma) because the embedding column is pgvector,
-which Prisma does not support for reads or writes via its generated client.
-
-All public functions are fail-open: they return None / [] / "skipped" rather
-than raising on connection or query failures.
-
-Connection is taken from DATABASE_URL in the environment (same value used by
-the Next.js Prisma client). If DATABASE_URL is absent, all functions no-op.
+Only publish_corpus writes documents. No provider calls occur in its transaction.
+Reads fail explicitly so evaluation can distinguish stale indexes from abstention.
 """
 from __future__ import annotations
-
 import hashlib
 import json
 import logging
 import os
+import uuid
+from .manifest import manifest_for, valid_vector
+from .embeddings import format_chunk_text
 
 log = logging.getLogger("retrieval.db")
 
 
-# ── Connection ────────────────────────────────────────────────────────────────
+class IndexUnavailable(RuntimeError):
+    def __init__(self, reason="db_unavailable"):
+        self.reason = reason
+        super().__init__(reason)
+
 
 def _get_conn():
-    """Return a new psycopg2 connection, or None if DATABASE_URL is unset."""
     url = os.getenv("DATABASE_URL")
     if not url:
-        log.debug("DATABASE_URL not set; DB operations unavailable.")
-        return None
+        raise IndexUnavailable()
     try:
-        import psycopg2  # type: ignore[import-not-found]
-        conn = psycopg2.connect(url)
-        conn.autocommit = False
-        return conn
-    except Exception as exc:  # noqa: BLE001
-        log.warning("DB connection failed: %s", exc)
-        return None
+        import psycopg2
+        return psycopg2.connect(url, connect_timeout=5, options="-c statement_timeout=10000 -c lock_timeout=5000")
+    except Exception as exc:
+        raise IndexUnavailable() from exc
 
 
-def chunk_hash(chunk_text: str) -> str:
-    """Short deterministic hash of chunk text for change detection."""
-    return hashlib.sha256(chunk_text.encode()).hexdigest()[:16]
+def chunk_hash(text):
+    return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
-# ── Write ─────────────────────────────────────────────────────────────────────
-
-def upsert_retrieval_doc(
-    *,
-    id: str,
-    concept_id: str,
-    language: str,
-    kind: str,
-    title: str,
-    chunk_text: str,
-    tags: list[str],
-    authoring_item_ids: list[str],
-    embedding: list[float] | None = None,
-    active: bool = True,
-) -> str:
-    """
-    Upsert a retrieval_doc row. Returns one of: 'inserted', 'updated', 'skipped', 'failed'.
-
-    Skips the row if chunk_text hash is unchanged AND an embedding already exists.
-    If embedding is None, only metadata columns are updated (embedding preserved).
-    """
+def read_manifest(language):
     conn = _get_conn()
-    if conn is None:
-        return "skipped"
-
-    hash_ = chunk_hash(chunk_text)
-    vec_str: str | None = None
-    if embedding is not None:
-        vec_str = "[" + ",".join(str(x) for x in embedding) + "]"
-
     try:
         with conn.cursor() as cur:
-            cur.execute(
-                'SELECT "chunkHash", embedding IS NOT NULL FROM "retrieval_doc" WHERE id = %s',
-                (id,),
-            )
+            cur.execute('''SELECT fingerprint, generation, "noteCount",
+                (SELECT count(*) FROM retrieval_doc d WHERE d.language=m.language AND d.kind='contrast_note' AND active=true),
+                (SELECT count(*) FROM retrieval_doc d WHERE d.language=m.language AND d.kind='contrast_note' AND active=true AND "indexVersion"=m.fingerprint AND embedding IS NOT NULL)
+                FROM retrieval_index_manifest m WHERE language = %s''', (language,))
             row = cur.fetchone()
-
-            if row is not None and row[0] == hash_ and row[1]:
-                conn.commit()
-                return "skipped"
-
-            tags_json = json.dumps(tags)
-            ids_json = json.dumps(authoring_item_ids)
-
-            if row is None:
-                cur.execute(
-                    '''INSERT INTO "retrieval_doc"
-                       (id, "conceptId", language, kind, title, "chunkText",
-                        tags, "authoringItemIds", active, embedding, "chunkHash", "updatedAt")
-                       VALUES (%s, %s, %s, %s, %s, %s,
-                               %s::jsonb, %s::jsonb, %s,
-                               %s::vector, %s, NOW())''',
-                    (id, concept_id, language, kind, title, chunk_text,
-                     tags_json, ids_json, active, vec_str, hash_),
-                )
-                outcome = "inserted"
-            else:
-                if vec_str is not None:
-                    cur.execute(
-                        '''UPDATE "retrieval_doc" SET
-                           "conceptId" = %s, language = %s, kind = %s, title = %s,
-                           "chunkText" = %s, tags = %s::jsonb, "authoringItemIds" = %s::jsonb,
-                           active = %s, embedding = %s::vector, "chunkHash" = %s, "updatedAt" = NOW()
-                           WHERE id = %s''',
-                        (concept_id, language, kind, title, chunk_text,
-                         tags_json, ids_json, active, vec_str, hash_, id),
-                    )
-                else:
-                    cur.execute(
-                        '''UPDATE "retrieval_doc" SET
-                           "conceptId" = %s, language = %s, kind = %s, title = %s,
-                           "chunkText" = %s, tags = %s::jsonb, "authoringItemIds" = %s::jsonb,
-                           active = %s, "chunkHash" = %s, "updatedAt" = NOW()
-                           WHERE id = %s''',
-                        (concept_id, language, kind, title, chunk_text,
-                         tags_json, ids_json, active, hash_, id),
-                    )
-                outcome = "updated"
-
-        conn.commit()
-        return outcome
-
-    except Exception as exc:  # noqa: BLE001
-        log.warning("upsert_retrieval_doc failed for %s: %s", id, exc)
-        try:
-            conn.rollback()
-        except Exception:
-            pass
-        return "failed"
+        return {"fingerprint": row[0], "generation": row[1], "note_count": row[2], "complete": row[2] == row[3] == row[4]} if row else None
+    except Exception as exc:
+        raise IndexUnavailable() from exc
     finally:
-        try:
-            conn.close()
-        except Exception:
-            pass
+        conn.close()
 
 
-def deactivate_missing(language: str, active_ids: set[str]) -> int:
-    """
-    Mark rows inactive if their id is not in active_ids for the given language.
-    Returns the count of rows deactivated.
-    """
+def publish_corpus(notes, embeddings, *, expected_generation):
+    manifest = manifest_for(notes)
+    if len(embeddings) != len(notes) or not all(valid_vector(v) for v in embeddings):
+        raise ValueError("Invalid publication vectors")
+    language = manifest["language"]
     conn = _get_conn()
-    if conn is None:
-        return 0
     try:
         with conn.cursor() as cur:
-            cur.execute(
-                '''UPDATE "retrieval_doc" SET active = false, "updatedAt" = NOW()
-                   WHERE language = %s AND active = true AND id <> ALL(%s)''',
-                (language, list(active_ids)),
-            )
-            count = cur.rowcount
+            # Also serializes first publication, before any manifest row exists.
+            cur.execute("SELECT pg_advisory_xact_lock(hashtext(%s))", ("linguaflow-retrieval:" + language,))
+            cur.execute('SELECT generation FROM retrieval_index_manifest WHERE language = %s', (language,))
+            previous = cur.fetchone()
+            if (previous[0] if previous else None) != expected_generation:
+                raise IndexUnavailable("index_publication_conflict")
+            cur.execute('SELECT id FROM retrieval_doc WHERE language = %s AND kind = %s AND active = true', (language, "contrast_note"))
+            old_ids = {row[0] for row in cur.fetchall()}
+            ids = {note.id for note in notes}
+            for note, embedding in zip(notes, embeddings):
+                text = format_chunk_text(note)
+                cur.execute('''INSERT INTO retrieval_doc
+                    (id, "conceptId", language, kind, title, "chunkText", tags, "authoringItemIds", active, embedding, "chunkHash", "indexVersion", "updatedAt")
+                    VALUES (%s,%s,%s,%s,%s,%s,%s::jsonb,%s::jsonb,true,%s::vector,%s,%s,NOW())
+                    ON CONFLICT (id) DO UPDATE SET "conceptId"=EXCLUDED."conceptId", language=EXCLUDED.language,
+                    kind=EXCLUDED.kind, title=EXCLUDED.title, "chunkText"=EXCLUDED."chunkText", tags=EXCLUDED.tags,
+                    "authoringItemIds"=EXCLUDED."authoringItemIds", active=true, embedding=EXCLUDED.embedding,
+                    "chunkHash"=EXCLUDED."chunkHash", "indexVersion"=EXCLUDED."indexVersion", "updatedAt"=NOW()
+                    WHERE retrieval_doc.language = EXCLUDED.language AND retrieval_doc.kind = EXCLUDED.kind''',
+                    (note.id, note.concept_id, language, note.kind, note.title, text, json.dumps(note.tags),
+                     json.dumps(note.authoring_item_ids), str(embedding), chunk_hash(text), manifest["fingerprint"]))
+                if cur.rowcount != 1:
+                    raise ValueError("Document ID collides with another language/kind")
+            cur.execute('UPDATE retrieval_doc SET active=false, "updatedAt"=NOW() WHERE language=%s AND kind=%s AND active=true AND id <> ALL(%s)', (language, "contrast_note", sorted(ids)))
+            deactivated = cur.rowcount
+            cur.execute('SELECT count(*) FROM retrieval_doc WHERE language=%s AND kind=%s AND active=true AND "indexVersion"=%s AND embedding IS NOT NULL', (language, "contrast_note", manifest["fingerprint"]))
+            if cur.fetchone()[0] != len(notes):
+                raise ValueError("Incomplete publication")
+            cur.execute('''INSERT INTO retrieval_index_manifest (language, fingerprint, generation, "noteCount", config, "publishedAt")
+                VALUES (%s,%s,%s,%s,%s::jsonb,NOW()) ON CONFLICT (language) DO UPDATE SET
+                fingerprint=EXCLUDED.fingerprint, generation=EXCLUDED.generation, "noteCount"=EXCLUDED."noteCount",
+                config=EXCLUDED.config, "publishedAt"=EXCLUDED."publishedAt"''',
+                (language, manifest["fingerprint"], str(uuid.uuid4()), len(notes), json.dumps(manifest["config"])))
         conn.commit()
-        return count
-    except Exception as exc:  # noqa: BLE001
-        log.warning("deactivate_missing failed: %s", exc)
-        try:
-            conn.rollback()
-        except Exception:
-            pass
-        return 0
+        return {"inserted": len(ids - old_ids), "updated": len(ids & old_ids), "deactivated": deactivated}
+    except Exception:
+        conn.rollback()
+        raise
     finally:
-        try:
-            conn.close()
-        except Exception:
-            pass
+        conn.close()
 
 
-# ── Read ──────────────────────────────────────────────────────────────────────
-
-def query_by_vector(
-    embedding: list[float],
-    *,
-    language: str = "en",
-    kind: str = "contrast_note",
-    limit: int = 10,
-) -> list[dict]:
-    """
-    Return top-N candidate rows ordered by cosine similarity (highest first).
-    Each result dict has: id, concept_id, title, tags, authoring_item_ids, vector_score.
-    Returns [] on any failure.
-    """
+def query_by_vector(embedding, *, language="en", kind="contrast_note", limit=10):
+    from .loader import load_contrast_docs
+    if not valid_vector(embedding) or limit < 1 or kind != "contrast_note":
+        raise IndexUnavailable("index_query_invalid")
+    expected = manifest_for(load_contrast_docs(language))
     conn = _get_conn()
-    if conn is None:
-        return []
     try:
-        vec_str = "[" + ",".join(str(x) for x in embedding) + "]"
         with conn.cursor() as cur:
-            cur.execute(
-                '''SELECT id, "conceptId", title, tags, "authoringItemIds",
-                          1 - (embedding <=> %s::vector) AS vector_score
-                   FROM "retrieval_doc"
-                   WHERE language = %s AND kind = %s AND active = true
-                     AND embedding IS NOT NULL
-                   ORDER BY embedding <=> %s::vector
-                   LIMIT %s''',
-                (vec_str, language, kind, vec_str, limit),
+            # Manifest, completeness and candidate reads share one MVCC statement snapshot.
+            cur.execute('''WITH state AS (
+                SELECT m.*,
+                  (SELECT count(*) FROM retrieval_doc d WHERE d.language=m.language AND d.kind=%s AND d.active=true) AS active_count,
+                  (SELECT count(*) FROM retrieval_doc d WHERE d.language=m.language AND d.kind=%s AND d.active=true AND d."indexVersion"=m.fingerprint AND d.embedding IS NOT NULL) AS valid_count
+                FROM retrieval_index_manifest m WHERE m.language=%s
             )
+            SELECT s.fingerprint, s."noteCount", s.active_count, s.valid_count,
+                   d.id, d."conceptId", d.title, d.tags, d."authoringItemIds", d.vector_score
+            FROM state s LEFT JOIN LATERAL (
+                SELECT id, "conceptId", title, tags, "authoringItemIds", 1-(embedding <=> %s::vector) AS vector_score
+                FROM retrieval_doc WHERE language=%s AND kind=%s AND active=true AND "indexVersion"=s.fingerprint
+                AND embedding IS NOT NULL AND s.fingerprint=%s AND s.active_count=s."noteCount" AND s.valid_count=s."noteCount"
+                ORDER BY embedding <=> %s::vector, id LIMIT %s
+            ) d ON true''',
+                (kind, kind, language, str(embedding), language, kind, expected["fingerprint"], str(embedding), limit))
             rows = cur.fetchall()
-        conn.commit()
-        return [
-            {
-                "id": r[0],
-                "concept_id": r[1],
-                "title": r[2],
-                "tags": r[3] if isinstance(r[3], list) else json.loads(r[3]),
-                "authoring_item_ids": r[4] if isinstance(r[4], list) else json.loads(r[4]),
-                "vector_score": float(r[5]),
-            }
-            for r in rows
-        ]
-    except Exception as exc:  # noqa: BLE001
-        log.warning("query_by_vector failed: %s", exc)
-        return []
+        if not rows:
+            raise IndexUnavailable("index_missing")
+        fingerprint, count, active, valid = rows[0][:4]
+        if fingerprint != expected["fingerprint"] or count != expected["note_count"]:
+            raise IndexUnavailable("index_version_mismatch")
+        if active != count or valid != count or rows[0][4] is None:
+            raise IndexUnavailable("index_incomplete")
+        return [{"id": row[4], "concept_id": row[5], "title": row[6], "tags": row[7], "authoring_item_ids": row[8], "vector_score": float(row[9])} for row in rows]
+    except IndexUnavailable:
+        raise
+    except Exception as exc:
+        raise IndexUnavailable() from exc
     finally:
-        try:
-            conn.close()
-        except Exception:
-            pass
+        conn.close()

@@ -1,3 +1,5 @@
+import englishDrillData from '../data/english-drills.json'
+
 export type Language = 'es' | 'fr' | 'de' | 'zh' | 'ja' | 'ko' | 'en'
 
 export const LANGUAGES: Record<Language, { name: string; native: string; flag: string }> = {
@@ -1436,230 +1438,39 @@ const DB_KO_EMERGENCY: DrillItem[] = [
 
 // ── ENGLISH: Basic → Advanced ─────────────────────────────────────
 
-const DB_EN: DrillItem[] = [
-  // Substitution — upgrade vocabulary
-  { id:'en01', type:'substitution',  category:'sentence', topic:'daily', instruction:'Replace the bracketed word with a more advanced synonym.', prompt:'The project was very [big].',              answer:'substantial', variants:['considerable','extensive','significant'],   promptLang:'en-US' },
-  { id:'en02', type:'substitution',  category:'sentence', topic:'work',  instruction:'Replace the bracketed word with a more precise synonym.', prompt:'Please [use] the correct procedure.',       answer:'utilize',     variants:['employ','apply','implement'],               promptLang:'en-US' },
-  { id:'en03', type:'substitution',  category:'sentence', topic:'daily', instruction:'Replace the bracketed word with a more formal synonym.',  prompt:'We need to [get] approval first.',          answer:'obtain',      variants:['acquire','secure','procure'],               promptLang:'en-US' },
-  { id:'en04', type:'substitution',  category:'sentence', topic:'work',  instruction:'Replace the bracketed word with a more precise synonym.', prompt:'She wants to [show] her findings.',         answer:'present',     variants:['demonstrate','exhibit','illustrate'],       promptLang:'en-US' },
-  { id:'en05', type:'substitution',  category:'sentence', topic:'daily', instruction:'Replace the bracketed word with a more formal synonym.',  prompt:'Can you [help] me with this task?',         answer:'assist',      variants:['support','aid','facilitate'],               promptLang:'en-US' },
-  { id:'en06', type:'substitution',  category:'sentence', topic:'work',  instruction:'Replace the bracketed adjective with a more precise one.', prompt:'That was a [good] decision.',              answer:'sound',       variants:['prudent','judicious','astute'],             promptLang:'en-US' },
-  { id:'en07', type:'substitution',  category:'sentence', topic:'work',  instruction:'Replace the bracketed phrase with a single precise verb.', prompt:'He [talked about] the risks at length.',   answer:'addressed',   variants:['discussed','articulated'],                 promptLang:'en-US' },
-  { id:'en08', type:'substitution',  category:'sentence', topic:'daily', instruction:'Replace the bracketed word with a more precise synonym.',  prompt:'The plan has a [bad] flaw.',               answer:'critical',    variants:['fundamental','significant','severe'],       promptLang:'en-US' },
-  // Transformation — restructure sentences
-  { id:'en09', type:'transformation', category:'sentence', topic:'work',  instruction:'Rewrite in formal register.',                            prompt:'I think you should probably reconsider this.',                         answer:'I would recommend reconsidering this course of action.',                promptLang:'en-US' },
-  { id:'en10', type:'transformation', category:'sentence', topic:'work',  instruction:'Transform to passive voice.',                            prompt:'The committee reviewed the proposal.',                                  answer:'The proposal was reviewed by the committee.',                          promptLang:'en-US' },
-  { id:'en11', type:'transformation', category:'sentence', topic:'daily', instruction:'Combine into one complex sentence using a participle.',   prompt:'She studied the data. She reached a conclusion.',                      answer:'Having studied the data, she reached a conclusion.',                    promptLang:'en-US' },
-  { id:'en12', type:'transformation', category:'sentence', topic:'work',  instruction:'Rewrite in formal register.',                            prompt:"We can't do this because we don't have enough money.",                  answer:'This is not feasible due to insufficient funding.',                     promptLang:'en-US' },
-  { id:'en13', type:'transformation', category:'sentence', topic:'daily', instruction:'Combine using a relative clause.',                        prompt:'The manager approved the budget. She leads the project.',               answer:'The manager who leads the project approved the budget.',                promptLang:'en-US' },
-  { id:'en14', type:'transformation', category:'sentence', topic:'daily', instruction:'Rewrite more concisely in formal style.',                 prompt:'Due to the fact that the deadline was missed, we lost the contract.',   answer:'Because the deadline was missed, the contract was lost.',               promptLang:'en-US' },
-  { id:'en15', type:'transformation', category:'sentence', topic:'daily', instruction:'Transform to active voice.',                              prompt:'Mistakes were made by the team during the rollout.',                    answer:'The team made mistakes during the rollout.',                           promptLang:'en-US' },
-  // Translation — casual to formal paraphrase
-  { id:'en16', type:'translation',   category:'sentence', topic:'work',  instruction:'Express this casually-worded idea in formal English.',    prompt:"He's really good at his job.",                                          answer:'He demonstrates exceptional professional competence.',                  promptLang:'en-US' },
-  { id:'en17', type:'translation',   category:'sentence', topic:'work',  instruction:'Express formally.',                                       prompt:'We messed up the launch.',                                              answer:'The launch was executed with significant deficiencies.',                promptLang:'en-US' },
-  { id:'en18', type:'translation',   category:'sentence', topic:'daily', instruction:'Paraphrase in academic style.',                           prompt:"Everyone knows this doesn't work.",                                     answer:'It is widely acknowledged that this approach is ineffective.',          promptLang:'en-US' },
-  { id:'en19', type:'translation',   category:'sentence', topic:'daily', instruction:'Express formally.',                                       prompt:'Things are getting better.',                                            answer:'A marked improvement has been observed.',                              promptLang:'en-US' },
-  { id:'en20', type:'translation',   category:'sentence', topic:'work',  instruction:'Express this casually-worded idea in formal English.',    prompt:"She basically runs the whole company.",                                 answer:'She effectively oversees the entire organization.',                    promptLang:'en-US' },
-]
+const DB_EN = englishDrillData.filter(item => item.group === 'DB_EN') as DrillItem[]
 
-const DB_EN_VOCAB: DrillItem[] = [
-  { id:'en_v1',  type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'start (verb)',      answer:'initiate',    variants:['commence','launch'],               promptLang:'en-US' },
-  { id:'en_v2',  type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'end (verb)',        answer:'conclude',    variants:['terminate','finalize'],            promptLang:'en-US' },
-  { id:'en_v3',  type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'ask (verb)',        answer:'inquire',     variants:['query','solicit'],                 promptLang:'en-US' },
-  { id:'en_v4',  type:'substitution', category:'vocab', topic:'work',  instruction:'Give the advanced synonym.', prompt:'tell (verb)',       answer:'inform',      variants:['notify','advise'],                 promptLang:'en-US' },
-  { id:'en_v5',  type:'substitution', category:'vocab', topic:'work',  instruction:'Give the advanced synonym.', prompt:'need (verb)',       answer:'require',     variants:['necessitate','demand'],            promptLang:'en-US' },
-  { id:'en_v6',  type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'change (verb)',     answer:'modify',      variants:['alter','revise','amend'],          promptLang:'en-US' },
-  { id:'en_v7',  type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'look at (verb)',    answer:'examine',     variants:['analyze','inspect','scrutinize'],  promptLang:'en-US' },
-  { id:'en_v8',  type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'smart (adj)',       answer:'astute',      variants:['perceptive','shrewd'],             promptLang:'en-US' },
-  { id:'en_v9',  type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'wrong (adj)',       answer:'erroneous',   variants:['fallacious','flawed'],             promptLang:'en-US' },
-  { id:'en_v10', type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'important (adj)',   answer:'paramount',   variants:['significant','crucial','pivotal'],  promptLang:'en-US' },
-  { id:'en_v11', type:'substitution', category:'vocab', topic:'work',  instruction:'Give the advanced synonym.', prompt:'fair (adj)',        answer:'equitable',   variants:['impartial','unbiased'],            promptLang:'en-US' },
-  { id:'en_v12', type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'fast (adj)',        answer:'expeditious', variants:['swift','rapid','prompt'],          promptLang:'en-US' },
-  { id:'en_v13', type:'substitution', category:'vocab', topic:'daily', instruction:'Give the advanced synonym.', prompt:'clear (adj)',       answer:'unambiguous', variants:['lucid','transparent','explicit'],  promptLang:'en-US' },
-  { id:'en_v14', type:'substitution', category:'vocab', topic:'work',  instruction:'Give the advanced synonym.', prompt:'agree (verb)',      answer:'concur',      variants:['consent','endorse'],               promptLang:'en-US' },
-  { id:'en_v15', type:'substitution', category:'vocab', topic:'work',  instruction:'Give the advanced synonym.', prompt:'make (verb)',       answer:'construct',   variants:['produce','generate','fabricate'],  promptLang:'en-US' },
-]
+const DB_EN_VOCAB = englishDrillData.filter(item => item.group === 'DB_EN_VOCAB') as DrillItem[]
 
-const DB_EN_PHRASES: DrillItem[] = [
-  { id:'en_p1',  type:'translation', category:'phrase', topic:'work',  instruction:'Express formally.',                                      prompt:"Let's talk about this later.",       answer:'I suggest we revisit this matter at a later time.',             promptLang:'en-US' },
-  { id:'en_p2',  type:'translation', category:'phrase', topic:'work',  instruction:'Express this casually-worded phrase in formal English.', prompt:'Can you look into that?',            answer:'Could you investigate that matter?',                           promptLang:'en-US' },
-  { id:'en_p3',  type:'translation', category:'phrase', topic:'daily', instruction:'Express formally.',                                      prompt:"I don't get what you mean.",         answer:'I am uncertain I understand your point.',                      promptLang:'en-US' },
-  { id:'en_p4',  type:'translation', category:'phrase', topic:'work',  instruction:'Rephrase using formal language.',                        prompt:"That's a great idea.",               answer:'That is an excellent proposition.',                            promptLang:'en-US' },
-  { id:'en_p5',  type:'translation', category:'phrase', topic:'daily', instruction:'Express formally.',                                      prompt:"I'll get back to you.",              answer:'I will follow up with you shortly.',                           promptLang:'en-US' },
-  { id:'en_p6',  type:'translation', category:'phrase', topic:'work',  instruction:'Express formally.',                                      prompt:'We need to figure this out.',        answer:'We must resolve this matter.',                                 promptLang:'en-US' },
-  { id:'en_p7',  type:'translation', category:'phrase', topic:'daily', instruction:'Rephrase using formal language.',                        prompt:'Things went wrong.',                 answer:'An unforeseen complication arose.',                            promptLang:'en-US' },
-  { id:'en_p8',  type:'translation', category:'phrase', topic:'work',  instruction:'Express formally.',                                      prompt:'My bad.',                            answer:'I apologize for the oversight.',                               promptLang:'en-US' },
-  { id:'en_p9',  type:'translation', category:'phrase', topic:'work',  instruction:'Express formally.',                                      prompt:"We're running out of time.",         answer:'We are approaching the deadline.',                             promptLang:'en-US' },
-  { id:'en_p10', type:'translation', category:'phrase', topic:'work',  instruction:'Rephrase using formal language.',                        prompt:'The boss wants this done ASAP.',     answer:'The matter requires immediate attention per management.',       promptLang:'en-US' },
-]
+const DB_EN_PHRASES = englishDrillData.filter(item => item.group === 'DB_EN_PHRASES') as DrillItem[]
 
-const DB_EN_SPORT: DrillItem[] = [
-  { id:'en_sp1', type:'substitution',   category:'sentence', topic:'sport', instruction:'Replace the bracketed phrase with a single precise verb.',    prompt:'The player [did well] in the match.',        answer:'excelled',     variants:['distinguished himself'],                       promptLang:'en-US' },
-  { id:'en_sp2', type:'substitution',   category:'sentence', topic:'sport', instruction:'Replace the bracketed phrase with a single precise verb.',    prompt:'She [worked hard to improve] her technique.', answer:'refined',      variants:['honed','perfected'],                           promptLang:'en-US' },
-  { id:'en_sp3', type:'substitution',   category:'sentence', topic:'sport', instruction:'Replace the bracketed word with a more precise synonym.',     prompt:'The team had a [big] win.',                   answer:'decisive',     variants:['commanding','dominant','resounding'],           promptLang:'en-US' },
-  { id:'en_sp4', type:'transformation', category:'sentence', topic:'sport', instruction:'Rewrite in formal sports commentary style.',                  prompt:'He ran really fast to the finish line.',      answer:'He sprinted decisively to the finish line.',       promptLang:'en-US' },
-  { id:'en_sp5', type:'transformation', category:'sentence', topic:'sport', instruction:'Rewrite in formal commentary style.',                         prompt:'She played really well under pressure.',      answer:'She performed with exceptional composure under pressure.', promptLang:'en-US' },
-  { id:'en_sp6', type:'substitution',   category:'vocab',    topic:'sport', instruction:'Give the advanced synonym.',                                  prompt:'win (verb)',                                  answer:'triumph',      variants:['prevail','clinch'],                             promptLang:'en-US' },
-  { id:'en_sp7', type:'substitution',   category:'vocab',    topic:'sport', instruction:'Give the advanced synonym.',                                  prompt:'lose (verb, competition)',                    answer:'concede',      variants:['succumb','relinquish'],                         promptLang:'en-US' },
-  { id:'en_sp8', type:'substitution',   category:'vocab',    topic:'sport', instruction:'Give the precise sports term.',                               prompt:'practice session (noun)',                     answer:'training session', variants:['drill session','preparation'],               promptLang:'en-US' },
-  { id:'en_sp9', type:'translation',    category:'phrase',   topic:'sport', instruction:'Express in formal commentary style.',                         prompt:"They're going to lose.",                      answer:'Defeat appears imminent for this side.',            promptLang:'en-US' },
-]
+const DB_EN_SPORT = englishDrillData.filter(item => item.group === 'DB_EN_SPORT') as DrillItem[]
 
-const DB_EN_TECH: DrillItem[] = [
-  { id:'en_t1',  type:'substitution',   category:'sentence', topic:'tech', instruction:'Replace the bracketed word with a precise technical term.',    prompt:'The app [crashed].',                           answer:'failed',             variants:['terminated unexpectedly'],                   promptLang:'en-US' },
-  { id:'en_t2',  type:'substitution',   category:'sentence', topic:'tech', instruction:'Replace the bracketed phrase with a precise technical term.',  prompt:'We need to [fix the bug].',                    answer:'resolve the defect',  variants:['remediate the issue'],                       promptLang:'en-US' },
-  { id:'en_t3',  type:'substitution',   category:'vocab',    topic:'tech', instruction:'Give the advanced technical synonym.',                          prompt:'make faster (phrase)',                          answer:'optimize',            variants:['accelerate','enhance performance'],           promptLang:'en-US' },
-  { id:'en_t4',  type:'substitution',   category:'vocab',    topic:'tech', instruction:'Give the advanced technical synonym.',                          prompt:'check code (phrase)',                           answer:'audit',               variants:['review','validate','scrutinize'],             promptLang:'en-US' },
-  { id:'en_t5',  type:'transformation', category:'sentence', topic:'tech', instruction:'Rewrite in formal technical documentation style.',              prompt:'The system broke because of too much traffic.', answer:'The system failure was attributed to excessive traffic load.', promptLang:'en-US' },
-  { id:'en_t6',  type:'transformation', category:'sentence', topic:'tech', instruction:'Rewrite in formal technical style.',                           prompt:'We added a new feature.',                       answer:'A new feature was implemented and deployed.',    promptLang:'en-US' },
-  { id:'en_t7',  type:'substitution',   category:'vocab',    topic:'tech', instruction:'Give the precise technical term.',                              prompt:'data store (noun)',                             answer:'repository',          variants:['database','data warehouse'],                  promptLang:'en-US' },
-  { id:'en_t8',  type:'substitution',   category:'vocab',    topic:'tech', instruction:'Give the advanced synonym.',                                    prompt:'test software (verb)',                          answer:'validate',            variants:['verify','assess'],                            promptLang:'en-US' },
-  { id:'en_t9',  type:'translation',    category:'phrase',   topic:'tech', instruction:'Express in formal technical language.',                         prompt:'The website went down.',                        answer:'The service experienced an unplanned outage.',   promptLang:'en-US' },
-]
+const DB_EN_TECH = englishDrillData.filter(item => item.group === 'DB_EN_TECH') as DrillItem[]
 
-const DB_EN_FOOD: DrillItem[] = [
-  { id:'en_f1',  type:'substitution',   category:'vocab',    topic:'food', instruction:'Give the advanced culinary term.',                              prompt:'tasty (adj)',                    answer:'delectable',  variants:['palatable','exquisite'],                      promptLang:'en-US' },
-  { id:'en_f2',  type:'substitution',   category:'vocab',    topic:'food', instruction:'Give the precise culinary term.',                              prompt:'cook slowly in liquid (phrase)', answer:'braise',      variants:['simmer','stew'],                              promptLang:'en-US' },
-  { id:'en_f3',  type:'substitution',   category:'vocab',    topic:'food', instruction:'Give the advanced culinary term.',                              prompt:'sour (adj, flavor)',             answer:'acidic',      variants:['tart','astringent'],                          promptLang:'en-US' },
-  { id:'en_f4',  type:'substitution',   category:'vocab',    topic:'food', instruction:'Give the precise culinary term.',                              prompt:'cut into tiny pieces (phrase)', answer:'mince',       variants:['dice','chop finely'],                         promptLang:'en-US' },
-  { id:'en_f5',  type:'transformation', category:'sentence', topic:'food', instruction:'Rewrite in formal culinary description style.',                 prompt:'The steak was cooked just right.',  answer:'The steak was cooked to the ideal internal temperature.',    promptLang:'en-US' },
-  { id:'en_f6',  type:'substitution',   category:'vocab',    topic:'food', instruction:'Give the advanced culinary term.',                              prompt:'smooth and creamy texture',     answer:'velvety',     variants:['silky','unctuous'],                           promptLang:'en-US' },
-  { id:'en_f7',  type:'substitution',   category:'vocab',    topic:'food', instruction:'Give the precise culinary term.',                              prompt:'add salt and spices (phrase)',   answer:'season',      variants:['season to taste'],                            promptLang:'en-US' },
-  { id:'en_f8',  type:'transformation', category:'sentence', topic:'food', instruction:'Rewrite as a formal menu description.',                         prompt:'The soup is really thick and filling.', answer:'The soup is a rich and hearty preparation with a substantial consistency.', promptLang:'en-US' },
-  { id:'en_f9',  type:'substitution',   category:'vocab',    topic:'food', instruction:'Give the advanced synonym.',                                    prompt:'cook in oven (phrase)',          answer:'roast',       variants:['bake','broil'],                               promptLang:'en-US' },
-]
+const DB_EN_FOOD = englishDrillData.filter(item => item.group === 'DB_EN_FOOD') as DrillItem[]
 
-const DB_EN_WORK: DrillItem[] = [
-  { id:'en_w1',  type:'substitution',   category:'sentence', topic:'work', instruction:'Replace the bracketed phrase with a professional term.',        prompt:'I [quit] the project.',                  answer:'withdrew from',   variants:['relinquished my role in'],                    promptLang:'en-US' },
-  { id:'en_w2',  type:'substitution',   category:'sentence', topic:'work', instruction:'Replace the bracketed phrase with a precise professional term.', prompt:'She [got promoted] to director.',         answer:'was appointed',   variants:['was elevated','was promoted'],                 promptLang:'en-US' },
-  { id:'en_w3',  type:'transformation', category:'sentence', topic:'work', instruction:'Rewrite in formal business language.',                           prompt:"We didn't hit our targets this quarter.", answer:'We fell short of our projected targets this quarter.',       promptLang:'en-US' },
-  { id:'en_w4',  type:'transformation', category:'sentence', topic:'work', instruction:'Rewrite as a formal business email opening.',                    prompt:'Hi, just checking in.',                  answer:'I am writing to follow up on the matter.',               promptLang:'en-US' },
-  { id:'en_w5',  type:'substitution',   category:'vocab',    topic:'work', instruction:'Give the advanced business synonym.',                            prompt:'meeting (noun)',                          answer:'consultation',    variants:['conference','briefing'],                      promptLang:'en-US' },
-  { id:'en_w6',  type:'substitution',   category:'vocab',    topic:'work', instruction:'Give the advanced synonym.',                                     prompt:'fire (verb, employment)',                 answer:'terminate',       variants:['dismiss','discharge'],                        promptLang:'en-US' },
-  { id:'en_w7',  type:'substitution',   category:'vocab',    topic:'work', instruction:'Give the precise business term.',                                prompt:'work together (phrase)',                  answer:'collaborate',     variants:['coordinate','liaise'],                        promptLang:'en-US' },
-  { id:'en_w8',  type:'translation',    category:'phrase',   topic:'work', instruction:'Express in formal business language.',                           prompt:"We're losing money.",                     answer:'The organization is experiencing a revenue deficit.',        promptLang:'en-US' },
-  { id:'en_w9',  type:'translation',    category:'phrase',   topic:'work', instruction:'Express formally.',                                              prompt:"Let's wrap up.",                         answer:'I suggest we bring this meeting to a close.',               promptLang:'en-US' },
-]
+const DB_EN_WORK = englishDrillData.filter(item => item.group === 'DB_EN_WORK') as DrillItem[]
 
-const DB_EN_HEALTH: DrillItem[] = [
-  { id:'en_he1', type:'substitution',   category:'vocab',    topic:'health', instruction:'Give the medical/advanced term.',                prompt:'high blood pressure',         answer:'hypertension',       variants:['elevated blood pressure'],               promptLang:'en-US' },
-  { id:'en_he2', type:'substitution',   category:'vocab',    topic:'health', instruction:'Give the advanced synonym.',                    prompt:'get better (verb)',           answer:'recover',            variants:['recuperate','convalesce'],               promptLang:'en-US' },
-  { id:'en_he3', type:'substitution',   category:'vocab',    topic:'health', instruction:'Give the medical term.',                        prompt:'feel dizzy (phrase)',         answer:'experience vertigo', variants:['feel lightheaded'],                      promptLang:'en-US' },
-  { id:'en_he4', type:'substitution',   category:'vocab',    topic:'health', instruction:'Give the medical/advanced term.',               prompt:'painkiller (noun)',           answer:'analgesic',          variants:['pain reliever'],                         promptLang:'en-US' },
-  { id:'en_he5', type:'substitution',   category:'vocab',    topic:'health', instruction:'Give the medical term.',                        prompt:'low blood pressure',         answer:'hypotension',        variants:['low BP'],                               promptLang:'en-US' },
-  { id:'en_he6', type:'transformation', category:'sentence', topic:'health', instruction:'Rewrite in formal medical language.',           prompt:"She's really tired all the time.",   answer:'The patient presents with persistent fatigue.',        promptLang:'en-US' },
-  { id:'en_he7', type:'transformation', category:'sentence', topic:'health', instruction:'Express formally.',                             prompt:'I have a really bad headache.',      answer:'I am experiencing a severe headache.',                 promptLang:'en-US' },
-  { id:'en_he8', type:'substitution',   category:'vocab',    topic:'health', instruction:'Give the advanced medical term.',               prompt:'spreading of disease',        answer:'propagation',        variants:['transmission','dissemination'],          promptLang:'en-US' },
-  { id:'en_he9', type:'translation',    category:'phrase',   topic:'health', instruction:'Express in clinical language.',                 prompt:"I feel sick to my stomach.",  answer:'I am experiencing nausea.',                           promptLang:'en-US' },
-]
+const DB_EN_HEALTH = englishDrillData.filter(item => item.group === 'DB_EN_HEALTH') as DrillItem[]
 
-const DB_EN_MONEY: DrillItem[] = [
-  { id:'en_mo1', type:'substitution',   category:'vocab',    topic:'money', instruction:'Give the advanced financial term.', prompt:'money coming in (noun)',    answer:'revenue',      variants:['income','earnings'],                   promptLang:'en-US' },
-  { id:'en_mo2', type:'substitution',   category:'vocab',    topic:'money', instruction:'Give the advanced financial term.', prompt:'money going out (noun)',    answer:'expenditure',  variants:['expenses','outlay'],                   promptLang:'en-US' },
-  { id:'en_mo3', type:'substitution',   category:'vocab',    topic:'money', instruction:'Give the advanced synonym.',        prompt:'save money (phrase)',       answer:'economize',    variants:['conserve funds'],                      promptLang:'en-US' },
-  { id:'en_mo4', type:'substitution',   category:'vocab',    topic:'money', instruction:'Give the advanced financial term.', prompt:'debt (noun)',               answer:'liability',    variants:['obligation','indebtedness'],           promptLang:'en-US' },
-  { id:'en_mo5', type:'substitution',   category:'vocab',    topic:'money', instruction:'Give the precise financial term.',  prompt:'ownership share (noun)',    answer:'equity',       variants:['stake','shareholding'],                promptLang:'en-US' },
-  { id:'en_mo6', type:'substitution',   category:'vocab',    topic:'money', instruction:'Give the advanced synonym.',        prompt:'get money back (phrase)',   answer:'recoup',       variants:['recover','retrieve'],                  promptLang:'en-US' },
-  { id:'en_mo7', type:'transformation', category:'sentence', topic:'money', instruction:'Rewrite in formal financial language.', prompt:'We lost a lot of money this year.',  answer:'The organization reported substantial financial losses this fiscal year.', promptLang:'en-US' },
-  { id:'en_mo8', type:'transformation', category:'sentence', topic:'money', instruction:'Express formally.',                 prompt:'The price went up a lot.',  answer:'A significant price escalation was observed.',            promptLang:'en-US' },
-  { id:'en_mo9', type:'translation',    category:'phrase',   topic:'money', instruction:'Express in formal financial language.', prompt:"We're in the red.", answer:'The organization is operating at a deficit.',              promptLang:'en-US' },
-]
+const DB_EN_MONEY = englishDrillData.filter(item => item.group === 'DB_EN_MONEY') as DrillItem[]
 
-const DB_EN_FAMILY: DrillItem[] = [
-  { id:'en_fa1', type:'substitution',   category:'vocab',    topic:'family', instruction:'Give the precise/formal term.',     prompt:'kids (noun)',                answer:'children',      variants:['offspring','progeny'],                  promptLang:'en-US' },
-  { id:'en_fa2', type:'substitution',   category:'vocab',    topic:'family', instruction:'Give the advanced synonym.',        prompt:'raise children (phrase)',     answer:'rear children', variants:['nurture','bring up'],                   promptLang:'en-US' },
-  { id:'en_fa3', type:'substitution',   category:'vocab',    topic:'family', instruction:'Give the advanced/precise term.',   prompt:'family bond (noun phrase)',   answer:'familial bond', variants:['kinship','familial tie'],               promptLang:'en-US' },
-  { id:'en_fa4', type:'substitution',   category:'vocab',    topic:'family', instruction:'Give the formal term.',             prompt:'related by blood (phrase)',   answer:'consanguineous', variants:['blood relation'],                      promptLang:'en-US' },
-  { id:'en_fa5', type:'substitution',   category:'vocab',    topic:'family', instruction:'Give the formal/legal term.',       prompt:'legal guardian (noun)',       answer:'custodian',     variants:['guardian','legal custodian'],           promptLang:'en-US' },
-  { id:'en_fa6', type:'transformation', category:'sentence', topic:'family', instruction:'Express in formal language.',       prompt:"My parents split up.",         answer:'My parents separated.',                                   promptLang:'en-US' },
-  { id:'en_fa7', type:'transformation', category:'sentence', topic:'family', instruction:'Rewrite in formal register.',       prompt:"She takes care of her grandma.", answer:'She provides care for her grandmother.',                promptLang:'en-US' },
-  { id:'en_fa8', type:'transformation', category:'sentence', topic:'family', instruction:'Express formally.',                  prompt:"My brother is getting married.", answer:'My brother is preparing to enter into matrimony.',      promptLang:'en-US' },
-  { id:'en_fa9', type:'translation',    category:'phrase',   topic:'family', instruction:'Express formally.',                  prompt:"We're a close family.",        answer:'We maintain strong familial bonds.',                    promptLang:'en-US' },
-]
+const DB_EN_FAMILY = englishDrillData.filter(item => item.group === 'DB_EN_FAMILY') as DrillItem[]
 
-const DB_EN_NATURE: DrillItem[] = [
-  { id:'en_na1', type:'substitution',   category:'vocab',    topic:'nature', instruction:'Give the scientific/advanced term.', prompt:'earthquake (noun)',          answer:'seismic event',      variants:['tremor','seismic activity'],         promptLang:'en-US' },
-  { id:'en_na2', type:'substitution',   category:'vocab',    topic:'nature', instruction:'Give the scientific term.',          prompt:'plant life (collective)',     answer:'flora',              variants:['vegetation'],                       promptLang:'en-US' },
-  { id:'en_na3', type:'substitution',   category:'vocab',    topic:'nature', instruction:'Give the scientific term.',          prompt:'animal life (collective)',    answer:'fauna',              variants:['wildlife'],                         promptLang:'en-US' },
-  { id:'en_na4', type:'substitution',   category:'vocab',    topic:'nature', instruction:'Give the advanced synonym.',          prompt:'dry spell (noun)',            answer:'drought',            variants:['arid period'],                      promptLang:'en-US' },
-  { id:'en_na5', type:'substitution',   category:'vocab',    topic:'nature', instruction:'Give the scientific term.',          prompt:'cutting down forests',        answer:'deforestation',      variants:['forest clearance'],                 promptLang:'en-US' },
-  { id:'en_na6', type:'substitution',   category:'vocab',    topic:'nature', instruction:'Give the scientific term.',          prompt:'carbon in the atmosphere',    answer:'atmospheric carbon', variants:['CO2 concentration'],                promptLang:'en-US' },
-  { id:'en_na7', type:'transformation', category:'sentence', topic:'nature', instruction:'Express in scientific language.',    prompt:'The river flooded badly.',     answer:'The river experienced significant inundation.',             promptLang:'en-US' },
-  { id:'en_na8', type:'transformation', category:'sentence', topic:'nature', instruction:'Rewrite in formal environmental language.', prompt:'The air is really dirty here.', answer:'The local air quality is severely compromised.',       promptLang:'en-US' },
-  { id:'en_na9', type:'translation',    category:'phrase',   topic:'nature', instruction:'Express formally.',                  prompt:"It's really hot today.",       answer:'Temperatures are elevated considerably today.',             promptLang:'en-US' },
-]
+const DB_EN_NATURE = englishDrillData.filter(item => item.group === 'DB_EN_NATURE') as DrillItem[]
 
-const DB_EN_EDUCATION: DrillItem[] = [
-  { id:'en_ed1', type:'substitution',   category:'vocab',    topic:'education', instruction:'Give the advanced academic term.', prompt:'test (noun, academic)',        answer:'assessment',          variants:['evaluation','examination'],             promptLang:'en-US' },
-  { id:'en_ed2', type:'substitution',   category:'vocab',    topic:'education', instruction:'Give the advanced synonym.',        prompt:'teacher (noun)',               answer:'instructor',           variants:['educator','professor','lecturer'],      promptLang:'en-US' },
-  { id:'en_ed3', type:'substitution',   category:'vocab',    topic:'education', instruction:'Give the advanced academic term.', prompt:'homework (noun)',               answer:'coursework',           variants:['assigned work'],                        promptLang:'en-US' },
-  { id:'en_ed4', type:'substitution',   category:'vocab',    topic:'education', instruction:'Give the advanced synonym.',        prompt:'learn (verb)',                  answer:'acquire knowledge',   variants:['comprehend','internalize'],             promptLang:'en-US' },
-  { id:'en_ed5', type:'substitution',   category:'vocab',    topic:'education', instruction:'Give the advanced academic term.', prompt:'school essay (noun)',           answer:'academic composition', variants:['scholarly essay','written assignment'], promptLang:'en-US' },
-  { id:'en_ed6', type:'transformation', category:'sentence', topic:'education', instruction:'Rewrite in academic language.',    prompt:'I failed the test.',           answer:'I did not achieve a satisfactory score on the assessment.',  promptLang:'en-US' },
-  { id:'en_ed7', type:'transformation', category:'sentence', topic:'education', instruction:'Express in formal academic style.', prompt:'The students really liked the lecture.', answer:'The students responded favorably to the lecture.',    promptLang:'en-US' },
-  { id:'en_ed8', type:'transformation', category:'sentence', topic:'education', instruction:'Rewrite as a formal academic statement.', prompt:'This book is really hard to understand.', answer:'This text presents considerable interpretive challenges.', promptLang:'en-US' },
-  { id:'en_ed9', type:'translation',    category:'phrase',   topic:'education', instruction:'Express formally.',                prompt:'I got a bad grade.',           answer:'I received an unsatisfactory grade.',                        promptLang:'en-US' },
-]
+const DB_EN_EDUCATION = englishDrillData.filter(item => item.group === 'DB_EN_EDUCATION') as DrillItem[]
 
-const DB_EN_CULTURE: DrillItem[] = [
-  { id:'en_cu1', type:'substitution',   category:'vocab',    topic:'culture', instruction:'Give the advanced synonym.',         prompt:'old (adj, of art)',          answer:'antiquated',   variants:['archaic','antique'],                   promptLang:'en-US' },
-  { id:'en_cu2', type:'substitution',   category:'vocab',    topic:'culture', instruction:'Give the advanced term.',            prompt:'handed-down tradition',      answer:'heritage',     variants:['cultural inheritance','legacy'],        promptLang:'en-US' },
-  { id:'en_cu3', type:'substitution',   category:'vocab',    topic:'culture', instruction:'Give the advanced synonym.',         prompt:'art show (noun)',            answer:'exhibition',   variants:['exposition'],                          promptLang:'en-US' },
-  { id:'en_cu4', type:'substitution',   category:'vocab',    topic:'culture', instruction:'Give the advanced synonym.',         prompt:'music style (noun)',         answer:'genre',        variants:['musical tradition'],                   promptLang:'en-US' },
-  { id:'en_cu5', type:'substitution',   category:'vocab',    topic:'culture', instruction:'Give the advanced synonym.',         prompt:'old custom (noun)',           answer:'tradition',    variants:['convention','ritual'],                 promptLang:'en-US' },
-  { id:'en_cu6', type:'transformation', category:'sentence', topic:'culture', instruction:'Rewrite in formal cultural commentary.', prompt:'This painting looks really nice.', answer:'This composition exhibits remarkable aesthetic merit.',  promptLang:'en-US' },
-  { id:'en_cu7', type:'transformation', category:'sentence', topic:'culture', instruction:'Express in formal critical language.', prompt:'The movie was really boring.',  answer:'The film failed to sustain audience engagement.',           promptLang:'en-US' },
-  { id:'en_cu8', type:'transformation', category:'sentence', topic:'culture', instruction:'Express in formal literary criticism.', prompt:'The book has a really interesting plot.', answer:'The narrative presents a compelling and intricate plot structure.', promptLang:'en-US' },
-  { id:'en_cu9', type:'translation',    category:'phrase',   topic:'culture', instruction:'Express in formal critical language.', prompt:'That show was amazing.', answer:'The performance was of exceptional artistic merit.',          promptLang:'en-US' },
-]
+const DB_EN_CULTURE = englishDrillData.filter(item => item.group === 'DB_EN_CULTURE') as DrillItem[]
 
-const DB_EN_POLITICS: DrillItem[] = [
-  { id:'en_po1', type:'substitution',   category:'vocab',    topic:'politics', instruction:'Give the advanced political term.',   prompt:'voting (noun)',            answer:'suffrage',            variants:['franchise','electoral participation'],  promptLang:'en-US' },
-  { id:'en_po2', type:'substitution',   category:'vocab',    topic:'politics', instruction:'Give the advanced synonym.',          prompt:'law (noun)',               answer:'legislation',         variants:['statute','ordinance'],                  promptLang:'en-US' },
-  { id:'en_po3', type:'substitution',   category:'vocab',    topic:'politics', instruction:'Give the advanced political term.',   prompt:'peace talk (noun)',        answer:'diplomatic negotiation', variants:['treaty negotiation'],                 promptLang:'en-US' },
-  { id:'en_po4', type:'substitution',   category:'vocab',    topic:'politics', instruction:'Give the advanced synonym.',          prompt:'ban (verb)',               answer:'prohibit',            variants:['proscribe','forbid'],                   promptLang:'en-US' },
-  { id:'en_po5', type:'substitution',   category:'vocab',    topic:'politics', instruction:'Give the advanced term.',             prompt:'give power to (phrase)',   answer:'delegate authority',  variants:['empower','authorize'],                  promptLang:'en-US' },
-  { id:'en_po6', type:'transformation', category:'sentence', topic:'politics', instruction:'Rewrite in formal political language.', prompt:'The government messed up.', answer:'The administration demonstrated significant governance failures.', promptLang:'en-US' },
-  { id:'en_po7', type:'transformation', category:'sentence', topic:'politics', instruction:'Express in formal political commentary.', prompt:'They disagreed on everything.', answer:'The parties reached an impasse on all key points of contention.', promptLang:'en-US' },
-  { id:'en_po8', type:'transformation', category:'sentence', topic:'politics', instruction:'Rewrite in formal language.',          prompt:'The president gave a speech.', answer:'The president delivered a formal address.',                    promptLang:'en-US' },
-  { id:'en_po9', type:'translation',    category:'phrase',   topic:'politics', instruction:'Express formally.',                   prompt:'The law changed.',          answer:'The legislation was amended.',                                 promptLang:'en-US' },
-]
+const DB_EN_POLITICS = englishDrillData.filter(item => item.group === 'DB_EN_POLITICS') as DrillItem[]
 
-const DB_EN_SCIENCE: DrillItem[] = [
-  { id:'en_sc1', type:'substitution',   category:'vocab',    topic:'science', instruction:'Give the scientific/advanced term.', prompt:'test something (phrase)',    answer:'conduct an experiment', variants:['evaluate empirically'],               promptLang:'en-US' },
-  { id:'en_sc2', type:'substitution',   category:'vocab',    topic:'science', instruction:'Give the scientific term.',          prompt:'guess (noun, research)',     answer:'hypothesis',            variants:['conjecture','postulate'],             promptLang:'en-US' },
-  { id:'en_sc3', type:'substitution',   category:'vocab',    topic:'science', instruction:'Give the scientific term.',          prompt:'proof (noun, scientific)',   answer:'empirical evidence',    variants:['experimental data'],                  promptLang:'en-US' },
-  { id:'en_sc4', type:'substitution',   category:'vocab',    topic:'science', instruction:'Give the advanced synonym.',         prompt:'find out (phrase)',          answer:'ascertain',             variants:['determine','establish','verify'],     promptLang:'en-US' },
-  { id:'en_sc5', type:'substitution',   category:'vocab',    topic:'science', instruction:'Give the scientific term.',          prompt:'change over time (verb)',    answer:'evolve',                variants:['undergo transformation'],             promptLang:'en-US' },
-  { id:'en_sc6', type:'transformation', category:'sentence', topic:'science', instruction:'Rewrite in formal scientific language.', prompt:'The experiment worked.', answer:'The experimental results were consistent with the hypothesis.',    promptLang:'en-US' },
-  { id:'en_sc7', type:'transformation', category:'sentence', topic:'science', instruction:'Rewrite in scientific reporting style.', prompt:'We noticed something strange.', answer:'An anomalous observation was recorded.',                   promptLang:'en-US' },
-  { id:'en_sc8', type:'transformation', category:'sentence', topic:'science', instruction:'Express in formal scientific language.', prompt:'The results showed it worked.', answer:'The data demonstrated a statistically significant outcome.', promptLang:'en-US' },
-  { id:'en_sc9', type:'translation',    category:'phrase',   topic:'science', instruction:'Express in scientific language.',    prompt:"We don't know why this happens.", answer:'The underlying mechanism remains undetermined.',                promptLang:'en-US' },
-]
+const DB_EN_SCIENCE = englishDrillData.filter(item => item.group === 'DB_EN_SCIENCE') as DrillItem[]
 
-const DB_EN_SHOPPING: DrillItem[] = [
-  { id:'en_sh1', type:'substitution',   category:'vocab',    topic:'shopping', instruction:'Give the formal/advanced term.',    prompt:'cheap (adj)',               answer:'economical',      variants:['affordable','cost-effective'],         promptLang:'en-US' },
-  { id:'en_sh2', type:'substitution',   category:'vocab',    topic:'shopping', instruction:'Give the advanced synonym.',        prompt:'buy (verb)',                 answer:'purchase',        variants:['acquire','procure'],                  promptLang:'en-US' },
-  { id:'en_sh3', type:'substitution',   category:'vocab',    topic:'shopping', instruction:'Give the formal term.',             prompt:'price drop (noun)',          answer:'price reduction', variants:['discount','markdown'],                promptLang:'en-US' },
-  { id:'en_sh4', type:'substitution',   category:'vocab',    topic:'shopping', instruction:'Give the advanced synonym.',        prompt:'send back (verb, retail)',   answer:'return',          variants:['refund','exchange'],                  promptLang:'en-US' },
-  { id:'en_sh5', type:'substitution',   category:'vocab',    topic:'shopping', instruction:'Give the precise retail term.',     prompt:'money back guarantee',      answer:'refund policy',   variants:['return policy'],                      promptLang:'en-US' },
-  { id:'en_sh6', type:'transformation', category:'sentence', topic:'shopping', instruction:'Rewrite in formal retail language.', prompt:'This item is sold out.',   answer:'This item is currently unavailable.',                          promptLang:'en-US' },
-  { id:'en_sh7', type:'transformation', category:'sentence', topic:'shopping', instruction:'Express in formal retail language.', prompt:'I want my money back.',    answer:'I would like to request a refund.',                            promptLang:'en-US' },
-  { id:'en_sh8', type:'transformation', category:'sentence', topic:'shopping', instruction:'Rewrite formally.',                 prompt:'This store has great deals.', answer:'This establishment offers competitive pricing.',               promptLang:'en-US' },
-  { id:'en_sh9', type:'translation',    category:'phrase',   topic:'shopping', instruction:'Express formally.',                 prompt:'Do you have this in another color?', answer:'Is this available in alternative colorways?',              promptLang:'en-US' },
-]
+const DB_EN_SHOPPING = englishDrillData.filter(item => item.group === 'DB_EN_SHOPPING') as DrillItem[]
 
-const DB_EN_EMERGENCY: DrillItem[] = [
-  { id:'en_em1', type:'substitution',   category:'vocab',    topic:'emergency', instruction:'Give the formal emergency term.',     prompt:'call for help (phrase)',     answer:'summon assistance',           variants:['alert emergency services'],          promptLang:'en-US' },
-  { id:'en_em2', type:'substitution',   category:'vocab',    topic:'emergency', instruction:'Give the precise emergency term.',    prompt:'hurt (adj, in emergency)',   answer:'injured',                     variants:['incapacitated','wounded'],           promptLang:'en-US' },
-  { id:'en_em3', type:'substitution',   category:'vocab',    topic:'emergency', instruction:'Give the precise term.',              prompt:'passed out (phrase)',         answer:'lost consciousness',          variants:['became unconscious'],               promptLang:'en-US' },
-  { id:'en_em4', type:'substitution',   category:'vocab',    topic:'emergency', instruction:'Give the advanced medical term.',     prompt:'heart attack (casual)',       answer:'cardiac arrest',              variants:['myocardial infarction'],            promptLang:'en-US' },
-  { id:'en_em5', type:'substitution',   category:'vocab',    topic:'emergency', instruction:'Give the formal term.',               prompt:'first aid (noun phrase)',     answer:'emergency medical treatment', variants:['initial medical care'],             promptLang:'en-US' },
-  { id:'en_em6', type:'transformation', category:'sentence', topic:'emergency', instruction:'Express in formal emergency language.', prompt:'Someone got hurt.',         answer:'An individual has sustained an injury.',                        promptLang:'en-US' },
-  { id:'en_em7', type:'transformation', category:'sentence', topic:'emergency', instruction:'Express as a formal emergency report.', prompt:"There's a fire!",          answer:'A fire has been detected on the premises.',                    promptLang:'en-US' },
-  { id:'en_em8', type:'transformation', category:'sentence', topic:'emergency', instruction:'Express formally.',                    prompt:"He can't breathe.",          answer:'The individual is experiencing respiratory distress.',         promptLang:'en-US' },
-  { id:'en_em9', type:'translation',    category:'phrase',   topic:'emergency', instruction:'Express in formal emergency language.', prompt:'We need an ambulance now.', answer:'Immediate dispatch of emergency medical services is required.', promptLang:'en-US' },
-]
+const DB_EN_EMERGENCY = englishDrillData.filter(item => item.group === 'DB_EN_EMERGENCY') as DrillItem[]
 
 const NEW_TOPICS_EN = [...DB_EN_HEALTH, ...DB_EN_MONEY, ...DB_EN_FAMILY, ...DB_EN_NATURE, ...DB_EN_EDUCATION, ...DB_EN_CULTURE, ...DB_EN_POLITICS, ...DB_EN_SCIENCE, ...DB_EN_SHOPPING, ...DB_EN_EMERGENCY]
 

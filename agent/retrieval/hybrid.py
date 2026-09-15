@@ -24,7 +24,7 @@ import os
 import time
 from typing import Any, TypedDict
 
-from .db import query_by_vector
+from .db import query_by_vector, IndexUnavailable
 from .embeddings import (
     VECTOR_MIN_SIMILARITY,
     format_query_from_item,
@@ -193,7 +193,12 @@ def retrieve_contrast_note_hybrid(
         result["retrieval_mode"] = "metadata_only"
         return result
 
-    candidates = query_by_vector(query_embedding, language="en", kind="contrast_note", limit=10)
+    try:
+        candidates = query_by_vector(query_embedding, language="en", kind="contrast_note", limit=10)
+    except IndexUnavailable as exc:
+        result = _metadata_only(meta_debug, _elapsed())
+        result["reason"] = exc.reason
+        return result
     if not candidates:
         result = _metadata_only(meta_debug, _elapsed())
         result["retrieval_mode"] = "metadata_only"
@@ -240,7 +245,7 @@ def retrieve_contrast_note_hybrid(
 
     best = ranked[0]
     best_doc = best["doc"]
-    safe_examples = [ex for ex in best_doc.examples if ex.source_item_id != item_id][:2]
+    safe_examples = [ex for ex in best_doc.examples if not ex.source_item_id or ex.source_item_id != item_id][:2]
 
     # Determine mode label.
     if meta_debug["hit"] and meta_debug["note"] and meta_debug["note"].id == best_doc.id:
@@ -301,7 +306,10 @@ def retrieve_for_freeform_question(
     if query_embedding is None:
         return _miss(REASON_EMBEDDINGS_UNAVAILABLE)
 
-    candidates = query_by_vector(query_embedding, language="en", kind="contrast_note", limit=10)
+    try:
+        candidates = query_by_vector(query_embedding, language="en", kind="contrast_note", limit=10)
+    except IndexUnavailable as exc:
+        return _miss(exc.reason)
     if not candidates:
         return _miss(REASON_DB_UNAVAILABLE)
 
@@ -343,7 +351,7 @@ def retrieve_for_freeform_question(
 
     best = ranked[0]
     best_doc = best["doc"]
-    safe_examples = [ex for ex in best_doc.examples if ex.source_item_id != item_id][:2]
+    safe_examples = [ex for ex in best_doc.examples if not ex.source_item_id or ex.source_item_id != item_id][:2]
 
     return {
         "hit": True,

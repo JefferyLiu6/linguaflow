@@ -1,5 +1,9 @@
 # Backlog
 
+## RAG engineering release
+
+The prioritized [RAG update plan](RAG_UPDATE_PLAN.md) defines milestones, acceptance gates, experiments, and release evidence. Start with corpus validation and index correctness; keep the unrelated data-model work below separate.
+
 ## Next hardening steps
 
 - [ ] Capture live planner and Study screenshots from the deployed app and replace the temporary README note.

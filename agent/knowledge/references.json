@@ -1,0 +1,126 @@
+{
+  "version": "2.0.0",
+  "sources": [
+    {
+      "id": "register",
+      "publisher": "Cambridge English Grammar Today",
+      "title": "Formal and informal language",
+      "url": "https://dictionary.cambridge.org/uk/grammar/british-grammar/informal-and-formal-language",
+      "supports": "Register depends on context and grammatical/lexical choices.",
+      "checked_on": "2026-09-15",
+      "verification": "indexed_official_page; direct fetch returned 403",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "plain",
+      "publisher": "Digital.gov",
+      "title": "Principles of plain language",
+      "url": "https://digital.gov/guides/plain-language/principles",
+      "supports": "Choose wording for the intended audience and test clarity.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "nominal",
+      "publisher": "Digital.gov",
+      "title": "Writing for understanding",
+      "url": "https://digital.gov/guides/plain-language/writing",
+      "supports": "Nominalizations can conceal verbs and add unnecessary wording.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "passive",
+      "publisher": "British Council",
+      "title": "Passives",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives",
+      "supports": "Passive formation and choice of focus.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "participle",
+      "publisher": "British Council",
+      "title": "Participle clauses",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/participle-clauses",
+      "supports": "Shared-subject participle constructions and earlier completed actions.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "relative",
+      "publisher": "British Council",
+      "title": "Defining relative clauses",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-defining-relative-clauses",
+      "supports": "Defining clauses identify the intended referent.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "nonrelative",
+      "publisher": "British Council",
+      "title": "Non-defining relative clauses",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-non-defining-relative-clauses",
+      "supports": "Parenthetical clauses, punctuation and relative pronouns.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "conditional",
+      "publisher": "British Council",
+      "title": "Inversion and conditionals",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-conditionals",
+      "supports": "Should/were/had inversion and conditional types.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "caution",
+      "publisher": "University of Manchester",
+      "title": "Academic Phrasebank: Being cautious",
+      "url": "https://www.phrasebank.manchester.ac.uk/using-cautious-language/",
+      "supports": "Calibrate claims to uncertainty and avoid overgeneralization.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "science",
+      "publisher": "UNC Writing Center",
+      "title": "Scientific reports",
+      "url": "https://writingcenter.unc.edu/tips-and-tools/scientific-reports/",
+      "supports": "Scientific voice conventions vary; report observations without overinterpretation.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    },
+    {
+      "id": "heart_terms",
+      "publisher": "American Heart Association",
+      "title": "Heart attack or sudden cardiac arrest: how are they different?",
+      "url": "https://www.heart.org/en/health-topics/heart-attack/about-heart-attacks/heart-attack-or-sudden-cardiac-arrest-how-are-they-different",
+      "supports": "Heart attack and cardiac arrest are different; terminology correction only.",
+      "checked_on": "2026-09-15",
+      "verification": "official_page_opened",
+      "use": "Link and short independently worded principle only; original project examples. No source exercises redistributed.",
+      "limits": "Does not certify every application example, target answer, or domain-specific claim."
+    }
+  ]
+}

@@ -1,27 +1,11 @@
-"""
-Offline sync command: embed contrast notes and upsert into the retrieval_doc table.
-
-This is the only supported indexing path. Embeddings are never created at
-app startup or at request time.
-
-Usage:
-    python -m retrieval.sync_embeddings
-    python -m retrieval.sync_embeddings --language en
-    python -m retrieval.sync_embeddings --rebuild          # re-embed even unchanged rows
-    python -m retrieval.sync_embeddings --dry-run          # print what would happen, no writes
-
-Output:
-    inserted N  updated N  skipped N  failed N  deactivated N
-"""
+"""Validate, prepare vectors, then atomically publish one complete language corpus."""
 from __future__ import annotations
-
 import argparse
-import sys
 from dataclasses import dataclass, field
-
-from .db import deactivate_missing, upsert_retrieval_doc
-from .embeddings import CHUNK_FORMAT_VERSION, format_chunk_text, embed_texts
+from .db import read_manifest, publish_corpus
+from .embeddings import embed_texts, format_chunk_text
 from .loader import load_contrast_docs
+from .manifest import manifest_for, valid_vector
 
 
 @dataclass
@@ -33,122 +17,59 @@ class SyncStats:
     deactivated: int = 0
     errors: list[str] = field(default_factory=list)
 
-    def record(self, outcome: str, note_id: str) -> None:
-        if outcome == "inserted":
-            self.inserted += 1
-        elif outcome == "updated":
-            self.updated += 1
-        elif outcome == "skipped":
-            self.skipped += 1
-        else:
-            self.failed += 1
-            self.errors.append(note_id)
-
-    def summary(self) -> str:
-        parts = [
-            f"inserted {self.inserted}",
-            f"updated {self.updated}",
-            f"skipped {self.skipped}",
-            f"failed {self.failed}",
-            f"deactivated {self.deactivated}",
-        ]
-        return "  ".join(parts)
+    def summary(self):
+        return "  ".join(f"{key} {getattr(self, key)}" for key in ("inserted", "updated", "skipped", "failed", "deactivated"))
 
 
-def sync_language(
-    language: str,
-    *,
-    rebuild: bool = False,
-    dry_run: bool = False,
-    batch_size: int = 20,
-) -> SyncStats:
-    stats = SyncStats()
-
+def sync_language(language, *, rebuild=False, dry_run=False, batch_size=20):
+    if batch_size < 1:
+        raise ValueError("batch_size must be positive")
+    from .validate_corpus import validate_corpus
+    validation = validate_corpus()
+    if validation["errors"]:
+        raise ValueError("Corpus validation failed: " + "; ".join(validation["errors"]))
+    load_contrast_docs.cache_clear()
     notes = load_contrast_docs(language)
-    if not notes:
-        print(f"[sync] No notes found for language={language!r}. Nothing to do.")
-        return stats
-
-    print(f"[sync] {len(notes)} notes loaded for language={language!r}  chunk_format={CHUNK_FORMAT_VERSION}")
-
-    # Build all chunk texts first so we can batch-embed efficiently.
-    chunk_texts = [format_chunk_text(n) for n in notes]
-
-    # Batch-embed in groups of batch_size to avoid hitting API limits.
-    all_embeddings: list[list[float] | None] = []
-    for i in range(0, len(notes), batch_size):
-        batch = chunk_texts[i : i + batch_size]
-        if dry_run:
-            all_embeddings.extend([None] * len(batch))
-            continue
-        result = embed_texts(batch)
-        if result is None:
-            print(f"[sync] WARNING: embedding batch {i//batch_size + 1} failed; rows will be upserted without embeddings.")
-            all_embeddings.extend([None] * len(batch))
-        else:
-            all_embeddings.extend(result)
-
-    # Upsert each note.
-    active_ids: set[str] = set()
-    for note, chunk_text, embedding in zip(notes, chunk_texts, all_embeddings):
-        active_ids.add(note.id)
-        if dry_run:
-            print(f"  [dry-run] would upsert {note.id!r}  chunk_len={len(chunk_text)}")
-            stats.skipped += 1
-            continue
-
-        effective_embedding = embedding if not rebuild else embedding
-        outcome = upsert_retrieval_doc(
-            id=note.id,
-            concept_id=note.concept_id,
-            language=note.language,
-            kind=note.kind,
-            title=note.title,
-            chunk_text=chunk_text,
-            tags=list(note.tags),
-            authoring_item_ids=list(note.authoring_item_ids),
-            embedding=effective_embedding,
-            active=True,
-        )
-        stats.record(outcome, note.id)
-        status_char = {"inserted": "+", "updated": "~", "skipped": ".", "failed": "!"}.get(outcome, "?")
-        print(f"  [{status_char}] {note.id:<40}  {outcome}")
-
-    # Deactivate rows in DB that are no longer in the corpus.
-    if not dry_run and active_ids:
-        stats.deactivated = deactivate_missing(language, active_ids)
-        if stats.deactivated:
-            print(f"[sync] Deactivated {stats.deactivated} rows no longer in corpus.")
-
-    return stats
+    manifest = manifest_for(notes)  # Empty corpora require a deliberate separate retirement procedure.
+    if dry_run:
+        print(f"[sync] offline plan: {len(notes)} notes, fingerprint={manifest['fingerprint']}; DB state not inspected")
+        return SyncStats(skipped=len(notes))
+    try:
+        previous = read_manifest(language)
+        if not rebuild and previous and previous["complete"] and previous["fingerprint"] == manifest["fingerprint"] and previous["note_count"] == len(notes):
+            return SyncStats(skipped=len(notes))
+        vectors = []
+        for start in range(0, len(notes), batch_size):
+            batch = notes[start:start + batch_size]
+            result = embed_texts([format_chunk_text(n) for n in batch])
+            if result is None or len(result) != len(batch) or not all(valid_vector(v) for v in result):
+                raise ValueError("embedding batch failed validation; no publication performed")
+            vectors.extend(result)
+        # Detect source edits made while the provider was running.
+        load_contrast_docs.cache_clear()
+        if manifest_for(load_contrast_docs(language)) != manifest:
+            raise ValueError("Corpus changed during preparation; retry from a stable checkout")
+        outcome = publish_corpus(notes, vectors, expected_generation=previous["generation"] if previous else None)
+        return SyncStats(**outcome)
+    except Exception as exc:
+        return SyncStats(failed=len(notes), errors=[str(exc)])
 
 
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(
-        prog="python -m retrieval.sync_embeddings",
-        description="Embed contrast notes and upsert into retrieval_doc.",
-    )
-    parser.add_argument("--language", default="en", help="Language code to sync (default: en)")
-    parser.add_argument(
-        "--rebuild",
-        action="store_true",
-        help="Re-embed all rows even if chunk text is unchanged.",
-    )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        dest="dry_run",
-        help="Print what would happen without writing to the database.",
-    )
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--language", default="en")
+    parser.add_argument("--rebuild", action="store_true", help="Re-embed and atomically replace even an unchanged corpus")
+    parser.add_argument("--dry-run", action="store_true", help="Validate offline; no DB or provider calls")
     args = parser.parse_args(argv)
-
-    stats = sync_language(args.language, rebuild=args.rebuild, dry_run=args.dry_run)
-    print(f"\n[sync] Done: {stats.summary()}")
-
-    if stats.failed:
-        print(f"[sync] Failed IDs: {stats.errors}")
+    try:
+        stats = sync_language(args.language, rebuild=args.rebuild, dry_run=args.dry_run)
+    except (ValueError, OSError) as exc:
+        print(f"[sync] invalid input: {exc}")
         return 1
-    return 0
+    print(stats.summary())
+    for error in stats.errors:
+        print(error)
+    return 1 if stats.failed else 0
 
 
 if __name__ == "__main__":

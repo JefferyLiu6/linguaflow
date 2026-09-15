@@ -1,0 +1,1416 @@
+{
+  "version": "2.0.0",
+  "review": "AI-assisted editorial correction; independent human review pending",
+  "changes": [
+    {
+      "item_id": "en02",
+      "reason": "Separate formal register from increased precision.",
+      "fields": {
+        "instruction": {
+          "before": "Replace the bracketed word with a more precise synonym.",
+          "after": "Replace the bracketed word with a formal alternative; the original is also clear."
+        },
+        "variants": {
+          "before": [
+            "employ",
+            "apply",
+            "implement"
+          ],
+          "after": [
+            "employ"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en05",
+      "reason": "Remove a variant that does not fit the sentence frame.",
+      "fields": {
+        "variants": {
+          "before": [
+            "support",
+            "aid",
+            "facilitate"
+          ],
+          "after": [
+            "aid"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en07",
+      "reason": "Keep a verb matching discussion rather than articulation.",
+      "fields": {
+        "variants": {
+          "before": [
+            "discussed",
+            "articulated"
+          ],
+          "after": [
+            "discussed"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en13",
+      "reason": "Make the identifying function explicit.",
+      "fields": {
+        "instruction": {
+          "before": "Combine using a relative clause.",
+          "after": "Combine using a defining relative clause to identify which manager approved the budget."
+        }
+      }
+    },
+    {
+      "item_id": "en14",
+      "reason": "Conciseness need not erase the agent.",
+      "fields": {
+        "answer": {
+          "before": "Because the deadline was missed, the contract was lost.",
+          "after": "Because the deadline was missed, we lost the contract."
+        }
+      }
+    },
+    {
+      "item_id": "en16",
+      "reason": "Avoid strengthening good into exceptional.",
+      "fields": {
+        "answer": {
+          "before": "He demonstrates exceptional professional competence.",
+          "after": "He performs his job very well."
+        }
+      }
+    },
+    {
+      "item_id": "en17",
+      "reason": "Preserve responsibility without inflated phrasing.",
+      "fields": {
+        "answer": {
+          "before": "The launch was executed with significant deficiencies.",
+          "after": "We made mistakes during the launch."
+        }
+      }
+    },
+    {
+      "item_id": "en18",
+      "reason": "Preserve the stated consensus without manufacturing evidence.",
+      "fields": {
+        "answer": {
+          "before": "It is widely acknowledged that this approach is ineffective.",
+          "after": "It is generally known that this approach is ineffective."
+        }
+      }
+    },
+    {
+      "item_id": "en19",
+      "reason": "Do not add a magnitude of improvement.",
+      "fields": {
+        "answer": {
+          "before": "A marked improvement has been observed.",
+          "after": "The situation is improving."
+        }
+      }
+    },
+    {
+      "item_id": "en_p4",
+      "reason": "Use a natural professional paraphrase.",
+      "fields": {
+        "answer": {
+          "before": "That is an excellent proposition.",
+          "after": "That is an excellent idea."
+        }
+      }
+    },
+    {
+      "item_id": "en_p5",
+      "reason": "Do not add a response-time promise.",
+      "fields": {
+        "answer": {
+          "before": "I will follow up with you shortly.",
+          "after": "I will respond to you."
+        }
+      }
+    },
+    {
+      "item_id": "en_p7",
+      "reason": "Do not assert that problems were unforeseen.",
+      "fields": {
+        "answer": {
+          "before": "An unforeseen complication arose.",
+          "after": "Problems occurred."
+        }
+      }
+    },
+    {
+      "item_id": "en_p8",
+      "reason": "Do not assume the mistake was an oversight.",
+      "fields": {
+        "answer": {
+          "before": "I apologize for the oversight.",
+          "after": "I apologize for my mistake."
+        }
+      }
+    },
+    {
+      "item_id": "en_sp1",
+      "reason": "Enforce the single-verb task.",
+      "fields": {
+        "variants": {
+          "before": [
+            "distinguished himself"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_sp2",
+      "reason": "Make successful improvement explicit and avoid claiming perfection.",
+      "fields": {
+        "prompt": {
+          "before": "She [worked hard to improve] her technique.",
+          "after": "She [improved] her technique through practice."
+        },
+        "variants": {
+          "before": [
+            "honed",
+            "perfected"
+          ],
+          "after": [
+            "honed"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_sp4",
+      "reason": "Preserve speed without inventing decisiveness.",
+      "fields": {
+        "answer": {
+          "before": "He sprinted decisively to the finish line.",
+          "after": "He ran at high speed to the finish line."
+        }
+      }
+    },
+    {
+      "item_id": "en_sp5",
+      "reason": "Do not equate good performance with composure.",
+      "fields": {
+        "answer": {
+          "before": "She performed with exceptional composure under pressure.",
+          "after": "She performed very well under pressure."
+        }
+      }
+    },
+    {
+      "item_id": "en_sp6",
+      "reason": "Remove a transitive alternative from a bare verb task.",
+      "fields": {
+        "variants": {
+          "before": [
+            "prevail",
+            "clinch"
+          ],
+          "after": [
+            "prevail"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_sp7",
+      "reason": "Losing is not necessarily conceding.",
+      "fields": {
+        "prompt": {
+          "before": "lose (verb, competition)",
+          "after": "admit defeat (phrase, competition)"
+        },
+        "variants": {
+          "before": [
+            "succumb",
+            "relinquish"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_sp8",
+      "reason": "Remove a generic preparation term.",
+      "fields": {
+        "variants": {
+          "before": [
+            "drill session",
+            "preparation"
+          ],
+          "after": [
+            "practice"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_sp9",
+      "reason": "Do not add temporal imminence.",
+      "fields": {
+        "answer": {
+          "before": "Defeat appears imminent for this side.",
+          "after": "They are expected to lose."
+        }
+      }
+    },
+    {
+      "item_id": "en_t1",
+      "reason": "Retain the unexpected termination meaning of crashed.",
+      "fields": {
+        "answer": {
+          "before": "failed",
+          "after": "terminated unexpectedly"
+        },
+        "variants": {
+          "before": [
+            "terminated unexpectedly"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_t3",
+      "reason": "Optimization is broader than speed; specify the target.",
+      "fields": {
+        "prompt": {
+          "before": "make faster (phrase)",
+          "after": "make execution faster (phrase)"
+        },
+        "answer": {
+          "before": "optimize",
+          "after": "improve execution speed"
+        },
+        "variants": {
+          "before": [
+            "accelerate",
+            "enhance performance"
+          ],
+          "after": [
+            "accelerate execution"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_t4",
+      "reason": "An audit requires a defined purpose; use neutral review.",
+      "fields": {
+        "answer": {
+          "before": "audit",
+          "after": "review code"
+        },
+        "variants": {
+          "before": [
+            "review",
+            "validate",
+            "scrutinize"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_t6",
+      "reason": "Added does not entail deployed.",
+      "fields": {
+        "answer": {
+          "before": "A new feature was implemented and deployed.",
+          "after": "We implemented a new feature."
+        }
+      }
+    },
+    {
+      "item_id": "en_t7",
+      "reason": "Different kinds of stores are not interchangeable.",
+      "fields": {
+        "prompt": {
+          "before": "data store (noun)",
+          "after": "organized collection of electronically stored data (noun)"
+        },
+        "answer": {
+          "before": "repository",
+          "after": "database"
+        },
+        "variants": {
+          "before": [
+            "database",
+            "data warehouse"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_t8",
+      "reason": "Validation is not a universal synonym for testing.",
+      "fields": {
+        "prompt": {
+          "before": "test software (verb)",
+          "after": "check whether software meets user requirements (phrase)"
+        },
+        "answer": {
+          "before": "validate",
+          "after": "validate the software"
+        },
+        "variants": {
+          "before": [
+            "verify",
+            "assess"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_t9",
+      "reason": "Do not assume outage planning status.",
+      "fields": {
+        "answer": {
+          "before": "The service experienced an unplanned outage.",
+          "after": "The website became unavailable."
+        }
+      }
+    },
+    {
+      "item_id": "en_f1",
+      "reason": "Palatable is weaker than tasty.",
+      "fields": {
+        "variants": {
+          "before": [
+            "palatable",
+            "exquisite"
+          ],
+          "after": [
+            "delicious"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_f2",
+      "reason": "Avoid conflating simmering, stewing, and braising.",
+      "fields": {
+        "prompt": {
+          "before": "cook slowly in liquid (phrase)",
+          "after": "cook liquid gently just below boiling (verb)"
+        },
+        "answer": {
+          "before": "braise",
+          "after": "simmer"
+        },
+        "variants": {
+          "before": [
+            "simmer",
+            "stew"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_f3",
+      "reason": "Astringency is not sourness.",
+      "fields": {
+        "variants": {
+          "before": [
+            "tart",
+            "astringent"
+          ],
+          "after": [
+            "tart"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_f4",
+      "reason": "Dicing specifies cubes, not any tiny pieces.",
+      "fields": {
+        "variants": {
+          "before": [
+            "dice",
+            "chop finely"
+          ],
+          "after": [
+            "chop finely"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_f5",
+      "reason": "Do not infer measured temperature.",
+      "fields": {
+        "answer": {
+          "before": "The steak was cooked to the ideal internal temperature.",
+          "after": "The steak was cooked to the desired degree of doneness."
+        }
+      }
+    },
+    {
+      "item_id": "en_f8",
+      "reason": "Avoid wordiness while preserving both properties.",
+      "fields": {
+        "answer": {
+          "before": "The soup is a rich and hearty preparation with a substantial consistency.",
+          "after": "The soup is thick and satisfying."
+        }
+      }
+    },
+    {
+      "item_id": "en_f9",
+      "reason": "Specify the cooking method rather than accepting all oven methods.",
+      "fields": {
+        "prompt": {
+          "before": "cook in oven (phrase)",
+          "after": "cook food using dry heat in an oven, especially meat (verb)"
+        },
+        "variants": {
+          "before": [
+            "bake",
+            "broil"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_w2",
+      "reason": "Appointment does not necessarily mean promotion.",
+      "fields": {
+        "answer": {
+          "before": "was appointed",
+          "after": "was promoted"
+        },
+        "variants": {
+          "before": [
+            "was elevated",
+            "was promoted"
+          ],
+          "after": [
+            "was elevated"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_w3",
+      "reason": "Do not add projected target status.",
+      "fields": {
+        "answer": {
+          "before": "We fell short of our projected targets this quarter.",
+          "after": "We did not meet our targets this quarter."
+        }
+      }
+    },
+    {
+      "item_id": "en_w5",
+      "reason": "Context distinguishes a consultation from other meetings.",
+      "fields": {
+        "prompt": {
+          "before": "meeting (noun)",
+          "after": "meeting to seek professional advice (noun)"
+        },
+        "variants": {
+          "before": [
+            "conference",
+            "briefing"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_w6",
+      "reason": "Clarify that employment, not a person, is terminated.",
+      "fields": {
+        "prompt": {
+          "before": "fire (verb, employment)",
+          "after": "end an employment contract (phrase)"
+        },
+        "answer": {
+          "before": "terminate",
+          "after": "terminate employment"
+        },
+        "variants": {
+          "before": [
+            "dismiss",
+            "discharge"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_w7",
+      "reason": "Coordination and liaison are not general collaboration synonyms.",
+      "fields": {
+        "variants": {
+          "before": [
+            "coordinate",
+            "liaise"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_w8",
+      "reason": "Describe losses without assuming a revenue definition.",
+      "fields": {
+        "answer": {
+          "before": "The organization is experiencing a revenue deficit.",
+          "after": "We are making a financial loss."
+        }
+      }
+    },
+    {
+      "item_id": "en_he3",
+      "reason": "Dizziness does not establish vertigo.",
+      "fields": {
+        "answer": {
+          "before": "experience vertigo",
+          "after": "experience dizziness"
+        },
+        "variants": {
+          "before": [
+            "feel lightheaded"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_he6",
+      "reason": "Do not infer patient status.",
+      "fields": {
+        "answer": {
+          "before": "The patient presents with persistent fatigue.",
+          "after": "She experiences persistent fatigue."
+        }
+      }
+    },
+    {
+      "item_id": "en_he8",
+      "reason": "Prefer the established process word.",
+      "fields": {
+        "answer": {
+          "before": "propagation",
+          "after": "transmission"
+        },
+        "variants": {
+          "before": [
+            "transmission",
+            "dissemination"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_mo1",
+      "reason": "Constrain incoming money to business sales; not all receipts are revenue.",
+      "fields": {
+        "prompt": {
+          "before": "money coming in (noun)",
+          "after": "money earned from sales before expenses (noun)"
+        },
+        "variants": {
+          "before": [
+            "income",
+            "earnings"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_mo4",
+      "reason": "Debt is one kind of liability; ask for the broader category explicitly.",
+      "fields": {
+        "instruction": {
+          "before": "Give the advanced financial term.",
+          "after": "Give the broader financial category."
+        },
+        "prompt": {
+          "before": "debt (noun)",
+          "after": "a financial obligation such as a debt (noun)"
+        },
+        "variants": {
+          "before": [
+            "obligation",
+            "indebtedness"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_mo6",
+      "reason": "State the loss being recovered.",
+      "fields": {
+        "prompt": {
+          "before": "get money back (phrase)",
+          "after": "recover money previously spent or lost (verb)"
+        },
+        "variants": {
+          "before": [
+            "recover",
+            "retrieve"
+          ],
+          "after": [
+            "recover"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_mo7",
+      "reason": "Do not add a report or a fiscal-year definition.",
+      "fields": {
+        "answer": {
+          "before": "The organization reported substantial financial losses this fiscal year.",
+          "after": "We incurred substantial financial losses this year."
+        }
+      }
+    },
+    {
+      "item_id": "en_mo8",
+      "reason": "Retain the observation without unnecessary nominalization.",
+      "fields": {
+        "answer": {
+          "before": "A significant price escalation was observed.",
+          "after": "The price increased substantially."
+        }
+      }
+    },
+    {
+      "item_id": "en_fa2",
+      "reason": "Nurture is not synonymous with raising a child.",
+      "fields": {
+        "variants": {
+          "before": [
+            "nurture",
+            "bring up"
+          ],
+          "after": [
+            "bring up"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_fa3",
+      "reason": "Kinship is a relationship, not necessarily an emotional bond.",
+      "fields": {
+        "variants": {
+          "before": [
+            "kinship",
+            "familial tie"
+          ],
+          "after": [
+            "familial tie"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_fa4",
+      "reason": "Keep adjective part of speech.",
+      "fields": {
+        "variants": {
+          "before": [
+            "blood relation"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_fa5",
+      "reason": "Avoid treating distinct legal roles as interchangeable.",
+      "fields": {
+        "prompt": {
+          "before": "legal guardian (noun)",
+          "after": "person legally responsible for a child (noun)"
+        },
+        "answer": {
+          "before": "custodian",
+          "after": "legal guardian"
+        },
+        "variants": {
+          "before": [
+            "guardian",
+            "legal custodian"
+          ],
+          "after": [
+            "guardian"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_fa8",
+      "reason": "Avoid needlessly archaic phrasing.",
+      "fields": {
+        "answer": {
+          "before": "My brother is preparing to enter into matrimony.",
+          "after": "My brother is going to marry."
+        }
+      }
+    },
+    {
+      "item_id": "en_na1",
+      "reason": "Avoid equating every seismic event with an earthquake.",
+      "fields": {
+        "instruction": {
+          "before": "Give the scientific/advanced term.",
+          "after": "Give the broader scientific category."
+        },
+        "prompt": {
+          "before": "earthquake (noun)",
+          "after": "an earthquake is one example of this broader category (noun phrase)"
+        },
+        "variants": {
+          "before": [
+            "tremor",
+            "seismic activity"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_na4",
+      "reason": "Specify a prolonged dry period.",
+      "fields": {
+        "prompt": {
+          "before": "dry spell (noun)",
+          "after": "prolonged period of unusually low rainfall (noun)"
+        },
+        "variants": {
+          "before": [
+            "arid period"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_na6",
+      "reason": "Carbon is not identical to carbon dioxide concentration.",
+      "fields": {
+        "variants": {
+          "before": [
+            "CO2 concentration"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_ed2",
+      "reason": "A generic teacher is not necessarily a professor.",
+      "fields": {
+        "variants": {
+          "before": [
+            "educator",
+            "professor",
+            "lecturer"
+          ],
+          "after": [
+            "educator"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_ed3",
+      "reason": "Coursework includes more than homework.",
+      "fields": {
+        "answer": {
+          "before": "coursework",
+          "after": "assigned work to complete outside class"
+        },
+        "variants": {
+          "before": [
+            "assigned work"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_ed4",
+      "reason": "Comprehend and internalize describe different processes.",
+      "fields": {
+        "variants": {
+          "before": [
+            "comprehend",
+            "internalize"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_ed5",
+      "reason": "School essays are not necessarily scholarly research.",
+      "fields": {
+        "answer": {
+          "before": "academic composition",
+          "after": "school composition"
+        },
+        "variants": {
+          "before": [
+            "scholarly essay",
+            "written assignment"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_cu1",
+      "reason": "Antiquated means outdated; not merely old.",
+      "fields": {
+        "prompt": {
+          "before": "old (adj, of art)",
+          "after": "outdated in style (adjective)"
+        },
+        "variants": {
+          "before": [
+            "archaic",
+            "antique"
+          ],
+          "after": [
+            "archaic"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_cu4",
+      "reason": "A musical tradition is not always one genre.",
+      "fields": {
+        "variants": {
+          "before": [
+            "musical tradition"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_cu5",
+      "reason": "A tradition need not be a ritual.",
+      "fields": {
+        "variants": {
+          "before": [
+            "convention",
+            "ritual"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_cu6",
+      "reason": "Do not upgrade aesthetic approval to exceptional merit.",
+      "fields": {
+        "answer": {
+          "before": "This composition exhibits remarkable aesthetic merit.",
+          "after": "This painting is visually appealing."
+        }
+      }
+    },
+    {
+      "item_id": "en_cu7",
+      "reason": "Do not infer audience research.",
+      "fields": {
+        "answer": {
+          "before": "The film failed to sustain audience engagement.",
+          "after": "The film was unengaging."
+        }
+      }
+    },
+    {
+      "item_id": "en_cu8",
+      "reason": "Interesting does not imply intricate.",
+      "fields": {
+        "answer": {
+          "before": "The narrative presents a compelling and intricate plot structure.",
+          "after": "The book has a compelling plot."
+        }
+      }
+    },
+    {
+      "item_id": "en_cu9",
+      "reason": "Avoid assuming the kind of excellence.",
+      "fields": {
+        "answer": {
+          "before": "The performance was of exceptional artistic merit.",
+          "after": "That show was outstanding."
+        }
+      }
+    },
+    {
+      "item_id": "en_po1",
+      "reason": "Suffrage is the right to vote, not the act of voting.",
+      "fields": {
+        "prompt": {
+          "before": "voting (noun)",
+          "after": "the right to vote (noun)"
+        },
+        "variants": {
+          "before": [
+            "franchise",
+            "electoral participation"
+          ],
+          "after": [
+            "franchise"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_po3",
+      "reason": "Specify a negotiation about peace.",
+      "fields": {
+        "prompt": {
+          "before": "peace talk (noun)",
+          "after": "negotiation intended to establish peace (noun phrase)"
+        },
+        "answer": {
+          "before": "diplomatic negotiation",
+          "after": "peace negotiation"
+        },
+        "variants": {
+          "before": [
+            "treaty negotiation"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_po5",
+      "reason": "Specify delegated rather than newly created authority.",
+      "fields": {
+        "prompt": {
+          "before": "give power to (phrase)",
+          "after": "entrust some of your decision-making authority to another person (phrase)"
+        },
+        "variants": {
+          "before": [
+            "empower",
+            "authorize"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_po6",
+      "reason": "Do not add a scale or type of failure.",
+      "fields": {
+        "answer": {
+          "before": "The administration demonstrated significant governance failures.",
+          "after": "The government made mistakes."
+        }
+      }
+    },
+    {
+      "item_id": "en_po7",
+      "reason": "Disagreement does not entail an impasse.",
+      "fields": {
+        "answer": {
+          "before": "The parties reached an impasse on all key points of contention.",
+          "after": "They disagreed on every issue."
+        }
+      }
+    },
+    {
+      "item_id": "en_po8",
+      "reason": "The speech itself need not be formal.",
+      "fields": {
+        "answer": {
+          "before": "The president delivered a formal address.",
+          "after": "The president delivered a speech."
+        }
+      }
+    },
+    {
+      "item_id": "en_sc1",
+      "reason": "Not every test is an experiment.",
+      "fields": {
+        "prompt": {
+          "before": "test something (phrase)",
+          "after": "carry out a controlled scientific test (phrase)"
+        },
+        "variants": {
+          "before": [
+            "evaluate empirically"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_sc2",
+      "reason": "A hypothesis is testable, not any guess.",
+      "fields": {
+        "prompt": {
+          "before": "guess (noun, research)",
+          "after": "a proposed explanation that can be tested (noun)"
+        },
+        "variants": {
+          "before": [
+            "conjecture",
+            "postulate"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_sc3",
+      "reason": "Evidence is not proof; repair the target definition.",
+      "fields": {
+        "prompt": {
+          "before": "proof (noun, scientific)",
+          "after": "information obtained through observation or experiment (noun phrase)"
+        },
+        "variants": {
+          "before": [
+            "experimental data"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_sc4",
+      "reason": "Verify checks an existing claim rather than simply finding out.",
+      "fields": {
+        "variants": {
+          "before": [
+            "determine",
+            "establish",
+            "verify"
+          ],
+          "after": [
+            "determine"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_sc6",
+      "reason": "Do not infer hypothesis confirmation.",
+      "fields": {
+        "answer": {
+          "before": "The experimental results were consistent with the hypothesis.",
+          "after": "The experiment functioned as intended."
+        }
+      }
+    },
+    {
+      "item_id": "en_sc7",
+      "reason": "Notice does not imply a recorded observation.",
+      "fields": {
+        "answer": {
+          "before": "An anomalous observation was recorded.",
+          "after": "We observed something unusual."
+        }
+      }
+    },
+    {
+      "item_id": "en_sc8",
+      "reason": "Do not manufacture statistical significance.",
+      "fields": {
+        "answer": {
+          "before": "The data demonstrated a statistically significant outcome.",
+          "after": "The results indicated that it was effective."
+        }
+      }
+    },
+    {
+      "item_id": "en_sh1",
+      "reason": "Specify price rather than quality or value for money.",
+      "fields": {
+        "prompt": {
+          "before": "cheap (adj)",
+          "after": "low in price (adjective)"
+        },
+        "answer": {
+          "before": "economical",
+          "after": "inexpensive"
+        },
+        "variants": {
+          "before": [
+            "affordable",
+            "cost-effective"
+          ],
+          "after": [
+            "low-priced"
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "en_sh4",
+      "reason": "Returns, refunds and exchanges are different actions.",
+      "fields": {
+        "variants": {
+          "before": [
+            "refund",
+            "exchange"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_sh5",
+      "reason": "A policy need not guarantee a refund.",
+      "fields": {
+        "answer": {
+          "before": "refund policy",
+          "after": "refund guarantee"
+        },
+        "variants": {
+          "before": [
+            "return policy"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_sh6",
+      "reason": "Retain the reason for unavailability.",
+      "fields": {
+        "answer": {
+          "before": "This item is currently unavailable.",
+          "after": "This item is out of stock."
+        }
+      }
+    },
+    {
+      "item_id": "en_sh8",
+      "reason": "Deals do not necessarily establish market-wide competitiveness.",
+      "fields": {
+        "answer": {
+          "before": "This establishment offers competitive pricing.",
+          "after": "This store offers attractive discounts."
+        }
+      }
+    },
+    {
+      "item_id": "en_sh9",
+      "reason": "Use natural customer-service phrasing.",
+      "fields": {
+        "answer": {
+          "before": "Is this available in alternative colorways?",
+          "after": "Is this available in a different color?"
+        }
+      }
+    },
+    {
+      "item_id": "en_em1",
+      "reason": "Calling for help need not mean calling emergency services.",
+      "fields": {
+        "variants": {
+          "before": [
+            "alert emergency services"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_em2",
+      "reason": "Injury does not imply incapacitation or a wound.",
+      "fields": {
+        "variants": {
+          "before": [
+            "incapacitated",
+            "wounded"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_em4",
+      "reason": "AHA distinguishes heart attack from cardiac arrest.",
+      "fields": {
+        "instruction": {
+          "before": "Give the advanced medical term.",
+          "after": "Give the medical term; do not confuse this with cardiac arrest."
+        },
+        "prompt": {
+          "before": "heart attack (casual)",
+          "after": "heart attack (noun)"
+        },
+        "answer": {
+          "before": "cardiac arrest",
+          "after": "myocardial infarction"
+        },
+        "variants": {
+          "before": [
+            "myocardial infarction"
+          ],
+          "after": []
+        }
+      },
+      "reference_ids": [
+        "heart_terms"
+      ]
+    },
+    {
+      "item_id": "en_em5",
+      "reason": "First aid is initial assistance, not all emergency medical treatment.",
+      "fields": {
+        "answer": {
+          "before": "emergency medical treatment",
+          "after": "initial assistance for an injury or illness"
+        },
+        "variants": {
+          "before": [
+            "initial medical care"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_em7",
+      "reason": "Do not invent the location of the fire.",
+      "fields": {
+        "answer": {
+          "before": "A fire has been detected on the premises.",
+          "after": "There is a fire."
+        }
+      }
+    },
+    {
+      "item_id": "en_em8",
+      "reason": "Preserve the inability to breathe rather than a broader category.",
+      "fields": {
+        "answer": {
+          "before": "The individual is experiencing respiratory distress.",
+          "after": "He is unable to breathe."
+        }
+      }
+    },
+    {
+      "item_id": "en_em9",
+      "reason": "Keep the specific request for an ambulance.",
+      "fields": {
+        "answer": {
+          "before": "Immediate dispatch of emergency medical services is required.",
+          "after": "An ambulance is needed immediately."
+        }
+      }
+    },
+    {
+      "item_id": "en_v3",
+      "reason": "Supply the sense required by the target word.",
+      "fields": {
+        "prompt": {
+          "before": "ask (verb)",
+          "after": "ask a question to obtain information (verb)"
+        },
+        "variants": {
+          "before": [
+            "query",
+            "solicit"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_v10",
+      "reason": "Supply the sense required by the target word.",
+      "fields": {
+        "prompt": {
+          "before": "important (adj)",
+          "after": "more important than everything else (adjective)"
+        },
+        "variants": {
+          "before": [
+            "significant",
+            "crucial",
+            "pivotal"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_v12",
+      "reason": "Supply the sense required by the target word.",
+      "fields": {
+        "prompt": {
+          "before": "fast (adj)",
+          "after": "completed promptly and efficiently (adjective)"
+        },
+        "variants": {
+          "before": [
+            "swift",
+            "rapid",
+            "prompt"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_v14",
+      "reason": "Supply the sense required by the target word.",
+      "fields": {
+        "prompt": {
+          "before": "agree (verb)",
+          "after": "agree with an opinion (verb)"
+        },
+        "variants": {
+          "before": [
+            "consent",
+            "endorse"
+          ],
+          "after": []
+        }
+      }
+    },
+    {
+      "item_id": "en_v15",
+      "reason": "Supply the sense required by the target word.",
+      "fields": {
+        "prompt": {
+          "before": "make (verb)",
+          "after": "build something (verb)"
+        },
+        "variants": {
+          "before": [
+            "produce",
+            "generate",
+            "fabricate"
+          ],
+          "after": []
+        }
+      }
+    }
+  ]
+}
