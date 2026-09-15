@@ -1,0 +1,19 @@
+{
+  "status": "planned_not_run",
+  "experiment_sha256": "42cdf8d0b7ada5b31412b49d4dbcc07000bd0eb9e4e0b6bff923ba619df1b8cc",
+  "model": "text-embedding-3-small",
+  "dimensions": 1536,
+  "documents": 31,
+  "cases": 68,
+  "query_variants": 2,
+  "unique_inputs": 166,
+  "max_input_utf8_bytes": 1285,
+  "total_utf8_bytes": 43478,
+  "planned_requests": 9,
+  "budgets": {
+    "max_requests": 10,
+    "max_utf8_bytes": 100000,
+    "batch_size": 20
+  },
+  "note": "UTF-8 bytes are a conservative input-token upper bound, not a billed token count or dollar estimate. No provider calls in plan mode."
+}

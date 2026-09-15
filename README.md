@@ -12,6 +12,8 @@ LinguaFlow is a full-stack AI language-learning system built as a portfolio proj
 
 ### RAG engineering case study
 
+**Semantic comparison:** [Experiment 02](docs/RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Preflight: 166 inputs / 9 requests. Provider results remain pending credentials.
+
 **Index update:** [Atomic publication and version checks](docs/INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 [Retrieval experiment 01](docs/RETRIEVAL_EXPERIMENT_01.md) compares metadata with question-aware BM25. On the challenge set, BM25 selects 21/31 positive notes but also 10/12 unsupported references; it remains experimental.
@@ -275,7 +277,7 @@ See:
 | Auth | Supabase Auth with SSR cookie handling |
 | Data | Supabase Postgres + Prisma (pooled + direct) |
 | Tracing | Langfuse (fail-open) |
-| Testing | Vitest (73 unit/integration), Pytest (146 agent, including real pgvector integration), Playwright E2E |
+| Testing | Vitest (73 unit/integration), Pytest (156 agent, including real pgvector integration), Playwright E2E |
 | CI | GitHub Actions: lint · tsc · vitest · build · playwright · pytest |
 
 ---

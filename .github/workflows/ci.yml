@@ -81,6 +81,10 @@ jobs:
         working-directory: agent
         run: python -m retrieval.lexical_benchmark --output runs/lexical-evidence.json --review-output runs/relevance-review.json
 
+      - name: Provider comparison preflight (offline)
+        working-directory: agent
+        run: python -m retrieval.retrieval_comparison plan --output runs/retrieval-comparison-plan.json
+
       - name: Preserve retrieval evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -91,6 +95,7 @@ jobs:
             agent/runs/data-validation.json
             agent/runs/lexical-evidence.json
             agent/runs/relevance-review.json
+            agent/runs/retrieval-comparison-plan.json
           if-no-files-found: warn
 
   retrieval-integration:

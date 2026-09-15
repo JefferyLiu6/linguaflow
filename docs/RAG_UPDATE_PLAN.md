@@ -1,5 +1,8 @@
 # LinguaFlow RAG engineering update plan
 
+**Semantic comparison:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Preflight: 166 inputs / 9 requests. Provider results remain pending credentials.
+
+
 **Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 
