@@ -178,3 +178,82 @@ def test_simultaneous_publishers_have_exactly_one_winner(database):
     # Restore the prior corpus by deliberate republication; reads become compatible again.
     db.publish_corpus(notes, vectors(notes), expected_generation=db.read_manifest('en')['generation'])
     assert db.query_by_vector(vectors(notes)[0])
+
+
+def test_local_operations_benchmark(database):
+    """A controlled database experiment, never a claim about endpoint latency."""
+    output = os.getenv('RETRIEVAL_OPERATIONS_OUTPUT')
+    if not output:
+        # Ordinary integration runs already exercise these guards above.
+        return
+    from collections import Counter
+    from concurrent.futures import ThreadPoolExecutor
+    from datetime import datetime, timezone
+    import hashlib
+    import json
+    import platform
+    import time
+    from retrieval import db
+    from retrieval.answer_study import percentile
+    from retrieval.loader import load_contrast_docs
+    from retrieval.manifest import manifest_for
+    notes = load_contrast_docs('en')
+    embeddings = [[float(i == j) for j in range(1536)] for i in range(len(notes))]
+    results = []
+
+    def query(index):
+        start = time.perf_counter()
+        expected_id = notes[index % len(notes)].id
+        try:
+            rows = db.query_by_vector(embeddings[index % len(notes)], limit=10)
+            status = 'success' if rows[0]['id'] == expected_id else 'wrong_top_result'
+        except db.IndexUnavailable as exc:
+            status = exc.reason
+        return {'request_index': index, 'elapsed_ms': (time.perf_counter()-start)*1000, 'status': status}
+
+    def scenario(name, expected, concurrency):
+        start = time.perf_counter()
+        with ThreadPoolExecutor(max_workers=concurrency) as pool:
+            samples = list(pool.map(query, range(100)))
+        elapsed = time.perf_counter()-start
+        counts = dict(Counter(row['status'] for row in samples))
+        results.append({'scenario': name, 'concurrency': concurrency, 'requests': 100,
+            'wall_seconds': elapsed, 'completed_requests_per_second': 100/elapsed,
+            'p50_ms': percentile([s['elapsed_ms'] for s in samples], .50),
+            'p95_ms': percentile([s['elapsed_ms'] for s in samples], .95),
+            'status_counts': counts, 'expected_status': expected,
+            'unexpected_results': sum(s['status'] != expected for s in samples), 'samples': samples})
+
+    # No manifest: guard must never be counted as a successful abstention.
+    for concurrency in (1, 5):
+        scenario('missing_index', 'index_missing', concurrency)
+    db.publish_corpus(notes, embeddings, expected_generation=None)
+    first = query(0)
+    for i in range(10):
+        assert query(i)['status'] == 'success'
+    for concurrency in (1, 5):
+        scenario('warm_complete_index', 'success', concurrency)
+    conn = database()
+    with conn.cursor() as cur:
+        cur.execute('UPDATE retrieval_doc SET embedding=NULL WHERE id=%s', (notes[0].id,))
+    conn.commit(); conn.close()
+    for concurrency in (1, 5):
+        scenario('incomplete_index', 'index_incomplete', concurrency)
+    root = Path(__file__).resolve().parents[2]
+    sources = list((root/'agent/retrieval').glob('*.py')) + [Path(__file__), root/'scripts/check_retrieval_index.py']
+    report = {'status': 'passed' if all(x['unexpected_results']==0 for x in results) and first['status']=='success' else 'failed',
+        'created_at_utc': datetime.now(timezone.utc).isoformat(),
+        'environment': {'python': platform.python_version(), 'platform': platform.platform()},
+        'corpus_fingerprint': manifest_for(notes)['fingerprint'],
+        'vector_fixture': '31 distinct orthogonal 1536-dimensional synthetic vectors; not provider embeddings',
+        'first_query_after_publication': first, 'warmup_queries': 10, 'scenarios': results,
+        'source_sha256': {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
+        'limitations': ['Local disposable PostgreSQL only, no external API calls or application endpoint.',
+            'Times include corpus loading, fingerprinting, fresh connection, fixture search_path setup, SQL and result conversion; exclude executor queue time.',
+            'Concurrency is a bounded closed-loop worker pool, not an arrival-rate or saturation test.',
+            'One first query after publication is not a cold process/database measurement.',
+            'Synthetic vectors test ranking and guards, not semantic quality; corpus has only 31 notes.',
+            'No provider outage, remote network, HTTP timeout, multi-instance or end-to-end generation load was measured.']}
+    target = Path(output); target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(report, indent=2)+'\n')
+    assert report['status'] == 'passed'

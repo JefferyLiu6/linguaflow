@@ -1,0 +1,542 @@
+{
+  "status": "evaluation_supplied",
+  "evaluation_kinds": [
+    "ai_assisted"
+  ],
+  "evaluators": [
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    },
+    {
+      "reviewer_id": "ai-teacher",
+      "evaluation_kind": "ai_assisted",
+      "model": "Codex session model; exact model snapshot not exposed"
+    }
+  ],
+  "plan_sha256": "193f230c6d3f8c157d47a93b16adbcc703bfb6d66c31c899092200fe48dbb0e2",
+  "arms": {
+    "card_only": {
+      "reviewed_answers": 8,
+      "factual_correctness": {
+        "mean": 1.5714285714285714,
+        "scored_count": 7,
+        "not_applicable_count": 1
+      },
+      "meaning_preservation": {
+        "mean": 1.5,
+        "scored_count": 6,
+        "not_applicable_count": 2
+      },
+      "teaching_usefulness": {
+        "mean": 1.375,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "scope_handling": {
+        "mean": 1.75,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "factually_correct": {
+        "positive": 4,
+        "assessed": 7,
+        "rate": 0.5714285714285714
+      },
+      "source_supported": {
+        "positive": 0,
+        "assessed": 0,
+        "rate": null
+      }
+    },
+    "whole_corpus": {
+      "reviewed_answers": 8,
+      "factual_correctness": {
+        "mean": 1.7142857142857142,
+        "scored_count": 7,
+        "not_applicable_count": 1
+      },
+      "meaning_preservation": {
+        "mean": 1.6666666666666667,
+        "scored_count": 6,
+        "not_applicable_count": 2
+      },
+      "teaching_usefulness": {
+        "mean": 1.625,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "scope_handling": {
+        "mean": 1.75,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "factually_correct": {
+        "positive": 5,
+        "assessed": 7,
+        "rate": 0.7142857142857143
+      },
+      "source_supported": {
+        "positive": 3,
+        "assessed": 5,
+        "rate": 0.6
+      }
+    },
+    "metadata": {
+      "reviewed_answers": 8,
+      "factual_correctness": {
+        "mean": 1.7142857142857142,
+        "scored_count": 7,
+        "not_applicable_count": 1
+      },
+      "meaning_preservation": {
+        "mean": 1.8333333333333333,
+        "scored_count": 6,
+        "not_applicable_count": 2
+      },
+      "teaching_usefulness": {
+        "mean": 1.625,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "scope_handling": {
+        "mean": 1.75,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "factually_correct": {
+        "positive": 5,
+        "assessed": 7,
+        "rate": 0.7142857142857143
+      },
+      "source_supported": {
+        "positive": 1,
+        "assessed": 3,
+        "rate": 0.3333333333333333
+      }
+    },
+    "bm25": {
+      "reviewed_answers": 8,
+      "factual_correctness": {
+        "mean": 1.7142857142857142,
+        "scored_count": 7,
+        "not_applicable_count": 1
+      },
+      "meaning_preservation": {
+        "mean": 1.8333333333333333,
+        "scored_count": 6,
+        "not_applicable_count": 2
+      },
+      "teaching_usefulness": {
+        "mean": 1.625,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "scope_handling": {
+        "mean": 1.75,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "factually_correct": {
+        "positive": 5,
+        "assessed": 7,
+        "rate": 0.7142857142857143
+      },
+      "source_supported": {
+        "positive": 3,
+        "assessed": 6,
+        "rate": 0.5
+      }
+    },
+    "vector": {
+      "reviewed_answers": 8,
+      "factual_correctness": {
+        "mean": 1.7142857142857142,
+        "scored_count": 7,
+        "not_applicable_count": 1
+      },
+      "meaning_preservation": {
+        "mean": 1.8333333333333333,
+        "scored_count": 6,
+        "not_applicable_count": 2
+      },
+      "teaching_usefulness": {
+        "mean": 1.625,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "scope_handling": {
+        "mean": 1.75,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "factually_correct": {
+        "positive": 5,
+        "assessed": 7,
+        "rate": 0.7142857142857143
+      },
+      "source_supported": {
+        "positive": 3,
+        "assessed": 6,
+        "rate": 0.5
+      }
+    },
+    "hybrid": {
+      "reviewed_answers": 8,
+      "factual_correctness": {
+        "mean": 1.7142857142857142,
+        "scored_count": 7,
+        "not_applicable_count": 1
+      },
+      "meaning_preservation": {
+        "mean": 1.8333333333333333,
+        "scored_count": 6,
+        "not_applicable_count": 2
+      },
+      "teaching_usefulness": {
+        "mean": 1.625,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "scope_handling": {
+        "mean": 1.75,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "factually_correct": {
+        "positive": 5,
+        "assessed": 7,
+        "rate": 0.7142857142857143
+      },
+      "source_supported": {
+        "positive": 3,
+        "assessed": 6,
+        "rate": 0.5
+      }
+    },
+    "gold": {
+      "reviewed_answers": 8,
+      "factual_correctness": {
+        "mean": 1.7142857142857142,
+        "scored_count": 7,
+        "not_applicable_count": 1
+      },
+      "meaning_preservation": {
+        "mean": 1.8333333333333333,
+        "scored_count": 6,
+        "not_applicable_count": 2
+      },
+      "teaching_usefulness": {
+        "mean": 1.625,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "scope_handling": {
+        "mean": 1.75,
+        "scored_count": 8,
+        "not_applicable_count": 0
+      },
+      "factually_correct": {
+        "positive": 5,
+        "assessed": 7,
+        "rate": 0.7142857142857143
+      },
+      "source_supported": {
+        "positive": 3,
+        "assessed": 6,
+        "rate": 0.5
+      }
+    }
+  },
+  "limitations": [
+    "Author and AI-assisted evaluations do not establish independent human validation.",
+    "This remains a selected development pilot; ratings do not establish held-out accuracy.",
+    "Null claim judgments are excluded; inspect uncertainty and rationales before comparing rates.",
+    "Claim judgments use whole-answer conjunctions, not atomic-claim rates. A false judgment means at least one material assertion needs qualification.",
+    "Perspectives differ deliberately in teaching-usefulness strictness; do not treat agreement as judge validation."
+  ],
+  "evaluation_method": {
+    "kind": "ai_assisted",
+    "evaluator": "Codex session",
+    "model": "Codex session model; exact model snapshot not exposed",
+    "perspective": "teacher",
+    "independent": false,
+    "provider_calls": 0,
+    "limitations": [
+      "Two perspectives from one session, not independent evaluators.",
+      "Corpus and development outcomes were known; arm identities were masked in the inspected packet, not a preregistered blind experiment.",
+      "Medical factual correctness is not assessed; only compliance with the tutoring scope is assessed."
+    ]
+  }
+}

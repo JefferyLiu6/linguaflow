@@ -1,5 +1,8 @@
 # English teaching data — dataset card v2.0.0
 
+**Semantic comparison:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
+
+
 **Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 
@@ -29,7 +32,7 @@ We chose the existing application curriculum as the starting population because 
 | Generic guidance only | 90/171 | Related writing guidance, not necessarily a complete answer |
 | Unsupported | 11/171 | Unlinked medical/emergency vocabulary without sufficient specialist guidance |
 
-[coverage.json](../agent/knowledge/en/coverage.json) gives every drill a disposition and reason. These are AI-assisted editorial judgments awaiting human review. **This mapping is diagnostic; it is not an enforced runtime router or a promise of coverage.** Domain contexts do not establish domain expertise. Register/formality remains overrepresented; pronunciation, general grammar, and other languages are outside this corpus.
+[coverage.json](../agent/knowledge/en/coverage.json) gives every drill a disposition and reason. These are AI-assisted editorial judgments, not independently validated labels. **This mapping is diagnostic; it is not an enforced runtime router or a promise of coverage.** Domain contexts do not establish domain expertise. Register/formality remains overrepresented; pronunciation, general grammar, and other languages are outside this corpus.
 
 ## Why these references
 
@@ -98,14 +101,14 @@ python -m retrieval.eval_runner --arm freeform --challenge
 
 The first four commands are offline. The last two make external calls and were **not run against a live index for this release**. Build the agent container from the repository root with `docker build -f agent/Dockerfile.agent .`; it includes the shared `data/` directory and uses a Dockerfile-specific ignore file that excludes local secrets/private notes.
 
-Indexing validates the bundle and batches, skips unchanged complete snapshots before embedding, and publishes rows/deactivation/manifest in one transaction. Readers reject incompatible or incomplete versions. See [the publication contract](INDEX_PUBLICATION.md) for migration requirements, failure behavior, and tradeoffs. Real PostgreSQL tests now verify publication, rollback, reader visibility, concurrent writers, vector ordering, and incomplete-index repair. These use synthetic vectors; semantic retrieval quality remains unmeasured.
+Indexing validates the bundle and batches, skips unchanged complete snapshots before embedding, and publishes rows/deactivation/manifest in one transaction. Readers reject incompatible or incomplete versions. See [the publication contract](INDEX_PUBLICATION.md) for migration requirements, failure behavior, and tradeoffs. Real PostgreSQL tests now verify publication, rollback, reader visibility, concurrent writers, vector ordering, and incomplete-index repair. Those database checks use synthetic vectors. A separate [provider-backed comparison](RETRIEVAL_EXPERIMENT_02.md) now measures semantic retrieval on the development/challenge sets; independent held-out and answer-quality evaluation remain pending.
 
 ## Maintenance and review gates
 
 - For each changed drill, review meaning, grammar, variants, and the before/after ledger; update affected adaptations and canonical eval fixtures together.
 - For each new note, record the learner need, source principle, limits, three original examples, counterexample, coverage mapping, and a positive/adjacent-negative query.
-- A second reviewer should mark individual notes reviewed only after checking sources and examples. Keep unresolved notes pending; do not bulk relabel review status.
+- Record author/AI-assisted checks with source evidence and rationale. Keep unresolved findings explicit; removing the external-review requirement does not relabel past data as validated.
 - On a source change or broken link, record the new check result and revisit only dependent notes. On a model or chunk-format change, rebuild and verify a separate index before switching.
 - Expand by observed missing concepts and documented coverage, with an evaluation cost budget. Raw document count is not an acceptance metric.
 
-**Known limitations:** no independent human review, no held-out scores, no learning-outcome study, no full app/container deployment test, and no live vector/answer comparison. The release improves data integrity and auditability; it does not establish production readiness.
+**Known limitations:** no independent human review, no held-out scores, no learning-outcome study, no full app/container deployment test, and no independently validated answer-quality comparison. The release improves data integrity and auditability; it does not establish production readiness.

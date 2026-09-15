@@ -1,0 +1,24 @@
+{
+  "status": "provider_run_and_replay_verified",
+  "verified_at_utc": "2026-09-15T20:23:29.579885+00:00",
+  "provider_requests": 9,
+  "provider_total_tokens": 8589,
+  "provider_batch_elapsed_ms_sum": 7523,
+  "offline_replay_exact_report_match": true,
+  "report": "retrieval-comparison.json",
+  "provenance": {
+    "experiment_sha256": "42cdf8d0b7ada5b31412b49d4dbcc07000bd0eb9e4e0b6bff923ba619df1b8cc",
+    "vector_sha256": "850f9b35fcb68e8895a2b364e580d497ea23ff3c02f502d9480dfc377d31c162",
+    "bundle_sha256": "9806cd48f30211eab2f84c7e692bc92ebe044eb95aca3d5359852d663984a5f6",
+    "cases_sha256": "3ec94fbfb601843cae8e11eee38d553fa145e5ebb46289acdfcb3af797c46e40",
+    "vector_origin": "openai_provider",
+    "vector_created_at_utc": "2026-09-15T20:21:01.236853+00:00",
+    "source_sha256": "dde6f9557d2e69a29be6ce9b6b9fbccbe7051ca39870e22a964c9cea2d92d69b",
+    "git_revision": "50b95381aa84ae431d4939e5ab4b49df95350f7d"
+  },
+  "review_cases_pending": 64,
+  "limitations": [
+    "No pgvector deployment or generated-answer evaluation in this run.",
+    "Current data is development/challenge, not independently held out."
+  ]
+}

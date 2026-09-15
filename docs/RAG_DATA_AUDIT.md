@@ -1,3 +1,5 @@
+> Historical audit: reviewer-recruitment recommendations below are superseded by [the current evaluation policy](EVALUATION_POLICY.md). External human review is not a release requirement.
+
 # RAG data audit — quality, consistency, and sufficiency
 
 > **Historical v1 baseline.** The defects and counts below describe the pre-repair snapshot. See [dataset v2](DATASET_CARD.md) and [the change ledger](DATA_CHANGELOG.md) for current data and verification. The original evidence is retained unchanged.

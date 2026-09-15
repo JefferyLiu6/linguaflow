@@ -90,6 +90,6 @@ For a controlled release, use the project's normal Prisma migration process in a
 - **Generation guard:** prevents a publisher that prepared against an older observed generation from winning later. It cannot identify which Git branch the operator intended to publish; pin the release checkout operationally.
 - **Version mismatch:** an older app does not consume a newer index; it falls back explicitly. Serving several app versions concurrently without degraded retrieval requires retained versioned snapshots or coordinated deployment.
 - **Integrity boundary:** checks assume the supported publisher owns writes. Direct SQL modifications, admin tampering with hashes, and independent legacy writers are outside the contract; restrict write permissions operationally.
-- **No live relevance evidence yet:** synthetic-vector integration cannot establish embedding quality, threshold suitability, answer faithfulness, or end-to-end latency.
+- **Separate relevance evidence:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now reports provider-backed exact-search results. Synthetic-vector integration itself does not establish semantic relevance, answer faithfulness, or end-to-end latency.
 
 Next: obtain independent relevance-label review and perform vector-only/hybrid comparisons against the preserved BM25 evidence on a version-matched disposable index.

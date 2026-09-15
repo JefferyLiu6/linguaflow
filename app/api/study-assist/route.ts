@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 import { applyRequestActorResponseHeaders, enforceAiRateLimit } from '@/lib/aiRateLimit'
 
+// Allow the observed agent startup delay while leaving time to return a response.
+export const maxDuration = 60
+
 const AGENT_URL = process.env.AGENT_URL ?? 'http://localhost:8000'
 
 export async function POST(req: Request) {
@@ -54,7 +57,7 @@ export async function POST(req: Request) {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(payload),
-      signal:  AbortSignal.timeout(30_000),
+      signal:  AbortSignal.timeout(55_000),
     })
 
     const data = await agentRes.json()
@@ -92,14 +95,15 @@ export async function POST(req: Request) {
     )
   } catch (err) {
     const msg    = err instanceof Error ? err.message : String(err)
-    const isDown = msg.includes('ECONNREFUSED') || msg.includes('fetch failed')
+    const isDown = (err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError'))
+                || msg.includes('ECONNREFUSED') || msg.includes('fetch failed')
                 || msg.includes('timeout')       || msg.includes('TimeoutError')
     return respond(
       NextResponse.json(
         {
           error: isDown
-            ? 'Python agent is not running or timed out — start it with: cd agent && uvicorn main:app --port 8000 --reload'
-            : `Study assist error: ${msg}`,
+            ? 'The study assistant is taking longer than expected. Please try again shortly.'
+            : 'The study assistant could not complete the request. Please try again.',
         },
         { status: 502 },
       ),

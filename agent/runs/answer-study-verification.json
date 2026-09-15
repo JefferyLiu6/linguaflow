@@ -1,0 +1,25 @@
+{
+  "status": "verified",
+  "plan_sha256": "193f230c6d3f8c157d47a93b16adbcc703bfb6d66c31c899092200fe48dbb0e2",
+  "requests": 56,
+  "valid_outputs": 56,
+  "citation_identity_failures": 0,
+  "prompt_tokens": 87368,
+  "cached_prompt_tokens": 0,
+  "completion_tokens": 8845,
+  "estimated_cost_usd": 0.0184122,
+  "quality_review": "pending",
+  "checks": [
+    "Exact approved preflight plan matched",
+    "56 unique jobs, eight per arm",
+    "Pinned response model matched",
+    "Public summary reproduced offline",
+    "Blinded packet and private key identities matched",
+    "Unreviewed scores rejected"
+  ],
+  "artifact_sha256": {
+    ".private/answer-pilot.json": "2ca9087177f57b994e6e738b127acf2ba11ef2ed42752995ed8838ff478cd092",
+    "agent/runs/answer-study-summary.json": "f19d217e11c51105ce824b383de8391453515f720954c5b7ec646cf55866cc30",
+    "agent/runs/answer-review-blinded.json": "f091724c5606d20070a65f197fc67e9bf31b2032a8a2e83437d52b30a035ca54"
+  }
+}

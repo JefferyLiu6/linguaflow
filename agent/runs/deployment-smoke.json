@@ -1,0 +1,25 @@
+{
+  "checked_on": "2026-09-15",
+  "homepage": {
+    "url": "https://linguaflow-demo.vercel.app",
+    "status": 200
+  },
+  "request": {
+    "url": "https://linguaflow-demo.vercel.app/api/study-assist",
+    "method": "POST",
+    "action": "show_similar_examples",
+    "current_item_id": "en03",
+    "generative": false
+  },
+  "response": {
+    "http_status": 502,
+    "elapsed_seconds": 31.114612,
+    "error": "Python agent is not running or timed out \u2014 start it with: cd agent && uvicorn main:app --port 8000 --reload"
+  },
+  "conclusion": "Frontend reachable; agent path failed. Root cause and deployed revision not verified. No load test attempted.",
+  "limitations": [
+    "Single non-generative request, not a latency distribution",
+    "Local configured demo limits are not confirmed deployed settings",
+    "No provider tokens requested by this action according to local route implementation"
+  ]
+}

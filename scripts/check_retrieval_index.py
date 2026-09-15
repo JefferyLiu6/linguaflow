@@ -28,9 +28,12 @@ def main(argv=None):
     parser.add_argument('--image', default='pgvector/pgvector:pg16')
     parser.add_argument('--all', action='store_true', help='Run the entire Python suite with real integration enabled')
     parser.add_argument('--output', type=Path, default=ROOT / 'agent/runs/index-integration.xml')
+    parser.add_argument('--operations-output', type=Path, help='Also record 100-query local database scenarios at concurrency 1 and 5')
     args = parser.parse_args(argv)
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
+    # A setup failure must not leave a prior run's JUnit file looking current.
+    output.unlink(missing_ok=True)
     name = 'linguaflow-retrieval-test-' + uuid.uuid4().hex[:12]
     report = {'started_at_utc': datetime.now(timezone.utc).isoformat(), 'image_requested': args.image, 'status': 'invalid', 'scope': 'synthetic-vector PostgreSQL integration; no external embedding calls'}
     try:
@@ -39,9 +42,11 @@ def main(argv=None):
         command('docker', 'run', '--detach', '--rm', '--name', name, '--publish', '127.0.0.1::5432', '--env', 'POSTGRES_PASSWORD=integration-only', '--env', 'POSTGRES_DB=retrieval_test', args.image, timeout=300)
         report['image_id'] = command('docker', 'inspect', '--format', '{{.Image}}', name)
         report['image_digests'] = json.loads(command('docker', 'image', 'inspect', '--format', '{{json .RepoDigests}}', report['image_id']))
+        # The image init server accepts Unix-socket connections but not TCP.
+        # Wait for TCP so we do not race its shutdown and final server startup.
         deadline = time.monotonic() + 60
         while True:
-            ready = subprocess.run(['docker', 'exec', name, 'pg_isready', '-U', 'postgres', '-d', 'retrieval_test'], capture_output=True, timeout=10)
+            ready = subprocess.run(['docker', 'exec', name, 'pg_isready', '-h', '127.0.0.1', '-U', 'postgres', '-d', 'retrieval_test'], capture_output=True, timeout=10)
             if ready.returncode == 0:
                 break
             if time.monotonic() >= deadline:
@@ -58,6 +63,10 @@ def main(argv=None):
         # Do not expose application/provider configuration to this test run.
         for key in ('DATABASE_URL', 'DIRECT_URL', 'OPENAI_API_KEY'):
             env.pop(key, None)
+        if args.operations_output:
+            env['RETRIEVAL_OPERATIONS_OUTPUT'] = str(args.operations_output.resolve())
+        else:
+            env.pop('RETRIEVAL_OPERATIONS_OUTPUT', None)
         target = 'tests/' if args.all else 'tests/test_index_integration.py'
         print('Running real database checks...', flush=True)
         result = subprocess.run([sys.executable, '-m', 'pytest', target, '-q', '--tb=short', '-p', 'no:cacheprovider', '--junitxml=' + str(output)], cwd=ROOT / 'agent', env=env, timeout=180)
