@@ -6,7 +6,7 @@ The previous sync committed each note separately. A later database failure could
 
 The supported publisher now commits all contrast notes for one language, removed-note deactivation, and a manifest in **one PostgreSQL transaction**. An exception rolls back that transaction. Query-time reads verify that the manifest matches the app's loaded corpus and embedding configuration and that active-row counts are complete. The same SQL statement checks state and selects candidates, avoiding a separate check/read race.
 
-**Status:** implemented locally. Local suite: **141 passed, 2 skipped** ([test report](../agent/runs/index-unit-tests.xml)); data validation and the structured retrieval regression gate also pass. The skipped tests require a disposable database. Real PostgreSQL integration tests are supplied and configured in CI but have not run locally because Docker's daemon is unavailable. No migration, reindex, or deployment was executed against the application database. This document describes the implemented contract and the verification still required, not a claim of verified production operation.
+**Status:** verified locally against a disposable **PostgreSQL 16.15 / pgvector 0.8.6** database. The full suite passed: **146 tests, zero failures, zero skips**. [Machine-readable environment/source evidence](../agent/runs/index-integration.json) and [JUnit test results](../agent/runs/index-integration.xml) are retained. This supersedes the earlier unit-only run with two integration skips. The run used synthetic vectors, not an embedding provider. No migration, reindex, or deployment was executed against the application database.
 
 ## Release identity
 
@@ -53,19 +53,35 @@ Freeform retrieval exposes the failure reason and returns no corpus reference. S
 
 The local Prisma migration `20260915000001_retrieval_publication_manifest` adds nullable `retrieval_doc.indexVersion` and the manifest table. Existing rows remain unversioned intentionally. RLS is enabled on the manifest with no browser-facing policy; the server's DB owner/service connection must have appropriate access. The application has not run this migration automatically.
 
-Use a disposable database first. With a configured isolated pgvector database:
+### Repeat the verified local run
+
+Start Docker Desktop and use the agent virtual environment's Python from the repository root:
 
 ```sh
-cd agent
-# Set RETRIEVAL_TEST_DATABASE_URL to the disposable database explicitly.
-python -m pytest tests/test_index_integration.py -q
+python scripts/check_retrieval_index.py --all
 ```
 
-The fixture creates a unique test schema, applies both retrieval migrations, and drops only that schema afterward. It never implicitly uses application `DATABASE_URL`. The CI service uses `pgvector/pgvector:pg16` and synthetic vectors; it checks database correctness, not semantic model quality.
+The runner creates a unique container bound only to localhost, waits for PostgreSQL, runs the complete suite with integration enabled, records Docker/PostgreSQL/pgvector versions and source fingerprints, and removes its container in `finally`. It does not read the application's database URL or call an embedding provider. It retains `agent/runs/index-integration.xml` and the adjacent JSON environment report. Omit `--all` to run only the five real-database tests.
 
-Integration cases cover initial publication/search, a late SQL failure rolling back earlier row changes, stale-publisher rejection, changed-corpus read rejection, old-reader visibility before commit, and removed-note deactivation. Local unit tests cover transaction call behavior, manifest identity, invalid batches, unchanged/rebuild behavior, indexed-read failures, and provider response alignment.
+The recorded run used image `pgvector/pgvector:pg16@sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b`; pass `--image` to select a specific compatible image. The default tag may change, so compare the captured image digest and source hashes when reproducing evidence. CI uses the same runner and retains both artifacts.
 
-After integration passes, use the project's normal Prisma migration process in a controlled environment, publish with `python -m retrieval.sync_embeddings --rebuild`, verify a matching app/index pair, and run the same freeform fixtures used by the lexical experiment. Deploying the new app before a compatible index is available causes explicit vector fallback/unavailability; plan that transition deliberately.
+If you already have a disposable pgvector database, explicitly set `RETRIEVAL_TEST_DATABASE_URL` and run `python -m pytest tests/test_index_integration.py -q` from `agent/`. The fixture creates a unique schema, applies both retrieval migrations, and drops that schema afterward. It never implicitly uses application `DATABASE_URL`.
+
+### Verified behaviors
+
+- Initial publication and version-compatible search against real pgvector.
+- A late SQL error rolls back earlier writes and preserves the prior manifest.
+- A second connection sees the old complete snapshot until publication commits.
+- Removed notes deactivate with the publication.
+- Two simultaneous publishers produce exactly one winner; the stale generation is rejected.
+- Distinct synthetic vectors produce the expected cosine ranking.
+- A missing vector causes explicit rejection; sync repairs the incomplete index.
+- An unchanged complete index makes no embedding calls; forced rebuild does.
+- Republishing the prior corpus restores compatibility with its app revision.
+
+These checks establish behavior in the tested disposable environment; they do not validate hosted database permissions, production concurrency/latency, or semantic relevance.
+
+For a controlled release, use the project's normal Prisma migration process in a controlled environment, publish with `python -m retrieval.sync_embeddings --rebuild`, verify a matching app/index pair, and run the same freeform fixtures used by the lexical experiment. Deploying the new app before a compatible index is available causes explicit vector fallback/unavailability; plan that transition deliberately.
 
 ## Tradeoffs and remaining work
 
@@ -76,4 +92,4 @@ After integration passes, use the project's normal Prisma migration process in a
 - **Integrity boundary:** checks assume the supported publisher owns writes. Direct SQL modifications, admin tampering with hashes, and independent legacy writers are outside the contract; restrict write permissions operationally.
 - **No live relevance evidence yet:** synthetic-vector integration cannot establish embedding quality, threshold suitability, answer faithfulness, or end-to-end latency.
 
-Next: run the real pgvector integration gate, obtain independent relevance-label review, and perform vector-only/hybrid comparisons against the preserved BM25 evidence on a version-matched disposable index.
+Next: obtain independent relevance-label review and perform vector-only/hybrid comparisons against the preserved BM25 evidence on a version-matched disposable index.

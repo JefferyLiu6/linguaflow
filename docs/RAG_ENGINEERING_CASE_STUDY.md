@@ -1,6 +1,6 @@
 # LinguaFlow: building and evaluating a curriculum-grounded tutor
 
-**Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. Real pgvector integration is configured in CI and remains pending; no application database migration or live reindex has run.
+**Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 
 **Retrieval experiment update:** [Experiment 01](RETRIEVAL_EXPERIMENT_01.md) now provides a fixed BM25 baseline, paired rankings, threshold sensitivity, and a pending relevance-review packet. The data corpus and serving policy are unchanged.
@@ -113,7 +113,7 @@ flowchart LR
 
 The [atomic publication contract](INDEX_PUBLICATION.md) supersedes the earlier per-row sync design. Unchanged complete snapshots skip embedding; changed snapshots prepare vectors before a single publication transaction. The manifest binds full note content, canonical chunks, model, dimensions, and format version. Reads reject mismatched or incomplete indexes; live evaluation treats these as infrastructure failures. Late write failures roll back the publication.
 
-Real pgvector integration is provided in CI but has not run locally. No migration or reindex has been applied to the application database. Remaining limits include one active version with no retained rollback history, full-corpus re-embedding for any changed snapshot, coordinated app/index deployment, and no measured semantic-quality improvement.
+Real pgvector integration passed locally as part of a 146-test run with zero skips; the same disposable-database runner is configured in CI. No migration or reindex has been applied to the application database. Remaining limits include one active version with no retained rollback history, full-corpus re-embedding for any changed snapshot, coordinated app/index deployment, and no measured semantic-quality improvement.
 
 ## 8. Query construction and actual application routing
 
