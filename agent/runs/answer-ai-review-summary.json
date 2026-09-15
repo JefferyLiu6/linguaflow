@@ -1,0 +1,14 @@
+{
+  "status": "ai_assisted_development_review_completed",
+  "answers_per_perspective": 56,
+  "perspectives": [
+    "teacher",
+    "engineer"
+  ],
+  "independent_evaluators": false,
+  "additional_provider_calls": 0,
+  "source_packet_sha256": "f091724c5606d20070a65f197fc67e9bf31b2032a8a2e83437d52b30a035ca54",
+  "scope_failures_per_perspective": 7,
+  "claim_annotation_flags_per_perspective": 10,
+  "decision": "No quality advantage established that warrants replacing the current serving retriever. Fix shared prompting issues and evaluate changes separately; retain card-only and whole-corpus baselines."
+}

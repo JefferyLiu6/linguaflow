@@ -12,13 +12,13 @@ LinguaFlow is a full-stack AI language-learning system built as a portfolio proj
 
 ### RAG engineering case study
 
-**Semantic comparison:** [Experiment 02](docs/RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Preflight: 166 inputs / 9 requests. Provider results remain pending credentials.
+**Semantic comparison:** [Experiment 02](docs/RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
 
 **Index update:** [Atomic publication and version checks](docs/INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
 
 [Retrieval experiment 01](docs/RETRIEVAL_EXPERIMENT_01.md) compares metadata with question-aware BM25. On the challenge set, BM25 selects 21/31 positive notes but also 10/12 unsupported references; it remains experimental.
 
-The [dataset card](docs/DATASET_CARD.md) explains data selection, primary references, cleaning, coverage, chunking, evaluation, and remaining limitations. Version 2 contains **31 teaching notes, 121 examples, 31 counterexamples, and 11 references**, with one canonical source for all **171 English drills**. Independent editorial review is pending. See the [data changelog](docs/DATA_CHANGELOG.md) for corrections and validation evidence.
+The [dataset card](docs/DATASET_CARD.md) explains data selection, primary references, cleaning, coverage, chunking, evaluation, and remaining limitations. Version 2 contains **31 teaching notes, 121 examples, 31 counterexamples, and 11 references**, with one canonical source for all **171 English drills**. Editorial provenance is AI-assisted; no expert validation is claimed. See the [data changelog](docs/DATA_CHANGELOG.md) for corrections and validation evidence.
 
 See the [RAG update plan](docs/RAG_UPDATE_PLAN.md) for the implementation sequence, evaluation gates, and release criteria.
 
@@ -277,7 +277,7 @@ See:
 | Auth | Supabase Auth with SSR cookie handling |
 | Data | Supabase Postgres + Prisma (pooled + direct) |
 | Tracing | Langfuse (fail-open) |
-| Testing | Vitest (73 unit/integration), Pytest (156 agent, including real pgvector integration), Playwright E2E |
+| Testing | Vitest (75 unit/integration), Pytest (178 agent, including real pgvector integration), Playwright E2E |
 | CI | GitHub Actions: lint · tsc · vitest · build · playwright · pytest |
 
 ---
@@ -433,3 +433,17 @@ Structured retrieval uses local metadata. Freeform DB/embedding failures return 
 ## License
 
 MIT © JL200126 — see [LICENSE](LICENSE).
+
+### Evaluation evidence and remaining gates
+
+See [the feedback response and answer-study protocol](docs/EVALUATION_FEEDBACK_RESPONSE.md) for the seven-arm comparison, evaluation intake with provenance, measured rank-fusion results, and remaining answer-quality/operational gates. Whole-corpus context remains a serious baseline for this small dataset; RAG is not assumed to win.
+
+The answer-generation pilot completed **56/56 structurally valid responses**, with estimated generation cost **$0.0184**. [AI-assisted evaluation is complete](docs/ANSWER_EXPERIMENT_03.md); it identifies shared generation failures and does not establish that complex RAG improves tutoring.
+
+[Operational experiment 01](docs/OPERATIONS_EXPERIMENT_01.md) records 600 local database requests at concurrency 1 and 5 with no unexpected results, including missing/incomplete-index guards. These measurements exclude provider and endpoint latency.
+
+See [remaining release gates](docs/RELEASE_EVIDENCE_STATUS.md): the deployment smoke check returned 502, local Study generation has tested timeout handling, and two private reviewer packets are prepared. AI-assisted ratings and deployed performance evidence remain pending.
+
+[Evaluation policy](docs/EVALUATION_POLICY.md): external human review is optional. Author and AI-assisted evaluation are supported with explicit provenance; simulated perspectives are not independent human reviewers.
+
+**Release evidence:** 178 Python tests and 75 web tests pass; lint and production build pass. The deployed Study path succeeds after the Render agent becomes healthy, but startup took 42.5 seconds in one observation. Local prompt/timeout changes still need publication and deployment verification. [Current release status](docs/RELEASE_EVIDENCE_STATUS.md).

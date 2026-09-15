@@ -28,6 +28,7 @@ def main(argv=None):
     parser.add_argument('--image', default='pgvector/pgvector:pg16')
     parser.add_argument('--all', action='store_true', help='Run the entire Python suite with real integration enabled')
     parser.add_argument('--output', type=Path, default=ROOT / 'agent/runs/index-integration.xml')
+    parser.add_argument('--operations-output', type=Path, help='Also record 100-query local database scenarios at concurrency 1 and 5')
     args = parser.parse_args(argv)
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -58,6 +59,10 @@ def main(argv=None):
         # Do not expose application/provider configuration to this test run.
         for key in ('DATABASE_URL', 'DIRECT_URL', 'OPENAI_API_KEY'):
             env.pop(key, None)
+        if args.operations_output:
+            env['RETRIEVAL_OPERATIONS_OUTPUT'] = str(args.operations_output.resolve())
+        else:
+            env.pop('RETRIEVAL_OPERATIONS_OUTPUT', None)
         target = 'tests/' if args.all else 'tests/test_index_integration.py'
         print('Running real database checks...', flush=True)
         result = subprocess.run([sys.executable, '-m', 'pytest', target, '-q', '--tb=short', '-p', 'no:cacheprovider', '--junitxml=' + str(output)], cwd=ROOT / 'agent', env=env, timeout=180)

@@ -1,6 +1,6 @@
 # LinguaFlow RAG engineering update plan
 
-**Semantic comparison:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Preflight: 166 inputs / 9 requests. Provider results remain pending credentials.
+**Semantic comparison:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
 
 
 **Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
@@ -9,14 +9,14 @@
 **Retrieval experiment update:** [Experiment 01](RETRIEVAL_EXPERIMENT_01.md) now provides a fixed BM25 baseline, paired rankings, threshold sensitivity, and a pending relevance-review packet. The data corpus and serving policy are unchanged.
 
 
-**Status:** data-side v2 implemented locally; atomic index publication verified on a disposable database; independent review and live comparative evaluation remain pending. This is a staged plan, not a completed production release.
+**Status:** data-side v2 implemented locally; atomic index publication verified on a disposable database; the provider-backed exact-search comparison is complete; AI-assisted answer evaluation and deployed endpoint testing remain pending. This is a staged plan, not a completed production release.
 **Objective:** turn the existing RAG prototype into a reproducible, testable engineering project whose data lifecycle, retrieval decisions, failure behavior, and measured limitations can be demonstrated from a clean checkout.  
 **Scope:** one engineer, existing Next.js/FastAPI/PostgreSQL stack, existing English teaching corpus.  
-**Planning estimate:** 15–22 focused engineering days, excluding external reviewer availability and deployment access. Estimates are provisional and should be revised after the first milestone.
+**Planning estimate:** 15–22 focused engineering days, excluding deployment access. Estimates are provisional and should be revised after the first milestone.
 
 ## Data-side progress — 2026-09-15
 
-Completed: canonical shared drills, 99 documented editorial revisions, 31 expanded/reference-linked notes, explicit provenance and coverage, repaired evaluation identities, 43 new challenge cases, deterministic validation, failure tests, CI reports, and indexing failure guards. See [dataset card](DATASET_CARD.md). M1 data contracts are implemented; independent review and a pinned dependency lock remain open. M2 now includes atomic publication, a corpus/configuration manifest, concurrent-publisher checks, and reader version checks; real pgvector integration passed locally; controlled release remains pending. M3 has better development/challenge fixtures, but no independent held-out set.
+Completed: canonical shared drills, 99 documented editorial revisions, 31 expanded/reference-linked notes, explicit provenance and coverage, repaired evaluation identities, 43 new challenge cases, deterministic validation, failure tests, CI reports, and indexing failure guards. See [dataset card](DATASET_CARD.md). M1 data contracts are implemented; AI-assisted evaluation and a pinned dependency lock remain open. M2 now includes atomic publication, a corpus/configuration manifest, concurrent-publisher checks, and reader version checks; real pgvector integration passed locally; controlled release remains pending. M3 has better development/challenge fixtures, but no independent held-out set.
 
 The historical findings below explain the original priorities. Use the dataset card for current counts and behavior.
 
@@ -128,7 +128,7 @@ Keep the current 31 structured and 25 freeform cases as regression/development e
 
 Cover paraphrases, new drill IDs, short underspecified questions, misleading card context, and domain-register distinctions. Group related paraphrases/source scenarios before splitting. Label relevant note IDs, reason, query type, and allowed response behavior. Permit multiple relevant IDs when appropriate.
 
-Have a second reviewer check test labels and adjudicate disagreements when available. If review is performed only by the project author, disclose that limitation. Synthetic candidates may help authoring but are not accepted as ground truth without review.
+Use documented author or AI-assisted label checks with rationale. AI-generated cases and labels must retain their provenance. External reviewers are not required; these labels are developmental evidence rather than independently validated ground truth.
 
 ### Harness changes
 
@@ -191,7 +191,7 @@ Use a reviewed development subset to refine prompts, then a separate held-out su
 - Selected retrieved context.
 - Gold relevant context, to isolate generation quality from retrieval errors.
 
-Score factual correctness, support for individual claims, citation relevance, teaching usefulness, and appropriate scope handling. Review answers blind to arm where practical. Report disagreements and use repeated generations on a small stability subset. Use an automated judge only after checking agreement with human labels.
+Score factual correctness, support for individual claims, citation relevance, teaching usefulness, and appropriate scope handling. Review answers blind to arm where practical. Report disagreements and use repeated generations on a small stability subset. Use explicitly labeled AI-assisted judging and disclose correlated errors and judge bias; do not claim human calibration.
 
 ### Acceptance gate
 
@@ -260,4 +260,10 @@ Before public release, review the diff and update README claims using only the n
 
 If time is constrained, prioritize M1, M2, M3, one fair retrieval comparison from M4, and explicit fallback/source behavior from M5. Mark unmeasured answer/operational claims as pending. This is a useful intermediate release, not completion of the full plan.
 
-**Next implementation tasks:** independently review the v2 notes/drill corrections and labels; pin the tested Python dependencies; verify a controlled migration/provider-backed reindex after M2’s passing real pgvector integration gate. Then run the query-aware retrieval comparison against frozen labels. Corpus validation, deterministic reports, and failure fixtures are already implemented.
+**Current next steps:** the provider-backed retrieval comparison and cached rank-fusion experiment are complete. The seven-arm answer pilot has completed 56/56 valid outputs at an estimated generation cost of $0.0184. Perform AI-assisted answer evaluation and prepare the grouped 240-case intake with explicit author/model provenance. Then freeze a genuinely untouched test set and measure end-to-end cold/warm behavior at concurrency 1 and 5. See [the feedback response](EVALUATION_FEEDBACK_RESPONSE.md) for commands, evidence, and remaining gates. These gates are not completed by the existing development retrieval scores.
+
+**Local operational evidence:** [600 requests across complete, missing and incomplete indexes](OPERATIONS_EXPERIMENT_01.md) passed at concurrency 1 and 5. The full suite now passes 170 tests. Deployed endpoint latency, cold-start distributions and provider-failure behavior remain unmeasured.
+
+**Release-gate update:** [Deployment check and evaluation workflow](RELEASE_EVIDENCE_STATUS.md). The public Study smoke failed with 502; staging/deployment access is needed before load testing. Local generation timeout/error handling passes the expanded 175-test suite. Reviewer packets are prepared with no fabricated ratings.
+
+**Latest evidence:** AI-assisted evaluation of all 56 pilot answers is complete ([Experiment 03](ANSWER_EXPERIMENT_03.md)). Local serving policy and Study timeout fixes are tested. A warm deployed Study smoke passes following a slow agent startup. Deployment verification and a permitted end-to-end benchmark remain; the proposed 240-case dataset is still uncollected.

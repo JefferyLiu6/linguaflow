@@ -1,6 +1,6 @@
 # LinguaFlow: building and evaluating a curriculum-grounded tutor
 
-**Semantic comparison:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Preflight: 166 inputs / 9 requests. Provider results remain pending credentials.
+**Semantic comparison:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
 
 
 **Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
@@ -42,7 +42,7 @@ The current canonical embedding texts total **6,265 tokens** across 31 notes (`c
 
 ## 3. Data source and representation
 
-The [v2 dataset card](DATASET_CARD.md) is the detailed data contract. The 171 canonical English drills are shared between the app and validator. The 31 curated notes contain applicability, original examples, exact drill adaptations, explained counterexamples, source IDs, selection rationale, and review status. Eleven institutional reference records support named principles; they do not certify every example or domain claim. Independent human review is pending.
+The [v2 dataset card](DATASET_CARD.md) is the detailed data contract. The 171 canonical English drills are shared between the app and validator. The 31 curated notes contain applicability, original examples, exact drill adaptations, explained counterexamples, source IDs, selection rationale, and review status. Eleven institutional reference records support named principles; they do not certify every example or domain claim. Evaluation uses author/AI-assisted checks; external human review is not a release requirement.
 
 `source_item_id` identifies a canonical drill adaptation; original examples use null and have independent example IDs. Bibliographic references use `reference_ids` and a bounded `reference_scope`. The dataset remains authored curriculum, not a web crawl or upload pipeline.
 
@@ -116,7 +116,7 @@ flowchart LR
 
 The [atomic publication contract](INDEX_PUBLICATION.md) supersedes the earlier per-row sync design. Unchanged complete snapshots skip embedding; changed snapshots prepare vectors before a single publication transaction. The manifest binds full note content, canonical chunks, model, dimensions, and format version. Reads reject mismatched or incomplete indexes; live evaluation treats these as infrastructure failures. Late write failures roll back the publication.
 
-Real pgvector integration passed locally as part of a 146-test run with zero skips; the same disposable-database runner is configured in CI. No migration or reindex has been applied to the application database. Remaining limits include one active version with no retained rollback history, full-corpus re-embedding for any changed snapshot, coordinated app/index deployment, and no measured semantic-quality improvement.
+Real pgvector integration passed locally as part of a 146-test run with zero skips; the same disposable-database runner is configured in CI. No migration or reindex has been applied to the application database. Remaining limits include one active version with no retained rollback history, full-corpus re-embedding for any changed snapshot, coordinated app/index deployment, and no end-to-end answer-quality measurement. [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now measures provider-backed semantic retrieval with exact in-memory search; it does not benchmark the live serving path.
 
 ## 8. Query construction and actual application routing
 
@@ -226,7 +226,7 @@ These are author-written development cases. The small negative sets do not estab
 2. **Measure candidate retrieval.** Compare question-aware lexical retrieval, vector-only, and hybrid on identical inputs. Report recall@k: fraction of positive queries whose relevant note appears among k candidates. Record ranking quality such as reciprocal rank when candidate lists are available. The current report does not calculate these metrics.
 3. **Measure selection and abstention.** Top-1 accuracy on positives; false-positive rate on negatives; missed expected coverage; per-bucket counts; explicit infrastructure failures. Tune k/weights/thresholds on development only. Preserve paired predictions and report uncertainty on a sufficiently large held-out set.
 4. **Isolate generation.** Compare no-RAG, whole-corpus, retrieved-context, and gold-context answers with the response model/prompt fixed. Gold context helps distinguish retrieval failure from generation failure. Review support for individual claims, citation relevance, correctness, and teaching usefulness.
-5. **Validate automated judging.** Use a human-reviewed rubric and measure agreement before using an LLM judge for scale. Include unanswerable and adversarial cases; do not treat the generator's confidence as a quality label.
+5. **Disclose automated judging limits.** Use an explicit rubric and label LLM evaluations as AI-assisted, without claiming human calibration. Include unanswerable and adversarial cases; do not treat the generator's confidence as a quality label.
 6. **Measure operations separately.** Record cold/warm p50/p95 stage and end-to-end latency, embedding tokens, generation tokens, timeout/fallback rates, and index version. Short offline integer-millisecond timings are not service latency measurements.
 7. **Check product impact.** Helpfulness feedback can identify cases to review, but is selection-biased and does not demonstrate learning improvement. A learner outcome requires its own study design.
 
@@ -235,3 +235,7 @@ These are author-written development cases. The small negative sets do not estab
 The project demonstrates a working curriculum-reference design, separate metadata and freeform retrieval paths, a canonical note format, vector-store integration, testable fallback behavior, and an evaluation that exposes a concrete dependence on authored IDs.
 
 The next investment should be better independent evidence and reliable index publication before adding another retrieval component. A mature engineering conclusion can be that a simpler baseline is adequate for known drills while semantic retrieval is justified only where measured freeform quality warrants it.
+
+## Answer-level evidence
+
+[Experiment 03](ANSWER_EXPERIMENT_03.md) adds two explicitly AI-assisted perspectives over 56 responses. Both found generation-level failures across retrieval arms, including inappropriate medication suggestions and overgeneralized register advice. This supports improving generation policy before adding a more complex retriever. Scores are developmental, not independent validation.

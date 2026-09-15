@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-09-15",
+  "vercel_production_commit": "3fc033eb113b2321454768ef690187e6109adaa5",
+  "agent_origin": "https://linguaflow-demo.onrender.com",
+  "agent_health": {
+    "http_status": 200,
+    "elapsed_seconds": 42.502452
+  },
+  "subsequent_web_study_request": {
+    "action": "show_similar_examples",
+    "http_status": 200,
+    "elapsed_seconds": 1.292497,
+    "agent_elapsed_ms": 3,
+    "retrieval_hit": true,
+    "source_id": "en_formal_register_precision"
+  },
+  "interpretation": "Slow agent startup is consistent with the initial proxy timeout; Render configuration not yet inspected.",
+  "limitations": [
+    "Two requests, not a latency distribution",
+    "No paid generation or deployed load test",
+    "Local prompt and timeout changes not deployed by this check"
+  ]
+}

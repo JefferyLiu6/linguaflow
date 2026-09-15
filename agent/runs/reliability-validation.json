@@ -1,0 +1,47 @@
+{
+  "started_at_utc": "2026-09-15T23:23:08.569568+00:00",
+  "image_requested": "pgvector/pgvector:pg16@sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b",
+  "status": "passed",
+  "scope": "synthetic-vector PostgreSQL integration; no external embedding calls",
+  "docker_version": "29.3.1",
+  "image_id": "sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b",
+  "image_digests": [
+    "pgvector/pgvector@sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b"
+  ],
+  "postgres_version": "16.15 (Debian 16.15-1.pgdg12+2)",
+  "pgvector_version": "0.8.6",
+  "pytest_exit_code": 0,
+  "tests": {
+    "tests": 175,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_sha256": {
+    "agent/retrieval/__init__.py": "90c52d550305ca942d22ca766977e6db9719f8bcd31633894507bc33a1f866fe",
+    "agent/retrieval/answer_study.py": "d92b7fab6ccf7d6716c3ff1b8c4f2521a9c1578984a1b5e6d620ef59fbdce6e1",
+    "agent/retrieval/benchmark.py": "ac59d2f12932ff0923134aaf8a2add0d11fcfd6a3d16a5088bf6fd9ed6bc330f",
+    "agent/retrieval/db.py": "ef161274922ad905912473929803a928f874e5b69782fcbb2f1e61661a50e470",
+    "agent/retrieval/embeddings.py": "20bcd3287a54e15eec40bfbf4e5bafd876edb3bd05cee28aa2297101ff2aa912",
+    "agent/retrieval/eval_cases.py": "a107e98e4cbb378a84dc45dc47bb61df2102ac9849d30861f0f524f7df4f73c3",
+    "agent/retrieval/eval_cases_freeform.py": "eca262421f0a7d099f4074c3921437ee15eb4bd2cf09405eab30c41789de560e",
+    "agent/retrieval/eval_runner.py": "368ac0e35128c8672ef113fdc8fa5116edd79d756580e3e9cb49d7e1aca07993",
+    "agent/retrieval/fusion_experiment.py": "aa37c8d273b28a8b6555f4d70836d55e2c514d15a526dcdc8f78232dd968d628",
+    "agent/retrieval/hybrid.py": "ec249da43e7806054847d4864fbfbc8a96f4d3714109d19b2c48c3773a88bd62",
+    "agent/retrieval/lexical.py": "ef31da162bdffd283b720945dcd7dc471940e1a90d61875b1e23b4cd223b00c6",
+    "agent/retrieval/lexical_benchmark.py": "52be042b638de0000ac222f02d011c6db4d8de1bf3551220a8ddc41839142369",
+    "agent/retrieval/loader.py": "c540a3407af0ee488ea9138ba5f09183bbc88c645c83111cf33bc55bc26f4463",
+    "agent/retrieval/manifest.py": "0a22d216bc0112eda1661f3effd3874908d350aa7c55102ab5b1ef36774c2816",
+    "agent/retrieval/retrieval_comparison.py": "66079195570146811fcf6f2fdce3b5535261d4079a328feab415de35b0ff8961",
+    "agent/retrieval/retrieve.py": "ca09b006acbffc5f4ef3a9d7421d3db14d944c562c8e6ab878e3daff5066f850",
+    "agent/retrieval/reviewed_dataset.py": "df548decaac7c3eebcdd1db10b113b8d840d70c0d5526bca65376d474dca0abf",
+    "agent/retrieval/sync_embeddings.py": "7876489de1e4e068948eb03c51915bdf6d2223a16751578344b0d29216fa31a7",
+    "agent/retrieval/tagger.py": "e1bdd084499a51a0bc38fea34dad8b3ee6fbce4214a70615062c8af3fabb80ec",
+    "agent/retrieval/tracing.py": "0c6bf5adc6795d09bbd100c8d1a5219491e6d342170393484f21671c50e00202",
+    "agent/retrieval/validate_corpus.py": "5568d7698901fc80485d99487f39fd17be90f333af9fefea824a6ecbe5321357",
+    "agent/tests/test_index_integration.py": "c4c4f323e3315b612aec62b76651b81d45a5f6f1d940f928d7ffa3f4d395dc1e",
+    "prisma/migrations/20260425000001_add_retrieval_docs/migration.sql": "3cb699db8baae195846acb55ba15efc4821efb9e86c974a6336a963e25d19ce4",
+    "prisma/migrations/20260915000001_retrieval_publication_manifest/migration.sql": "57afb15b07b69c19e92209a0b672e864edb70d8c63ecf4f934226114d60bd440"
+  },
+  "container_removed": true
+}

@@ -1,0 +1,4849 @@
+{
+  "status": "provider_diagnostic_completed",
+  "configuration": {
+    "rrf_k": 60,
+    "per_source_candidates": 10,
+    "selected_candidate_min_cosine": 0.3
+  },
+  "experiment_sha256": "42cdf8d0b7ada5b31412b49d4dbcc07000bd0eb9e4e0b6bff923ba619df1b8cc",
+  "vectors_sha256": "850f9b35fcb68e8895a2b364e580d497ea23ff3c02f502d9480dfc377d31c162",
+  "sets": {
+    "development": {
+      "question": {
+        "summary": {
+          "positive_cases": 22,
+          "negative_cases": 3,
+          "correct_positive": 9,
+          "false_positives": 0,
+          "missed_positives": 1,
+          "positive_accuracy": 0.4090909090909091,
+          "false_positive_rate": 0.0,
+          "recall_at_1": 0.4090909090909091,
+          "recall_at_3": 0.7727272727272727,
+          "recall_at_5": 0.8636363636363636,
+          "mrr_at_5": 0.5962121212121212
+        },
+        "results": [
+          {
+            "case_id": "freeform_formal_001",
+            "question": "Why does my sentence sound too casual for a professional email?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_work_formal_register",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5137552183613093
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.46206284785075014
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.030834914611005692,
+                "vector_score": 0.38942444817414434
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.4100650987783624
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.029211087420042643,
+                "vector_score": 0.3895137002927243
+              }
+            ],
+            "query_sha256": "1ca09ba57f2938dcd1fa5bb74998e09bf5e0ebb9d490d2808c2f0be22204d453"
+          },
+          {
+            "case_id": "freeform_formal_002",
+            "question": "What's the difference between everyday language and business language?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_work_formal_register",
+            "gold_rank": 4,
+            "candidates": [
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4873282049151248
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.5269872827146016
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.031544957774465976,
+                "vector_score": 0.4205499643910058
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.4748328607131447
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03076923076923077,
+                "vector_score": 0.4332637560072961
+              }
+            ],
+            "query_sha256": "12fdd621ad9426007447be5a58e0ab9f4dd0ced92546d07191691baed049fcd7"
+          },
+          {
+            "case_id": "freeform_formal_003",
+            "question": "How do I make this rewrite sound more professional?",
+            "expected_note_id": "en_work_formal_register",
+            "selected_note_id": "en_work_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.49133245841410916
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.5422224128923114
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.45941196608939977
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03036576949620428,
+                "vector_score": 0.4681294226149937
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.2747073247656932
+              }
+            ],
+            "query_sha256": "840e131686d54b693d9b4a38da0c0c3459f645bf92705a2ebad17423c067bc1b"
+          },
+          {
+            "case_id": "freeform_formal_004",
+            "question": "What does it mean to use a precise synonym instead of a vague one?",
+            "expected_note_id": "en_precise_synonym_choice",
+            "selected_note_id": "en_precise_adjective_choice",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.6327406739680913
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.6427764201054003
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.5738173342979516
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.5051825061808131
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.030834914611005692,
+                "vector_score": 0.4879886246374744
+              }
+            ],
+            "query_sha256": "48e4e1334128f5643d5a40ee85fa1e197b44d5739ea4458a77ca869be33147fa"
+          },
+          {
+            "case_id": "freeform_formal_005",
+            "question": "Why do I need to replace simple words with fancier ones here?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.5011047519395404
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.5014712260145376
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03036576949620428,
+                "vector_score": 0.4456183556877237
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.030303030303030304,
+                "vector_score": 0.4699662962299025
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.48405915685068984
+              }
+            ],
+            "query_sha256": "17a3cf001b6faec506ddee390e785200a707d9026e9b4f7a6ee31b0ce68df9c3"
+          },
+          {
+            "case_id": "freeform_formal_006",
+            "question": "This feels like academic writing \u2014 what's the pattern I'm learning?",
+            "expected_note_id": "en_academic_formal_register",
+            "selected_note_id": "en_education_formal_register",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.43763106678224867
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.45054855192384613
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.3546545292444261
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.02877846790890269,
+                "vector_score": 0.33939303011511257
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.28708669466636516
+              }
+            ],
+            "query_sha256": "89ba6aeb65623a02187c994e5e7214cf8df7ba7861a58e497790120cf1e7e6db"
+          },
+          {
+            "case_id": "freeform_voice_001",
+            "question": "How do I flip the subject and the object around in a sentence?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.32854455965739354
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.31856324467665537
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.3134023823811712
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.030679156908665108,
+                "vector_score": 0.3491721740598153
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.300773349242794
+              }
+            ],
+            "query_sha256": "10a7a947ad1dc5179648bc487b8fb3a9be0bd6e93fa7573bf95fc540d90313f9"
+          },
+          {
+            "case_id": "freeform_voice_002",
+            "question": "What grammar rule makes the thing being acted on come first?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.39424953948805513
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.3488349394334429
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03125,
+                "vector_score": 0.3627037475284873
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.32423733897097934
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.029850746268656716,
+                "vector_score": 0.33761505733781455
+              }
+            ],
+            "query_sha256": "b1ac9af0e1a6d7e9e2a8094d9fb123577ae557e3e5f7eb48225ec26a6d547536"
+          },
+          {
+            "case_id": "freeform_voice_003",
+            "question": "Why would I want to hide who did the action in a sentence?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_relative_clause_combination",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.34280940570113916
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.3272779956241505
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03125,
+                "vector_score": 0.30619711854206033
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.3018998831787415
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.30546736045271744
+              }
+            ],
+            "query_sha256": "52106d1cd608baa3105c960919402a1a7ecc5e66465d3d0325b5aa0f21f278da"
+          },
+          {
+            "case_id": "freeform_voice_004",
+            "question": "What's the difference between the doer and the receiver in a sentence?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_formal_register_precision",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.3161042330324837
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.32524401759072014
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.030303030303030304,
+                "vector_score": 0.29559624739814555
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.31301248592697406
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.23304213086897818
+              }
+            ],
+            "query_sha256": "ee4cb7d5852b7c9f2260b1f2f449802c0c46b09a862021f772219d0b7174f850"
+          },
+          {
+            "case_id": "freeform_clause_001",
+            "question": "How do I turn two short sentences into one elegant sentence?",
+            "expected_note_id": "en_participle_clause_combination",
+            "selected_note_id": "en_relative_clause_combination",
+            "gold_rank": 3,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.4416031550741526
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4005898187895215
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03125,
+                "vector_score": 0.390756611200012
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.3383167877206008
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03007688828584351,
+                "vector_score": 0.3479603423404967
+              }
+            ],
+            "query_sha256": "e8e790090067c5c03c5d07ea2f383e806d4b8c620abb9e257f18f99c75e854f4"
+          },
+          {
+            "case_id": "freeform_clause_002",
+            "question": "What's the grammar pattern that uses -ing to connect two actions?",
+            "expected_note_id": "en_participle_clause_combination",
+            "selected_note_id": "en_participle_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4767114157850334
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.33768120092815945
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.3252896723063013
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.32961467787654103
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03036576949620428,
+                "vector_score": 0.3689077066579372
+              }
+            ],
+            "query_sha256": "ae773e5f176aad5b4435c0310b5a19a4c2a175e0c51fe681bbe2510e25633f9a"
+          },
+          {
+            "case_id": "freeform_clause_003",
+            "question": "How do I add a 'which' clause to give extra information about something?",
+            "expected_note_id": "en_non_restrictive_relative_clause",
+            "selected_note_id": "en_non_restrictive_relative_clause",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.4507822877804717
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.45414110409562614
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.3637000776579773
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.02919863597612958,
+                "vector_score": 0.27029373988098876
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.21357086329835734
+              }
+            ],
+            "query_sha256": "28cd4ec26b513c2d51e21ed2b23f993b15ce5b8d3113952e2492f3d0b5f62f6c"
+          },
+          {
+            "case_id": "freeform_clause_004",
+            "question": "What does it mean to identify a specific person or thing in a sentence using a clause?",
+            "expected_note_id": "en_relative_clause_combination",
+            "selected_note_id": "en_relative_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4995148799740012
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4222493193237155
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.41376765731811443
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.25268846611258344
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.015625,
+                "vector_score": 0.3082584596656534
+              }
+            ],
+            "query_sha256": "5e72fe87f74d9ffd0b5964257acd75bee81b53687eaff8db1446dc52bdb1e394"
+          },
+          {
+            "case_id": "freeform_phrase_001",
+            "question": "How do I say this workplace phrase in a more professional way?",
+            "expected_note_id": "en_work_phrase_formal",
+            "selected_note_id": "en_work_formal_register",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.5320847040973651
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.5790557164983856
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.4714730354748376
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.46933432730593777
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.40079952281268355
+              }
+            ],
+            "query_sha256": "abd84462f5799e67cacf3649853bf330deae0f40ffb81037e9102b2b8c1651e7"
+          },
+          {
+            "case_id": "freeform_phrase_002",
+            "question": "What's the formal sports journalism way to describe this play?",
+            "expected_note_id": "en_sport_phrase_formal",
+            "selected_note_id": "en_sport_phrase_formal",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.4723355686096333
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.42423054801682974
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.4014779308117769
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.029877369007803793,
+                "vector_score": 0.3106245029004585
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.5587526494297231
+              }
+            ],
+            "query_sha256": "823999d5e9c085d6c462017c3fd9f734bc94133f758152a869dde078153cece8"
+          },
+          {
+            "case_id": "freeform_phrase_003",
+            "question": "How would a doctor or nurse say this instead of everyday language?",
+            "expected_note_id": "en_health_phrase_formal",
+            "selected_note_id": "en_health_formal_register",
+            "gold_rank": 5,
+            "candidates": [
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.5476899428882152
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.4528867958763319
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.4286264071095678
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.38852725974407976
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03036576949620428,
+                "vector_score": 0.4481532847527398
+              }
+            ],
+            "query_sha256": "8b37961434d719bdccf04b824645772352959920618931c6e8e9b734c0265071"
+          },
+          {
+            "case_id": "freeform_phrase_004",
+            "question": "How would a financial analyst phrase this in a report?",
+            "expected_note_id": "en_finance_phrase_formal",
+            "selected_note_id": "en_finance_formal_register",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4563027469413634
+              },
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.44676410321960724
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.4029807225738962
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03036576949620428,
+                "vector_score": 0.2659232305282902
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.030330882352941176,
+                "vector_score": 0.2771853883644756
+              }
+            ],
+            "query_sha256": "3ada21addda967589d68043302535fc15d4f52043bcc368f40f2ea1e0299f754"
+          },
+          {
+            "case_id": "freeform_domain_001",
+            "question": "What's the precise sports term for this instead of a general description?",
+            "expected_note_id": "en_sport_vocabulary_precision",
+            "selected_note_id": "en_sport_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.6129263771582781
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.47242931300125673
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.41126437042950587
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.030158730158730156,
+                "vector_score": 0.3743088009649089
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.028985507246376812,
+                "vector_score": 0.3753604505788377
+              }
+            ],
+            "query_sha256": "9521a63e0e3fdb2668b231f345e2d61bd458b3e08c58cba3b4c214ce4fd067ed"
+          },
+          {
+            "case_id": "freeform_domain_002",
+            "question": "How do programmers or engineers describe this concept technically?",
+            "expected_note_id": "en_tech_vocabulary_precision",
+            "selected_note_id": null,
+            "gold_rank": 3,
+            "candidates": [
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.2583649592713511
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.19294354575671677
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.42739258764527754
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.2725998146190403
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.13784439460072329
+              }
+            ],
+            "query_sha256": "b3b0ce8ba5674df6d17755d977d6cbe7a17f3e1bc239b88a3081d7c35068c7ee"
+          },
+          {
+            "case_id": "freeform_domain_003",
+            "question": "What vocabulary would make this sound more academic or scholarly?",
+            "expected_note_id": "en_general_vocabulary_precision",
+            "selected_note_id": "en_academic_formal_register",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.49738362706738204
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.47163769842264036
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.47440116444866387
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.4140667842279322
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.015625,
+                "vector_score": 0.44974863873783893
+              }
+            ],
+            "query_sha256": "f08b6028b36d56959105b352f9a53820be267e3dea5ca36451c24f270fb0ca85"
+          },
+          {
+            "case_id": "freeform_domain_004",
+            "question": "How do you describe this in proper scientific language?",
+            "expected_note_id": "en_science_formal_register",
+            "selected_note_id": "en_science_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.44669680692759794
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.2832466677381613
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.30045750152615935
+              },
+              {
+                "id": "en_food_formal_register",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.30366374173497934
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.0304147465437788,
+                "vector_score": 0.24886509974667356
+              }
+            ],
+            "query_sha256": "76ee776aa79a300cf223629172d7361d36a01ab6fcf395dc303d398e0881b100"
+          },
+          {
+            "case_id": "freeform_no_hit_001",
+            "question": "What is the capital of France?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.12822762455792452
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.10666986922043403
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.09927617013701445
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.015625,
+                "vector_score": 0.07750502042004369
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.06226097697910685
+              }
+            ],
+            "query_sha256": "1b997d5ad21df831da8a509b3d29c5dfc6060efe3fc883938bc1bf9dae81290e"
+          },
+          {
+            "case_id": "freeform_no_hit_002",
+            "question": "How many irregular verbs are there in English?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.1590363371548671
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.2870457582524441
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.24851649164407175
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.24027992593314432
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.015625,
+                "vector_score": 0.23578446597206318
+              }
+            ],
+            "query_sha256": "1649098841e4ddcb668f7bed0ee55d1e1fadcf29a36801f471fa7de17ea77eeb"
+          },
+          {
+            "case_id": "freeform_no_hit_003",
+            "question": "Can you give me a fun fact about language?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.27584356706543334
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.23140357812159004
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.2064176650206652
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.030330882352941176,
+                "vector_score": 0.2282184262469082
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.2123905380889114
+              }
+            ],
+            "query_sha256": "c72ae5a56bbb0f0543c3f4320e9088152cf08837ba52cdd5c3c5644aa0fc6b69"
+          }
+        ]
+      },
+      "question_card": {
+        "summary": {
+          "positive_cases": 22,
+          "negative_cases": 3,
+          "correct_positive": 16,
+          "false_positives": 2,
+          "missed_positives": 0,
+          "positive_accuracy": 0.7272727272727273,
+          "false_positive_rate": 0.6666666666666666,
+          "recall_at_1": 0.7272727272727273,
+          "recall_at_3": 0.9545454545454546,
+          "recall_at_5": 0.9545454545454546,
+          "mrr_at_5": 0.8333333333333333
+        },
+        "results": [
+          {
+            "case_id": "freeform_formal_001",
+            "question": "Why does my sentence sound too casual for a professional email?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_formal_register_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5032568498701463
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.45825317606961097
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.42385067833684836
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.3921816574384086
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030117753623188408,
+                "vector_score": 0.41632828562728424
+              }
+            ],
+            "query_sha256": "fcbf46c4da9bd45eb73d3371140151934d16880d85a489f8d0419e7e3ebf1a1d"
+          },
+          {
+            "case_id": "freeform_formal_002",
+            "question": "What's the difference between everyday language and business language?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_work_formal_register",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.5371490427104897
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.5094372914279023
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.031099324975891997,
+                "vector_score": 0.4372318469377264
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.43856651124218426
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.029857397504456328,
+                "vector_score": 0.4564200840036468
+              }
+            ],
+            "query_sha256": "a1e9e3d284d27e3fba7526afdeff06f344a79c77b4b9555026c7a987de356264"
+          },
+          {
+            "case_id": "freeform_formal_003",
+            "question": "How do I make this rewrite sound more professional?",
+            "expected_note_id": "en_work_formal_register",
+            "selected_note_id": "en_work_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.6337445742959978
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.5250046609237558
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.029910714285714284,
+                "vector_score": 0.49776177913167374
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.029437229437229435,
+                "vector_score": 0.3985198216935671
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.5310065860150862
+              }
+            ],
+            "query_sha256": "0a582639c1706059574477d8dfdc48606295d012814e01773c104bcd1873bc47"
+          },
+          {
+            "case_id": "freeform_formal_004",
+            "question": "What does it mean to use a precise synonym instead of a vague one?",
+            "expected_note_id": "en_precise_synonym_choice",
+            "selected_note_id": "en_precise_adjective_choice",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.5524810481372023
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.5689996415672829
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.5083389484188653
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.5097847834187852
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.029857397504456328,
+                "vector_score": 0.48293168999290575
+              }
+            ],
+            "query_sha256": "9f283102936e4a539caefb38ab4b2101486f9c7a81eaadd9d36755c07de702a1"
+          },
+          {
+            "case_id": "freeform_formal_005",
+            "question": "Why do I need to replace simple words with fancier ones here?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5338256491939356
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.5324229183949564
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.49223568243183197
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.5210507811442174
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03007688828584351,
+                "vector_score": 0.4571591860883321
+              }
+            ],
+            "query_sha256": "7c443afa83bf6b931e0915cf86362872dda90f3d611d89885b258a49263b7936"
+          },
+          {
+            "case_id": "freeform_formal_006",
+            "question": "This feels like academic writing \u2014 what's the pattern I'm learning?",
+            "expected_note_id": "en_academic_formal_register",
+            "selected_note_id": "en_academic_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5521229222015118
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4529285925831966
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.43083394986600204
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.02964426877470356,
+                "vector_score": 0.41159424285700846
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.4628025186372076
+              }
+            ],
+            "query_sha256": "18398698cf9ee6d040c3bddccb0dc380423f08b487d803a398de96fbd9fc959c"
+          },
+          {
+            "case_id": "freeform_voice_001",
+            "question": "How do I flip the subject and the object around in a sentence?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5875302433010974
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4673105435653663
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.42521649831095915
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.3829645882652612
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.029877369007803793,
+                "vector_score": 0.3619657757371407
+              }
+            ],
+            "query_sha256": "7e7944cf5d9a5d4bea68da616c0fc8631c6295db92d9fe5a53e773099be1561a"
+          },
+          {
+            "case_id": "freeform_voice_002",
+            "question": "What grammar rule makes the thing being acted on come first?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5572387107374241
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.44183368145099
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.4367818873858524
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.3689057119044677
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.38501969490009574
+              }
+            ],
+            "query_sha256": "e53485916eb4c94e5f0243d8279c6dcfe854d9b74e58df87bf09a1bf977f4c8d"
+          },
+          {
+            "case_id": "freeform_voice_003",
+            "question": "Why would I want to hide who did the action in a sentence?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5681100106194097
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4845224014605993
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.3920070422006182
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.37715943968624793
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.3722750561129366
+              }
+            ],
+            "query_sha256": "5e875eb56658b94ef62e5291090459c51a87ccd8c916e6b03fd0554925e7be6a"
+          },
+          {
+            "case_id": "freeform_voice_004",
+            "question": "What's the difference between the doer and the receiver in a sentence?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.49379760603112
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4702028991966042
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.3908909253933347
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.3731404686420295
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.029910714285714284,
+                "vector_score": 0.3979015501435268
+              }
+            ],
+            "query_sha256": "41e39c0f13a0a3638f4b341d7be05e3778cbede02cbc8258e1e66d4b1f2fccea"
+          },
+          {
+            "case_id": "freeform_clause_001",
+            "question": "How do I turn two short sentences into one elegant sentence?",
+            "expected_note_id": "en_participle_clause_combination",
+            "selected_note_id": "en_participle_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5566084438775554
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4455842011110127
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.3788762332864132
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.42167327646658387
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.015625,
+                "vector_score": 0.3921463080607976
+              }
+            ],
+            "query_sha256": "f73cada2e3e6f29641ade84f9266a487ab9279f63c297fe56d26d43854e2ab83"
+          },
+          {
+            "case_id": "freeform_clause_002",
+            "question": "What's the grammar pattern that uses -ing to connect two actions?",
+            "expected_note_id": "en_participle_clause_combination",
+            "selected_note_id": "en_participle_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.6070599870302127
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.42340663628098235
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.34841421403678585
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.3876839066235967
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.3307378936756511
+              }
+            ],
+            "query_sha256": "62fbd4cae2efcc03231b48901372c1e313e9d6c1dc05474a0f4fb71a5e097d77"
+          },
+          {
+            "case_id": "freeform_clause_003",
+            "question": "How do I add a 'which' clause to give extra information about something?",
+            "expected_note_id": "en_non_restrictive_relative_clause",
+            "selected_note_id": "en_non_restrictive_relative_clause",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5551183249626995
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.49154789160092377
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.37404836514913514
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.029857397504456328,
+                "vector_score": 0.31311226897956407
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.029850746268656716,
+                "vector_score": 0.3182835218605093
+              }
+            ],
+            "query_sha256": "3ef4d01ffdbf49ca1b2750acd0fa640ee559b61707c8161519871550baee38b9"
+          },
+          {
+            "case_id": "freeform_clause_004",
+            "question": "What does it mean to identify a specific person or thing in a sentence using a clause?",
+            "expected_note_id": "en_relative_clause_combination",
+            "selected_note_id": "en_relative_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.49994878358295053
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4035033219191128
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4189763430008311
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.305060973993937
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.030330882352941176,
+                "vector_score": 0.3316355637027341
+              }
+            ],
+            "query_sha256": "160421b2c83791d3e0fc709b9011e3c04f14a33495f624e69aac80205879266d"
+          },
+          {
+            "case_id": "freeform_phrase_001",
+            "question": "How do I say this workplace phrase in a more professional way?",
+            "expected_note_id": "en_work_phrase_formal",
+            "selected_note_id": "en_work_formal_register",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.5171427843191211
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.5244277773085828
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.5140189508676329
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030117753623188408,
+                "vector_score": 0.4468789831959086
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03007688828584351,
+                "vector_score": 0.38798957460678646
+              }
+            ],
+            "query_sha256": "9555506f9c1cadb59391a3a5d1f77057caf49426250fb556fc1412b70005ec7b"
+          },
+          {
+            "case_id": "freeform_phrase_002",
+            "question": "What's the formal sports journalism way to describe this play?",
+            "expected_note_id": "en_sport_phrase_formal",
+            "selected_note_id": "en_sport_vocabulary_precision",
+            "gold_rank": 3,
+            "candidates": [
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4760225082423647
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.4077436059547893
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.475369350290207
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.028991596638655463,
+                "vector_score": 0.34407031380107467
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.5918400892043865
+              }
+            ],
+            "query_sha256": "9a61b1376908b2160e26e34c5d69b2c477b99b8472100f2ad413ab7c809f196e"
+          },
+          {
+            "case_id": "freeform_phrase_003",
+            "question": "How would a doctor or nurse say this instead of everyday language?",
+            "expected_note_id": "en_health_phrase_formal",
+            "selected_note_id": "en_health_phrase_formal",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.45880977503932013
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.5047572226881706
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03036576949620428,
+                "vector_score": 0.3967701770330491
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.029877369007803793,
+                "vector_score": 0.33588734248458607
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.029857397504456328,
+                "vector_score": 0.37603927154374167
+              }
+            ],
+            "query_sha256": "6f8eef53ebe03d6dd692243b999d7c8561a03076b93b4cb1e13b96dd3c0df687"
+          },
+          {
+            "case_id": "freeform_phrase_004",
+            "question": "How would a financial analyst phrase this in a report?",
+            "expected_note_id": "en_finance_phrase_formal",
+            "selected_note_id": "en_finance_formal_register",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5948750235950553
+              },
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.5047399130042529
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.4472243942786049
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.37538871705813
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.030303030303030304,
+                "vector_score": 0.33061906950504505
+              }
+            ],
+            "query_sha256": "d1904ee80a800017b5761d2f3a6af369ebf4b9f99018e78a11685c6939d64bd9"
+          },
+          {
+            "case_id": "freeform_domain_001",
+            "question": "What's the precise sports term for this instead of a general description?",
+            "expected_note_id": "en_sport_vocabulary_precision",
+            "selected_note_id": "en_sport_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5517192828541271
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.417437264132333
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.3499090283375136
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.3896006980257943
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.029857397504456328,
+                "vector_score": 0.3776201209537095
+              }
+            ],
+            "query_sha256": "6a496eba7f440e91b47be70a4784c786fe8a96f2dafcdb6ac944777f9bc3f576"
+          },
+          {
+            "case_id": "freeform_domain_002",
+            "question": "How do programmers or engineers describe this concept technically?",
+            "expected_note_id": "en_tech_vocabulary_precision",
+            "selected_note_id": "en_tech_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5288258526588504
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.3634712200193716
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.3311853064529627
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.30461053102672914
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.029437229437229435,
+                "vector_score": 0.3101331914873592
+              }
+            ],
+            "query_sha256": "155b1c7494f382ccf6b403640a8ee0473bc762986f05ef5ec9b530d56efc11b9"
+          },
+          {
+            "case_id": "freeform_domain_003",
+            "question": "What vocabulary would make this sound more academic or scholarly?",
+            "expected_note_id": "en_general_vocabulary_precision",
+            "selected_note_id": "en_general_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4706435902198097
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.43658340133653556
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.4427575999687064
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.419669886619696
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.42806723089850557
+              }
+            ],
+            "query_sha256": "253073563f0b3ed6f94adb29de56c9d97d92e0b093a4d5bf350ccd64dc0890ec"
+          },
+          {
+            "case_id": "freeform_domain_004",
+            "question": "How do you describe this in proper scientific language?",
+            "expected_note_id": "en_science_formal_register",
+            "selected_note_id": "en_science_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.49539544150934234
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.33574246970346683
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.031099324975891997,
+                "vector_score": 0.30448183948532065
+              },
+              {
+                "id": "en_food_formal_register",
+                "rrf_score": 0.030834914611005692,
+                "vector_score": 0.36304406465643224
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.31156472310571204
+              }
+            ],
+            "query_sha256": "f989eab19c0acb02f14854bbdf287722632c1ac8ca376a566e09382ad4244100"
+          },
+          {
+            "case_id": "freeform_no_hit_001",
+            "question": "What is the capital of France?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.23706492702724083
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.19797596679724547
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.19536733795012054
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.015625,
+                "vector_score": 0.1832018056288015
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.17542292017886899
+              }
+            ],
+            "query_sha256": "799ebb361bd367d1e39a87394244970cff82cceab75fa68934a99a57a800c037"
+          },
+          {
+            "case_id": "freeform_no_hit_002",
+            "question": "How many irregular verbs are there in English?",
+            "expected_note_id": null,
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.3277082315112147
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.3463001877883584
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.30423778768277704
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.27968795439624156
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.1416036335331769
+              }
+            ],
+            "query_sha256": "9765714337b1474015e91f2384b382daf419f64fc0e5ed01ca9dddf3c09931be"
+          },
+          {
+            "case_id": "freeform_no_hit_003",
+            "question": "Can you give me a fun fact about language?",
+            "expected_note_id": null,
+            "selected_note_id": "en_formal_phrase_rephrasing",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.3038283722150662
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.2932948528738708
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.030679156908665108,
+                "vector_score": 0.3053159938451635
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.29705005747563645
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.03007688828584351,
+                "vector_score": 0.27635049986211563
+              }
+            ],
+            "query_sha256": "4b0dd4aff790e619303524692bb37cd00d312020db505a77db620c7c6c4dfe0d"
+          }
+        ]
+      }
+    },
+    "challenge": {
+      "question": {
+        "summary": {
+          "positive_cases": 31,
+          "negative_cases": 12,
+          "correct_positive": 21,
+          "false_positives": 3,
+          "missed_positives": 2,
+          "positive_accuracy": 0.6774193548387096,
+          "false_positive_rate": 0.25,
+          "recall_at_1": 0.7096774193548387,
+          "recall_at_3": 0.967741935483871,
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.8451612903225806
+        },
+        "results": [
+          {
+            "case_id": "coverage_en_formal_register_precision",
+            "question": "Does replacing get with obtain change the tone or the factual claim?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_formal_register_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4188928051560217
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.330371622477862
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.35968949810602846
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.33676700855062497
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.030158730158730156,
+                "vector_score": 0.32061686988597016
+              }
+            ],
+            "query_sha256": "95a105daa89e98db68e183f42d8aca985107f0b21cf5cf5bc5ee0899e05f6b36"
+          },
+          {
+            "case_id": "coverage_en_precise_synonym_choice",
+            "question": "How can I tell whether a replacement word fits the meaning and grammar of this sentence?",
+            "expected_note_id": "en_precise_synonym_choice",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.510152782661158
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.40971661768109435
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.4523387716880034
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.40608202736594345
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.42364834461376394
+              }
+            ],
+            "query_sha256": "fa725a7d9920b1fc7011862758a401824e35bd8a45dad21f90a68a36318c9ef7"
+          },
+          {
+            "case_id": "coverage_en_single_precise_verb",
+            "question": "How can I express gave an explanation of using just one verb?",
+            "expected_note_id": "en_single_precise_verb",
+            "selected_note_id": "en_single_precise_verb",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5008005722887814
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.36734589531913336
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.3508277221592079
+              },
+              {
+                "id": "en_food_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.2658622056062499
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.3540529012851049
+              }
+            ],
+            "query_sha256": "eb5e01128f2606cb327f91938b92dc0aad9ab795d0b679ad7fec7a17c3d2b3d3"
+          },
+          {
+            "case_id": "coverage_en_passive_vs_active_voice",
+            "question": "How do I put the object first while keeping the same tense and people involved?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_single_precise_verb",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.3437683877920629
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.34248943959200157
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.3040649409983622
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.3342270905052038
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.2929629129553433
+              }
+            ],
+            "query_sha256": "afec050231cb91aef39edf28432f46596e32046c14738a72eaf004fbe900de6a"
+          },
+          {
+            "case_id": "coverage_en_participle_clause_combination",
+            "question": "Who must perform the action in an introductory having-finished phrase?",
+            "expected_note_id": "en_participle_clause_combination",
+            "selected_note_id": "en_participle_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4053388818937389
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.3889589080562964
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03125,
+                "vector_score": 0.37443811285308004
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.029631255487269532,
+                "vector_score": 0.34145926802190046
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.31534366298613414
+              }
+            ],
+            "query_sha256": "936a650ee6b3901bd4f3ddb413dddc1d789ba02254c290e2811e81833387441b"
+          },
+          {
+            "case_id": "coverage_en_relative_clause_combination",
+            "question": "How do I identify which of several files I mean using a clause?",
+            "expected_note_id": "en_relative_clause_combination",
+            "selected_note_id": "en_non_restrictive_relative_clause",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.38168196028285867
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.4744364724722975
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.3617491443113029
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015625,
+                "vector_score": 0.3079985692982619
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.015625,
+                "vector_score": 0.22885518806083058
+              }
+            ],
+            "query_sha256": "0c44915d0df041cc58ea9be460d450820ca7f61093ec2f8f7c8ea629bd3dab72"
+          },
+          {
+            "case_id": "coverage_en_formal_rewrite_sentence",
+            "question": "How can I rewrite a whole casual sentence without adding facts?",
+            "expected_note_id": "en_formal_rewrite_sentence",
+            "selected_note_id": "en_formal_rewrite_sentence",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.6172870676650309
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.5135536495649331
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.4972248253071941
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030158730158730156,
+                "vector_score": 0.4381533729280478
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.02964426877470356,
+                "vector_score": 0.4405189095833353
+              }
+            ],
+            "query_sha256": "9167ba6f9fd9c698c99cb5ee4420ea0b7c1f4b6c99f089a493682e2cb9e2184c"
+          },
+          {
+            "case_id": "coverage_en_concise_formal_rewrite",
+            "question": "Can I shorten due to the fact that without changing the reason?",
+            "expected_note_id": "en_concise_formal_rewrite",
+            "selected_note_id": "en_concise_formal_rewrite",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.38169548601523473
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.31801680810355815
+              },
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.2835934906903453
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.3041165891533252
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.3243665033321803
+              }
+            ],
+            "query_sha256": "6e2863733af59108c2a40a61c57b1dd582dd48ca1e9d3603a6f3de5ff6d69a41"
+          },
+          {
+            "case_id": "coverage_en_formal_phrase_rephrasing",
+            "question": "How do I make an everyday apology neutral while preserving its intent?",
+            "expected_note_id": "en_formal_phrase_rephrasing",
+            "selected_note_id": "en_formal_phrase_rephrasing",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.37946059337179255
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.34910469637345026
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.36454925666835786
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030886196246139225,
+                "vector_score": 0.41233137940333403
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.37392429033339425
+              }
+            ],
+            "query_sha256": "d10ffbedd38c15b0ca013504ee097bf760def0627ca1c9e701c6adf3f62cbb08"
+          },
+          {
+            "case_id": "coverage_en_commentary_and_domain_register",
+            "question": "Should a report say an update caused an outage if I only know the outage followed it?",
+            "expected_note_id": "en_commentary_and_domain_register",
+            "selected_note_id": null,
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.2938916309905814
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.23630551441426123
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.22412553408086122
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.22665603350103491
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.19340505592066978
+              }
+            ],
+            "query_sha256": "385a160854c93e891fce0cb59ec2e82bcc405934c0ecf037bec9b03494a4d423"
+          },
+          {
+            "case_id": "coverage_en_work_formal_register",
+            "question": "Does a professional workplace report need to remove uncertainty from a tentative statement?",
+            "expected_note_id": "en_work_formal_register",
+            "selected_note_id": "en_concise_formal_rewrite",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.3631628175616912
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.46805583957487085
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.36038753459013306
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.34934668856577716
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.32881824525311437
+              }
+            ],
+            "query_sha256": "9264eed89f5854339be1ed72efbddf321505f602c766a61c53e5a54b4be59f05"
+          },
+          {
+            "case_id": "coverage_en_academic_formal_register",
+            "question": "Can I turn we think into research proves just to sound scholarly?",
+            "expected_note_id": "en_academic_formal_register",
+            "selected_note_id": "en_academic_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.48486642998983387
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.38276756090496433
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03125,
+                "vector_score": 0.3442778323347037
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.029850746268656716,
+                "vector_score": 0.32886794738718916
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.028991596638655463,
+                "vector_score": 0.2879582780733777
+              }
+            ],
+            "query_sha256": "48afad40bf4eb247dbb43a4e75ac0f732f24c51c94ef682fee3204f644126542"
+          },
+          {
+            "case_id": "coverage_en_finance_formal_register",
+            "question": "May a financial rewrite say spending exceeded a budget when the original only says spending rose?",
+            "expected_note_id": "en_finance_formal_register",
+            "selected_note_id": "en_finance_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5488477476541556
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.44687318491692574
+              },
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.3949797372545758
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.029631255487269532,
+                "vector_score": 0.3118396583718422
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.029418126757516764,
+                "vector_score": 0.2883780376923249
+              }
+            ],
+            "query_sha256": "452b6c0f9a1fc97fec3457dc07b751c1451cd5a4b53e5cd3845c1bbe47845163"
+          },
+          {
+            "case_id": "coverage_en_health_formal_register",
+            "question": "Should a formal symptom description add a diagnosis?",
+            "expected_note_id": "en_health_formal_register",
+            "selected_note_id": "en_health_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.48548695274451253
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.47806343244606764
+              },
+              {
+                "id": "en_food_formal_register",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.33372040855393903
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.030158730158730156,
+                "vector_score": 0.3993124825428918
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.3208346544645792
+              }
+            ],
+            "query_sha256": "c8e1dd48cba668a32d2c69bc840a623dbff8d1479d2fedd96c4775108f7a7b45"
+          },
+          {
+            "case_id": "coverage_en_science_formal_register",
+            "question": "Can I add statistically significant when rewriting a result that only says scores improved?",
+            "expected_note_id": "en_science_formal_register",
+            "selected_note_id": "en_science_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4794609281404324
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.34692833122656047
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.38787482968168
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.34502212417476585
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.029910714285714284,
+                "vector_score": 0.2688914384465819
+              }
+            ],
+            "query_sha256": "3042648f53ece0e1208b82ecf5461ee988591df2e55a366f730cc1506fcda321"
+          },
+          {
+            "case_id": "coverage_en_food_formal_register",
+            "question": "Can I infer a cooking method when a food description only says cooked?",
+            "expected_note_id": "en_food_formal_register",
+            "selected_note_id": "en_food_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_food_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5554091297557562
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.22582996583413398
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.28123592875796066
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.201708809041371
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.030158730158730156,
+                "vector_score": 0.2382257424524125
+              }
+            ],
+            "query_sha256": "f40adb57d79d008eadda4c5dd8ba355ae548fb1f70479b43c044f348638eac08"
+          },
+          {
+            "case_id": "coverage_en_work_phrase_formal",
+            "question": "How do I close a meeting politely without adding a deadline?",
+            "expected_note_id": "en_work_phrase_formal",
+            "selected_note_id": "en_work_phrase_formal",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.3773537214190018
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.3621697517630498
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.2732276337820199
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.25555061995413136
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.029850746268656716,
+                "vector_score": 0.22373400854523812
+              }
+            ],
+            "query_sha256": "b29c84f60312c748a02b115071735de8d4f259429b04f550612b0f1cfd92c1a2"
+          },
+          {
+            "case_id": "coverage_en_sport_phrase_formal",
+            "question": "How do I restate a prediction of defeat without making it certain or immediate?",
+            "expected_note_id": "en_sport_phrase_formal",
+            "selected_note_id": "en_sport_vocabulary_precision",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.32098429550782637
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.38433079324016794
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.029910714285714284,
+                "vector_score": 0.30294400734523325
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.029850746268656716,
+                "vector_score": 0.2410415521826518
+              },
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.21317228494552531
+              }
+            ],
+            "query_sha256": "6387af037aec233dc3f351309cbced2e1928aaf62e8c0ab6d58f0ad8e37ca52b"
+          },
+          {
+            "case_id": "coverage_en_health_phrase_formal",
+            "question": "How can I restate sick to my stomach without guessing what illness caused it?",
+            "expected_note_id": "en_health_phrase_formal",
+            "selected_note_id": "en_health_phrase_formal",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.440345331464612
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.4286760374321309
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.030117753623188408,
+                "vector_score": 0.22520613585035099
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.029631255487269532,
+                "vector_score": 0.2028658466555849
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.029211087420042643,
+                "vector_score": 0.2069984969198618
+              }
+            ],
+            "query_sha256": "1233780d19042485c21350cc0b56db599021ec7b65b5600e6eb21e9de8061d72"
+          },
+          {
+            "case_id": "coverage_en_finance_phrase_formal",
+            "question": "How can I express losing money without making an unsupported accounting claim?",
+            "expected_note_id": "en_finance_phrase_formal",
+            "selected_note_id": "en_finance_formal_register",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.49756090488112587
+              },
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.4899591563935863
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.4670086993642823
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03076923076923077,
+                "vector_score": 0.2981445384303034
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.31148646271151775
+              }
+            ],
+            "query_sha256": "1136764a4ba7e6db6173e32707bfa676c76bb1ea061d41558c98ade8ed4da4cf"
+          },
+          {
+            "case_id": "coverage_en_precise_adjective_choice",
+            "question": "Why is important not a meaning-preserving replacement for large?",
+            "expected_note_id": "en_precise_adjective_choice",
+            "selected_note_id": "en_precise_adjective_choice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4060099218013704
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.3746066941311593
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.2967209182388643
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.03076923076923077,
+                "vector_score": 0.3176065412351466
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.02964426877470356,
+                "vector_score": 0.2920917926630814
+              }
+            ],
+            "query_sha256": "e4b04665feb5df40b417ecb8be0a9ae5e3b749706817ba71e548653ba9bc9044"
+          },
+          {
+            "case_id": "coverage_en_sport_vocabulary_precision",
+            "question": "Why does doing well in a race not mean setting a personal best?",
+            "expected_note_id": "en_sport_vocabulary_precision",
+            "selected_note_id": "en_sport_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.40005128480040775
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.30293969969819107
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.029877369007803793,
+                "vector_score": 0.18287338871663456
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.029857397504456328,
+                "vector_score": 0.2026661021976981
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.11050008928268377
+              }
+            ],
+            "query_sha256": "77318b98bcd472ed145fb87221edc3d4c04ea15ee5105b6f6a8bb501fc6e30e9"
+          },
+          {
+            "case_id": "coverage_en_tech_vocabulary_precision",
+            "question": "Does implementing a feature mean that it has already been deployed?",
+            "expected_note_id": "en_tech_vocabulary_precision",
+            "selected_note_id": null,
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.25123417067819515
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.2566651090877592
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.08307077532091503
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.178655902277477
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.015625,
+                "vector_score": 0.16351199657145313
+              }
+            ],
+            "query_sha256": "11bd277ef4187c63fd9bd405081891ddcd0dfb919b1eeff491363daab30f0486"
+          },
+          {
+            "case_id": "coverage_en_work_vocabulary_precision",
+            "question": "Is every meeting a consultation or does its purpose matter?",
+            "expected_note_id": "en_work_vocabulary_precision",
+            "selected_note_id": "en_work_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4913710474329521
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.2857110934105115
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.253093395832789
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.3015093848891856
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.28324158240077374
+              }
+            ],
+            "query_sha256": "e1bc3b9adb65548ace8562fc42306a97ba68d51ef4c50b79bae2a471e7a85245"
+          },
+          {
+            "case_id": "coverage_en_general_vocabulary_precision",
+            "question": "Why is a dictionary synonym not interchangeable in every sentence?",
+            "expected_note_id": "en_general_vocabulary_precision",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 5,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.5741720776594768
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.44984451467812203
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.4274993724462921
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.03131881575727918,
+                "vector_score": 0.3999517670255651
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.5352027397350851
+              }
+            ],
+            "query_sha256": "f58bce8091453dadb25b13bede87f2fbc52c264b948d2e06b1f9f9c7d71202fd"
+          },
+          {
+            "case_id": "coverage_en_non_restrictive_relative_clause",
+            "question": "When do I put commas around a who-clause about an already identified person?",
+            "expected_note_id": "en_non_restrictive_relative_clause",
+            "selected_note_id": "en_relative_clause_combination",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5170376369390776
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.46018330053800993
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.3775562009662372
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.26301574027831287
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.029418126757516764,
+                "vector_score": 0.24490547793669054
+              }
+            ],
+            "query_sha256": "901fe2c6051232c33fe617ecc3485cdfcdc9934acf21f8e9d128a7f67a54bd4c"
+          },
+          {
+            "case_id": "coverage_en_formal_conditional",
+            "question": "How do should, were, and had introduce conditionals without if?",
+            "expected_note_id": "en_formal_conditional",
+            "selected_note_id": "en_formal_conditional",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5842604127572252
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.3558521703989173
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.31373236020679535
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.3023953879067888
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.02919863597612958,
+                "vector_score": 0.2970247453558911
+              }
+            ],
+            "query_sha256": "744f370eedf90d475b1a6502d9e20637e39af013c356df482305cc985c2e5c08"
+          },
+          {
+            "case_id": "coverage_en_nominalization",
+            "question": "How can I turn a verb into an action noun without hiding who acted?",
+            "expected_note_id": "en_nominalization",
+            "selected_note_id": "en_nominalization",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5309865736811926
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.41119927538172596
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.030158730158730156,
+                "vector_score": 0.31418008054027746
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.3531655310189045
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.48400486248422275
+              }
+            ],
+            "query_sha256": "8f3b87bf17756d8417080615d1bd5d8f1f5e174c999a4a8d06773bfb6d2dc0cf"
+          },
+          {
+            "case_id": "coverage_en_sport_formal_sentence",
+            "question": "Can a sporting report add a record achievement when the source only describes good performance?",
+            "expected_note_id": "en_sport_formal_sentence",
+            "selected_note_id": "en_sport_formal_sentence",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.6144375007457
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.5297352861017449
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.4367549345037551
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.030117753623188408,
+                "vector_score": 0.3966005377841908
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.29558708560764996
+              }
+            ],
+            "query_sha256": "d3ed29dfc19dbf17b482ff9ddbf7c63c593a7e5a053dd2c5b14f42f4684d8f23"
+          },
+          {
+            "case_id": "coverage_en_education_formal_register",
+            "question": "Does a positive student reaction establish that the lesson improved learning?",
+            "expected_note_id": "en_education_formal_register",
+            "selected_note_id": "en_education_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.3733133973672292
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.2723275479925799
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.031024531024531024,
+                "vector_score": 0.20892372616148047
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.029211087420042643,
+                "vector_score": 0.2069755124278623
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.2643015438684296
+              }
+            ],
+            "query_sha256": "0e962292230d2582077addf911ed98efb087553e16e056eb77a53e45b3c047df"
+          },
+          {
+            "case_id": "coverage_en_money_vocabulary_precision",
+            "question": "Does receiving money necessarily mean earning a profit?",
+            "expected_note_id": "en_money_vocabulary_precision",
+            "selected_note_id": "en_finance_phrase_formal",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.40357850959970537
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.39598729999642124
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.031746031746031744,
+                "vector_score": 0.315513879941508
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.18140467215408018
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.1715436855031375
+              }
+            ],
+            "query_sha256": "c4cf3b363c0797ee0d06ddba674a891975a741e331bc83c25810abbb67df6f84"
+          },
+          {
+            "case_id": "scope_01",
+            "question": "What is the capital of France?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.12822762455792452
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.10666986922043403
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.09927617013701445
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.015625,
+                "vector_score": 0.07750502042004369
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.06226097697910685
+              }
+            ],
+            "query_sha256": "1b997d5ad21df831da8a509b3d29c5dfc6060efe3fc883938bc1bf9dae81290e"
+          },
+          {
+            "case_id": "scope_02",
+            "question": "How do I form the past tense of go?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.28123814070659886
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.309351573750685
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.28259277978625214
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.2561093790205364
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.24888593999965733
+              }
+            ],
+            "query_sha256": "82398d2fd2635d57416341df032e1386b7183bd3997adc72e4f02f58927e01ae"
+          },
+          {
+            "case_id": "scope_03",
+            "question": "When should I use a versus an?",
+            "expected_note_id": null,
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.031099324975891997,
+                "vector_score": 0.45805882881803267
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.3529201560154031
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.43057067686621436
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.3245385427598155
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.4131250817411871
+              }
+            ],
+            "query_sha256": "efe18f97900e2605a50df6bd06985faf2b7d8d920afc6188d74159fd247ea626"
+          },
+          {
+            "case_id": "scope_04",
+            "question": "Is she go grammatically correct?",
+            "expected_note_id": null,
+            "selected_note_id": "en_formal_register_precision",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.3568363302655927
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.34521490155319556
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.3386663657540755
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.32366992463464833
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.3236002310832
+              }
+            ],
+            "query_sha256": "d5ab6c7452024caca7f100adaa214d68b2682e7a43404bde2feddbcee0f30f9d"
+          },
+          {
+            "case_id": "scope_05",
+            "question": "What is the difference between past simple and present perfect?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.28650435055910234
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.28037938064303386
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.22781418955513286
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.28211176309529595
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.23393265592705778
+              }
+            ],
+            "query_sha256": "7a23bea901d75d1fbc0bf9998f7be7414f19c39504cd1d8c9d99ec769ac20479"
+          },
+          {
+            "case_id": "scope_06",
+            "question": "Translate this paragraph into Japanese.",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.24353797912038222
+              },
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.2801054296288515
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.19425588561190607
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.211405006926508
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.2669493254894307
+              }
+            ],
+            "query_sha256": "e37b47764a921af077afacdf926eea82261952d8a0d0545a052596929c65e512"
+          },
+          {
+            "case_id": "scope_07",
+            "question": "What medicine should I take for a headache?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.2776353295801968
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.2291853791759626
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.1323743709480982
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.015625,
+                "vector_score": 0.12572546343389449
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.1238491347474373
+              }
+            ],
+            "query_sha256": "7a6738a951520f8d77496fcdb200b58a813eb737514c18b144880a10d8de0714"
+          },
+          {
+            "case_id": "scope_08",
+            "question": "Which stock should I buy tomorrow?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.1571359729861173
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.1863846457174942
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.10700365010623278
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.18383810164880127
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.015625,
+                "vector_score": 0.14747759923600293
+              }
+            ],
+            "query_sha256": "d0e8af9940c90e551be26089773af2b58536391e96e71714014706001cab8efe"
+          },
+          {
+            "case_id": "scope_09",
+            "question": "Explain how photosynthesis works.",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.08901438895576844
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.026348259380986633
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.07690124491831903
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.0767845697633361
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.015625,
+                "vector_score": 0.07612593593287856
+              }
+            ],
+            "query_sha256": "2d1cf17460261e911ccd32fdc6faffd812cef4e7332d9c0a161aeaca28660714"
+          },
+          {
+            "case_id": "scope_10",
+            "question": "What is the emergency number in my city?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.13568397061589813
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.10983487226012993
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.09090870733913663
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.015625,
+                "vector_score": 0.09017472932451612
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.07041610554690125
+              }
+            ],
+            "query_sha256": "d05dcc93af6cc75155f50e53db204bed0f92c00ec6f445595439b411143bb126"
+          },
+          {
+            "case_id": "scope_11",
+            "question": "How do I pronounce the th sound?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.2136855339850641
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.17730250658393212
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.20867713216912967
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.20422135378674014
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.20307458774968903
+              }
+            ],
+            "query_sha256": "d8ad81474604ef7075303e295e2d2c70c259ff25ae192ebcc41d978436d61b7d"
+          },
+          {
+            "case_id": "scope_12",
+            "question": "List every irregular verb in English.",
+            "expected_note_id": null,
+            "selected_note_id": "en_single_precise_verb",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.35796113706692434
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.29025377578905165
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.29088295061812885
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.029631255487269532,
+                "vector_score": 0.26607048384957777
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.2935827379967521
+              }
+            ],
+            "query_sha256": "2da5729cd5b45df2351ad4cbc95355ca584bdda55013fdf1ae3d34284c6dc33a"
+          }
+        ]
+      },
+      "question_card": {
+        "summary": {
+          "positive_cases": 31,
+          "negative_cases": 12,
+          "correct_positive": 22,
+          "false_positives": 5,
+          "missed_positives": 1,
+          "positive_accuracy": 0.7096774193548387,
+          "false_positive_rate": 0.4166666666666667,
+          "recall_at_1": 0.7096774193548387,
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.8494623655913978
+        },
+        "results": [
+          {
+            "case_id": "coverage_en_formal_register_precision",
+            "question": "Does replacing get with obtain change the tone or the factual claim?",
+            "expected_note_id": "en_formal_register_precision",
+            "selected_note_id": "en_formal_register_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4372269637008287
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4223762479117641
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.35586634813830553
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.3602860023544589
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.030303030303030304,
+                "vector_score": 0.3635120971174939
+              }
+            ],
+            "query_sha256": "86a802e4d52d1068c456d6f88ed22c18b181c5627656b74163696b5682c341ed"
+          },
+          {
+            "case_id": "coverage_en_precise_synonym_choice",
+            "question": "How can I tell whether a replacement word fits the meaning and grammar of this sentence?",
+            "expected_note_id": "en_precise_synonym_choice",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5341561034070573
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4816069058024438
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.40193829857657065
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.4326539428597722
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.028991596638655463,
+                "vector_score": 0.40053128832578155
+              }
+            ],
+            "query_sha256": "b4a97cdc758bf9233d347fbbe5cb6d914bb9f631fff12b99a030ed0b37a59f29"
+          },
+          {
+            "case_id": "coverage_en_single_precise_verb",
+            "question": "How can I express gave an explanation of using just one verb?",
+            "expected_note_id": "en_single_precise_verb",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.3954077473439712
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.49576113363664864
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.3666843009830784
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.36095318663181364
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.3798253471115468
+              }
+            ],
+            "query_sha256": "09103470d185c6b57dc6f4e152f3151bb663d06e26cce022fd08f5dba79a9866"
+          },
+          {
+            "case_id": "coverage_en_passive_vs_active_voice",
+            "question": "How do I put the object first while keeping the same tense and people involved?",
+            "expected_note_id": "en_passive_vs_active_voice",
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.35405899665048557
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.33412454811638276
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.3535306641508183
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.35303063242904786
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.3230414868488427
+              }
+            ],
+            "query_sha256": "0d1914a35ae11249eee966b0a765cf3816eeab2ea2785ef1e3c771dcee1ef72c"
+          },
+          {
+            "case_id": "coverage_en_participle_clause_combination",
+            "question": "Who must perform the action in an introductory having-finished phrase?",
+            "expected_note_id": "en_participle_clause_combination",
+            "selected_note_id": "en_participle_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.3849441974438465
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.3576661441201695
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.33702967759389263
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.3572179175997645
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.029418126757516764,
+                "vector_score": 0.35362784640581985
+              }
+            ],
+            "query_sha256": "9cd0ffa5f4260b531e74aa261f79190864d0317ff96c85c47c8f53b6ee05cf51"
+          },
+          {
+            "case_id": "coverage_en_relative_clause_combination",
+            "question": "How do I identify which of several files I mean using a clause?",
+            "expected_note_id": "en_relative_clause_combination",
+            "selected_note_id": "en_relative_clause_combination",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.48924762044495357
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.405408167828437
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.40541154714819333
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.3555960143082731
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03007688828584351,
+                "vector_score": 0.32085215628000485
+              }
+            ],
+            "query_sha256": "1f7489ebf23b676b79451d13625ddb60601dfbde0ae94a75cefca6439e7645a2"
+          },
+          {
+            "case_id": "coverage_en_formal_rewrite_sentence",
+            "question": "How can I rewrite a whole casual sentence without adding facts?",
+            "expected_note_id": "en_formal_rewrite_sentence",
+            "selected_note_id": "en_formal_rewrite_sentence",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.5625251149815285
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.43416407789880207
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.4656150882716402
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.4454456046887302
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.4614216915067302
+              }
+            ],
+            "query_sha256": "d1aa9dcea4625a2e7ebe43d50f0ad0d72d1747ad455d347628e65f82ff4a1265"
+          },
+          {
+            "case_id": "coverage_en_concise_formal_rewrite",
+            "question": "Can I shorten due to the fact that without changing the reason?",
+            "expected_note_id": "en_concise_formal_rewrite",
+            "selected_note_id": "en_concise_formal_rewrite",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.3923262895837043
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.35757542102652656
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.3646787311159984
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.3683710493434902
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.029910714285714284,
+                "vector_score": 0.36423945606332997
+              }
+            ],
+            "query_sha256": "a6c2882fccb1478f6ad4e2fa75297e3de8909fbee402f62c2997967897eda747"
+          },
+          {
+            "case_id": "coverage_en_formal_phrase_rephrasing",
+            "question": "How do I make an everyday apology neutral while preserving its intent?",
+            "expected_note_id": "en_formal_phrase_rephrasing",
+            "selected_note_id": "en_formal_phrase_rephrasing",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.40591801791214416
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.38761513859043173
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.37799607568779653
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.37790823358111036
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.029877369007803793,
+                "vector_score": 0.35752365670991476
+              }
+            ],
+            "query_sha256": "e4980e53bc511fc626c07060daa96a64a0ec3ef249a7ba701f1ba5fbc203b998"
+          },
+          {
+            "case_id": "coverage_en_commentary_and_domain_register",
+            "question": "Should a report say an update caused an outage if I only know the outage followed it?",
+            "expected_note_id": "en_commentary_and_domain_register",
+            "selected_note_id": "en_commentary_and_domain_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.3002427934338477
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.2785150074339088
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.27344086542685025
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.0304147465437788,
+                "vector_score": 0.23331357579898018
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.03007688828584351,
+                "vector_score": 0.25085645752502206
+              }
+            ],
+            "query_sha256": "561fa3a05382bfbe0e5a9f4a94c086b87140d7ea75bfe7d35778257d82a3e28a"
+          },
+          {
+            "case_id": "coverage_en_work_formal_register",
+            "question": "Does a professional workplace report need to remove uncertainty from a tentative statement?",
+            "expected_note_id": "en_work_formal_register",
+            "selected_note_id": "en_concise_formal_rewrite",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.36382771426164223
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.4635828974523096
+              },
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.37518910894825147
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.3624295451520795
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.34430381454940856
+              }
+            ],
+            "query_sha256": "5a5fe459789ffdc4d8795a60cc49390f9e7c33ea48e218f6f890676c3ed98e61"
+          },
+          {
+            "case_id": "coverage_en_academic_formal_register",
+            "question": "Can I turn we think into research proves just to sound scholarly?",
+            "expected_note_id": "en_academic_formal_register",
+            "selected_note_id": "en_academic_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5126412004822469
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.37801449067511067
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.38565493642890164
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.4100594618163229
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.030330882352941176,
+                "vector_score": 0.35637187547682125
+              }
+            ],
+            "query_sha256": "c4dd9664129a99885db1448e4ca88ae9366670e83cce189718aa5ef1aee69d24"
+          },
+          {
+            "case_id": "coverage_en_finance_formal_register",
+            "question": "May a financial rewrite say spending exceeded a budget when the original only says spending rose?",
+            "expected_note_id": "en_finance_formal_register",
+            "selected_note_id": "en_finance_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5455200103501121
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.48438525882216293
+              },
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.41681794828705365
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.029418126757516764,
+                "vector_score": 0.3439435156490277
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.31737469553661884
+              }
+            ],
+            "query_sha256": "05c34d2d39ad77904c70a52117fc789c31a6445fd04a8efcdf59bc475e6659f9"
+          },
+          {
+            "case_id": "coverage_en_health_formal_register",
+            "question": "Should a formal symptom description add a diagnosis?",
+            "expected_note_id": "en_health_formal_register",
+            "selected_note_id": "en_health_phrase_formal",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.4368273095531943
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.4409127089095619
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.030834914611005692,
+                "vector_score": 0.32473190258327994
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.03007688828584351,
+                "vector_score": 0.32696945579678693
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.38472341565022117
+              }
+            ],
+            "query_sha256": "24ff4a151677c80e50215314d58d26ed94fd40c2541bfa448843e398f9918785"
+          },
+          {
+            "case_id": "coverage_en_science_formal_register",
+            "question": "Can I add statistically significant when rewriting a result that only says scores improved?",
+            "expected_note_id": "en_science_formal_register",
+            "selected_note_id": "en_science_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.48291366057875035
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.03125,
+                "vector_score": 0.3814109850060412
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.0304147465437788,
+                "vector_score": 0.3092177742538053
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.03036576949620428,
+                "vector_score": 0.38859398707666326
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.36655798718768245
+              }
+            ],
+            "query_sha256": "28ea1ac6d98d002acf5538c6aded9bf40d74617b2af7e9e188e12abea4deb85c"
+          },
+          {
+            "case_id": "coverage_en_food_formal_register",
+            "question": "Can I infer a cooking method when a food description only says cooked?",
+            "expected_note_id": "en_food_formal_register",
+            "selected_note_id": "en_food_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_food_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5579947225456084
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.2683704512456963
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.030621785881252923,
+                "vector_score": 0.3227361207610558
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.25917400515095157
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.02919863597612958,
+                "vector_score": 0.2584236368872604
+              }
+            ],
+            "query_sha256": "996356a81352bdc8f385e676863367419b369124d86c7300c6d7545b40f38462"
+          },
+          {
+            "case_id": "coverage_en_work_phrase_formal",
+            "question": "How do I close a meeting politely without adding a deadline?",
+            "expected_note_id": "en_work_phrase_formal",
+            "selected_note_id": "en_work_phrase_formal",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.40274658095345167
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.3539758615790712
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.03125,
+                "vector_score": 0.3045784182946045
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.030886196246139225,
+                "vector_score": 0.27114364343958386
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03057889822595705,
+                "vector_score": 0.27722283100666323
+              }
+            ],
+            "query_sha256": "a54d0dc2129d4908312bdaf1934fe9db2396dd8367cee56bfcf047411f1acd48"
+          },
+          {
+            "case_id": "coverage_en_sport_phrase_formal",
+            "question": "How do I restate a prediction of defeat without making it certain or immediate?",
+            "expected_note_id": "en_sport_phrase_formal",
+            "selected_note_id": "en_sport_vocabulary_precision",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.3460102389257916
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.03177805800756621,
+                "vector_score": 0.39080905247867176
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.029857397504456328,
+                "vector_score": 0.3063007672661016
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.02877846790890269,
+                "vector_score": 0.2943846869073754
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.02877846790890269,
+                "vector_score": 0.2945494004740108
+              }
+            ],
+            "query_sha256": "23ac8be9940992a5eec4fd58d058f9d521eb2bd4ab605a1223e667c2ebc427ae"
+          },
+          {
+            "case_id": "coverage_en_health_phrase_formal",
+            "question": "How can I restate sick to my stomach without guessing what illness caused it?",
+            "expected_note_id": "en_health_phrase_formal",
+            "selected_note_id": "en_health_phrase_formal",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4255677037455522
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.2938353255169495
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.42305345784403997
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.030330882352941176,
+                "vector_score": 0.29243926623236066
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.2634614623712965
+              }
+            ],
+            "query_sha256": "621ebd7978ebc44971b1a58b6e9d16a4ec50812037f13ca55054845f2042ef24"
+          },
+          {
+            "case_id": "coverage_en_finance_phrase_formal",
+            "question": "How can I express losing money without making an unsupported accounting claim?",
+            "expected_note_id": "en_finance_phrase_formal",
+            "selected_note_id": "en_finance_phrase_formal",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.49321156961474083
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.48697974481660267
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.48552342370233315
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.030303030303030304,
+                "vector_score": 0.31828708121767074
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.32106536763068816
+              }
+            ],
+            "query_sha256": "36ea7d2b56044e1ebad202f5760e69fad5cb8b28ce4eec2f5d93465939a90156"
+          },
+          {
+            "case_id": "coverage_en_precise_adjective_choice",
+            "question": "Why is important not a meaning-preserving replacement for large?",
+            "expected_note_id": "en_precise_adjective_choice",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4289783504234415
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4249022654966285
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.4020255705411966
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.3565404043245526
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.030309988518943745,
+                "vector_score": 0.3354434043076243
+              }
+            ],
+            "query_sha256": "26ed510ddbbc6e09c99790cd5261a8b305d795a2d0c53f75c20a8d97dd66dec4"
+          },
+          {
+            "case_id": "coverage_en_sport_vocabulary_precision",
+            "question": "Why does doing well in a race not mean setting a personal best?",
+            "expected_note_id": "en_sport_vocabulary_precision",
+            "selected_note_id": "en_sport_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.4146392400291615
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.3175925527597911
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.2930859783695515
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.030834914611005692,
+                "vector_score": 0.2438385138523233
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.25404687879782945
+              }
+            ],
+            "query_sha256": "785455250fa82e55c49034d144f645e8edeb602feb958d1ef05be04d5eebd8f5"
+          },
+          {
+            "case_id": "coverage_en_tech_vocabulary_precision",
+            "question": "Does implementing a feature mean that it has already been deployed?",
+            "expected_note_id": "en_tech_vocabulary_precision",
+            "selected_note_id": null,
+            "gold_rank": 3,
+            "candidates": [
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.29200185071212353
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.22918911450606644
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.2694478176499241
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.2180846113864241
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.21811458838354242
+              }
+            ],
+            "query_sha256": "f3a8b4c6fee637b3317d193c292d72ea4eb45d3ef41768b39fe714f232128987"
+          },
+          {
+            "case_id": "coverage_en_work_vocabulary_precision",
+            "question": "Is every meeting a consultation or does its purpose matter?",
+            "expected_note_id": "en_work_vocabulary_precision",
+            "selected_note_id": "en_work_vocabulary_precision",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_work_vocabulary_precision",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.48693619264653004
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.3361883551401089
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.29985228929671603
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.30268822031346904
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.030536130536130537,
+                "vector_score": 0.27646777270298395
+              }
+            ],
+            "query_sha256": "24e8f2ee1b8d7da4c791e1558414ae20ae5eb8ea27aa263ebada7c78c0fbf095"
+          },
+          {
+            "case_id": "coverage_en_general_vocabulary_precision",
+            "question": "Why is a dictionary synonym not interchangeable in every sentence?",
+            "expected_note_id": "en_general_vocabulary_precision",
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5852692894117256
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.5551500108555846
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.4486708796336733
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.4081024213272482
+              },
+              {
+                "id": "en_tech_vocabulary_precision",
+                "rrf_score": 0.030776515151515152,
+                "vector_score": 0.4142410287025252
+              }
+            ],
+            "query_sha256": "d8a86998c0d9ea92d6b2bd580379579fc9e611139d4dbbcf77e524862a87705b"
+          },
+          {
+            "case_id": "coverage_en_non_restrictive_relative_clause",
+            "question": "When do I put commas around a who-clause about an already identified person?",
+            "expected_note_id": "en_non_restrictive_relative_clause",
+            "selected_note_id": "en_relative_clause_combination",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.5128610137914683
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.4577810854213753
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.40996187963631825
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.03125763125763126,
+                "vector_score": 0.28359878017447815
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.02964426877470356,
+                "vector_score": 0.2642000692374131
+              }
+            ],
+            "query_sha256": "94b1c30b070e9b625e9aecd8e105f2cc254d9405403f2b2b0efd261c1df150e0"
+          },
+          {
+            "case_id": "coverage_en_formal_conditional",
+            "question": "How do should, were, and had introduce conditionals without if?",
+            "expected_note_id": "en_formal_conditional",
+            "selected_note_id": "en_formal_conditional",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.5869278996316232
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.3548959393137054
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.031009615384615385,
+                "vector_score": 0.33906808684502354
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.029877369007803793,
+                "vector_score": 0.3299435718379587
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.029437229437229435,
+                "vector_score": 0.3274708218531403
+              }
+            ],
+            "query_sha256": "310ce4373cee4e2afcc24b9569ff68db3edaf306dc2e0038f35cf8699110f1be"
+          },
+          {
+            "case_id": "coverage_en_nominalization",
+            "question": "How can I turn a verb into an action noun without hiding who acted?",
+            "expected_note_id": "en_nominalization",
+            "selected_note_id": "en_nominalization",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.4947274510330989
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.031099324975891997,
+                "vector_score": 0.35065365251540026
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.35626327269637575
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.030798389007344232,
+                "vector_score": 0.4041066817008778
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.4813110564553177
+              }
+            ],
+            "query_sha256": "24563c16c1070fe0a0dd1add727a82f7b99eae9f2954a778a516465d5dc564ce"
+          },
+          {
+            "case_id": "coverage_en_sport_formal_sentence",
+            "question": "Can a sporting report add a record achievement when the source only describes good performance?",
+            "expected_note_id": "en_sport_formal_sentence",
+            "selected_note_id": "en_sport_formal_sentence",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.6132482453166788
+              },
+              {
+                "id": "en_sport_vocabulary_precision",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.544074201438831
+              },
+              {
+                "id": "en_sport_phrase_formal",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.45111218379443013
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.029437229437229435,
+                "vector_score": 0.32191102950562933
+              },
+              {
+                "id": "en_formal_rewrite_sentence",
+                "rrf_score": 0.029418126757516764,
+                "vector_score": 0.3328709333704214
+              }
+            ],
+            "query_sha256": "5e4582d253d0a46223979a4372a7df74fe90e986e492037114f3a4ca4678cb86"
+          },
+          {
+            "case_id": "coverage_en_education_formal_register",
+            "question": "Does a positive student reaction establish that the lesson improved learning?",
+            "expected_note_id": "en_education_formal_register",
+            "selected_note_id": "en_education_formal_register",
+            "gold_rank": 1,
+            "candidates": [
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.3955357895428253
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.03200204813108039,
+                "vector_score": 0.28872140934600715
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.031754032258064516,
+                "vector_score": 0.2522444582235584
+              },
+              {
+                "id": "en_sport_formal_sentence",
+                "rrf_score": 0.03055037313432836,
+                "vector_score": 0.22948372815458798
+              },
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.283175409288678
+              }
+            ],
+            "query_sha256": "59320600930ad9f347facd2dd62e8e08331e4889fbe9feeffb91e5e9735a5ca6"
+          },
+          {
+            "case_id": "coverage_en_money_vocabulary_precision",
+            "question": "Does receiving money necessarily mean earning a profit?",
+            "expected_note_id": "en_money_vocabulary_precision",
+            "selected_note_id": "en_finance_phrase_formal",
+            "gold_rank": 2,
+            "candidates": [
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.41960993342619757
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.43586581092845744
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.0315136476426799,
+                "vector_score": 0.24921168988956569
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.33624077495692445
+              },
+              {
+                "id": "en_education_formal_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.302376492567408
+              }
+            ],
+            "query_sha256": "dc25f3f38a6f46767992d55978dc6be3bfd06f705a1e684f020d6d79bfbe3115"
+          },
+          {
+            "case_id": "scope_01",
+            "question": "What is the capital of France?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_finance_phrase_formal",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.16998071089373892
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.14469100064652002
+              },
+              {
+                "id": "en_finance_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.14092546682878226
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.015625,
+                "vector_score": 0.12255192297862884
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.1212287846138325
+              }
+            ],
+            "query_sha256": "cdf5bbecfa56c710079a433036031fd71a4fa6b216c647fb9a104c178f991401"
+          },
+          {
+            "case_id": "scope_02",
+            "question": "How do I form the past tense of go?",
+            "expected_note_id": null,
+            "selected_note_id": "en_passive_vs_active_voice",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.309451291001965
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.2902813869520187
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03149801587301587,
+                "vector_score": 0.30382608495677743
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.031054405392392875,
+                "vector_score": 0.27437005228265554
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.030090497737556562,
+                "vector_score": 0.2734137072210307
+              }
+            ],
+            "query_sha256": "d8819a18a2462fa038a93f5aa9bda495207dfb18daa4d04bbc42c0a284cc37dc"
+          },
+          {
+            "case_id": "scope_03",
+            "question": "When should I use a versus an?",
+            "expected_note_id": null,
+            "selected_note_id": "en_precise_synonym_choice",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.031099324975891997,
+                "vector_score": 0.4740216541939086
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.36928644875474126
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.4434004544156243
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.3279789032185231
+              },
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.42366122076024804
+              }
+            ],
+            "query_sha256": "221e5f98b165523d2f96a922d5f3302f9cbe9e6c453106e1fecfd4d2a64a0726"
+          },
+          {
+            "case_id": "scope_04",
+            "question": "Is she go grammatically correct?",
+            "expected_note_id": null,
+            "selected_note_id": "en_formal_register_precision",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.373484295578393
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.367754654238236
+              },
+              {
+                "id": "en_work_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.34860430491783406
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.015625,
+                "vector_score": 0.3405973438346185
+              },
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.338641131313862
+              }
+            ],
+            "query_sha256": "f9af29313faf4c1149a74366acdd4c8ea3a1a0ccf16613495d43cf14313694e9"
+          },
+          {
+            "case_id": "scope_05",
+            "question": "What is the difference between past simple and present perfect?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_participle_clause_combination",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.29366056393531753
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.2705404454244271
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.032018442622950824,
+                "vector_score": 0.2449554352306446
+              },
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.25754520702514994
+              },
+              {
+                "id": "en_precise_adjective_choice",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.23790291576189856
+              }
+            ],
+            "query_sha256": "2f196e1c0466fbe258ce21e1e1e2d29aa4068a15c7161082a281d7407fd0d06d"
+          },
+          {
+            "case_id": "scope_06",
+            "question": "Translate this paragraph into Japanese.",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_commentary_and_domain_register",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.26684306508550076
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.19363903973215282
+              },
+              {
+                "id": "en_concise_formal_rewrite",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.25758865550899823
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.20756538564070062
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.22493242981710762
+              }
+            ],
+            "query_sha256": "17a87b0a047d8d84ce1f30375229f3c202827e71880d569e4593f3c423d2eaf5"
+          },
+          {
+            "case_id": "scope_07",
+            "question": "What medicine should I take for a headache?",
+            "expected_note_id": null,
+            "selected_note_id": "en_health_formal_register",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.3079916126406885
+              },
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03225806451612903,
+                "vector_score": 0.2693569636581484
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.19088666139713087
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.015625,
+                "vector_score": 0.18216271808954032
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.16717202804909229
+              }
+            ],
+            "query_sha256": "ade4c88ec2cf100c8859aeafec60115124c0c62a5f7e639610a7ad00de8a21b5"
+          },
+          {
+            "case_id": "scope_08",
+            "question": "Which stock should I buy tomorrow?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_relative_clause_combination",
+                "rrf_score": 0.03252247488101534,
+                "vector_score": 0.2594832323550035
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.031099324975891997,
+                "vector_score": 0.20271530161274556
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.25555293116866873
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.251207483477964
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.015625,
+                "vector_score": 0.22821993555381617
+              }
+            ],
+            "query_sha256": "57a6e51c12f62b4f31d9a5d5cd86c75b98d4c2b15ffce7223c508a1d03fc09d9"
+          },
+          {
+            "case_id": "scope_09",
+            "question": "Explain how photosynthesis works.",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_academic_formal_register",
+                "rrf_score": 0.032266458495966696,
+                "vector_score": 0.1679686573653861
+              },
+              {
+                "id": "en_science_formal_register",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.1733086029074351
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.1236324904438791
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.17106052464411053
+              },
+              {
+                "id": "en_work_phrase_formal",
+                "rrf_score": 0.015625,
+                "vector_score": 0.15357264294718354
+              }
+            ],
+            "query_sha256": "50b64b787503682782a09f831577eb2bba2dc0d162ce2aff5708902169eb9d13"
+          },
+          {
+            "case_id": "scope_10",
+            "question": "What is the emergency number in my city?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_health_phrase_formal",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.21035941666886268
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.18707794577612108
+              },
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.18670151979539967
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.015625,
+                "vector_score": 0.17187228884525022
+              },
+              {
+                "id": "en_non_restrictive_relative_clause",
+                "rrf_score": 0.015384615384615385,
+                "vector_score": 0.16828291313623028
+              }
+            ],
+            "query_sha256": "a20805311852e9d04b1c456cb40e969ae430210fbb75c2042b10d7f4ae34a99b"
+          },
+          {
+            "case_id": "scope_11",
+            "question": "How do I pronounce the th sound?",
+            "expected_note_id": null,
+            "selected_note_id": null,
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_formal_register_precision",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.2313679866837934
+              },
+              {
+                "id": "en_passive_vs_active_voice",
+                "rrf_score": 0.01639344262295082,
+                "vector_score": 0.18395136549807653
+              },
+              {
+                "id": "en_precise_synonym_choice",
+                "rrf_score": 0.016129032258064516,
+                "vector_score": 0.2205601430046174
+              },
+              {
+                "id": "en_formal_phrase_rephrasing",
+                "rrf_score": 0.015873015873015872,
+                "vector_score": 0.21380084293204074
+              },
+              {
+                "id": "en_health_formal_register",
+                "rrf_score": 0.015625,
+                "vector_score": 0.20869166454112162
+              }
+            ],
+            "query_sha256": "bbf1ac15e6d6cad081f8bba6af6bdcf97bf15d40854bc20fc44cbcd14788e82f"
+          },
+          {
+            "case_id": "scope_12",
+            "question": "List every irregular verb in English.",
+            "expected_note_id": null,
+            "selected_note_id": "en_single_precise_verb",
+            "gold_rank": null,
+            "candidates": [
+              {
+                "id": "en_single_precise_verb",
+                "rrf_score": 0.03278688524590164,
+                "vector_score": 0.30036057832299184
+              },
+              {
+                "id": "en_nominalization",
+                "rrf_score": 0.03128054740957967,
+                "vector_score": 0.24303084474889128
+              },
+              {
+                "id": "en_general_vocabulary_precision",
+                "rrf_score": 0.030834914611005692,
+                "vector_score": 0.2632323539965698
+              },
+              {
+                "id": "en_money_vocabulary_precision",
+                "rrf_score": 0.02967032967032967,
+                "vector_score": 0.20930157363943336
+              },
+              {
+                "id": "en_formal_conditional",
+                "rrf_score": 0.029418126757516764,
+                "vector_score": 0.2200385398274909
+              }
+            ],
+            "query_sha256": "9c96fa999b4135c889041d246e335e08232fcf7e65bc4a8b38bd92c54d44936d"
+          }
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Post-baseline exploratory experiment on already-inspected development/challenge cases.",
+    "RRF scores are not confidence; cosine gating is inherited, not tuned for fusion.",
+    "No additional provider calls and no serving changes."
+  ]
+}
