@@ -34,3 +34,22 @@ def test_language_missing_quote_is_still_enforced():
 def test_general_rule_without_support_is_not_covered():
     v=value();v['context_status']='general_rule'
     assert p.decode(v,{},'Explain a general rule.',{})['decision']=='not_covered'
+
+
+def test_probe_failure_stays_in_denominator_and_blocks_acceptance():
+    from evals.routing_v4.probe import summary
+    c={'case_id':'x','acceptable_note_ids':['note'],'expected_behavior':'answer','question':'Why?', 'current_item':{}}
+    plan={'cases':[{'case':c,'references':[]}]}
+    rows=[{'case_id':'x','verdict':{'decision':'verification_unavailable','source_id':''}}]
+    r=summary(plan,rows)['counts']
+    assert r['positive_cases']==1 and r['correct_sources']==0 and r['errors']==1 and not r['pass']
+    with pytest.raises(ValueError):summary(plan,rows+rows)
+
+
+def test_probe_rejects_saved_decision_inconsistent_with_routing():
+    from evals.routing_v4.probe import summary
+    c={'case_id':'x','acceptable_note_ids':[],'expected_behavior':'clarify','question':'Explain that.', 'current_item':{}}
+    plan={'cases':[{'case':c,'references':[]}]}
+    v=value();v.update(context_status='missing_referent',missing_reference='that')
+    out=p.decode(v,{},c['question'],{});out['decision']='not_covered'
+    with pytest.raises(ValueError,match='Inconsistent'):summary(plan,[{'case_id':'x','verdict':out}])
