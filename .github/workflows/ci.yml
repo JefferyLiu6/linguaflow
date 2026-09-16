@@ -87,6 +87,14 @@ jobs:
         working-directory: agent
         run: python -m retrieval.retrieval_comparison plan --output runs/retrieval-comparison-plan.json
 
+      - name: Context-sufficiency probes replay (offline)
+        working-directory: agent
+        run: |
+          for version in 3 4 5; do
+            python -m evals.routing_v${version}.probe replay --plan runs/context-probe-v${version}-plan.json --records runs/context-probe-v${version}-records.jsonl --output runs/ci-context-v${version}.json
+            python ../scripts/compare_eval_reports.py runs/context-probe-v${version}-results.json runs/ci-context-v${version}.json
+          done
+
       - name: Paired routing development replay (offline)
         working-directory: agent
         run: |
