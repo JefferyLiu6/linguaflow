@@ -63,3 +63,30 @@ CI runs deterministic unit tests and saved-record replay, without provider crede
 ## Judge selection amendment (before answer generation)
 
 The first mini judge check passed 3/4; after an applicability clarification it passed 2/4, with a validation failure and a scope-category error. Both raw attempts are retained. The third plan tests pinned GPT-4.1 with the same clarified rubric. No answer-system prompt or pilot labels changed. Three four-case judge checks permit 12 setup calls total; they remain development diagnostics, not calibration evidence. [GPT-4.1 pricing and snapshot](https://developers.openai.com/api/docs/models/gpt-4.1).
+
+## Commands
+
+Run from `agent/`. Provide `OPENAI_API_KEY` and `DATABASE_URL` through the local process environment for `run`; do not commit credentials. Replay needs neither credential.
+
+```sh
+python -m evals.rag.runner freeze --dataset evals/datasets/answer-pilot-v1.json --plan runs/new-answer-plan.json
+python -m evals.rag.runner run --plan runs/new-answer-plan.json --records runs/new-answer-records.jsonl --output runs/new-answer-results.json
+python -m evals.rag.runner replay --plan runs/answer-pilot-v3-plan.json --records runs/answer-pilot-v3-records.jsonl --output /tmp/answer-replay.json
+```
+
+Freeze and commit any new plan before collecting. Existing plan/record/result paths cannot be overwritten. The chosen plan is v3; v1/v2 plans preserve judge-development history and were not used to generate the 48 pilot answers.
+
+Optional DeepEval check (saved judgments only):
+
+```sh
+pip install -r requirements-eval.txt
+DEEPEVAL_TELEMETRY_OPT_OUT=YES python -m evals.rag.runner deepeval-check --plan runs/answer-pilot-v3-plan.json --records runs/answer-pilot-v3-records.jsonl --output /tmp/deepeval-check.json
+```
+
+Optional Langfuse metrics export, after configuring `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY` and the workspace host:
+
+```sh
+python -m evals.rag.runner langfuse-export --plan runs/answer-pilot-v3-plan.json --records runs/answer-pilot-v3-records.jsonl
+```
+
+The local environment has no Langfuse credentials at implementation time. The exporter is contract-tested with a fake client; no live dashboard, dataset upload or cloud export is claimed. It targets the installed Langfuse 4.15.3 API. Production tracing remains a separate integration; this task does not migrate the legacy serving trace implementation.
