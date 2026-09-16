@@ -1,24 +1,23 @@
 # LinguaFlow RAG engineering update plan
 
-**Semantic comparison:** [Experiment 02](RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
+## Current implementation status
 
+This document preserves the original plan below; its estimates and starting findings are historical. Current behavior and measurements are described in the [case study](RAG_ENGINEERING_CASE_STUDY.md), [release validation](RELEASE_VALIDATION_RESULTS.md), and [deployment evidence](RELEASE_EVIDENCE_STATUS.md).
 
-**Index update:** [Atomic publication and version checks](INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **146 tests, zero skips**. No application database migration or provider-backed reindex has run.
+| Workstream | Delivered | Remaining limitation |
+| --- | --- | --- |
+| Data | Canonical 171 drills, 31 reference-linked teaching notes, cleaning log, corpus validation and provenance | AI-assisted content; no independent expert validation |
+| Index lifecycle | Atomic publication, model/corpus manifest, concurrent-publisher and failure tests; production index publication recorded | Small corpus does not establish large-index performance |
+| Retrieval | Metadata/BM25/vector/hybrid comparisons, frozen failed holdouts, source verification in the freeform handler | Embedding model and chunk-size alternatives were not compared |
+| Answer policy | Scope/context/source decisions, exact evidence units, guaranteed uncovered-answer disclosure, bounded provider failure handling | Model judgments can still be semantically wrong; conservative ordinal-context guard may add a turn |
+| Evaluation | Three-layer metrics, complete public synthetic answers and judgments, frozen plans, historical replay in CI | Small same-author synthetic sets; verifier/judge model correlation |
+| Operations | Failure deadlines, CI with disposable pgvector, deployment runbook and historical endpoint smoke checks | Latest backend deployment must be verified separately; no load benchmark or verified cloud trace delivery |
 
+The originally proposed 240-case independently reviewed set remains uncollected. It is future evidence work, not an achieved milestone. The implemented synthetic tests must not be described as independent expert or user-traffic validation. Private interview notes stay outside version control.
 
-**Retrieval experiment update:** [Experiment 01](RETRIEVAL_EXPERIMENT_01.md) now provides a fixed BM25 baseline, paired rankings, threshold sensitivity, and a pending relevance-review packet. The data corpus and serving policy are unchanged.
+## Historical plan and rationale
 
-
-**Status:** data-side v2 implemented locally; atomic index publication verified on a disposable database; the provider-backed exact-search comparison is complete; AI-assisted answer evaluation and deployed endpoint testing remain pending. This is a staged plan, not a completed production release.
-**Objective:** turn the existing RAG prototype into a reproducible, testable engineering project whose data lifecycle, retrieval decisions, failure behavior, and measured limitations can be demonstrated from a clean checkout.  
-**Scope:** one engineer, existing Next.js/FastAPI/PostgreSQL stack, existing English teaching corpus.  
-**Planning estimate:** 15–22 focused engineering days, excluding deployment access. Estimates are provisional and should be revised after the first milestone.
-
-## Data-side progress — 2026-09-15
-
-Completed: canonical shared drills, 99 documented editorial revisions, 31 expanded/reference-linked notes, explicit provenance and coverage, repaired evaluation identities, 43 new challenge cases, deterministic validation, failure tests, CI reports, and indexing failure guards. See [dataset card](DATASET_CARD.md). M1 data contracts are implemented; AI-assisted evaluation and a pinned dependency lock remain open. M2 now includes atomic publication, a corpus/configuration manifest, concurrent-publisher checks, and reader version checks; real pgvector integration passed locally; controlled release remains pending. M3 has better development/challenge fixtures, but no independent held-out set.
-
-The historical findings below explain the original priorities. Use the dataset card for current counts and behavior.
+**Objective:** make the data lifecycle, retrieval choices, failure behavior and measured limitations reproducible from a clean checkout. **Scope:** the existing Next.js/FastAPI/PostgreSQL application and English curriculum. The original estimate was 15–22 focused engineering days; it is not a record of elapsed implementation effort.
 
 ## Data audit prerequisite — historical baseline
 

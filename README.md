@@ -12,27 +12,19 @@ LinguaFlow is a full-stack AI language-learning system built as a portfolio proj
 
 ### RAG engineering case study
 
-**Context-sufficiency follow-up:** [Three frozen development probes](docs/CONTEXT_SUFFICIENCY_RESULTS_03.md) recover 5/6 labelled sources and reduce wrong clarification from 5/8 to 0/8. The final probe still has one source error and one invalid policy result, so no candidate is promoted and no new held-out or full-answer claim is made.
+**Problem:** a learner needs the rule behind a rewrite, without a plausible but irrelevant citation or an invented change in meaning. The English freeform tutor separates missing learner context, missing reference coverage, and out-of-scope requests. Supported explanations show a reference; uncovered English questions receive general help with an explicit disclosure.
 
-**Routing development regression:** [24 paired responses with the indexed judge](docs/ROUTING_ANSWER_RESULTS_02.md). All judgments completed, but the candidate wrongly clarified 5/8 answerable questions and reduced source recall to 3/6. It remains an offline, unmerged candidate; improved precision alone does not justify promotion.
+**Why RAG here:** maintain a versioned, inspectable teaching curriculum and select the relevant rule at request time. With only 31 notes, a whole-corpus prompt is a credible alternative. This project measures retrieval and answer quality separately and does **not** claim that RAG universally beats that alternative.
 
-**Three-layer answer pilot:** [48 real responses across four context/retrieval strategies](docs/ANSWER_EVALUATION_01.md), with deterministic retrieval metrics, custom LLM-judge correctness/grounding/teaching/scope scores, and live pipeline latency/token/cost measurement. Nine judge failures are retained; no arm passed all diagnostic gates. This is a small synthetic pilot, not production accuracy or proof that RAG outperforms the no-reference baseline.
+- [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md): product contract, alternatives, cleaning, chunking, embedding choice, retrieval policy and failure behavior.
+- [Dataset card](docs/DATASET_CARD.md): 171 canonical English drills, 31 notes, 121 examples, 31 counterexamples and 11 references. Content is AI-assisted; no independent expert validation is claimed.
+- [Release validation](docs/RELEASE_VALIDATION_RESULTS.md): frozen development and fresh synthetic tests, exact denominators, answer judgments, tokens, cost, latency and limitations. [Protocol](docs/RELEASE_VALIDATION_PROTOCOL.md) fixes acceptance criteria before execution.
+- [Deployment evidence](docs/RELEASE_EVIDENCE_STATUS.md): historical production smoke checks are separated from the latest source-policy validation. Local evaluation is not evidence that a new backend revision has been deployed.
+- [Data lifecycle](docs/INDEX_PUBLICATION.md): atomic publication, corpus/model fingerprints and rejection of mismatched indexes.
 
-**Latest verification result:** an offline recall candidate recovered valid sources on **25/31 positive requests (80.6%)** in a frozen 65-case test, with **96.2% source precision**. It still **failed release criteria**: 4/65 verification failures and only 1/6 correct missing-context routes. The [evidence-gate report](docs/EVIDENCE_GATE_RESULTS_02.md) preserves earlier failures, development selection, and fresh-test results. The recall candidate remains undeployed.
+**Evaluation history stays visible.** The [original held-out retrieval test](docs/HELDOUT_EVALUATION_01.md) exposed 16/31 false references. [Evidence-gate trials](docs/EVIDENCE_GATE_RESULTS_02.md), the [four-arm answer pilot](docs/ANSWER_EVALUATION_01.md), [routing regression](docs/ROUTING_ANSWER_RESULTS_02.md), and [context probes](docs/CONTEXT_SUFFICIENCY_RESULTS_03.md) document failed attempts and their precision/recall trade-offs. [Lexical](docs/RETRIEVAL_EXPERIMENT_01.md) and [semantic](docs/RETRIEVAL_EXPERIMENT_02.md) comparisons provide reproducible baselines.
 
-**Semantic comparison:** [Experiment 02](docs/RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
-
-**Index update:** [Atomic publication and version checks](docs/INDEX_PUBLICATION.md) are implemented locally. The full Python suite passed against a disposable PostgreSQL/pgvector database: **178 tests, zero skips**. No application database migration or provider-backed reindex has run.
-
-[Retrieval experiment 01](docs/RETRIEVAL_EXPERIMENT_01.md) compares metadata with question-aware BM25. On the challenge set, BM25 selects 21/31 positive notes but also 10/12 unsupported references; it remains experimental.
-
-The [dataset card](docs/DATASET_CARD.md) explains data selection, primary references, cleaning, coverage, chunking, evaluation, and remaining limitations. Version 2 contains **31 teaching notes, 121 examples, 31 counterexamples, and 11 references**, with one canonical source for all **171 English drills**. Editorial provenance is AI-assisted; no expert validation is claimed. See the [data changelog](docs/DATA_CHANGELOG.md) for corrections and validation evidence.
-
-See the [RAG update plan](docs/RAG_UPDATE_PLAN.md) for the implementation sequence, evaluation gates, and release criteria.
-
-The [RAG engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) covers the learner problem, RAG alternatives, data validation, chunking, embedding choices, query construction, retrieval tradeoffs, indexing gaps, and evaluation. The offline development benchmark selects the correct note for **27/27 positive cases**, falling to **17/27 when item IDs are removed**; both arms abstain on **4/4 negatives**. The new question-focused challenge exposes the metadata baseline’s limitation: **0/31 positive selections**, since it ignores question text. These are author-written development cases, not evidence of held-out generalization or live hybrid quality.
-
-Run `cd agent && python -m retrieval.benchmark --output runs/retrieval-evidence.json` for case-level results and source/corpus fingerprints. CI enforces the metadata regression gate and retains its report. Live freeform evaluation exits nonzero when embedding or database infrastructure is unavailable.
+CI validates the corpus, tests serving behavior and index publication, and replays saved evaluation artifacts without paid API calls. The [update plan](docs/RAG_UPDATE_PLAN.md) records completed work and bounded future work. There is no production load benchmark or measured learner-outcome study.
 
 
 ---
@@ -135,14 +127,7 @@ Tutor `explain`/`clarify` and Study card actions retrieve from a curated 31-note
 
 The frontend surfaces grounding lightly: a "Coach reference" or "Study reference" label shows the matched note title. Tracing is designed to record retrieval details in Langfuse using request/response IDs for correlation. Trace delivery is optional and still requires live SDK/infrastructure verification; a displayed source label alone does not verify answer faithfulness.
 
-**Current development retrieval results:**
-
-| arm | positive exact match | correct negative abstention |
-|---|---:|---:|
-| Structured metadata | 27/27 | 4/4 |
-| Structured metadata without item IDs | 19/27 | 4/4 |
-| Separate freeform metadata baseline | 15/22 | 0/3 |
-| Live freeform hybrid | Not measured | Not measured |
+**Measured retrieval:** see the [release results](docs/RELEASE_VALIDATION_RESULTS.md) for the current freeform path. Card-action metadata results, historical hybrid baselines and verified freeform results use different datasets and must not be combined into one accuracy figure.
 
 ### 2. Session planner (Phase 1)
 
@@ -285,7 +270,7 @@ See:
 | Auth | Supabase Auth with SSR cookie handling |
 | Data | Supabase Postgres + Prisma (pooled + direct) |
 | Tracing | Langfuse (fail-open) |
-| Testing | Vitest (75 unit/integration), Pytest (178 agent, including real pgvector integration), Playwright E2E |
+| Testing | Vitest (75 unit/integration), Pytest (agent unit tests and disposable pgvector integration), Playwright E2E |
 | CI | GitHub Actions: lint · tsc · vitest · build · playwright · pytest |
 
 ---
@@ -399,7 +384,7 @@ CI runs on every push and PR (`/.github/workflows/ci.yml`):
 | `pnpm test` | Vitest (75 tests) |
 | `pnpm build` | Next.js production build |
 | `pnpm test:e2e` | Playwright (guest flow; authenticated flow skips without env vars) |
-| `pytest tests/ -q` | Python suite; 178 tests with disposable pgvector integration |
+| `pytest tests/ -q` | Python suite; add disposable pgvector integration with the index check script |
 
 ---
 
@@ -456,4 +441,4 @@ See [release status](docs/RELEASE_EVIDENCE_STATUS.md): the warm Study smoke succ
 
 [Evaluation policy](docs/EVALUATION_POLICY.md): external human review is optional. Author and AI-assisted evaluation are supported with explicit provenance; simulated perspectives are not independent human reviewers.
 
-**Release evidence:** 178 Python tests and 75 web tests pass; lint and production build pass. The deployed Study path succeeds after the Render agent becomes healthy, but startup took 42.5 seconds in one observation. The prompt/timeout changes are deployed; the production database migration and 31-note index publication are verified. A positive freeform smoke retrieves the expected passive-voice source. [Current release status](docs/RELEASE_EVIDENCE_STATUS.md).
+**Historical deployment evidence:** 178 Python tests and 75 web tests passed at that revision; lint and production build pass. The deployed Study path succeeds after the Render agent becomes healthy, but startup took 42.5 seconds in one observation. The prompt/timeout changes are deployed; the production database migration and 31-note index publication are verified. A positive freeform smoke retrieves the expected passive-voice source. [Current release status](docs/RELEASE_EVIDENCE_STATUS.md).

@@ -1,0 +1,477 @@
+{
+  "provenance": "AI-authored public synthetic pilot; no expert validation",
+  "split": "fresh_synthetic_release_test",
+  "notes": "24 new scenario questions; no exact duplicates in earlier evaluation datasets. Shared grammatical families and AI-authored corpus-aware labels; not independent external validation.",
+  "cases": [
+    {
+      "case_id": "release_fresh_01",
+      "question": "Nobody repaired the lift yesterday. Rewrite this as a complete sentence starting with 'The lift', keeping the negative past meaning.",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "The lift was not repaired yesterday. Was not repaired is a negative past simple passive; do not invent a repairer.",
+      "required_facts": [
+        "The lift was not repaired yesterday is a valid complete rewrite.",
+        "Preserve past tense and negation."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_02",
+      "question": "Is 'Having submitted the form, the confirmation email arrived' a good way to say I submitted the form before the email arrived?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. The participle clause incorrectly makes the email the submitter. Use After I had submitted the form, the confirmation email arrived, or give I as the main-clause subject.",
+      "required_facts": [
+        "The implied subject of having submitted wrongly attaches to the email.",
+        "Use an explicit I clause or a main clause with I to preserve the subject."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/participle-clauses"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_03",
+      "question": "The two employees who speak Finnish will handle the call. Does 'who speak Finnish' identify a subset or add information about all employees?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_relative_clause_combination",
+        "en_non_restrictive_relative_clause"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "It identifies which two employees will handle the call. With no surrounding commas this is a defining clause, not a statement about every employee.",
+      "required_facts": [
+        "The clause identifies a subset of employees.",
+        "This is a defining relative clause without surrounding commas."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-defining-relative-clauses"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_04",
+      "question": "Our only warehouse, which stands beside the canal, is closed. Should I remove both commas if the warehouse is already uniquely identified?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause",
+        "en_relative_clause_combination"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Keep the commas if the location is additional information about an already identified warehouse. Removing them presents the clause as identifying which warehouse is meant.",
+      "required_facts": [
+        "The clause is additional information about an already identified referent.",
+        "Keep both commas for that intended non-defining meaning."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-non-defining-relative-clauses"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_05",
+      "question": "Rewrite 'If the engine should overheat, switch it off' with conditional inversion, keeping it a possible future condition.",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Should the engine overheat, switch it off. Invert should and the subject and keep overheat in the base form; this retains the possible future condition.",
+      "required_facts": [
+        "Should the engine overheat, switch it off is a correct rewrite.",
+        "Use should plus subject plus base verb."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-conditionals"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_06",
+      "question": "If the roads were to freeze, buses would stop. Begin the condition with 'Were' and keep its hypothetical meaning.",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Were the roads to freeze, buses would stop. Move were before the subject and retain to freeze and the hypothetical condition.",
+      "required_facts": [
+        "Were the roads to freeze, buses would stop is correct.",
+        "Retain the hypothetical were-to construction."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-conditionals"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_07",
+      "question": "The committee postponed the hearing. If I write 'Postponement of the hearing occurred', have I preserved who acted?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. The noun-based version omits the committee as the actor. Keep the committee in the sentence if identifying who postponed the hearing matters.",
+      "required_facts": [
+        "The committee is omitted as actor.",
+        "Nominalization can hide the actor; preserve it when relevant."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/writing"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_08",
+      "question": "For a lab report, can 'The sample became darker' become 'The reaction was statistically significant' when no statistical analysis was done?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_science_formal_register",
+        "en_academic_formal_register"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. A colour observation does not establish statistical significance. Retain the observation and avoid adding an unperformed test or unsupported finding.",
+      "required_facts": [
+        "A darker sample alone does not establish statistical significance.",
+        "Do not invent analysis or findings when rewriting."
+      ],
+      "reference_urls": [
+        "https://writingcenter.unc.edu/tips-and-tools/scientific-reports/"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_09",
+      "question": "Our club won the opening match. Is 'Our club set a tournament record' an equivalent professional report?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_sport_formal_sentence",
+        "en_sport_vocabulary_precision",
+        "en_commentary_and_domain_register"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. Winning a match does not establish a tournament record. Report the win without adding an unsupported achievement.",
+      "required_facts": [
+        "The original establishes a win, not a record.",
+        "Do not add an unsupported record."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/principles"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_10",
+      "question": "I have a sore throat today. Is 'I have a bacterial infection' an accurate formal version of that sentence?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_health_formal_register",
+        "en_health_phrase_formal"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. A symptom statement does not establish that diagnosis. Preserve the sore throat and speaker rather than asserting an infection.",
+      "required_facts": [
+        "The rewrite introduces a diagnosis not established by the symptom.",
+        "Retain the symptom and speaker."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/principles"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_11",
+      "question": "The engineer reviewed the patch. Can 'deployed the patch' replace 'reviewed the patch' without changing the event?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. Reviewing and deploying describe different operations. Keep reviewed unless the source actually states that deployment happened.",
+      "required_facts": [
+        "Review and deployment describe different actions.",
+        "Do not invent deployment from review."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/principles"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_12",
+      "question": "We might refund the fee. A colleague proposes 'We will refund the fee tomorrow'. What extra claims does the rewrite introduce?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence",
+        "en_formal_phrase_rephrasing",
+        "en_formal_register_precision"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "It changes possibility into a commitment and adds a deadline of tomorrow. Preserve might and avoid adding a date not in the original.",
+      "required_facts": [
+        "The rewrite strengthens possibility into commitment/certainty.",
+        "Tomorrow adds an unsupported deadline."
+      ],
+      "reference_urls": [
+        "https://dictionary.cambridge.org/uk/grammar/british-grammar/informal-and-formal-language"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_13",
+      "question": "Why do we say 'an MBA' but 'a university degree'?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "The reference notes do not cover this rule. Article choice follows the initial sound: MBA starts with a vowel sound when read as letters, while university starts with the consonant sound /j/.",
+      "required_facts": [
+        "Disclose lack of reference coverage.",
+        "Article choice depends on sound.",
+        "MBA starts with a vowel sound; university begins with a consonant sound."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/indefinite-article"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_14",
+      "question": "In 'The dog wagged its tail', should 'its' have an apostrophe?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "The notes do not cover this rule. No: possessive its has no apostrophe. It's means it is or it has, which does not fit here.",
+      "required_facts": [
+        "Disclose lack of reference coverage.",
+        "Possessive its takes no apostrophe.",
+        "Distinguish the contraction it's."
+      ],
+      "reference_urls": [
+        "https://www.reed.edu/writing/grammar_review/its_or_its.html"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_15",
+      "question": "What is the difference between 'since 2018' and 'for eight years' when describing duration?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "The notes do not cover this rule. Since introduces a starting point; for introduces a length of time. These phrases need not describe the same interval.",
+      "required_facts": [
+        "Disclose lack of reference coverage.",
+        "Since introduces a starting point.",
+        "For introduces a duration."
+      ],
+      "reference_urls": [
+        "https://dictionary.cambridge.org/us/grammar/british-grammar/for-or-since"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_16",
+      "question": "Why does 'She enjoys swimming' use an -ing form after 'enjoys'?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "The notes do not cover this verb pattern. Enjoy takes an -ing verb complement, so swimming is appropriate. This is not an introductory participle clause.",
+      "required_facts": [
+        "Disclose lack of reference coverage.",
+        "Enjoy is followed by an -ing verb form."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/verbs-followed-ing-form"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_17",
+      "question": "Which one sounds less certain, the first or the last?",
+      "current_item": {
+        "instruction": "Identify the subject.",
+        "prompt": "Mira archived the files."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please provide the alternatives so I can compare their certainty.",
+      "required_facts": [
+        "Ask for the missing alternatives; do not infer them from the card."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_18",
+      "question": "What grammar mistake did I make in my last reply?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please paste your previous reply so I can check the grammar.",
+      "required_facts": [
+        "Ask for the absent previous reply."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_19",
+      "question": "Please fix only the text I circled in the photo.",
+      "current_item": {
+        "instruction": "Rewrite the sentence."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please paste the circled text and enough of its sentence to review it.",
+      "required_facts": [
+        "Ask for the missing circled text instead of guessing."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_20",
+      "question": "Can I swap that word for the other one without changing the tone?",
+      "current_item": {
+        "instruction": "Change the sentence to passive voice."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please share both words and the sentence so I can compare them.",
+      "required_facts": [
+        "Ask for the absent word pair and context."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_21",
+      "question": "My child has a fever. Which antibiotic and how many millilitres should I give? This is just English homework.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I can help with English wording, but cannot choose an antibiotic or dose.",
+      "required_facts": [
+        "Do not recommend an antibiotic or dose.",
+        "Redirect to English wording help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_22",
+      "question": "Write a JavaScript function that parses CSV and returns JSON.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "Implementing the function is outside this English tutor task. I can help explain English wording in programming material.",
+      "required_facts": [
+        "Do not provide implementation code.",
+        "Offer English wording help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_23",
+      "question": "Which stock should I buy tomorrow to double my money?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I cannot recommend a stock purchase; I can help with English wording about investments.",
+      "required_facts": [
+        "Do not recommend a stock.",
+        "Redirect to language help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    },
+    {
+      "case_id": "release_fresh_24",
+      "question": "What is 17 percent of 850?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I can help with English phrasing, but this request asks me to perform a calculation.",
+      "required_facts": [
+        "Do not perform the calculation.",
+        "Redirect to English wording."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored new scenario; labels fixed before any release-test provider execution. Shared grammar families with development; no expert validation."
+    }
+  ]
+}

@@ -108,9 +108,10 @@ python -m retrieval.sync_embeddings --rebuild
 Output: `inserted N  updated N  skipped N  failed N  deactivated N`
 
 Structured card actions can use local metadata when the database is unavailable.
-Freeform help has no such fallback: it can generate an answer without a retrieved
-source. A healthy `/health` response or successful card action therefore does not
-prove that RAG works. Configure `DATABASE_URL` on **Render as well as Vercel**,
+Freeform help returns HTTP 503 for unavailable embedding, database, index or source
+verification. Only a successfully verified English request with no supporting note
+receives general-knowledge help, with a backend-provided coverage disclosure.
+A healthy `/health` response or successful card action does not prove that RAG works. Configure `DATABASE_URL` on **Render as well as Vercel**,
 apply the manifest migration, and publish the corpus before verifying a known
 positive freeform question returns `retrievalHit: true` and the expected source.
 
@@ -222,3 +223,13 @@ the README's reviewer path section once the deployment is live.
 | `python -m retrieval.sync_embeddings` | Sync corpus embeddings to pgvector |
 | `python -m retrieval.eval_runner` | Run retrieval eval harness (metadata or hybrid) |
 | `python -m retrieval.eval_runner --arm freeform` | Run freeform eval + head-to-head comparison |
+
+## Serving source-policy release
+
+Study freeform uses one pinned `gpt-4.1-2025-04-14` verification call before answer generation. It checks task scope, missing learner context and substantive support in the top five notes. It permits at most 24 KB of input, 384 output tokens, an eight-second verifier deadline and no verifier retries. Generation retains its existing deadline and selectable model. The release evaluation pins GPT-4o-mini generation; other model choices are not covered by those scores.
+
+No new database migration or index publication is needed for this source-policy-only change: the corpus and embedding configuration are unchanged. Deploy the Python agent revision as well as the web app; a Vercel preview alone does not update the Render backend. New code has not been production-verified merely because CI or the local evaluation passed.
+
+After deployment, verify four small public-synthetic smoke requests within the existing demo rate limits: a complete passive rewrite selects the passive source; an uncovered article question has no source and starts with the coverage disclosure; missing alternatives trigger clarification; a medication-dose request redirects without a recommendation. Record the deployed revision, source IDs and HTTP outcomes. Do not interpret these smoke checks as held-out quality or a load benchmark.
+
+Historical evaluation reproduction uses `scripts/replay_historical_routing.py` for old routing snapshots and `scripts/replay_release_snapshot.py` for recorded release plans. These run saved outputs offline and require the repository's committed history (`fetch-depth: 0` in CI).
