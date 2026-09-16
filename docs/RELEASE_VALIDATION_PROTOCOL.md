@@ -34,3 +34,8 @@ The application contract is now explicit: ordinal references require an actual o
 ## Development amendment 3 (before repeat execution)
 
 The v2 prompt-only amendment repeated the same ordinal-context failure. Preserve both failed runs. Add a narrow backend contract: an English reference to the first/second/third/last/former/latter option, alternative or choice requires two explicitly labelled or quoted alternatives together in one input field. Never assemble an ordering from separate prompt/answer roles. Scope redirection takes precedence. Unrecognized alternative formats may cause an extra clarification turn; this conservative English-only guard is not a complete coreference resolver. Unit tests cover supplied alternatives, unrelated second-conditional questions and scope priority. Freeze v3 and rerun the unchanged development set before opening the fresh test.
+
+
+## Infrastructure repeat (before development v4)
+
+v3 fixed the semantic routing error and passed all retrieval/routing gates, but one embedding request returned InternalServerError and one judge request timed out. It failed reliability and judgment-completeness gates. No code, prompt, label, timeout or threshold changes follow these errors. Run one complete v4 development repeat with a new frozen plan; do not replace individual failed rows or overwrite v3. Report both attempts, and do not treat a clean repeat as proof of production reliability. Only a full accepted repeat permits opening the fresh test under this protocol.
