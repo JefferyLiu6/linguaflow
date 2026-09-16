@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 import time
 from retrieval import evidence_gate as legacy
 
@@ -63,6 +64,34 @@ def decode(value, units):
             'evidence_id': value['evidence_id'] if evidence else ''}
 
 
+def unresolved_ordered_options(question, card):
+    """Conservative contract for ordinal option references, not general coreference.
+
+    Alternatives must occur together in one supplied text field. Prompt and
+    answer are never concatenated to invent an ordered comparison. Unrecognized
+    formats are clarified; this intentionally favors one extra turn over a guess.
+    """
+    if not re.search(r"\b(?:the|this|that)\s+(?:first|second|third|last|former|latter)\s+(?:option|alternative|choice)\b", question, re.I):
+        return False
+    texts = [question, *((card or {}).get(k, '') for k in ('instruction', 'prompt', 'answer'))]
+    for text in texts:
+        # Explicit numbered/lettered lists, or two quoted alternatives in one field.
+        labels = re.findall(r"(?:^|[\n;]\s*|\s)([1-9A-Ca-c])[.)]\s+\S", text)
+        quoted = re.findall(r'"([^"\n]+)"|“([^”\n]+)”|‘([^’\n]+)’', text)
+        if len(set(labels)) >= 2 or len(quoted) >= 2:
+            return False
+    return True
+
+
+def enforce_context_contract(result, question, card):
+    if result.get('routing', {}).get('scope') == 'english' and unresolved_ordered_options(question, card):
+        return {**result, 'decision': 'needs_context', 'source_id': '', 'support_quote': '',
+                'evidence_id': '', 'routing': {'scope': 'english', 'context': 'missing'},
+                'rationale': 'Please provide the explicitly ordered alternatives; card prompt and answer are distinct roles.',
+                'context_guard': 'unresolved_ordered_options'}
+    return result
+
+
 async def verify_evidence(question, card, references):
     from openai import AsyncOpenAI
     units = evidence_units(references)
@@ -91,7 +120,7 @@ async def verify_evidence(question, card, references):
         if response.model != MODEL or choice.finish_reason != 'stop' or choice.message.refusal:
             raise ValueError()
         error_code = 'invalid_policy_result'
-        result = decode(json.loads(choice.message.content), units)
+        result = enforce_context_contract(decode(json.loads(choice.message.content), units), question, card)
         legacy.validate_decision({k: result[k] for k in legacy.SCHEMA['required']}, references)
     except Exception as exc:
         result = {'decision': 'verification_unavailable', 'source_id': '', 'support_quote': '',

@@ -97,3 +97,25 @@ def test_release_gate_keeps_failures_and_missing_routes_in_denominator():
     assert r['retrieval_gates']['end_to_end_source_recall'] is False and r['retrieval_gates']['clarification'] is False
     assert r['acceptance_pass'] is False and r['release_authorized'] is False
     assert r['summaries']['candidate']['request_failure_rate']==1
+
+
+@pytest.mark.parametrize('question,card,missing', [
+    ('Is the second option safer?', {'prompt':'The files were stored.', 'answer':'Someone stored the files.'}, True),
+    ('Is the first choice more polite?', {}, True),
+    ('Is the second option safer? 1. It may happen. 2. It happened.', {}, False),
+    ('Is the latter alternative clearer?', {'prompt':'A. It may happen.\nB. It happened.'}, False),
+    ('Is the first option better: "It may happen" or "It happened"?', {}, False),
+    ('Explain the second conditional.', {}, False),
+    ('Why is the card answer passive?', {'answer':'The files were stored.'}, False),
+])
+def test_ordinal_context_contract(question, card, missing):
+    assert p.unresolved_ordered_options(question, card) is missing
+
+
+def test_ordinal_context_guard_preserves_scope_and_clears_evidence():
+    q='Should I buy the second option?'
+    other=p.decode(verdict(scope='other',context='not_applicable'),{})
+    assert p.enforce_context_contract(other,q,{})['decision']=='out_of_scope'
+    supported=p.decode(verdict(evidence_id='a'),{'a':{'source_id':'note','text':'A rule'}})
+    r=p.enforce_context_contract(supported,q,{'prompt':'One','answer':'Two'})
+    assert r['decision']=='needs_context' and r['source_id']=='' and r['support_quote']==''

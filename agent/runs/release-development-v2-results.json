@@ -1,0 +1,279 @@
+{
+  "plan_sha256": "8907260fdf6f5f4bc77f99778da2f2436e99a2e0e5b87f913ab2da7a7f5b368a",
+  "summaries": {
+    "candidate": {
+      "requests": 16,
+      "answers": 16,
+      "request_failure_rate": 0.0,
+      "judged_answers": 16,
+      "judge_failure_count": 0,
+      "answer_metrics": {
+        "correctness_0_4": {
+          "mean": 3.75,
+          "n": 16
+        },
+        "required_fact_coverage": {
+          "mean": 0.9375,
+          "n": 16
+        },
+        "hallucinated_answer": {
+          "mean": 0.0625,
+          "n": 16
+        },
+        "teaching_usefulness_1_5": {
+          "mean": 5,
+          "n": 10
+        },
+        "scope_pass": {
+          "mean": 0.9375,
+          "n": 16
+        },
+        "sentence_unit_faithfulness": {
+          "mean": 0.8888888888888888,
+          "n": 9
+        },
+        "judged_factual_unit_accuracy": {
+          "mean": 0.9375,
+          "n": 16
+        },
+        "hallucinated_unit_rate": {
+          "mean": 0.0625,
+          "n": 16
+        }
+      },
+      "end_to_end_correct_and_in_scope_rate": 0.9375,
+      "retrieval": {
+        "scored_requests": 16,
+        "source_precision": 0.8888888888888888,
+        "source_recall": 1.0,
+        "false_positive_rate": 0.125,
+        "negative_abstention_accuracy": 0.875,
+        "abstention_precision": 1.0,
+        "ranking": {
+          "recall@1": {
+            "mean": 0.6875,
+            "n": 8
+          },
+          "hit@1": {
+            "mean": 0.875,
+            "n": 8
+          },
+          "recall@3": {
+            "mean": 1.0,
+            "n": 8
+          },
+          "hit@3": {
+            "mean": 1.0,
+            "n": 8
+          },
+          "recall@5": {
+            "mean": 1.0,
+            "n": 8
+          },
+          "hit@5": {
+            "mean": 1.0,
+            "n": 8
+          },
+          "mrr@5": {
+            "mean": 0.9375,
+            "n": 8
+          }
+        }
+      },
+      "latency": {
+        "database": {
+          "count": 16,
+          "p50_ms": 770.623,
+          "p95_ms": 859.818
+        },
+        "embedding": {
+          "count": 16,
+          "p50_ms": 333.553,
+          "p95_ms": 9214.114
+        },
+        "evaluation_queue": {
+          "count": 16,
+          "p50_ms": 1875.097,
+          "p95_ms": 43772.419
+        },
+        "generation": {
+          "count": 11,
+          "p50_ms": 946.553,
+          "p95_ms": 1605.378
+        },
+        "judge": {
+          "count": 16,
+          "p50_ms": 1883.837,
+          "p95_ms": 2607.875
+        },
+        "judge_queue": {
+          "count": 16,
+          "p50_ms": 483.546,
+          "p95_ms": 41326.783
+        },
+        "pipeline_total": {
+          "count": 16,
+          "p50_ms": 3638.435,
+          "p95_ms": 12082.035
+        },
+        "retrieval": {
+          "count": 16,
+          "p50_ms": 2659.825,
+          "p95_ms": 11159.885
+        },
+        "verification": {
+          "count": 16,
+          "p50_ms": 1389,
+          "p95_ms": 2032
+        }
+      },
+      "known_pipeline_cost_usd": 0.06973199000000001,
+      "known_judge_cost_usd": 0.058196,
+      "complete_pipeline_cost_requests": 16,
+      "mean_pipeline_cost_usd": 0.0043582493750000005,
+      "recorded_tokens": {
+        "database": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "embedding": {
+          "input_tokens": 347,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "evaluation_queue": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "generation": {
+          "input_tokens": 5911,
+          "output_tokens": 674,
+          "cached_input_tokens": 0
+        },
+        "judge": {
+          "input_tokens": 21286,
+          "output_tokens": 2481,
+          "cached_input_tokens": 2816
+        },
+        "judge_queue": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "pipeline_total": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "retrieval": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "verification": {
+          "input_tokens": 30145,
+          "output_tokens": 1018,
+          "cached_input_tokens": 0
+        }
+      }
+    }
+  },
+  "diagnostic_gates": {
+    "candidate": {
+      "criteria": {
+        "correctness": true,
+        "faithfulness": false,
+        "hallucination": true,
+        "teaching": true,
+        "scope": true,
+        "reliability": true,
+        "judge_complete": true
+      },
+      "diagnostic_pass": false
+    }
+  },
+  "limitations": [
+    "AI-authored synthetic labels, not expert validation or user traffic.",
+    "Generator and judge differ; verifier and judge share GPT-4.1 and may have correlated errors.",
+    "Sentence-unit judgments, not directly comparable with v1 atomic claims.",
+    "Local live handler measurements exclude public HTTP/browser and evaluation pacing; not a load benchmark.",
+    "Raw hybrid comparison measures source selection only, not generated-answer superiority."
+  ],
+  "release_authorized": false,
+  "raw_hybrid_source_baseline": {
+    "scored_requests": 16,
+    "source_precision": 0.45454545454545453,
+    "source_recall": 0.625,
+    "false_positive_rate": 0.75,
+    "negative_abstention_accuracy": 0.25,
+    "abstention_precision": 0.4,
+    "ranking": {
+      "recall@1": {
+        "mean": 0.6875,
+        "n": 8
+      },
+      "hit@1": {
+        "mean": 0.875,
+        "n": 8
+      },
+      "recall@3": {
+        "mean": 1.0,
+        "n": 8
+      },
+      "hit@3": {
+        "mean": 1.0,
+        "n": 8
+      },
+      "recall@5": {
+        "mean": 1.0,
+        "n": 8
+      },
+      "hit@5": {
+        "mean": 1.0,
+        "n": 8
+      },
+      "mrr@5": {
+        "mean": 0.9375,
+        "n": 8
+      }
+    }
+  },
+  "routing_counts": {
+    "positive_cases": 8,
+    "negative_cases": 8,
+    "selected_sources": 9,
+    "correct_sources": 8,
+    "false_retrievals": 1,
+    "required_clarifications": 3,
+    "correct_clarifications": 2,
+    "required_redirects": 3,
+    "correct_redirects": 3,
+    "answerable_cases": 10,
+    "wrong_clarifications": 0
+  },
+  "uncertainty": {
+    "source_precision_wilson95": [
+      0.5650002944233439,
+      0.9801091123614551
+    ],
+    "end_to_end_source_recall_wilson95": [
+      0.6755924351161198,
+      1
+    ],
+    "negative_false_reference_wilson95": [
+      0.02241749145005667,
+      0.4708881822128535
+    ]
+  },
+  "retrieval_gates": {
+    "source_precision": false,
+    "end_to_end_source_recall": true,
+    "false_retrieval": false,
+    "clarification": false,
+    "redirect": true,
+    "wrong_clarification": true
+  },
+  "acceptance_pass": false
+}
