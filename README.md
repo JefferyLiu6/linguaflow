@@ -6,7 +6,9 @@ Built with Next.js, FastAPI, LangGraph and PostgreSQL/pgvector. The engineering 
 
 [Try the demo](https://linguaflow-demo.vercel.app) · [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) · [Evaluation results](docs/RELEASE_VALIDATION_RESULTS.md)
 
-![Recorded LinguaFlow product walkthrough](docs/demo/linguaflow-demo.gif)
+![English Study walkthrough: reveal a passive-voice answer and ask for an explanation with a teaching reference](docs/demo/english-study-demo.gif)
+
+*Recorded from the live English Study flow. Pauses are edited; [capture details](docs/demo/english-study-capture.json).*
 
 ## The problem
 
