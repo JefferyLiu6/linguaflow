@@ -1,0 +1,414 @@
+{
+  "plan_sha256": "0211e9cb8f4d35cba1b12ddc1393cc55465d653f34bd0242a6221c8d07917d95",
+  "summaries": {
+    "candidate": {
+      "requests": 12,
+      "answers": 12,
+      "request_failure_rate": 0.0,
+      "judged_answers": 12,
+      "judge_failure_count": 0,
+      "answer_metrics": {
+        "correctness_0_4": {
+          "mean": 2.75,
+          "n": 12
+        },
+        "required_fact_coverage": {
+          "mean": 0.5833333333333334,
+          "n": 12
+        },
+        "hallucinated_answer": {
+          "mean": 0,
+          "n": 12
+        },
+        "teaching_usefulness_1_5": {
+          "mean": 3.125,
+          "n": 8
+        },
+        "scope_pass": {
+          "mean": 0.5833333333333334,
+          "n": 12
+        },
+        "judged_factual_unit_accuracy": {
+          "mean": 1.0,
+          "n": 7
+        },
+        "hallucinated_unit_rate": {
+          "mean": 0.0,
+          "n": 7
+        },
+        "sentence_unit_faithfulness": {
+          "mean": 1.0,
+          "n": 3
+        }
+      },
+      "end_to_end_correct_and_in_scope_rate": 0.5833333333333334,
+      "retrieval": {
+        "scored_requests": 12,
+        "source_precision": 1.0,
+        "source_recall": 0.5,
+        "false_positive_rate": 0.0,
+        "negative_abstention_accuracy": 1.0,
+        "abstention_precision": 0.6666666666666666,
+        "ranking": {
+          "recall@1": {
+            "mean": 0.6666666666666666,
+            "n": 6
+          },
+          "hit@1": {
+            "mean": 0.8333333333333334,
+            "n": 6
+          },
+          "recall@3": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "hit@3": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "recall@5": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "hit@5": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "mrr@5": {
+            "mean": 0.9166666666666666,
+            "n": 6
+          }
+        }
+      },
+      "latency": {
+        "database": {
+          "count": 12,
+          "p50_ms": 738.8,
+          "p95_ms": 918.083
+        },
+        "embedding": {
+          "count": 12,
+          "p50_ms": 320.64,
+          "p95_ms": 579.054
+        },
+        "generation": {
+          "count": 3,
+          "p50_ms": 1027.753,
+          "p95_ms": 1051.109
+        },
+        "judge": {
+          "count": 12,
+          "p50_ms": 1828.599,
+          "p95_ms": 2121.431
+        },
+        "judge_queue": {
+          "count": 12,
+          "p50_ms": 1335.788,
+          "p95_ms": 33187.107
+        },
+        "pipeline_total": {
+          "count": 12,
+          "p50_ms": 1952.435,
+          "p95_ms": 3478.161
+        },
+        "retrieval": {
+          "count": 12,
+          "p50_ms": 1950.955,
+          "p95_ms": 2581.242
+        },
+        "verification": {
+          "count": 12,
+          "p50_ms": 856,
+          "p95_ms": 1153
+        }
+      },
+      "known_pipeline_cost_usd": 0.00526058,
+      "known_judge_cost_usd": 0.037876,
+      "complete_pipeline_cost_requests": 12,
+      "mean_pipeline_cost_usd": 0.00043838166666666664,
+      "recorded_tokens": {
+        "database": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "embedding": {
+          "input_tokens": 229,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "generation": {
+          "input_tokens": 1682,
+          "output_tokens": 189,
+          "cached_input_tokens": 0
+        },
+        "judge": {
+          "input_tokens": 12742,
+          "output_tokens": 1549,
+          "cached_input_tokens": 0
+        },
+        "judge_queue": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "pipeline_total": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "retrieval": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "verification": {
+          "input_tokens": 30882,
+          "output_tokens": 430,
+          "cached_input_tokens": 0
+        }
+      },
+      "judge_first_attempt_success_rate": 1.0,
+      "judge_retry_requests": 0,
+      "routes": {
+        "answer": {
+          "requests": 6,
+          "scope_passes": 3
+        },
+        "answer_with_disclosure": {
+          "requests": 2,
+          "scope_passes": 0
+        },
+        "clarify": {
+          "requests": 2,
+          "scope_passes": 2
+        },
+        "redirect": {
+          "requests": 2,
+          "scope_passes": 2
+        }
+      }
+    },
+    "legacy": {
+      "requests": 12,
+      "answers": 12,
+      "request_failure_rate": 0.0,
+      "judged_answers": 12,
+      "judge_failure_count": 0,
+      "answer_metrics": {
+        "correctness_0_4": {
+          "mean": 3.1666666666666665,
+          "n": 12
+        },
+        "required_fact_coverage": {
+          "mean": 0.7777777777777778,
+          "n": 12
+        },
+        "hallucinated_answer": {
+          "mean": 0.16666666666666666,
+          "n": 12
+        },
+        "teaching_usefulness_1_5": {
+          "mean": 4.375,
+          "n": 8
+        },
+        "scope_pass": {
+          "mean": 0.75,
+          "n": 12
+        },
+        "judged_factual_unit_accuracy": {
+          "mean": 0.8333333333333334,
+          "n": 12
+        },
+        "hallucinated_unit_rate": {
+          "mean": 0.16666666666666666,
+          "n": 12
+        },
+        "sentence_unit_faithfulness": {
+          "mean": 0.875,
+          "n": 8
+        }
+      },
+      "end_to_end_correct_and_in_scope_rate": 0.6666666666666666,
+      "retrieval": {
+        "scored_requests": 12,
+        "source_precision": 0.625,
+        "source_recall": 0.8333333333333334,
+        "false_positive_rate": 0.3333333333333333,
+        "negative_abstention_accuracy": 0.6666666666666666,
+        "abstention_precision": 1.0,
+        "ranking": {
+          "recall@1": {
+            "mean": 0.6666666666666666,
+            "n": 6
+          },
+          "hit@1": {
+            "mean": 0.8333333333333334,
+            "n": 6
+          },
+          "recall@3": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "hit@3": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "recall@5": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "hit@5": {
+            "mean": 1.0,
+            "n": 6
+          },
+          "mrr@5": {
+            "mean": 0.9166666666666666,
+            "n": 6
+          }
+        }
+      },
+      "latency": {
+        "database": {
+          "count": 12,
+          "p50_ms": 794.215,
+          "p95_ms": 955.816
+        },
+        "embedding": {
+          "count": 12,
+          "p50_ms": 317.911,
+          "p95_ms": 2353.755
+        },
+        "generation": {
+          "count": 10,
+          "p50_ms": 1105.521,
+          "p95_ms": 1725.025
+        },
+        "judge": {
+          "count": 12,
+          "p50_ms": 1845.114,
+          "p95_ms": 2794.304
+        },
+        "judge_queue": {
+          "count": 12,
+          "p50_ms": 0.013,
+          "p95_ms": 30224.405
+        },
+        "pipeline_total": {
+          "count": 12,
+          "p50_ms": 3825.95,
+          "p95_ms": 8340.548
+        },
+        "retrieval": {
+          "count": 12,
+          "p50_ms": 2538.494,
+          "p95_ms": 6615.127
+        },
+        "verification": {
+          "count": 12,
+          "p50_ms": 1493,
+          "p95_ms": 2818
+        }
+      },
+      "known_pipeline_cost_usd": 0.00543743,
+      "known_judge_cost_usd": 0.050332,
+      "complete_pipeline_cost_requests": 12,
+      "mean_pipeline_cost_usd": 0.00045311916666666667,
+      "recorded_tokens": {
+        "database": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "embedding": {
+          "input_tokens": 229,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "generation": {
+          "input_tokens": 4966,
+          "output_tokens": 703,
+          "cached_input_tokens": 0
+        },
+        "judge": {
+          "input_tokens": 17322,
+          "output_tokens": 1961,
+          "cached_input_tokens": 0
+        },
+        "judge_queue": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "pipeline_total": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "retrieval": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "verification": {
+          "input_tokens": 24225,
+          "output_tokens": 1054,
+          "cached_input_tokens": 0
+        }
+      },
+      "judge_first_attempt_success_rate": 1.0,
+      "judge_retry_requests": 0,
+      "routes": {
+        "answer": {
+          "requests": 6,
+          "scope_passes": 6
+        },
+        "answer_with_disclosure": {
+          "requests": 2,
+          "scope_passes": 0
+        },
+        "clarify": {
+          "requests": 2,
+          "scope_passes": 1
+        },
+        "redirect": {
+          "requests": 2,
+          "scope_passes": 2
+        }
+      }
+    }
+  },
+  "diagnostic_gates": {
+    "candidate": {
+      "criteria": {
+        "correctness": false,
+        "faithfulness": true,
+        "hallucination": true,
+        "teaching": false,
+        "scope": false,
+        "reliability": true,
+        "judge_complete": true
+      },
+      "diagnostic_pass": false
+    },
+    "legacy": {
+      "criteria": {
+        "correctness": true,
+        "faithfulness": false,
+        "hallucination": false,
+        "teaching": true,
+        "scope": false,
+        "reliability": true,
+        "judge_complete": true
+      },
+      "diagnostic_pass": false
+    }
+  },
+  "limitations": [
+    "Frozen synthetic scenarios, AI-authored references; no independent validation.",
+    "Common judge scores deterministic sentence/line units, not atomic claims; not directly comparable to the v1 judge.",
+    "Live local handler measurements exclude public HTTP/browser hops and judge queue time.",
+    "Both arms use GPT-4o mini; the candidate changes the policy structure, not the model."
+  ],
+  "release_authorized": false
+}

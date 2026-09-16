@@ -87,6 +87,12 @@ jobs:
         working-directory: agent
         run: python -m retrieval.retrieval_comparison plan --output runs/retrieval-comparison-plan.json
 
+      - name: Paired routing development replay (offline)
+        working-directory: agent
+        run: |
+          python -m evals.rag_v2.runner replay --plan runs/routing-answer-dev-v2-plan.json --records runs/routing-answer-dev-v2-records.jsonl --output runs/ci-routing-answer.json
+          python ../scripts/compare_eval_reports.py runs/routing-answer-dev-v2-results.json runs/ci-routing-answer.json
+
       - name: Three-layer answer evaluation replay (offline)
         working-directory: agent
         run: |
