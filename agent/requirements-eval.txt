@@ -1,0 +1,3 @@
+# Optional offline evaluation integration, not a serving dependency.
+# Custom rubric adapter does not call Confident AI or run a second judge.
+deepeval==4.2.3
