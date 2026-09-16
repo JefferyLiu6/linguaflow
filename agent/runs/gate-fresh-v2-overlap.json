@@ -1,0 +1,325 @@
+{
+  "method": "Question token Jaccard; intentional within-pair duplicates excluded; semantic independence not established.",
+  "cases": [
+    {
+      "case_id": "fresh_p01",
+      "closest_case": "freeform_formal_003",
+      "token_jaccard": 0.1538
+    },
+    {
+      "case_id": "fresh_p02",
+      "closest_case": "freeform_phrase_004",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_p03",
+      "closest_case": "coverage_en_nominalization",
+      "token_jaccard": 0.25
+    },
+    {
+      "case_id": "fresh_p04",
+      "closest_case": "coverage_en_passive_vs_active_voice",
+      "token_jaccard": 0.1765
+    },
+    {
+      "case_id": "fresh_p05",
+      "closest_case": "coverage_en_participle_clause_combination",
+      "token_jaccard": 0.1176
+    },
+    {
+      "case_id": "fresh_p06",
+      "closest_case": "heldout_p05_1",
+      "token_jaccard": 0.0952
+    },
+    {
+      "case_id": "fresh_p07",
+      "closest_case": "coverage_en_finance_formal_register",
+      "token_jaccard": 0.1176
+    },
+    {
+      "case_id": "fresh_p08",
+      "closest_case": "coverage_en_formal_phrase_rephrasing",
+      "token_jaccard": 0.1818
+    },
+    {
+      "case_id": "fresh_p09",
+      "closest_case": "freeform_voice_003",
+      "token_jaccard": 0.0833
+    },
+    {
+      "case_id": "fresh_p10",
+      "closest_case": "heldout_p09_1",
+      "token_jaccard": 0.0952
+    },
+    {
+      "case_id": "fresh_p11",
+      "closest_case": "heldout_n26",
+      "token_jaccard": 0.1111
+    },
+    {
+      "case_id": "fresh_p12",
+      "closest_case": "freeform_domain_003",
+      "token_jaccard": 0.0556
+    },
+    {
+      "case_id": "fresh_p13",
+      "closest_case": "freeform_domain_004",
+      "token_jaccard": 0.1
+    },
+    {
+      "case_id": "fresh_p14",
+      "closest_case": "fresh_p07",
+      "token_jaccard": 0.1176
+    },
+    {
+      "case_id": "fresh_p15",
+      "closest_case": "freeform_domain_004",
+      "token_jaccard": 0.0556
+    },
+    {
+      "case_id": "fresh_p16",
+      "closest_case": "heldout_n30",
+      "token_jaccard": 0.0909
+    },
+    {
+      "case_id": "fresh_p17",
+      "closest_case": "freeform_phrase_001",
+      "token_jaccard": 0.1333
+    },
+    {
+      "case_id": "fresh_p18",
+      "closest_case": "heldout_p03_2",
+      "token_jaccard": 0.1538
+    },
+    {
+      "case_id": "fresh_p19",
+      "closest_case": "heldout_p18_1",
+      "token_jaccard": 0.0952
+    },
+    {
+      "case_id": "fresh_p20",
+      "closest_case": "heldout_p19_1",
+      "token_jaccard": 0.087
+    },
+    {
+      "case_id": "fresh_p21",
+      "closest_case": "freeform_phrase_001",
+      "token_jaccard": 0.0833
+    },
+    {
+      "case_id": "fresh_p22",
+      "closest_case": "heldout_p30_1",
+      "token_jaccard": 0.1053
+    },
+    {
+      "case_id": "fresh_p23",
+      "closest_case": "heldout_n05",
+      "token_jaccard": 0.0909
+    },
+    {
+      "case_id": "fresh_p24",
+      "closest_case": "heldout_p23_1",
+      "token_jaccard": 0.1111
+    },
+    {
+      "case_id": "fresh_p25",
+      "closest_case": "heldout_p01_1",
+      "token_jaccard": 0.15
+    },
+    {
+      "case_id": "fresh_p26",
+      "closest_case": "coverage_en_relative_clause_combination",
+      "token_jaccard": 0.2
+    },
+    {
+      "case_id": "fresh_p27",
+      "closest_case": "heldout_p26_1",
+      "token_jaccard": 0.1333
+    },
+    {
+      "case_id": "fresh_p28",
+      "closest_case": "heldout_p07_2",
+      "token_jaccard": 0.2
+    },
+    {
+      "case_id": "fresh_p29",
+      "closest_case": "coverage_en_sport_formal_sentence",
+      "token_jaccard": 0.1579
+    },
+    {
+      "case_id": "fresh_p30",
+      "closest_case": "heldout_p29_1",
+      "token_jaccard": 0.15
+    },
+    {
+      "case_id": "fresh_p31",
+      "closest_case": "heldout_p30_2",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_p32",
+      "closest_case": "heldout_p26_2",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_u01",
+      "closest_case": "heldout_n06",
+      "token_jaccard": 0.2222
+    },
+    {
+      "case_id": "fresh_u02",
+      "closest_case": "heldout_n23",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_u03",
+      "closest_case": "freeform_voice_001",
+      "token_jaccard": 0.1111
+    },
+    {
+      "case_id": "fresh_u04",
+      "closest_case": "heldout_n12",
+      "token_jaccard": 0.0769
+    },
+    {
+      "case_id": "fresh_u05",
+      "closest_case": "heldout_n08",
+      "token_jaccard": 0.1667
+    },
+    {
+      "case_id": "fresh_u06",
+      "closest_case": "heldout_p20_2",
+      "token_jaccard": 0.1818
+    },
+    {
+      "case_id": "fresh_u07",
+      "closest_case": "scope_07",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_u08",
+      "closest_case": "scope_05",
+      "token_jaccard": 0.25
+    },
+    {
+      "case_id": "fresh_u09",
+      "closest_case": "heldout_p16_2",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_u10",
+      "closest_case": "freeform_formal_002",
+      "token_jaccard": 0.25
+    },
+    {
+      "case_id": "fresh_c01",
+      "closest_case": "heldout_p10_2",
+      "token_jaccard": 0.1
+    },
+    {
+      "case_id": "fresh_c02",
+      "closest_case": "heldout_p25_1",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_c03",
+      "closest_case": "scope_09",
+      "token_jaccard": 0.1429
+    },
+    {
+      "case_id": "fresh_c04",
+      "closest_case": "scope_11",
+      "token_jaccard": 0.1667
+    },
+    {
+      "case_id": "fresh_c05",
+      "closest_case": "heldout_n26",
+      "token_jaccard": 0.1667
+    },
+    {
+      "case_id": "fresh_c06",
+      "closest_case": "fresh_c01",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_o01_absent",
+      "closest_case": "heldout_n23",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_o01_distractor",
+      "closest_case": "heldout_n23",
+      "token_jaccard": 0.125
+    },
+    {
+      "case_id": "fresh_o02_absent",
+      "closest_case": "fresh_p13",
+      "token_jaccard": 0.0833
+    },
+    {
+      "case_id": "fresh_o02_distractor",
+      "closest_case": "fresh_p13",
+      "token_jaccard": 0.0833
+    },
+    {
+      "case_id": "fresh_o03_absent",
+      "closest_case": "heldout_n16",
+      "token_jaccard": 0.1
+    },
+    {
+      "case_id": "fresh_o03_distractor",
+      "closest_case": "heldout_n16",
+      "token_jaccard": 0.1
+    },
+    {
+      "case_id": "fresh_o04_absent",
+      "closest_case": "freeform_no_hit_003",
+      "token_jaccard": 0.0909
+    },
+    {
+      "case_id": "fresh_o04_distractor",
+      "closest_case": "freeform_no_hit_003",
+      "token_jaccard": 0.0909
+    },
+    {
+      "case_id": "fresh_o05_absent",
+      "closest_case": "heldout_p29_2",
+      "token_jaccard": 0.1
+    },
+    {
+      "case_id": "fresh_o05_distractor",
+      "closest_case": "heldout_p29_2",
+      "token_jaccard": 0.1
+    },
+    {
+      "case_id": "fresh_o06_absent",
+      "closest_case": "fresh_o02_absent",
+      "token_jaccard": 0.1111
+    },
+    {
+      "case_id": "fresh_o06_distractor",
+      "closest_case": "fresh_o02_absent",
+      "token_jaccard": 0.1111
+    },
+    {
+      "case_id": "fresh_o07_absent",
+      "closest_case": "heldout_n23",
+      "token_jaccard": 0.1429
+    },
+    {
+      "case_id": "fresh_o07_distractor",
+      "closest_case": "heldout_n23",
+      "token_jaccard": 0.1429
+    },
+    {
+      "case_id": "fresh_o08_absent",
+      "closest_case": "heldout_p01_1",
+      "token_jaccard": 0.0
+    },
+    {
+      "case_id": "fresh_o08_distractor",
+      "closest_case": "heldout_p01_1",
+      "token_jaccard": 0.0
+    }
+  ]
+}

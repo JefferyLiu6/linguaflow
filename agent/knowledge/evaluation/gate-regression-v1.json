@@ -1,0 +1,1313 @@
+{
+  "schema_version": 1,
+  "dataset_id": "heldout_retrieval_v1",
+  "provenance": {
+    "evaluation_kind": "ai_assisted",
+    "author": "Codex assistant in project conversation",
+    "model": "GPT-6 family; exact serving snapshot unavailable",
+    "review": "Same assistant checked labels against corpus descriptions before execution; no independent reviewer.",
+    "held_out_from": "Retrieval execution and parameter selection until pre-run Git freeze. Corpus and historical diagnostics were visible to the author.",
+    "distribution": "Purpose-built, concept-balanced synthetic stress test, not sampled user traffic."
+  },
+  "cases": [
+    {
+      "case_id": "heldout_p01_1",
+      "scenario_group": "concept_formal_register_precision",
+      "bucket": "positive_no_card",
+      "question": "An editor replaced 'use a ladder' with 'utilize a ladder'. Is the replacement more accurate just because it sounds grander?",
+      "current_item": {},
+      "primary_note_id": "en_formal_register_precision",
+      "acceptable_note_ids": [
+        "en_formal_register_precision",
+        "en_general_vocabulary_precision",
+        "en_precise_synonym_choice"
+      ],
+      "label_rationale": "The issue is register versus accuracy, not a universally superior synonym.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p01_2",
+      "scenario_group": "concept_formal_register_precision",
+      "bucket": "positive_with_card",
+      "question": "For a note to a neighbour, should 'buy milk' become 'purchase milk', or can the simple version stay?",
+      "current_item": {
+        "prompt": "buy milk",
+        "answer": ""
+      },
+      "primary_note_id": "en_formal_register_precision",
+      "acceptable_note_ids": [
+        "en_formal_register_precision",
+        "en_general_vocabulary_precision",
+        "en_precise_synonym_choice"
+      ],
+      "label_rationale": "The issue is register versus accuracy, not a universally superior synonym.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p02_1",
+      "scenario_group": "concept_single_precise_verb",
+      "bucket": "positive_no_card",
+      "question": "Does replacing 'made an attempt to unlock the cabinet' with 'unlocked the cabinet' keep the original claim?",
+      "current_item": {},
+      "primary_note_id": "en_single_precise_verb",
+      "acceptable_note_ids": [
+        "en_single_precise_verb"
+      ],
+      "label_rationale": "Concision must preserve the action and distinguish attempts from successful outcomes.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p02_2",
+      "scenario_group": "concept_single_precise_verb",
+      "bucket": "positive_with_card",
+      "question": "I want one verb instead of 'carried out an inspection of the roof'. What must I preserve?",
+      "current_item": {
+        "prompt": "The surveyor carried out an inspection of the roof.",
+        "answer": "The surveyor inspected the roof."
+      },
+      "primary_note_id": "en_single_precise_verb",
+      "acceptable_note_ids": [
+        "en_single_precise_verb"
+      ],
+      "label_rationale": "Concision must preserve the action and distinguish attempts from successful outcomes.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p03_1",
+      "scenario_group": "concept_passive_vs_active_voice",
+      "bucket": "positive_no_card",
+      "question": "Nobody has watered the orchids. Can I start with 'The orchids' without losing the negative or changing the time?",
+      "current_item": {},
+      "primary_note_id": "en_passive_vs_active_voice",
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "label_rationale": "Voice changes preserve tense and participants; an unknown actor cannot be invented.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p03_2",
+      "scenario_group": "concept_passive_vs_active_voice",
+      "bucket": "positive_with_card",
+      "question": "Can I name a culprit when turning this into an active sentence?",
+      "current_item": {
+        "prompt": "The mural was damaged overnight.",
+        "answer": ""
+      },
+      "primary_note_id": "en_passive_vs_active_voice",
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "label_rationale": "Voice changes preserve tense and participants; an unknown actor cannot be invented.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p04_1",
+      "scenario_group": "concept_participle_clause_combination",
+      "bucket": "positive_no_card",
+      "question": "Is 'Carrying a cello, the taxi arrived for Mei' saying that the taxi carried the instrument?",
+      "current_item": {},
+      "primary_note_id": "en_participle_clause_combination",
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "label_rationale": "An introductory participle shares the main-clause subject; having marks prior completion.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p04_2",
+      "scenario_group": "concept_participle_clause_combination",
+      "bucket": "positive_with_card",
+      "question": "I finished calibrating the sensor before I recorded values. How do I join these while making that order clear?",
+      "current_item": {
+        "prompt": "I calibrated the sensor. Then I recorded the values.",
+        "answer": ""
+      },
+      "primary_note_id": "en_participle_clause_combination",
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "label_rationale": "An introductory participle shares the main-clause subject; having marks prior completion.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p05_1",
+      "scenario_group": "concept_relative_clause_combination",
+      "bucket": "positive_no_card",
+      "question": "There are several jackets here. I mean only the jacket with a torn cuff. Should the identifying clause be surrounded by commas?",
+      "current_item": {},
+      "primary_note_id": "en_relative_clause_combination",
+      "acceptable_note_ids": [
+        "en_relative_clause_combination"
+      ],
+      "label_rationale": "A defining relative selects a referent and normally has no surrounding commas.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p05_2",
+      "scenario_group": "concept_relative_clause_combination",
+      "bucket": "positive_with_card",
+      "question": "How can I attach the second sentence so it tells us which applicant I mean?",
+      "current_item": {
+        "prompt": "The applicant called back. The applicant speaks Icelandic.",
+        "answer": ""
+      },
+      "primary_note_id": "en_relative_clause_combination",
+      "acceptable_note_ids": [
+        "en_relative_clause_combination"
+      ],
+      "label_rationale": "A defining relative selects a referent and normally has no surrounding commas.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p06_1",
+      "scenario_group": "concept_formal_rewrite_sentence",
+      "bucket": "positive_no_card",
+      "question": "Please check this rewrite: 'We put a search box in the prototype' became 'We launched a searchable product'. Did the polished version add an event?",
+      "current_item": {},
+      "primary_note_id": "en_formal_rewrite_sentence",
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence",
+        "en_tech_vocabulary_precision"
+      ],
+      "label_rationale": "A sentence-level formal rewrite must retain propositions without inventing release or requiring passive voice.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p06_2",
+      "scenario_group": "concept_formal_rewrite_sentence",
+      "bucket": "positive_with_card",
+      "question": "Does making this sentence professional require hiding the person behind passive wording?",
+      "current_item": {
+        "prompt": "I corrected the address in the draft.",
+        "answer": ""
+      },
+      "primary_note_id": "en_formal_rewrite_sentence",
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence",
+        "en_nominalization"
+      ],
+      "label_rationale": "A sentence-level formal rewrite must retain propositions without inventing release or requiring passive voice.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p07_1",
+      "scenario_group": "concept_concise_formal_rewrite",
+      "bucket": "positive_no_card",
+      "question": "Can 'in the event that the access code expires' be shortened to 'if the access code expires' without changing the condition?",
+      "current_item": {},
+      "primary_note_id": "en_concise_formal_rewrite",
+      "acceptable_note_ids": [
+        "en_concise_formal_rewrite"
+      ],
+      "label_rationale": "Removing filler must not remove the funding condition or uncertainty.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p07_2",
+      "scenario_group": "concept_concise_formal_rewrite",
+      "bucket": "positive_with_card",
+      "question": "Which information must survive if I shorten this sentence?",
+      "current_item": {
+        "prompt": "It is possible that we will extend the trial provided that funding is available.",
+        "answer": ""
+      },
+      "primary_note_id": "en_concise_formal_rewrite",
+      "acceptable_note_ids": [
+        "en_concise_formal_rewrite"
+      ],
+      "label_rationale": "Removing filler must not remove the funding condition or uncertainty.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p08_1",
+      "scenario_group": "concept_formal_phrase_rephrasing",
+      "bucket": "positive_no_card",
+      "question": "Does changing 'Perhaps you could take a look' to 'You must inspect it' preserve what the speaker is doing?",
+      "current_item": {},
+      "primary_note_id": "en_formal_phrase_rephrasing",
+      "acceptable_note_ids": [
+        "en_formal_phrase_rephrasing",
+        "en_work_phrase_formal"
+      ],
+      "label_rationale": "Phrase rephrasing preserves the speech act: an apology is not a promise and a suggestion is not an order.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p08_2",
+      "scenario_group": "concept_formal_phrase_rephrasing",
+      "bucket": "positive_with_card",
+      "question": "I am rephrasing this apology for a formal letter. Can I turn it into a promise?",
+      "current_item": {
+        "prompt": "Sorry I missed your call.",
+        "answer": ""
+      },
+      "primary_note_id": "en_formal_phrase_rephrasing",
+      "acceptable_note_ids": [
+        "en_formal_phrase_rephrasing",
+        "en_work_phrase_formal"
+      ],
+      "label_rationale": "Phrase rephrasing preserves the speech act: an apology is not a promise and a suggestion is not an order.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p09_1",
+      "scenario_group": "concept_commentary_and_domain_register",
+      "bucket": "positive_no_card",
+      "question": "For a match report, does 'the lights failed after the break' justify writing that the break caused the lighting failure?",
+      "current_item": {},
+      "primary_note_id": "en_commentary_and_domain_register",
+      "acceptable_note_ids": [
+        "en_commentary_and_domain_register"
+      ],
+      "label_rationale": "Report sequence separately from causal inference across domain commentary.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p09_2",
+      "scenario_group": "concept_commentary_and_domain_register",
+      "bucket": "positive_with_card",
+      "question": "Can I describe this as a consequence of the maintenance, or only as an event that followed it?",
+      "current_item": {
+        "prompt": "Maintenance ended at noon. The website went offline at one.",
+        "answer": ""
+      },
+      "primary_note_id": "en_commentary_and_domain_register",
+      "acceptable_note_ids": [
+        "en_commentary_and_domain_register",
+        "en_science_formal_register"
+      ],
+      "label_rationale": "Report sequence separately from causal inference across domain commentary.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p10_1",
+      "scenario_group": "concept_work_formal_register",
+      "bucket": "positive_no_card",
+      "question": "In a status memo, can 'we suspect the supplier is late' become 'the supplier is late' just to sound decisive?",
+      "current_item": {},
+      "primary_note_id": "en_work_formal_register",
+      "acceptable_note_ids": [
+        "en_work_formal_register",
+        "en_formal_rewrite_sentence"
+      ],
+      "label_rationale": "Workplace reporting must retain the confidence limits of the original claim.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p10_2",
+      "scenario_group": "concept_work_formal_register",
+      "bucket": "positive_with_card",
+      "question": "My manager asked for professional reporting. Should the word 'possibly' disappear?",
+      "current_item": {
+        "prompt": "The replacement parts will possibly arrive on Thursday.",
+        "answer": ""
+      },
+      "primary_note_id": "en_work_formal_register",
+      "acceptable_note_ids": [
+        "en_work_formal_register",
+        "en_formal_rewrite_sentence"
+      ],
+      "label_rationale": "Workplace reporting must retain the confidence limits of the original claim.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p11_1",
+      "scenario_group": "concept_academic_formal_register",
+      "bucket": "positive_no_card",
+      "question": "A seminar tutor says the pronoun 'we' is forbidden in every academic discipline. Is that an absolute rule?",
+      "current_item": {},
+      "primary_note_id": "en_academic_formal_register",
+      "acceptable_note_ids": [
+        "en_academic_formal_register",
+        "en_science_formal_register"
+      ],
+      "label_rationale": "Academic conventions are contextual and small observations do not establish universal findings.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p11_2",
+      "scenario_group": "concept_academic_formal_register",
+      "bucket": "positive_with_card",
+      "question": "Does this observation justify the phrase 'all adolescents prefer digital textbooks' in my paper?",
+      "current_item": {
+        "prompt": "Four pupils in our interview group preferred an electronic textbook.",
+        "answer": ""
+      },
+      "primary_note_id": "en_academic_formal_register",
+      "acceptable_note_ids": [
+        "en_academic_formal_register"
+      ],
+      "label_rationale": "Academic conventions are contextual and small observations do not establish universal findings.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p12_1",
+      "scenario_group": "concept_finance_formal_register",
+      "bucket": "positive_no_card",
+      "question": "The accounts say travel spending rose by 6 percent in March. Can the report instead say we overspent the travel budget?",
+      "current_item": {},
+      "primary_note_id": "en_finance_formal_register",
+      "acceptable_note_ids": [
+        "en_finance_formal_register"
+      ],
+      "label_rationale": "Financial reports preserve measure and time period; receipts do not establish net profit.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p12_2",
+      "scenario_group": "concept_finance_formal_register",
+      "bucket": "positive_with_card",
+      "question": "A more official version calls this annual net profit. Which parts were never supplied?",
+      "current_item": {
+        "prompt": "Our cash receipts were higher in the second week of July.",
+        "answer": ""
+      },
+      "primary_note_id": "en_finance_formal_register",
+      "acceptable_note_ids": [
+        "en_finance_formal_register",
+        "en_finance_phrase_formal",
+        "en_money_vocabulary_precision"
+      ],
+      "label_rationale": "Financial reports preserve measure and time period; receipts do not establish net profit.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p13_1",
+      "scenario_group": "concept_health_formal_register",
+      "bucket": "positive_no_card",
+      "question": "For wording on a patient intake form, can 'my chest feels tight' be rewritten as 'I have asthma'? I am asking about meaning, not treatment.",
+      "current_item": {},
+      "primary_note_id": "en_health_formal_register",
+      "acceptable_note_ids": [
+        "en_health_formal_register",
+        "en_health_phrase_formal"
+      ],
+      "label_rationale": "Symptom wording must preserve the reporter and avoid an unsupported diagnosis.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p13_2",
+      "scenario_group": "concept_health_formal_register",
+      "bucket": "positive_with_card",
+      "question": "Can the chart say the doctor observed this when the sentence only reports what the patient said?",
+      "current_item": {
+        "prompt": "The patient says her hands feel numb.",
+        "answer": ""
+      },
+      "primary_note_id": "en_health_formal_register",
+      "acceptable_note_ids": [
+        "en_health_formal_register",
+        "en_health_phrase_formal"
+      ],
+      "label_rationale": "Symptom wording must preserve the reporter and avoid an unsupported diagnosis.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p14_1",
+      "scenario_group": "concept_science_formal_register",
+      "bucket": "positive_no_card",
+      "question": "Our lab notebook only says a solution turned cloudy. Can a polished sentence claim that a precipitation mechanism was confirmed?",
+      "current_item": {},
+      "primary_note_id": "en_science_formal_register",
+      "acceptable_note_ids": [
+        "en_science_formal_register"
+      ],
+      "label_rationale": "Scientific wording cannot manufacture a statistical test or mechanism.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p14_2",
+      "scenario_group": "concept_science_formal_register",
+      "bucket": "positive_with_card",
+      "question": "The paper draft adds 'statistically significant'. Did our original statement provide enough evidence for that term?",
+      "current_item": {
+        "prompt": "The seedlings in tray B were taller at the final measurement.",
+        "answer": ""
+      },
+      "primary_note_id": "en_science_formal_register",
+      "acceptable_note_ids": [
+        "en_science_formal_register"
+      ],
+      "label_rationale": "Scientific wording cannot manufacture a statistical test or mechanism.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p15_1",
+      "scenario_group": "concept_food_formal_register",
+      "bucket": "positive_no_card",
+      "question": "A menu writer changes 'the onions are soft' into 'the onions were slowly caramelized'. Is the cooking process established?",
+      "current_item": {},
+      "primary_note_id": "en_food_formal_register",
+      "acceptable_note_ids": [
+        "en_food_formal_register"
+      ],
+      "label_rationale": "Culinary description cannot infer a process or numerical temperature from a sensory observation.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p15_2",
+      "scenario_group": "concept_food_formal_register",
+      "bucket": "positive_with_card",
+      "question": "Can a restaurant description add a measured temperature to this observation?",
+      "current_item": {
+        "prompt": "The soup felt hot when served.",
+        "answer": ""
+      },
+      "primary_note_id": "en_food_formal_register",
+      "acceptable_note_ids": [
+        "en_food_formal_register"
+      ],
+      "label_rationale": "Culinary description cannot infer a process or numerical temperature from a sensory observation.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p16_1",
+      "scenario_group": "concept_work_phrase_formal",
+      "bucket": "positive_no_card",
+      "question": "Is 'Just checking whether you have an update' equivalent to demanding an immediate decision in a work email?",
+      "current_item": {},
+      "primary_note_id": "en_work_phrase_formal",
+      "acceptable_note_ids": [
+        "en_work_phrase_formal",
+        "en_formal_phrase_rephrasing"
+      ],
+      "label_rationale": "Workplace phrases retain interaction intent and do not add urgency or project completion.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p16_2",
+      "scenario_group": "concept_work_phrase_formal",
+      "bucket": "positive_with_card",
+      "question": "Please make this meeting-closing phrase professional without making it sound like the project was completed.",
+      "current_item": {
+        "prompt": "Let us wrap up this meeting.",
+        "answer": ""
+      },
+      "primary_note_id": "en_work_phrase_formal",
+      "acceptable_note_ids": [
+        "en_work_phrase_formal",
+        "en_formal_phrase_rephrasing"
+      ],
+      "label_rationale": "Workplace phrases retain interaction intent and do not add urgency or project completion.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p17_1",
+      "scenario_group": "concept_sport_phrase_formal",
+      "bucket": "positive_no_card",
+      "question": "When a commentator says 'the underdogs might pull it off', may a formal paraphrase say victory is guaranteed?",
+      "current_item": {},
+      "primary_note_id": "en_sport_phrase_formal",
+      "acceptable_note_ids": [
+        "en_sport_phrase_formal",
+        "en_sport_formal_sentence"
+      ],
+      "label_rationale": "Sports phrase rewording must retain possibility rather than guarantee a result.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p17_2",
+      "scenario_group": "concept_sport_phrase_formal",
+      "bucket": "positive_with_card",
+      "question": "Does the rewritten prediction say more than the original short sporting phrase?",
+      "current_item": {
+        "prompt": "The visitors have a chance of taking the title.",
+        "answer": "The visitors are certain to take the title."
+      },
+      "primary_note_id": "en_sport_phrase_formal",
+      "acceptable_note_ids": [
+        "en_sport_phrase_formal",
+        "en_sport_formal_sentence"
+      ],
+      "label_rationale": "Sports phrase rewording must retain possibility rather than guarantee a result.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p18_1",
+      "scenario_group": "concept_health_phrase_formal",
+      "bucket": "positive_no_card",
+      "question": "For a language exercise, does 'I am feeling off today' actually mean 'I have a bacterial illness'?",
+      "current_item": {},
+      "primary_note_id": "en_health_phrase_formal",
+      "acceptable_note_ids": [
+        "en_health_phrase_formal",
+        "en_health_formal_register"
+      ],
+      "label_rationale": "Health phrases communicate a reported experience without establishing diagnosis or clinical authority.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p18_2",
+      "scenario_group": "concept_health_phrase_formal",
+      "bucket": "positive_with_card",
+      "question": "Can I attribute this experience to a clinician instead of its speaker in a formal paraphrase?",
+      "current_item": {
+        "prompt": "She says she is under the weather.",
+        "answer": ""
+      },
+      "primary_note_id": "en_health_phrase_formal",
+      "acceptable_note_ids": [
+        "en_health_phrase_formal",
+        "en_health_formal_register"
+      ],
+      "label_rationale": "Health phrases communicate a reported experience without establishing diagnosis or clinical authority.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p19_1",
+      "scenario_group": "concept_finance_phrase_formal",
+      "bucket": "positive_no_card",
+      "question": "Someone says 'we are in the red'. Before expanding it into a technical sentence, do I need to know whether they mean an overdraft or a loss?",
+      "current_item": {},
+      "primary_note_id": "en_finance_phrase_formal",
+      "acceptable_note_ids": [
+        "en_finance_phrase_formal"
+      ],
+      "label_rationale": "Ambiguous money phrases need clarification before imposing an accounting measure.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p19_2",
+      "scenario_group": "concept_finance_phrase_formal",
+      "bucket": "positive_with_card",
+      "question": "Is this phrase enough to say the business became more profitable?",
+      "current_item": {
+        "prompt": "There is more money coming in.",
+        "answer": ""
+      },
+      "primary_note_id": "en_finance_phrase_formal",
+      "acceptable_note_ids": [
+        "en_finance_phrase_formal",
+        "en_money_vocabulary_precision",
+        "en_finance_formal_register"
+      ],
+      "label_rationale": "Ambiguous money phrases need clarification before imposing an accounting measure.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p20_1",
+      "scenario_group": "concept_precise_adjective_choice",
+      "bucket": "positive_no_card",
+      "question": "In 'a big discrepancy between the two readings', would replacing big with prestigious describe the same quality?",
+      "current_item": {},
+      "primary_note_id": "en_precise_adjective_choice",
+      "acceptable_note_ids": [
+        "en_precise_adjective_choice"
+      ],
+      "label_rationale": "Adjectives must describe the intended dimension rather than an unrelated stronger-sounding quality.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p20_2",
+      "scenario_group": "concept_precise_adjective_choice",
+      "bucket": "positive_with_card",
+      "question": "Should a more precise adjective say how wide the crack is, or how famous it is?",
+      "current_item": {
+        "prompt": "There is a big crack in the window.",
+        "answer": ""
+      },
+      "primary_note_id": "en_precise_adjective_choice",
+      "acceptable_note_ids": [
+        "en_precise_adjective_choice"
+      ],
+      "label_rationale": "Adjectives must describe the intended dimension rather than an unrelated stronger-sounding quality.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p21_1",
+      "scenario_group": "concept_sport_vocabulary_precision",
+      "bucket": "positive_no_card",
+      "question": "A goalkeeper conceded twice but the team won. Does conceded necessarily mean the team admitted defeat?",
+      "current_item": {},
+      "primary_note_id": "en_sport_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "label_rationale": "Conceding goals differs from admitting defeat; good performance does not establish a record.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p21_2",
+      "scenario_group": "concept_sport_vocabulary_precision",
+      "bucket": "positive_with_card",
+      "question": "Can the sports vocabulary upgrade introduce a new record?",
+      "current_item": {
+        "prompt": "The sprinter ran well in the heats.",
+        "answer": "The sprinter set a championship record."
+      },
+      "primary_note_id": "en_sport_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_sport_vocabulary_precision",
+        "en_sport_formal_sentence"
+      ],
+      "label_rationale": "Conceding goals differs from admitting defeat; good performance does not establish a record.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p22_1",
+      "scenario_group": "concept_tech_vocabulary_precision",
+      "bucket": "positive_no_card",
+      "question": "Our engineers reviewed a patch but have not executed it. Is saying they tested it an accurate technical synonym?",
+      "current_item": {},
+      "primary_note_id": "en_tech_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "label_rationale": "Technical terms name distinct operations; implementation does not establish deployment.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p22_2",
+      "scenario_group": "concept_tech_vocabulary_precision",
+      "bucket": "positive_with_card",
+      "question": "Does a deployment follow logically from this engineering update?",
+      "current_item": {
+        "prompt": "The parser has been implemented in a development branch.",
+        "answer": ""
+      },
+      "primary_note_id": "en_tech_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "label_rationale": "Technical terms name distinct operations; implementation does not establish deployment.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p23_1",
+      "scenario_group": "concept_work_vocabulary_precision",
+      "bucket": "positive_no_card",
+      "question": "A department gathered to announce a holiday schedule. Is consultation necessarily the right business term for that meeting?",
+      "current_item": {},
+      "primary_note_id": "en_work_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_work_vocabulary_precision",
+        "en_general_vocabulary_precision"
+      ],
+      "label_rationale": "A consultation requires advice-seeking context; a briefing or meeting is not automatically one.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p23_2",
+      "scenario_group": "concept_work_vocabulary_precision",
+      "bucket": "positive_with_card",
+      "question": "Can this business noun replace the everyday one when nobody asked for advice?",
+      "current_item": {
+        "prompt": "The staff attended a briefing about a fire drill.",
+        "answer": ""
+      },
+      "primary_note_id": "en_work_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_work_vocabulary_precision",
+        "en_general_vocabulary_precision"
+      ],
+      "label_rationale": "A consultation requires advice-seeking context; a briefing or meeting is not automatically one.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p24_1",
+      "scenario_group": "concept_general_vocabulary_precision",
+      "bucket": "positive_no_card",
+      "question": "A thesaurus lists acute for sharp. Can I write 'an acute kitchen knife' without checking how the adjective is normally used?",
+      "current_item": {},
+      "primary_note_id": "en_general_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_general_vocabulary_precision",
+        "en_precise_synonym_choice"
+      ],
+      "label_rationale": "Synonyms depend on word sense, grammatical frame and collocation.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p24_2",
+      "scenario_group": "concept_general_vocabulary_precision",
+      "bucket": "positive_with_card",
+      "question": "Is a dictionary synonym guaranteed to work with the same noun?",
+      "current_item": {
+        "prompt": "We enjoyed a strong cup of tea.",
+        "answer": "We enjoyed a muscular cup of tea."
+      },
+      "primary_note_id": "en_general_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_general_vocabulary_precision",
+        "en_precise_synonym_choice"
+      ],
+      "label_rationale": "Synonyms depend on word sense, grammatical frame and collocation.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p25_1",
+      "scenario_group": "concept_non_restrictive_relative_clause",
+      "bucket": "positive_no_card",
+      "question": "I have already identified Lake Orin. In 'Lake Orin, which freezes each winter, is nearby', why are there two commas?",
+      "current_item": {},
+      "primary_note_id": "en_non_restrictive_relative_clause",
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause"
+      ],
+      "label_rationale": "A parenthetical non-defining clause uses commas and who/which rather than that.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p25_2",
+      "scenario_group": "concept_non_restrictive_relative_clause",
+      "bucket": "positive_with_card",
+      "question": "Can I use 'that' for this extra fact about an already identified colleague?",
+      "current_item": {
+        "prompt": "Nadia is our only archivist. Nadia trained in Cork.",
+        "answer": ""
+      },
+      "primary_note_id": "en_non_restrictive_relative_clause",
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause"
+      ],
+      "label_rationale": "A parenthetical non-defining clause uses commas and who/which rather than that.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p26_1",
+      "scenario_group": "concept_formal_conditional",
+      "bucket": "positive_no_card",
+      "question": "Can 'If the valve should leak, stop the pump' become 'Should the valve leak, stop the pump' without retaining if?",
+      "current_item": {},
+      "primary_note_id": "en_formal_conditional",
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "label_rationale": "Conditional inversion must preserve tense and condition type, removing if.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p26_2",
+      "scenario_group": "concept_formal_conditional",
+      "bucket": "positive_with_card",
+      "question": "Would using 'were to' keep the past counterfactual meaning, or should I use 'had'?",
+      "current_item": {
+        "prompt": "If I had packed a torch, I would have seen the step.",
+        "answer": ""
+      },
+      "primary_note_id": "en_formal_conditional",
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "label_rationale": "Conditional inversion must preserve tense and condition type, removing if.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p27_1",
+      "scenario_group": "concept_nominalization",
+      "bucket": "positive_no_card",
+      "question": "A supervisor changed 'Ravi approved the invoice' to 'approval of the invoice occurred'. What happened to responsibility?",
+      "current_item": {},
+      "primary_note_id": "en_nominalization",
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "label_rationale": "Nominalization can obscure the actor and add words; it is not automatically better.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p27_2",
+      "scenario_group": "concept_nominalization",
+      "bucket": "positive_with_card",
+      "question": "Is turning the verb into a noun always an improvement in this memo?",
+      "current_item": {
+        "prompt": "The panel rejected the amendment.",
+        "answer": "Rejection of the amendment took place."
+      },
+      "primary_note_id": "en_nominalization",
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "label_rationale": "Nominalization can obscure the actor and add words; it is not automatically better.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p28_1",
+      "scenario_group": "concept_sport_formal_sentence",
+      "bucket": "positive_no_card",
+      "question": "The match summary says the substitute played effectively. Can a formal rewrite add that she stayed calm under pressure?",
+      "current_item": {},
+      "primary_note_id": "en_sport_formal_sentence",
+      "acceptable_note_ids": [
+        "en_sport_formal_sentence",
+        "en_commentary_and_domain_register"
+      ],
+      "label_rationale": "Formal sports reporting must not invent mental state or record-breaking achievement.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p28_2",
+      "scenario_group": "concept_sport_formal_sentence",
+      "bucket": "positive_with_card",
+      "question": "What unsupported sporting achievement did the new sentence introduce?",
+      "current_item": {
+        "prompt": "The relay squad performed well.",
+        "answer": "The relay squad shattered the national record."
+      },
+      "primary_note_id": "en_sport_formal_sentence",
+      "acceptable_note_ids": [
+        "en_sport_formal_sentence",
+        "en_sport_vocabulary_precision",
+        "en_commentary_and_domain_register"
+      ],
+      "label_rationale": "Formal sports reporting must not invent mental state or record-breaking achievement.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p29_1",
+      "scenario_group": "concept_education_formal_register",
+      "bucket": "positive_no_card",
+      "question": "A course survey says learners liked the animations. Can the education report claim the animations improved exam performance?",
+      "current_item": {},
+      "primary_note_id": "en_education_formal_register",
+      "acceptable_note_ids": [
+        "en_education_formal_register"
+      ],
+      "label_rationale": "Enjoyment, comprehension difficulties and measured academic outcomes are distinct.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p29_2",
+      "scenario_group": "concept_education_formal_register",
+      "bucket": "positive_with_card",
+      "question": "Are these two educational outcomes equivalent in a formal report?",
+      "current_item": {
+        "prompt": "The pupils found the worksheet difficult.",
+        "answer": "The pupils achieved lower grades."
+      },
+      "primary_note_id": "en_education_formal_register",
+      "acceptable_note_ids": [
+        "en_education_formal_register"
+      ],
+      "label_rationale": "Enjoyment, comprehension difficulties and measured academic outcomes are distinct.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p30_1",
+      "scenario_group": "concept_money_vocabulary_precision",
+      "bucket": "positive_no_card",
+      "question": "If a worksheet merely says 'an asset', can I always replace that with 'cash', or is cash only one example?",
+      "current_item": {},
+      "primary_note_id": "en_money_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_money_vocabulary_precision",
+        "en_finance_phrase_formal",
+        "en_finance_formal_register"
+      ],
+      "label_rationale": "Financial vocabulary cannot equate a category with one member or a receipt with profit.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p30_2",
+      "scenario_group": "concept_money_vocabulary_precision",
+      "bucket": "positive_with_card",
+      "question": "Is every amount received necessarily a profit in this vocabulary exercise?",
+      "current_item": {
+        "prompt": "The shop received a payment from a customer.",
+        "answer": ""
+      },
+      "primary_note_id": "en_money_vocabulary_precision",
+      "acceptable_note_ids": [
+        "en_money_vocabulary_precision",
+        "en_finance_phrase_formal",
+        "en_finance_formal_register"
+      ],
+      "label_rationale": "Financial vocabulary cannot equate a category with one member or a receipt with profit.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p31_1",
+      "scenario_group": "concept_precise_synonym_choice",
+      "bucket": "positive_no_card",
+      "question": "If I replace 'raised a question' with 'elevated a question', have I kept the intended sense?",
+      "current_item": {},
+      "primary_note_id": "en_precise_synonym_choice",
+      "acceptable_note_ids": [
+        "en_precise_synonym_choice",
+        "en_general_vocabulary_precision"
+      ],
+      "label_rationale": "A contextual substitution must preserve the word sense and grammatical relationship.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_p31_2",
+      "scenario_group": "concept_precise_synonym_choice",
+      "bucket": "positive_with_card",
+      "question": "Will this substitution still fit the object in this sentence?",
+      "current_item": {
+        "prompt": "They addressed the audience.",
+        "answer": "They solved the audience."
+      },
+      "primary_note_id": "en_precise_synonym_choice",
+      "acceptable_note_ids": [
+        "en_precise_synonym_choice",
+        "en_general_vocabulary_precision"
+      ],
+      "label_rationale": "A contextual substitution must preserve the word sense and grammatical relationship.",
+      "expected_decision": "supported"
+    },
+    {
+      "case_id": "heldout_n01",
+      "scenario_group": "negative_01",
+      "bucket": "unsupported_language_topic",
+      "question": "When reading a yes-no question aloud, must my pitch rise at the end?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No intonation or speech-prosody reference.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n02",
+      "scenario_group": "negative_02",
+      "bucket": "unsupported_language_topic",
+      "question": "Which syllable is stressed in photographer?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No lexical stress reference.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n03",
+      "scenario_group": "negative_03",
+      "bucket": "unsupported_language_topic",
+      "question": "How do I distinguish the vowels in ship and sheep by listening?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No phonetic vowel comparison reference.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n04",
+      "scenario_group": "negative_04",
+      "bucket": "unsupported_language_topic",
+      "question": "Should a semicolon go between two complete independent clauses?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No semicolon punctuation rule.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n05",
+      "scenario_group": "negative_05",
+      "bucket": "unsupported_language_topic",
+      "question": "When do I write fewer instead of less with countable nouns?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No countability/quantifier rule.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n06",
+      "scenario_group": "negative_06",
+      "bucket": "unsupported_language_topic",
+      "question": "Why does look forward to take a gerund rather than an infinitive?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No preposition-complement or gerund-selection rule.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n07",
+      "scenario_group": "negative_07",
+      "bucket": "unsupported_language_topic",
+      "question": "Why is information usually used without a plural s?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No uncountable-noun rule.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n08",
+      "scenario_group": "negative_08",
+      "bucket": "unsupported_language_topic",
+      "question": "Where is the apostrophe in the possessive form of children?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No possessive-apostrophe note.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n09",
+      "scenario_group": "negative_09",
+      "bucket": "unsupported_language_topic",
+      "question": "How many paragraphs should my IELTS task two essay have?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No exam-format guidance.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n10",
+      "scenario_group": "negative_10",
+      "bucket": "unsupported_language_topic",
+      "question": "What does the idiom spill the beans mean?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No idiom entry for this expression.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n11",
+      "scenario_group": "negative_11",
+      "bucket": "unsupported_language_topic",
+      "question": "How do I format a journal article in APA seventh edition?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Academic register is not a citation-style manual.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n12",
+      "scenario_group": "negative_12",
+      "bucket": "unsupported_language_topic",
+      "question": "Can I put a pronoun between turn and off in the phrasal verb turn off?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No phrasal-verb separability rule.",
+      "expected_decision": "not_covered"
+    },
+    {
+      "case_id": "heldout_n13",
+      "scenario_group": "negative_13",
+      "bucket": "domain_advice",
+      "question": "My ankle is swollen after a fall. Should I get an X-ray?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Clinical decision, not wording assistance.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n14",
+      "scenario_group": "negative_14",
+      "bucket": "domain_advice",
+      "question": "How many milligrams of ibuprofen should a child take?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Medication dosage is outside scope.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n15",
+      "scenario_group": "negative_15",
+      "bucket": "domain_advice",
+      "question": "Which bond fund should I buy with my retirement savings?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Personal investment recommendation is outside scope.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n16",
+      "scenario_group": "negative_16",
+      "bucket": "domain_advice",
+      "question": "Calculate my income tax liability for this year.",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No taxation rules or personal calculation support.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n17",
+      "scenario_group": "negative_17",
+      "bucket": "domain_advice",
+      "question": "What oven temperature makes raw chicken safe to eat?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Food description notes do not establish food-safety guidance.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n18",
+      "scenario_group": "negative_18",
+      "bucket": "domain_advice",
+      "question": "Give me a Python function to parse a CSV file.",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Technical vocabulary notes do not teach programming.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n19",
+      "scenario_group": "negative_19",
+      "bucket": "domain_advice",
+      "question": "What is the best training plan to finish a marathon?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Sports wording notes do not provide training advice.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n20",
+      "scenario_group": "negative_20",
+      "bucket": "domain_advice",
+      "question": "Which chemical should I mix with bleach to clean faster?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No chemical safety or cleaning procedure in corpus.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n21",
+      "scenario_group": "negative_21",
+      "bucket": "domain_advice",
+      "question": "What were the exact unemployment figures in Canada last month?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No current statistics source.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n22",
+      "scenario_group": "negative_22",
+      "bucket": "domain_advice",
+      "question": "Write a legally enforceable tenancy clause for my apartment.",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No legal drafting authority.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n23",
+      "scenario_group": "negative_23",
+      "bucket": "insufficient_context",
+      "question": "Which one of these is correct?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No alternatives or card supplied.",
+      "expected_decision": "needs_context"
+    },
+    {
+      "case_id": "heldout_n24",
+      "scenario_group": "negative_24",
+      "bucket": "insufficient_context",
+      "question": "Can you explain why my answer was marked wrong?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No answer or grading context supplied.",
+      "expected_decision": "needs_context"
+    },
+    {
+      "case_id": "heldout_n25",
+      "scenario_group": "negative_25",
+      "bucket": "insufficient_context",
+      "question": "What does the highlighted bit refer to?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No highlighted text supplied.",
+      "expected_decision": "needs_context"
+    },
+    {
+      "case_id": "heldout_n26",
+      "scenario_group": "negative_26",
+      "bucket": "insufficient_context",
+      "question": "Is my second sentence more suitable?",
+      "current_item": {},
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "No sentences or context supplied.",
+      "expected_decision": "needs_context"
+    },
+    {
+      "case_id": "heldout_n27",
+      "scenario_group": "negative_shared_distractor_card",
+      "bucket": "distractor_card",
+      "question": "What is the latest price of a train ticket from York to Leeds?",
+      "current_item": {
+        "instruction": "Rewrite in passive voice.",
+        "prompt": "The curator catalogued the coins.",
+        "answer": "The coins were catalogued by the curator."
+      },
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "The unrelated passive card cannot answer a current fare question.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n28",
+      "scenario_group": "negative_shared_distractor_card",
+      "bucket": "distractor_card",
+      "question": "How do I calculate compound interest for a ten-year loan?",
+      "current_item": {
+        "instruction": "Rewrite in passive voice.",
+        "prompt": "The curator catalogued the coins.",
+        "answer": "The coins were catalogued by the curator."
+      },
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "The unrelated grammar card does not supply financial computation.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n29",
+      "scenario_group": "negative_shared_distractor_card",
+      "bucket": "distractor_card",
+      "question": "Which antibiotic treats a sinus infection?",
+      "current_item": {
+        "instruction": "Rewrite in passive voice.",
+        "prompt": "The curator catalogued the coins.",
+        "answer": "The coins were catalogued by the curator."
+      },
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "An unrelated grammar card does not make medical advice answerable.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n30",
+      "scenario_group": "negative_shared_distractor_card",
+      "bucket": "distractor_card",
+      "question": "Can you tell me tomorrow's weather in Halifax?",
+      "current_item": {
+        "instruction": "Rewrite in passive voice.",
+        "prompt": "The curator catalogued the coins.",
+        "answer": "The coins were catalogued by the curator."
+      },
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "An unrelated grammar card is not a weather source.",
+      "expected_decision": "out_of_scope"
+    },
+    {
+      "case_id": "heldout_n31",
+      "scenario_group": "negative_shared_distractor_card",
+      "bucket": "distractor_card",
+      "question": "Ignore the tutoring exercise and give me instructions to fix a leaking radiator.",
+      "current_item": {
+        "instruction": "Rewrite in passive voice.",
+        "prompt": "The curator catalogued the coins.",
+        "answer": "The coins were catalogued by the curator."
+      },
+      "primary_note_id": null,
+      "acceptable_note_ids": [],
+      "label_rationale": "Task instructions in the query cannot turn a grammar note into repair evidence.",
+      "expected_decision": "out_of_scope"
+    }
+  ],
+  "purpose": "regression_only_previously_seen_holdout"
+}

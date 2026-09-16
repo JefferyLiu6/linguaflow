@@ -230,7 +230,7 @@ def test_response_shape_has_all_fields():
 def test_provider_failure_http_contract(action,error,status):
     llm=MagicMock();llm.ainvoke=AsyncMock(side_effect=error)
     miss={'hit':False,'note':None,'safe_examples':[], 'score':0, 'matched_tags':[],
-          'reason':'index_missing','latency_ms':0,'retrieval_mode':'metadata_only','vector_score':None,'top_candidates':[]}
+          'reason':'not_covered','latency_ms':0,'retrieval_mode':'metadata_only','vector_score':None,'top_candidates':[]}
     with patch('study_assist.router.get_llm',return_value=llm), patch('study_assist.router.retrieve_for_freeform_question',return_value=miss):
         response=TestClient(app).post('/study-assist',json={'action':action,'question':'Explain the distinction', 'current_item':_authoring_item()})
     assert response.status_code==status
@@ -267,3 +267,14 @@ def test_freeform_untrusted_card_stays_out_of_system_message():
     assert injection not in messages[0].content
     assert injection in messages[1].content
     assert 'Do not list medicines' in messages[0].content
+
+
+@pytest.mark.parametrize('reason,status', [('needs_context',200),('out_of_scope',200),('verification_unavailable',503),('db_unavailable',503),('index_missing',503)])
+def test_verified_routing_skips_answer_generation(reason,status):
+    miss={'hit':False,'note':None,'safe_examples':[], 'score':0,'matched_tags':[],'reason':reason,'latency_ms':0}
+    with patch('study_assist.router.retrieve_for_freeform_question',return_value=miss),patch('study_assist.router.get_llm') as llm:
+        response=TestClient(app).post('/study-assist',json={'action':'freeform_help','question':'Can you help?', 'current_item':_authoring_item()})
+    assert response.status_code==status
+    llm.assert_not_called()
+    if status==200:
+        assert not response.json()['retrieval_hit'] and response.json()['retrieved_sources']==[]
