@@ -1,0 +1,21 @@
+{
+  "plan_sha256": "4b57736cc8683fa99278370d5d071c28f8b69ed06b3b05c54f4d02c634128750",
+  "counts": {
+    "requests": 12,
+    "errors": 1,
+    "correct_sources": 5,
+    "selected_sources": 6,
+    "positive_cases": 6,
+    "negative_cases": 6,
+    "false_retrievals": 0,
+    "answerable_cases": 8,
+    "wrong_clarifications": 0,
+    "missing_context_cases": 2,
+    "correct_clarifications": 2,
+    "out_of_scope_cases": 2,
+    "correct_redirects": 1,
+    "pass": false
+  },
+  "release_authorized": false,
+  "limitation": "Exposed development cases and cached retrieval, not held-out or end-to-end latency evidence."
+}

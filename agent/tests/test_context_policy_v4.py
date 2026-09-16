@@ -53,3 +53,13 @@ def test_probe_rejects_saved_decision_inconsistent_with_routing():
     v=value();v.update(context_status='missing_referent',missing_reference='that')
     out=p.decode(v,{},c['question'],{});out['decision']='not_covered'
     with pytest.raises(ValueError,match='Inconsistent'):summary(plan,[{'case_id':'x','verdict':out}])
+
+
+def test_v5_comparison_changes_only_model():
+    from pathlib import Path
+    from evals.routing_v5 import policy as other
+    assert other.MODEL=='gpt-4.1-mini-2025-04-14'
+    assert other.PROMPT==p.PROMPT and other.schema({})==p.schema({})
+    original=Path(p.__file__).read_text()
+    changed=Path(other.__file__).read_text()
+    assert changed==original.replace('MODEL = legacy.MODEL',"MODEL = 'gpt-4.1-mini-2025-04-14'")
