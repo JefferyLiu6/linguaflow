@@ -73,3 +73,10 @@ def test_blocked_routes_have_no_general_knowledge_disclosure(reason):
         response=TestClient(app).post('/study-assist',json={'action':'freeform_help','question':'A blocked request','current_item':{}})
     assert response.status_code==200 and module.REFERENCE_DISCLOSURE not in response.json()['assistant_message']
     llm.assert_not_called()
+
+
+def test_release_pipeline_uses_current_serving_policy():
+    from evals.release import pipeline
+    from evals.release.runner import identity
+    assert pipeline.evidence_gate is p
+    assert 'agent/study_assist/source_policy.py' in identity()

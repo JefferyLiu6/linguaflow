@@ -14,8 +14,8 @@ from retrieval.db import query_by_vector
 from retrieval.loader import load_contrast_docs
 from retrieval.embeddings import EMBED_MODEL, EMBED_DIM
 from study_assist.schemas import StudyAssistRequest, StudyItem
-from .telemetry import span, openai_usage
-from .metrics import ranking
+from evals.rag.telemetry import span, openai_usage
+from evals.rag.metrics import ranking
 
 GENERATION_MODEL = 'gpt-4o-mini-2024-07-18'
 ARMS = ('card_only','full_corpus','hybrid','verified')
