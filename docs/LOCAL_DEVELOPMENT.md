@@ -107,3 +107,13 @@ The [evaluation report](RELEASE_VALIDATION_RESULTS.md#reproduce-and-inspect) pro
 - [Data model and schema trade-offs](CASE_STUDY_DATA_MODEL.md)
 - [Deployment, demo-account setup and operations](DEPLOYMENT.md)
 - `npx tsx scripts/feedback-report.ts` — report helpfulness feedback with a configured database.
+
+## Refresh the README recording
+
+Requires Google Chrome, ffmpeg and the project's installed Playwright package. Start the app and agent, then run:
+
+```bash
+DEMO_GIF_BASE_URL=http://localhost:3000 pnpm demo:gif
+```
+
+The recorder selects English through the UI, opens a passive-voice Study card and makes one real freeform request. It publishes `docs/demo/english-study-demo.gif` only after a successful response with the expected source. It also saves a still and capture metadata. No responses or session history are mocked. The GIF uses edited still-frame pauses and is not latency evidence. Pointing the command at a deployed URL uses that deployment's provider budget and rate limits.

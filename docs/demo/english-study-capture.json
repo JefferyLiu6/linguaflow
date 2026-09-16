@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-09-16T18:15:57.971Z",
+  "baseUrl": "https://linguaflow-demo.vercel.app",
+  "page": "https://linguaflow-demo.vercel.app/study",
+  "viewport": {
+    "width": 1280,
+    "height": 1000
+  },
+  "flow": "Select English → Study → Work → passive card → reveal → ask → reference-backed answer",
+  "question": "Why does the passive answer use \"was reviewed\"?",
+  "status": 200,
+  "answer": "The passive answer uses \"was reviewed\" to indicate that the action of reviewing happened in the past. In passive voice, the focus shifts from the doer (the committee) to the action and the object (the proposal). This structure is used to emphasize the proposal rather than the committee that performed the action.",
+  "retrievedSources": [
+    {
+      "id": "en_passive_vs_active_voice",
+      "title": "Active voice vs passive voice"
+    }
+  ],
+  "consoleErrors": [],
+  "mobile": {
+    "width": 390,
+    "height": 844,
+    "horizontalOverflow": true
+  },
+  "note": "Real UI and API response. Edited still-frame walkthrough; pauses are not measured latency. No mocked responses or injected session history."
+}
