@@ -14,3 +14,9 @@ Structured output key order follows schema order ([OpenAI documentation](https:/
 2. If the probe passes, freeze a new paired end-to-end plan on the same 12 cases, using legacy vs v3 and the unchanged indexed judge from v2. At most 72 pipeline calls and 48 judge calls including bounded temporary-rate-limit retries. Preserve both arms and every failure. This remains development regression, not held-out testing.
 
 Old code, plans, raw records and scores remain unchanged. New candidate code lives only in `evals/routing_v3`; the serving router does not import it. Keep draft/unmerged. Changes after observing a result require a new version/plan, never overwriting the previous run. Fresh testing and broader regression remain necessary before promotion. The known uncovered-answer disclosure issue is separate and remains visible in end-to-end scores.
+
+## Version 4 amendment (before new calls)
+
+V3 recovered context routing (0/8 wrong clarifications; 2/2 required clarifications), but selected two unsupported notes using their `When to use` metadata, missed one positive and produced one invalid policy response. Its probe failed; no end-to-end run is authorized by that gate. Preserve all v3 artifacts.
+
+V4 removes retrieval metadata from selectable evidence, retaining complete Explanation, Examples and Boundary paragraphs. Incorrect examples remain attached to their warning/explanation. A short evidence justification precedes selection. Out-of-scope requests use a non-applicable context category and cannot fail solely because their irrelevant context assessment lacks a quote. Language requests still require validated context fields. The same 12 cached cases and exact acceptance criteria are rerun under a separately frozen source version. No case labels or model change. Full-answer evaluation proceeds only if v4 passes.
