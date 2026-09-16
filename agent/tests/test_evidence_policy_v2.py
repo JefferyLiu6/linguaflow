@@ -77,3 +77,23 @@ def test_unused_units_still_require_valid_schema(field,value):
 def test_fact_booleans_are_not_coerced():
     c,a,v=fixture();v['covered_facts']['f0']='false'
     with pytest.raises(ValueError):decode(v,c,a,[])
+
+
+def test_paired_report_rebuilds_scores_and_keeps_failed_requests():
+    from copy import deepcopy
+    from evals.rag_v2.runner import summarize
+    c,a,v=fixture();c.update(case_id='paired',acceptable_note_ids=[])
+    plan={'dataset':{'cases':[c]},'arms':['legacy','candidate'],'prices_usd_per_million':{},'limitations':[],
+        'targets':{'correctness_mean_min':3,'faithfulness_mean_min':.9,'hallucinated_answer_rate_max':.1,
+                   'teaching_mean_min':4,'scope_pass_min':.9,'request_failure_rate_max':.02,'judge_failure_count_max':0}}
+    base={'case':c,'spans':[],'ranked_candidates':[],'selected_source_ids':[],'retrieval_status':'ok','contexts':[]}
+    rows=[{**base,'arm':'legacy','status':'ok','answer':a,
+        'judge':{'status':'ok','verdict':{'correctness':4},'attempts':[{'status':'ok','raw_verdict':v}]}},
+          {**base,'arm':'candidate','status':'error'}]
+    result=summarize(plan,deepcopy(rows))
+    assert result['summaries']['legacy']['answer_metrics']['correctness_0_4']['mean']==0
+    assert result['summaries']['candidate']['end_to_end_correct_and_in_scope_rate']==0
+    assert result['summaries']['candidate']['request_failure_rate']==1
+    assert result['release_authorized'] is False
+    rows[0]['case']={**c,'required_facts':['Changed labels']}
+    with pytest.raises(ValueError,match='Changed case labels'):summarize(plan,rows)

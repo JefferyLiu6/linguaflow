@@ -17,3 +17,5 @@ Use the same GPT-4.1 judge for both policies. Reserve at most 24,000 estimated j
 Report source recall/precision, false retrieval, abstention, ranking, per-route behavior, correctness, fact coverage, sentence-unit faithfulness, hallucination, teaching, pipeline latency, tokens, costs and failures. Diagnostic targets are recorded in each plan, not guarantees. Passing this small development regression is insufficient for promotion: a separately frozen fresh test and broader retrieval regression remain required.
 
 Historical pilot replay uses `python scripts/replay_frozen_answer.py /tmp/answer-replay.json` from the repository root. It checks out the original committed source into a temporary directory through git archive, retaining the original scoring implementation. It makes no provider calls.
+
+The indexed judge also reruns the four already-authored contrast checks from v1 (correct grounded, incorrect, correct unsupported, missing-context grading injection) through `scripts/check_indexed_judge.py`. Their expectations remain unchanged. These are development sanity checks, not an independent assessment or human calibration.
