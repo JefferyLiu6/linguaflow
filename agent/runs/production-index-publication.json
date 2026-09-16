@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-09-16T02:55:48.717908+00:00",
+  "migration": "20260915000001_retrieval_publication_manifest",
+  "sync": {
+    "inserted": 31,
+    "updated": 0,
+    "skipped": 0,
+    "failed": 0,
+    "deactivated": 0,
+    "errors": []
+  },
+  "manifest": {
+    "fingerprint": "84855559eed4465efa1f1bacad5a632043be8b003863e3102c39f050ff4b8051",
+    "generation": "34de36af-917b-42d1-a2db-49f2dfd18b11",
+    "note_count": 31,
+    "complete": true
+  },
+  "matches_corpus": true
+}

@@ -13,7 +13,7 @@ migration sequence, embedding sync, and reviewer-account seeding.
 | Web app | Vercel | Next.js App Router; edge-compatible |
 | Auth + DB | Supabase | Auth + Postgres (pooled + direct URLs) |
 | Python agent | Render | FastAPI; separate service from the web app |
-| Vector search | Supabase Postgres + pgvector | Only needed if hybrid RAG is enabled |
+| Vector search | Supabase Postgres + pgvector | Required for freeform RAG |
 | LLM | OpenAI (default) | Swap via `DEFAULT_MODEL` env var |
 | Tracing | Langfuse (optional) | Fail-open; no effect if not configured |
 
@@ -36,7 +36,10 @@ migration sequence, embedding sync, and reviewer-account seeding.
 
 ## 2. Prisma migrations
 
-Run migrations against the direct URL before deploying the web app.
+Run migrations against the direct URL (or Supabase session pooler on port 5432
+when direct IPv6 access is unavailable) before deploying the web app. Do not use
+the transaction pooler on port 6543 for Prisma migrations. See the
+[Supabase Prisma guide](https://supabase.com/docs/guides/database/prisma).
 
 ```bash
 # From the repo root
@@ -44,13 +47,15 @@ DIRECT_URL=<direct-url> DATABASE_URL=<pooled-url> npx prisma migrate deploy
 ```
 
 Migrations (in order):
-1. `20260425000001_add_retrieval_docs` — pgvector document store
-2. `20260426000001_add_ai_response_feedback` — RAG helpfulness feedback
+1. `20260424213703_init_supabase` — application schema
+2. `20260425000001_add_retrieval_docs` — pgvector document store
+3. `20260426000001_add_ai_response_feedback` — RAG helpfulness feedback
+4. `20260915000001_retrieval_publication_manifest` — atomic corpus publication and version checks
 
 After deployment, confirm with:
 
 ```bash
-DATABASE_URL=<pooled-url> npx prisma db pull --print | grep "CREATE TABLE"
+DIRECT_URL=<direct-url> DATABASE_URL=<pooled-url> npx prisma migrate status
 ```
 
 ---
@@ -86,7 +91,7 @@ before the first deployment or after adding new migrations.
 
 ## 5. Retrieval embedding sync (hybrid RAG)
 
-Embeddings are never created at request time. Run the sync after deploying
+Document embeddings are prepared offline; freeform requests create a query embedding. Run the sync after deploying
 a new corpus or after updating `knowledge/en/contrasts.jsonl`:
 
 ```bash
@@ -102,8 +107,18 @@ python -m retrieval.sync_embeddings --rebuild
 
 Output: `inserted N  updated N  skipped N  failed N  deactivated N`
 
-The agent falls back to metadata-only retrieval if the DB is unavailable
-or `OPENAI_API_KEY` is not set, so this step is optional for a basic deploy.
+Structured card actions can use local metadata when the database is unavailable.
+Freeform help has no such fallback: it can generate an answer without a retrieved
+source. A healthy `/health` response or successful card action therefore does not
+prove that RAG works. Configure `DATABASE_URL` on **Render as well as Vercel**,
+apply the manifest migration, and publish the corpus before verifying a known
+positive freeform question returns `retrievalHit: true` and the expected source.
+
+On 2026-09-15, the deployed Render service lacked `DATABASE_URL`; a passive-voice
+freeform smoke returned no source even though card retrieval succeeded. Adding
+the connection, applying the manifest migration, and publishing all 31 notes
+resolved this issue; the repeated freeform smoke returned the expected source.
+See [release evidence](RELEASE_EVIDENCE_STATUS.md).
 
 ---
 
@@ -127,7 +142,7 @@ or `OPENAI_API_KEY` is not set, so this step is optional for a basic deploy.
 |---|---|---|
 | `OPENAI_API_KEY` | Yes (default model) | OpenAI key for `openai/gpt-4o-mini` |
 | `DEFAULT_MODEL` | No | Override default model, e.g. `anthropic/claude-3-5-haiku` |
-| `DATABASE_URL` | No | Postgres URL for hybrid pgvector retrieval |
+| `DATABASE_URL` | Yes for freeform RAG | Postgres URL; configure separately on Render |
 | `LANGFUSE_PUBLIC_KEY` | No | Langfuse tracing public key |
 | `LANGFUSE_SECRET_KEY` | No | Langfuse tracing secret key |
 | `LANGFUSE_HOST` | No | Langfuse host (default: `https://cloud.langfuse.com`) |

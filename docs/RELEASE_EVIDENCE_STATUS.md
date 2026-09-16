@@ -1,29 +1,48 @@
 # Remaining release gates
 
-## Deployment check: warm path works; startup latency observed
+## Deployment check: production RAG verified
 
-On 2026-09-15 the documented homepage returned HTTP 200. One non-generative `show_similar_examples` request to `/api/study-assist` returned **HTTP 502 after 31.114612 seconds**, with an agent-unavailable-or-timeout error. See `agent/runs/deployment-smoke.json`.
+Vercel and Render deployed commit `1c50fcdc7321c3c66983804af692d788d5ebba6d`
+from merged PR #4. Its checks passed, including web tests/build, guest browser
+tests, Python tests, and real pgvector integration.
 
-A subsequent direct agent health check succeeded after 42.5 seconds; the web Study request then succeeded in 1.29 seconds with the expected note. See `agent/runs/deployment-recheck.json`. Slow startup is consistent with the initial timeout, but the Render service configuration still needs verification. The local Study proxy now permits 55 seconds inside an explicit 60-second function duration and returns a user-facing retry message. This change has not been deployed by these checks.
+Production repair completed: configured Render's missing database connection,
+applied `20260915000001_retrieval_publication_manifest` through the session
+pooler, and atomically published all 31 teaching notes. The database manifest
+is complete and its fingerprint matches the deployed corpus. No application
+records were reset. See `agent/runs/production-index-publication.json`.
 
-This establishes that the frontend was reachable and its Study path initially failed, then succeeded after the agent became healthy. It does not identify whether the cause was agent health, configuration, cold startup, network routing or another deployment issue. The Vercel production revision is `3fc033e`; the agent revision is not yet verified. Do not claim current local changes are running in production.
+After publication, the live web endpoint returned HTTP 200 for all three checks:
 
-Required next steps once deployment access is available:
+| Request | Result | Endpoint duration |
+|---|---|---|
+| English `en03` similar examples | Expected `en_formal_register_precision` source | 390 ms |
+| Passive-voice freeform question | Expected `en_passive_vs_active_voice` source | 2,720 ms |
+| Medication advice question | Scope refusal without medicines or a retrieved source | 1,980 ms |
 
-1. Identify the frontend and agent deployments and their deployed commits. Inspect the failed request in deployment logs; do not publish credentials or raw sensitive headers.
-2. Check the configured agent origin and agent `/health` from the frontend's network, then repeat the same non-generative Study request. A homepage check alone is insufficient.
-3. Verify migrations and the active corpus/model manifest before a freeform smoke request. Do not reindex or change a production database merely to obtain a passing benchmark.
-4. Use a dedicated staging deployment with a documented request/token budget and permitted load. Local defaults allow six Study requests/minute and 30 per actor/day, with a global AI limit of 120/day; deployed overrides have not been inspected. A 200-request benchmark does not fit those defaults. Do not rotate identities or bypass limits.
-5. Record deployment versions, model snapshot, case mix, cache/process conditions, and real error counts. Run at least 100 warm requests at concurrency 1 and 5. Separate generation, retrieval and endpoint timing where instrumentation permits; unavailable component timings must remain unavailable.
-6. Define a separate cold-start procedure that actually restarts the intended process/connection/cache state. Do not equate the first request after publication with cold start.
+See `agent/runs/production-rag-smoke.json` for requests and responses. These are
+three smoke observations, not a load benchmark, held-out evaluation, or latency
+percentiles. Previously, the positive freeform request returned no source while
+metadata retrieval succeeded: a healthy card path did not prove database RAG
+was configured. The missing connection and manifest/index are now repaired.
 
-No deployed load benchmark or additional paid generation batch has been run as part of this gate.
+Render uses its free instance tier, which explicitly warns of idle spin-down and
+startup delays of 50 seconds or more. Earlier evidence records a 42.5-second
+health request followed by a successful 1.29-second warm Study request
+(`agent/runs/deployment-recheck.json`). The deployed proxy allows 55 seconds
+inside a 60-second function duration; this does not eliminate cold-start risk.
+
+No deployed load benchmark has been completed. A future benchmark needs a
+dedicated permitted environment and documented request/token budget. The public
+demo defaults (six Study requests/minute, 30 per actor/day, global AI 120/day)
+do not permit a 200-request endpoint benchmark. Do not bypass these limits.
+Report cold-start, warm endpoint, and local database timings separately.
 
 ## Local generation reliability: implemented and tested
 
 Study generation now has a **20-second async deadline** for both metadata and freeform generation. Timeout returns HTTP 504; other provider failures return HTTP 502 without copying provider exception details into the response. Tests verify both routes and cancellation of a slow mocked provider.
 
-The deadline covers the generation await only. It does not bound synchronous embedding/retrieval before generation, replace the frontend's 55-second timeout, or guarantee that cancellation prevents a provider from billing already-started work. It is not a fix proven against the failed deployment.
+The deadline covers the generation await only. It does not bound synchronous embedding/retrieval before generation, replace the frontend's 55-second timeout, or guarantee that cancellation prevents a provider from billing already-started work. The deployed smoke checks above confirm successful responses, but do not simulate provider outages or prove a worst-case latency bound.
 
 The full suite passed **178 Python tests**, including disposable pgvector integration, with one dependency deprecation warning. Evidence: `agent/runs/reliability-validation.json` and `.xml`. The new provider failure tests use controlled mocks, not induced outages at a paid provider.
 
@@ -39,4 +58,4 @@ Historical raw reports and corpus provenance still record the status at collecti
 
 ## Completion criteria
 
-Completed: AI-assisted pilot evaluation and a successful warm deployed Study smoke. Remaining release gates: publish and verify the local changes, resolve the deployed startup tradeoff, and run the permitted endpoint benchmark. The larger frozen evaluation set remains uncollected and is required before claiming held-out performance. No external reviewer recruitment is required. Report automated quality findings as developmental evidence and avoid claims of expert validation or demonstrated learning outcomes.
+Completed: AI-assisted pilot evaluation, publication, passing CI, deployment verification, migration and complete index publication, warm card retrieval, positive freeform retrieval with the expected source, and a deployed scope-refusal smoke. Free-tier cold starts remain an operational limitation. The larger frozen evaluation set and permitted endpoint load benchmark remain uncollected; do not claim held-out performance or production latency percentiles. No external reviewer recruitment is required.

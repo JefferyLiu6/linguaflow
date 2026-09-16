@@ -446,4 +446,4 @@ See [release status](docs/RELEASE_EVIDENCE_STATUS.md): the warm Study smoke succ
 
 [Evaluation policy](docs/EVALUATION_POLICY.md): external human review is optional. Author and AI-assisted evaluation are supported with explicit provenance; simulated perspectives are not independent human reviewers.
 
-**Release evidence:** 178 Python tests and 75 web tests pass; lint and production build pass. The deployed Study path succeeds after the Render agent becomes healthy, but startup took 42.5 seconds in one observation. Local prompt/timeout changes still need publication and deployment verification. [Current release status](docs/RELEASE_EVIDENCE_STATUS.md).
+**Release evidence:** 178 Python tests and 75 web tests pass; lint and production build pass. The deployed Study path succeeds after the Render agent becomes healthy, but startup took 42.5 seconds in one observation. The prompt/timeout changes are deployed; the production database migration and 31-note index publication are verified. A positive freeform smoke retrieves the expected passive-voice source. [Current release status](docs/RELEASE_EVIDENCE_STATUS.md).

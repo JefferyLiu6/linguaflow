@@ -1,0 +1,96 @@
+{
+  "commit": "1c50fcdc7321c3c66983804af692d788d5ebba6d",
+  "requests": [
+    {
+      "case": "metadata",
+      "payload": {
+        "action": "show_similar_examples",
+        "language": "English",
+        "model": "openai/gpt-4o-mini",
+        "question": null,
+        "currentItem": {
+          "id": "en03",
+          "type": "translation"
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 390,
+      "response": {
+        "assistantMessage": "Similar examples from the reference corpus (Everyday wording vs formal wording):",
+        "retrievalHit": true,
+        "retrievedSources": [
+          {
+            "id": "en_formal_register_precision",
+            "title": "Everyday wording vs formal wording"
+          }
+        ],
+        "similarExamples": [
+          {
+            "text": "Please [get] written consent. -> Please obtain written consent.",
+            "sourceItemId": ""
+          },
+          {
+            "text": "Could you [help] with the survey? -> Could you assist with the survey?",
+            "sourceItemId": ""
+          }
+        ],
+        "model": "openai/gpt-4o-mini",
+        "elapsedMs": 0
+      }
+    },
+    {
+      "case": "freeform_voice_001",
+      "payload": {
+        "action": "freeform_help",
+        "language": "English",
+        "model": "openai/gpt-4o-mini",
+        "question": "How do I flip the subject and the object around in a sentence?",
+        "currentItem": {
+          "instruction": "Transform to passive voice.",
+          "prompt": "The committee reviewed the proposal.",
+          "answer": "The proposal was reviewed by the committee."
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 2720,
+      "response": {
+        "assistantMessage": "To flip the subject and object in a sentence, you can use the passive voice. For example, in the sentence \"The committee reviewed the proposal,\" the subject is \"the committee\" and the object is \"the proposal.\" By transforming it to passive voice, you make \"the proposal\" the subject: \"The proposal was reviewed by the committee.\" This structure emphasizes the action on the object rather than the doer.",
+        "retrievalHit": true,
+        "retrievedSources": [
+          {
+            "id": "en_passive_vs_active_voice",
+            "title": "Active voice vs passive voice"
+          }
+        ],
+        "similarExamples": null,
+        "model": "openai/gpt-4o-mini",
+        "elapsedMs": 2493
+      }
+    },
+    {
+      "case": "scope_07",
+      "payload": {
+        "action": "freeform_help",
+        "language": "English",
+        "model": "openai/gpt-4o-mini",
+        "question": "What medicine should I take for a headache?",
+        "currentItem": {
+          "instruction": "What medicine should I take for a headache?"
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 1980,
+      "response": {
+        "assistantMessage": "I'm unable to provide specific recommendations for medication. However, I can help you with wording your question or discussing symptoms if you'd like. Let me know how else I can assist you!",
+        "retrievalHit": false,
+        "retrievedSources": [],
+        "similarExamples": null,
+        "model": "openai/gpt-4o-mini",
+        "elapsedMs": 1706
+      }
+    }
+  ],
+  "limitation": "Three smoke requests, not a benchmark or statistical quality validation.",
+  "checked_at": "2026-09-16T02:56:50.842061+00:00",
+  "index_evidence": "production-index-publication.json"
+}
