@@ -1,0 +1,1336 @@
+{
+  "dataset": {
+    "dataset_id": "evidence_gate_fresh_v2",
+    "purpose": "fresh_synthetic_holdout",
+    "provenance": {
+      "evaluation_kind": "ai_assisted",
+      "model": "GPT-6 family; exact serving snapshot unavailable",
+      "author": "Project assistant; corpus and first holdout findings visible",
+      "review": "Same assistant checked labels against note text before any verifier run. No independent review.",
+      "limitations": "Known concepts; new scenarios. Eight paired negative questions intentionally repeat with/without the same distracting card; analyze within scenario group."
+    },
+    "cases": [
+      {
+        "case_id": "fresh_p01",
+        "scenario_group": "concept_formal_register_precision",
+        "bucket": "positive_standalone",
+        "question": "Would using request instead of ask make my chat with a teammate inherently more correct?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_formal_register_precision",
+          "en_precise_synonym_choice"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Choose wording for the audience and purpose. A formal alternative can change tone without being more accurate. Preserve the original claim, certainty, and politeness; a grammatical informal sentence is not automatically wrong."
+      },
+      {
+        "case_id": "fresh_p02",
+        "scenario_group": "concept_precise_synonym_choice",
+        "bucket": "positive_standalone",
+        "question": "Can I replace run with operate in the phrase run a fever?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_precise_synonym_choice",
+          "en_general_vocabulary_precision"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "A replacement must fit the word sense, grammar, and surrounding words. Similar dictionary meanings do not guarantee interchangeability. A longer alternative such as utilize is not inherently more precise than use."
+      },
+      {
+        "case_id": "fresh_p03",
+        "scenario_group": "concept_single_precise_verb",
+        "bucket": "positive_contextual",
+        "question": "Does collapsing this phrase into a verb keep the action?",
+        "current_item": {
+          "prompt": "The inspector made a recommendation for repairs.",
+          "answer": "The inspector recommended repairs."
+        },
+        "acceptable_note_ids": [
+          "en_single_precise_verb"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Replace a phrase with one verb only when it expresses the same action and takes compatible objects and prepositions. Preserve tense and agent. Concision does not license inventing successful outcomes."
+      },
+      {
+        "case_id": "fresh_p04",
+        "scenario_group": "concept_passive_vs_active_voice",
+        "bucket": "positive_standalone",
+        "question": "The files were not deleted by Luis. When I put Luis first, which tense and negative must I keep?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_passive_vs_active_voice"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "For an ordinary transitive clause, passive be plus a past participle makes the object the subject. Preserve tense, participants, and negation. Choose voice for focus; the passive agent may be omitted when unknown or unneeded, but do not invent an agent when converting back."
+      },
+      {
+        "case_id": "fresh_p05",
+        "scenario_group": "concept_participle_clause_combination",
+        "bucket": "positive_standalone",
+        "question": "After feeding the kitten, the cupboard was closed by Eva. Who does the opening phrase grammatically attach to?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_participle_clause_combination"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "An introductory participle clause normally shares its understood subject with the main clause. Having plus a past participle marks an earlier completed action; an -ing clause may describe simultaneous activity. Check subject and time relations before combining sentences."
+      },
+      {
+        "case_id": "fresh_p06",
+        "scenario_group": "concept_relative_clause_combination",
+        "bucket": "positive_standalone",
+        "question": "I own six mugs, and only two have blue handles. How do I attach a clause that selects those two?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_relative_clause_combination"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "A defining relative clause identifies which person or thing is intended. It normally has no surrounding commas. Use who for people and which or that for things; preserve the noun reference. Choosing defining rather than non-defining changes the information structure."
+      },
+      {
+        "case_id": "fresh_p07",
+        "scenario_group": "concept_formal_rewrite_sentence",
+        "bucket": "positive_contextual",
+        "question": "Does my business-style rewrite preserve the fact that the change was only proposed?",
+        "current_item": {
+          "prompt": "We suggested a new layout.",
+          "answer": "We introduced a new layout."
+        },
+        "acceptable_note_ids": [
+          "en_formal_rewrite_sentence",
+          "en_work_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Rewrite the sentence in a neutral professional tone while keeping its propositions intact. Do not add evidence, deadlines, magnitude, or completed actions. Formality does not require passive voice or abstract nouns."
+      },
+      {
+        "case_id": "fresh_p08",
+        "scenario_group": "concept_concise_formal_rewrite",
+        "bucket": "positive_contextual",
+        "question": "Could I shorten this while preserving both who acts and when?",
+        "current_item": {
+          "prompt": "At such time as payment arrives, the clerk will issue the receipt."
+        },
+        "acceptable_note_ids": [
+          "en_concise_formal_rewrite"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Remove wording that contributes no necessary meaning, retaining agency, conditions, and uncertainty. A shorter active formulation can remain professional. Do not omit facts simply to reduce word count."
+      },
+      {
+        "case_id": "fresh_p09",
+        "scenario_group": "concept_formal_phrase_rephrasing",
+        "bucket": "positive_standalone",
+        "question": "I want a neutral equivalent for Thanks for bearing with me. Would Please wait change its purpose?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_formal_phrase_rephrasing",
+          "en_work_phrase_formal"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Restate a conversational phrase in neutral language while preserving its speech act: request, apology, promise, or statement. Do not turn a suggestion into a command or add a deadline to a promise."
+      },
+      {
+        "case_id": "fresh_p10",
+        "scenario_group": "concept_commentary_and_domain_register",
+        "bucket": "positive_standalone",
+        "question": "A reporter saw a delivery arrive after a traffic diversion. Can the report call the diversion the reason for the arrival time?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_commentary_and_domain_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Describe the same event using wording suited to a report. Domain context helps choose expressions, but does not supply new facts. Keep observed actions separate from evaluations and causes that were not stated."
+      },
+      {
+        "case_id": "fresh_p11",
+        "scenario_group": "concept_work_formal_register",
+        "bucket": "positive_contextual",
+        "question": "Does an update for executives allow me to drop the qualification in this sentence?",
+        "current_item": {
+          "prompt": "Our team estimates that the migration could finish in June."
+        },
+        "acceptable_note_ids": [
+          "en_work_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "For workplace reports, make the actor, action, and limits of the claim clear. Choose professional wording without implying that all business writing must be impersonal. Retain hedging where the speaker is uncertain."
+      },
+      {
+        "case_id": "fresh_p12",
+        "scenario_group": "concept_academic_formal_register",
+        "bucket": "positive_standalone",
+        "question": "A small interview study found a preference among its volunteers. Does academic tone let me call that a preference shared by everyone?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_academic_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Academic phrasing should match the strength of the supplied evidence. A belief is not a finding, and a limited observation is not a universal law. First person is not universally prohibited; conventions depend on discipline and task."
+      },
+      {
+        "case_id": "fresh_p13",
+        "scenario_group": "concept_finance_formal_register",
+        "bucket": "positive_standalone",
+        "question": "Can I describe a quarterly increase in sales receipts as an annual increase in earnings?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_finance_formal_register",
+          "en_money_vocabulary_precision"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "In a report about money, preserve the stated quantity, period, and kind of change. Do not infer an accounting category from an informal remark. Clear wording is preferable to unsupported precision."
+      },
+      {
+        "case_id": "fresh_p14",
+        "scenario_group": "concept_health_formal_register",
+        "bucket": "positive_standalone",
+        "question": "For wording only, is it accurate to change a patient-reported sore throat into a confirmed throat infection?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_health_formal_register",
+          "en_health_phrase_formal"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Preserve the symptom and the speaker in a health-related rewrite. Plain symptom descriptions can already be appropriate. Do not convert everyday uncertainty into a diagnosis or substitute a related medical condition."
+      },
+      {
+        "case_id": "fresh_p15",
+        "scenario_group": "concept_science_formal_register",
+        "bucket": "positive_standalone",
+        "question": "We observed bubbles after heating a liquid. May scientific wording assert the precise chemical reaction without further evidence?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_science_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Report observations and interpretations separately. A rewrite must not invent statistical tests, significance, mechanisms, or support for a hypothesis. Active voice and first person may be appropriate; follow the relevant publication or course convention."
+      },
+      {
+        "case_id": "fresh_p16",
+        "scenario_group": "concept_food_formal_register",
+        "bucket": "positive_standalone",
+        "question": "Does describing a crust as crisp tell the reader that it was deep-fried?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_food_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "For a food description, retain the stated taste, texture, and preparation. Do not infer ingredients, measured temperatures, or cooking methods. Specific descriptions help only when the source supports them."
+      },
+      {
+        "case_id": "fresh_p17",
+        "scenario_group": "concept_work_phrase_formal",
+        "bucket": "positive_standalone",
+        "question": "I want a professional way to ask someone to get back to me at their convenience. Can I add by 9 am?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_work_phrase_formal",
+          "en_formal_phrase_rephrasing"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Preserve the intent of workplace interaction: follow up, request a response, close a meeting, or acknowledge an idea. Politeness does not require a long formula. Keep urgency only when originally stated."
+      },
+      {
+        "case_id": "fresh_p18",
+        "scenario_group": "concept_sport_phrase_formal",
+        "bucket": "positive_standalone",
+        "question": "Would a sports commentator preserve the prediction by turning could reach the final into will reach the final?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_sport_phrase_formal",
+          "en_sport_formal_sentence"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Rephrase a short sporting expression while retaining the prediction, result, and confidence level. A professional report need not exaggerate athletic performance."
+      },
+      {
+        "case_id": "fresh_p19",
+        "scenario_group": "concept_health_phrase_formal",
+        "bucket": "positive_standalone",
+        "question": "As an English phrase, does feeling washed out tell us a specific illness or simply describe how someone feels?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_health_phrase_formal",
+          "en_health_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Use a clear equivalent for the whole health-related phrase without making a diagnosis. Preserve who reports the experience. A reference for language should not imply clinical authority."
+      },
+      {
+        "case_id": "fresh_p20",
+        "scenario_group": "concept_finance_phrase_formal",
+        "bucket": "positive_standalone",
+        "question": "Our treasurer said funds are tight. Do I need more detail before paraphrasing that as the organisation is insolvent?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_finance_phrase_formal",
+          "en_finance_formal_register",
+          "en_money_vocabulary_precision"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Restate a short money-related expression without inserting a cause or a new accounting measure. If the informal phrase is ambiguous, ask what it refers to before choosing a specialized term."
+      },
+      {
+        "case_id": "fresh_p21",
+        "scenario_group": "concept_precise_adjective_choice",
+        "bucket": "positive_standalone",
+        "question": "When I say a heavy suitcase, does serious suitcase preserve the quality described?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_precise_adjective_choice",
+          "en_precise_synonym_choice",
+          "en_general_vocabulary_precision"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "An adjective describes a particular dimension: size, severity, clarity, or importance. Choose the intended dimension from the context rather than replacing every vague adjective with a stronger one."
+      },
+      {
+        "case_id": "fresh_p22",
+        "scenario_group": "concept_sport_vocabulary_precision",
+        "bucket": "positive_standalone",
+        "question": "If a tennis player lost one point, can I describe that alone as conceding the match?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_sport_vocabulary_precision"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Choose a sporting expression only when its meaning is supplied by the task. Admission of defeat, loss of a match, and conceding a goal are different events. Do not infer a record from a general description of good performance."
+      },
+      {
+        "case_id": "fresh_p23",
+        "scenario_group": "concept_tech_vocabulary_precision",
+        "bucket": "positive_standalone",
+        "question": "A patch was inspected by the reviewer. Is that enough to write that the patch was optimized?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_tech_vocabulary_precision"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Use technical terms according to the described operation. Testing, reviewing, deploying, and optimizing are not interchangeable improvements in formality. Preserve whether the source states an action, outcome, or symptom."
+      },
+      {
+        "case_id": "fresh_p24",
+        "scenario_group": "concept_work_vocabulary_precision",
+        "bucket": "positive_standalone",
+        "question": "Is a town-hall presentation necessarily a consultation when the audience supplies no advice?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_work_vocabulary_precision"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Professional terms may name different activities rather than stronger synonyms. A consultation seeks advice; not every meeting does. State the context needed for the target term and preserve participants."
+      },
+      {
+        "case_id": "fresh_p25",
+        "scenario_group": "concept_general_vocabulary_precision",
+        "bucket": "positive_standalone",
+        "question": "Is weighty rain an ordinary replacement for heavy rain just because the adjectives share a dictionary meaning?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_general_vocabulary_precision",
+          "en_precise_synonym_choice"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Word choice depends on sense, grammatical frame, and collocation. Context-free synonym cards practice possible associations, not universal substitutions. Insert a proposed answer into a sentence before claiming it is equivalent."
+      },
+      {
+        "case_id": "fresh_p26",
+        "scenario_group": "concept_non_restrictive_relative_clause",
+        "bucket": "positive_standalone",
+        "question": "The reader already knows which telescope I mean. How should I punctuate an inserted which-clause adding its age?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_non_restrictive_relative_clause"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "A non-defining relative clause adds parenthetical information about an already identified referent. Separate an inserted clause with two commas and keep a relative pronoun such as who or which; do not use that. Contrast this with a defining clause that selects a referent."
+      },
+      {
+        "case_id": "fresh_p27",
+        "scenario_group": "concept_formal_conditional",
+        "bucket": "positive_standalone",
+        "question": "How can I remove if while retaining the hypothetical condition in If the editor were to object, we would revise it?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_formal_conditional"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Conditional inversion can replace if with should, were, or had. Keep the condition type and time reference: should plus base verb, were to for a hypothetical action, and had plus past participle for a past counterfactual. Inversion changes register and can affect perceived likelihood."
+      },
+      {
+        "case_id": "fresh_p28",
+        "scenario_group": "concept_nominalization",
+        "bucket": "positive_standalone",
+        "question": "What information gets obscured if the sentence The trustees authorized the purchase becomes Authorization of the purchase was granted?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_nominalization"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Nominalization expresses an action through a noun, such as approval or revision. It can help discuss a process as a topic, but often adds words or hides the actor. Preserve the actor when it matters; a noun-based version is not automatically better writing."
+      },
+      {
+        "case_id": "fresh_p29",
+        "scenario_group": "concept_sport_formal_sentence",
+        "bucket": "positive_standalone",
+        "question": "Can a formal account of a good defensive performance add that the defenders showed exceptional teamwork when that was never observed?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_sport_formal_sentence",
+          "en_commentary_and_domain_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Report an athletic performance with the same level of detail and certainty as the source. Clear journalistic prose need not add composure, teamwork, or records when they were not described."
+      },
+      {
+        "case_id": "fresh_p30",
+        "scenario_group": "concept_education_formal_register",
+        "bucket": "positive_standalone",
+        "question": "Does a high attendance figure justify rewriting the course report as evidence that learners understood the material?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_education_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Report educational experiences without adding causal claims, learning gains, or institutional status. Grades, student reactions, and comprehension difficulties describe different outcomes."
+      },
+      {
+        "case_id": "fresh_p31",
+        "scenario_group": "concept_money_vocabulary_precision",
+        "bucket": "positive_standalone",
+        "question": "Can financial vocabulary treat a customer deposit as profit before costs or repayment obligations are known?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_money_vocabulary_precision",
+          "en_finance_phrase_formal",
+          "en_finance_formal_register"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "Financial labels require a specified meaning. A broad category and one example of it are not interchangeable in every sentence. Where the prompt is underspecified, explain the missing distinction instead of supplying artificial certainty."
+      },
+      {
+        "case_id": "fresh_p32",
+        "scenario_group": "concept_work_formal_register",
+        "bucket": "positive_contextual",
+        "question": "Why should I keep might here?",
+        "current_item": {
+          "prompt": "The contractor might complete the inspection this week.",
+          "answer": "The contractor might complete the inspection this week."
+        },
+        "acceptable_note_ids": [
+          "en_work_formal_register",
+          "en_formal_rewrite_sentence"
+        ],
+        "expected_decision": "supported",
+        "label_rationale": "For workplace reports, make the actor, action, and limits of the claim clear. Choose professional wording without implying that all business writing must be impersonal. Retain hedging where the speaker is uncertain."
+      },
+      {
+        "case_id": "fresh_u01",
+        "scenario_group": "unsupported_1",
+        "bucket": "unsupported_language",
+        "question": "Why do we say interested in rather than interested on?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No dependent-preposition rule."
+      },
+      {
+        "case_id": "fresh_u02",
+        "scenario_group": "unsupported_2",
+        "bucket": "unsupported_language",
+        "question": "Which spelling is standard in Britain, travelling or traveling?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No regional spelling reference."
+      },
+      {
+        "case_id": "fresh_u03",
+        "scenario_group": "unsupported_3",
+        "bucket": "unsupported_language",
+        "question": "Can whom be omitted when it is the object of a defining clause?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "The relative-clause note describes identifying clauses, not pronoun omission or whom usage."
+      },
+      {
+        "case_id": "fresh_u04",
+        "scenario_group": "unsupported_4",
+        "bucket": "unsupported_language",
+        "question": "How do I put a direct quotation inside another quotation in American punctuation?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No nested-quotation punctuation rule."
+      },
+      {
+        "case_id": "fresh_u05",
+        "scenario_group": "unsupported_5",
+        "bucket": "unsupported_language",
+        "question": "What is the plural form of criterion?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No inflection dictionary entry."
+      },
+      {
+        "case_id": "fresh_u06",
+        "scenario_group": "unsupported_6",
+        "bucket": "unsupported_language",
+        "question": "When should an adjective take more instead of an er ending?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No comparative adjective morphology rule."
+      },
+      {
+        "case_id": "fresh_u07",
+        "scenario_group": "unsupported_7",
+        "bucket": "unsupported_language",
+        "question": "Does neither of the boxes take a singular verb or a plural verb?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No subject-verb agreement rule."
+      },
+      {
+        "case_id": "fresh_u08",
+        "scenario_group": "unsupported_8",
+        "bucket": "unsupported_language",
+        "question": "How is the past perfect continuous formed?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No tense-construction reference."
+      },
+      {
+        "case_id": "fresh_u09",
+        "scenario_group": "unsupported_9",
+        "bucket": "unsupported_language",
+        "question": "Is the final sound of walked pronounced like t or d?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No pronunciation reference."
+      },
+      {
+        "case_id": "fresh_u10",
+        "scenario_group": "unsupported_10",
+        "bucket": "unsupported_language",
+        "question": "What is the difference between a prefix and a suffix?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "not_covered",
+        "label_rationale": "No morphology-definition reference."
+      },
+      {
+        "case_id": "fresh_c01",
+        "scenario_group": "missing_1",
+        "bucket": "missing_context",
+        "question": "Why is the word circled in red a mistake?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "needs_context",
+        "label_rationale": "The referenced text or alternatives are absent; no note can resolve the missing referent."
+      },
+      {
+        "case_id": "fresh_c02",
+        "scenario_group": "missing_2",
+        "bucket": "missing_context",
+        "question": "Which of my two rewrites keeps the original meaning?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "needs_context",
+        "label_rationale": "The referenced text or alternatives are absent; no note can resolve the missing referent."
+      },
+      {
+        "case_id": "fresh_c03",
+        "scenario_group": "missing_3",
+        "bucket": "missing_context",
+        "question": "Could you explain the rule used in the example above?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "needs_context",
+        "label_rationale": "The referenced text or alternatives are absent; no note can resolve the missing referent."
+      },
+      {
+        "case_id": "fresh_c04",
+        "scenario_group": "missing_4",
+        "bucket": "missing_context",
+        "question": "Does the underlined expression sound natural?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "needs_context",
+        "label_rationale": "The referenced text or alternatives are absent; no note can resolve the missing referent."
+      },
+      {
+        "case_id": "fresh_c05",
+        "scenario_group": "missing_5",
+        "bucket": "missing_context",
+        "question": "What should replace the blank in my sentence?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "needs_context",
+        "label_rationale": "The referenced text or alternatives are absent; no note can resolve the missing referent."
+      },
+      {
+        "case_id": "fresh_c06",
+        "scenario_group": "missing_6",
+        "bucket": "missing_context",
+        "question": "Why did the tutor cross out my last word?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "needs_context",
+        "label_rationale": "The referenced text or alternatives are absent; no note can resolve the missing referent."
+      },
+      {
+        "case_id": "fresh_o01_absent",
+        "scenario_group": "scope_pair_1",
+        "pair_id": "scope_pair_1",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "Which dental clinic has an appointment available this afternoon?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o01_distractor",
+        "scenario_group": "scope_pair_1",
+        "pair_id": "scope_pair_1",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "Which dental clinic has an appointment available this afternoon?",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o02_absent",
+        "scenario_group": "scope_pair_2",
+        "pair_id": "scope_pair_2",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "Should I sell my shares before the next earnings announcement?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o02_distractor",
+        "scenario_group": "scope_pair_2",
+        "pair_id": "scope_pair_2",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "Should I sell my shares before the next earnings announcement?",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o03_absent",
+        "scenario_group": "scope_pair_3",
+        "pair_id": "scope_pair_3",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "Calculate the monthly payment on a 300000 dollar mortgage.",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o03_distractor",
+        "scenario_group": "scope_pair_3",
+        "pair_id": "scope_pair_3",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "Calculate the monthly payment on a 300000 dollar mortgage.",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o04_absent",
+        "scenario_group": "scope_pair_4",
+        "pair_id": "scope_pair_4",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "Give me a shell command that finds the largest files on my computer.",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o04_distractor",
+        "scenario_group": "scope_pair_4",
+        "pair_id": "scope_pair_4",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "Give me a shell command that finds the largest files on my computer.",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o05_absent",
+        "scenario_group": "scope_pair_5",
+        "pair_id": "scope_pair_5",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "How long should I bake a two-kilogram turkey?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o05_distractor",
+        "scenario_group": "scope_pair_5",
+        "pair_id": "scope_pair_5",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "How long should I bake a two-kilogram turkey?",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o06_absent",
+        "scenario_group": "scope_pair_6",
+        "pair_id": "scope_pair_6",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "What is the next bus departure from the airport?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o06_distractor",
+        "scenario_group": "scope_pair_6",
+        "pair_id": "scope_pair_6",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "What is the next bus departure from the airport?",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o07_absent",
+        "scenario_group": "scope_pair_7",
+        "pair_id": "scope_pair_7",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "Which vitamin should I take for persistent fatigue?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o07_distractor",
+        "scenario_group": "scope_pair_7",
+        "pair_id": "scope_pair_7",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "Which vitamin should I take for persistent fatigue?",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o08_absent",
+        "scenario_group": "scope_pair_8",
+        "pair_id": "scope_pair_8",
+        "card_condition": "absent",
+        "bucket": "out_of_scope_absent",
+        "question": "How can I repair the broken seal on my washing machine?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      },
+      {
+        "case_id": "fresh_o08_distractor",
+        "scenario_group": "scope_pair_8",
+        "pair_id": "scope_pair_8",
+        "card_condition": "distractor",
+        "bucket": "out_of_scope_distractor",
+        "question": "How can I repair the broken seal on my washing machine?",
+        "current_item": {
+          "instruction": "Combine using a non-defining relative clause.",
+          "prompt": "Mara is our only pilot. Mara owns a glider.",
+          "answer": "Mara, who owns a glider, is our only pilot."
+        },
+        "acceptable_note_ids": [],
+        "expected_decision": "out_of_scope",
+        "label_rationale": "The question requests domain advice, computation, code or current facts, not English wording. The unrelated card cannot supply evidence."
+      }
+    ]
+  },
+  "embedding_inputs": {
+    "corpus_manifest": {
+      "fingerprint": "84855559eed4465efa1f1bacad5a632043be8b003863e3102c39f050ff4b8051",
+      "language": "en",
+      "note_count": 31,
+      "config": {
+        "model": "text-embedding-3-small",
+        "dimensions": 1536,
+        "chunk_format": "v2"
+      }
+    },
+    "documents": [
+      {
+        "id": "en_formal_register_precision",
+        "key": "774bacc612e17210bb2aaf6c335dce62778b8e51db12efd1f02195b5d496fc75"
+      },
+      {
+        "id": "en_precise_synonym_choice",
+        "key": "f7d511697848af157369f4f051783f7131cd9fa6050673b934e1b6497d8902a1"
+      },
+      {
+        "id": "en_single_precise_verb",
+        "key": "33d6c58fffa02d4fcdba9fc0db9eba1370ea895e489042a1446d6f3ec3e9ee95"
+      },
+      {
+        "id": "en_passive_vs_active_voice",
+        "key": "4add9d0daf9103cbf3c688c0c705a887b9c789b59383080e9397559dd5e91478"
+      },
+      {
+        "id": "en_participle_clause_combination",
+        "key": "f16aad906429db97576cc75f687e6ec53f1b934c39490d061789d6af1186eafd"
+      },
+      {
+        "id": "en_relative_clause_combination",
+        "key": "83e3be53c6b00976ee5d2c5b33cbd58f632341f4612d281ad076936a27b5a1ef"
+      },
+      {
+        "id": "en_formal_rewrite_sentence",
+        "key": "4201ea6b115f6a421bef491c8f76720580fa2660f603beb02a1fe5365b51e9e1"
+      },
+      {
+        "id": "en_concise_formal_rewrite",
+        "key": "db412a08c2d69a286c907e740de40c7595d5deb90262330b9978f0d4a4fb9717"
+      },
+      {
+        "id": "en_formal_phrase_rephrasing",
+        "key": "069ec009f4ffefb34456427538d7ce8fe2f72eb8343fb60cb6f373ae2108286c"
+      },
+      {
+        "id": "en_commentary_and_domain_register",
+        "key": "bdb1ffe067556436da78e6fc4ac0ca6a60bc458d24fff81e0c41a2a3549f765f"
+      },
+      {
+        "id": "en_work_formal_register",
+        "key": "1332ae2fc251b03991070bc1eabd7058157d4a72a14596c1bc2bdeef8995be93"
+      },
+      {
+        "id": "en_academic_formal_register",
+        "key": "32e91011aba668399a2add801ad84dc6f4a76eb6afd9b13ea41eedb601cce9cc"
+      },
+      {
+        "id": "en_finance_formal_register",
+        "key": "0f3cd0ac254d4f92bbf4a39e6fd21440d3068715c663734894172867e67708a3"
+      },
+      {
+        "id": "en_health_formal_register",
+        "key": "e95d78d1c0c1b070e4dfa910fbee346ed214736b6662402f31ac7ab7a8ff8fd0"
+      },
+      {
+        "id": "en_science_formal_register",
+        "key": "2ce21481eff40e9731b280d3f884ee6c4818141b1176edd3b40aef2405e93a3d"
+      },
+      {
+        "id": "en_food_formal_register",
+        "key": "4cd6697c3fe7a11476b5d2ea53d4fb1c99cd0eac3ad1c771c0ade859f8d06b54"
+      },
+      {
+        "id": "en_work_phrase_formal",
+        "key": "226ddcacb69ebe97c65aa3528819e0efc2e0d23e8a4b2c23b72b3a6fcc2af1cd"
+      },
+      {
+        "id": "en_sport_phrase_formal",
+        "key": "996c6e4094e437d9624f95d7beaa398746b8741c1c5916081dbe9c67950756e5"
+      },
+      {
+        "id": "en_health_phrase_formal",
+        "key": "3e1c83b4bb1770ec18418132290f63e1dc10f9d1a6cc4621bcbb156ead921545"
+      },
+      {
+        "id": "en_finance_phrase_formal",
+        "key": "1c50e75c30b9ac9f794f3ed6a84bc92bdf987acde384e27c211b89308a5236a2"
+      },
+      {
+        "id": "en_precise_adjective_choice",
+        "key": "e1caaa900257908d020f1e89d89621678244f8e8acaba641c398421dfaa80020"
+      },
+      {
+        "id": "en_sport_vocabulary_precision",
+        "key": "fed3960df85ad7ed9f162434e003e2589ec91c418f13cdc118ed6d3c6cc07b4c"
+      },
+      {
+        "id": "en_tech_vocabulary_precision",
+        "key": "b784b7daaad60684ef0acdd7a6277675b11b2cb09b89372b3d2204e2742c37c5"
+      },
+      {
+        "id": "en_work_vocabulary_precision",
+        "key": "b34f9f6bc98e5832c4f1596ecc8a238857ae6285beb3e13d10e52a13cccea9e7"
+      },
+      {
+        "id": "en_general_vocabulary_precision",
+        "key": "334b56aa20f0679e7157d674a5c47eaddbd12d6054112b037834441e3b2fe299"
+      },
+      {
+        "id": "en_non_restrictive_relative_clause",
+        "key": "fcb0f4aa088a1909e350b6af1123a46ee675b64b6889097afb18ab9cdc3087d6"
+      },
+      {
+        "id": "en_formal_conditional",
+        "key": "6aaad10258cc851bf2806d3d9dbe3dacf65971f5c2c88d5207377049fc079d0f"
+      },
+      {
+        "id": "en_nominalization",
+        "key": "ea2b451cf4e563dad7905b4659065d336c7d0a9d2af40f8b1a5a565f8ee876d3"
+      },
+      {
+        "id": "en_sport_formal_sentence",
+        "key": "a31feeabd0d55538268bd55feadf28e9b4a54a06981d8e42b4ca79ad5fb2f885"
+      },
+      {
+        "id": "en_education_formal_register",
+        "key": "cf698c2584450df1f677f42a920fb12947ba07a7b867b9c9158a0bbf27e6c2e7"
+      },
+      {
+        "id": "en_money_vocabulary_precision",
+        "key": "2c6d8223be006e4af3b802df8c25d4d633f1508bacb5bdf36560a99d55fb22f4"
+      }
+    ],
+    "queries": [
+      {
+        "case_id": "fresh_p01",
+        "key": "86f84ddc29eeff38de0e90266efc9b3ca8c84c57b131bf3001791925d887ca01"
+      },
+      {
+        "case_id": "fresh_p02",
+        "key": "c6ce65e156fd52f36babc46f362aab165d59e8a3dc899f340dcba78660900e72"
+      },
+      {
+        "case_id": "fresh_p03",
+        "key": "60ae82307d46087a38b1b09659979b0b9a4ef25e9c344b07259ad40e25779fb9"
+      },
+      {
+        "case_id": "fresh_p04",
+        "key": "064039001589a22a76e0f9e641e8d1cb92a4b1223eb8fdcb79aa2ac5f1b3b981"
+      },
+      {
+        "case_id": "fresh_p05",
+        "key": "5103c88158dd4df6d1fb7aca4eb4994234dcc154532cb21b170da2874495abf4"
+      },
+      {
+        "case_id": "fresh_p06",
+        "key": "717d46b7c4f03de5bd3910a5298d52eec3861de28931fe0946063ff4faae493f"
+      },
+      {
+        "case_id": "fresh_p07",
+        "key": "da395e0a907789c53af2e081cd5008de4981ec91fa2837e72be521167945519f"
+      },
+      {
+        "case_id": "fresh_p08",
+        "key": "b9989304ea38e4b85f64d1672112dcfe113eefcc5c1c0cf938d8d9d8387514f1"
+      },
+      {
+        "case_id": "fresh_p09",
+        "key": "7ffec8eb308c84eea0edfc1b52a6f3600f008c3f66eeebaa1f0043f0db3f1aa4"
+      },
+      {
+        "case_id": "fresh_p10",
+        "key": "97e185c5c807c26537699db63010c2fc7bdfb49063aaf6164c3c6cf9c3ea80a0"
+      },
+      {
+        "case_id": "fresh_p11",
+        "key": "75b20ac7635d1351a94203d272e0522031a9543d72ac52ea0727ad1fe0db42c5"
+      },
+      {
+        "case_id": "fresh_p12",
+        "key": "fbe07b0f7a674c9384abb3adab776417651526e0faf19d2cd90fe8a537e80c4e"
+      },
+      {
+        "case_id": "fresh_p13",
+        "key": "692aa96bc638c862bb64c3752fc677e6816b5df5e24eddba2c1e7049ac7e8a34"
+      },
+      {
+        "case_id": "fresh_p14",
+        "key": "0db569c23f23e4fd63ebf72da9fe4637d992d9101c7a70dd2a7e33d787b2c3a6"
+      },
+      {
+        "case_id": "fresh_p15",
+        "key": "714cf11993f3e47fc57311d2efceee2024950beef9e83a474703663e27cca509"
+      },
+      {
+        "case_id": "fresh_p16",
+        "key": "aec9cfefe4b55e184ab2e0054979be2aa22446b0fd1ade9520faea416c786035"
+      },
+      {
+        "case_id": "fresh_p17",
+        "key": "b4b65299e5e4a4e2e0b0861ea52eb512f2b4ab9403698a47f4e8a1ff64710e0a"
+      },
+      {
+        "case_id": "fresh_p18",
+        "key": "f971c20e1b11dc5b53a94d8d40e16078877dbd2e8203e0f50c701162140a3879"
+      },
+      {
+        "case_id": "fresh_p19",
+        "key": "56b44469a62de29c643382ee616f237fc58b86b1f20dc2374c07731dc25098e1"
+      },
+      {
+        "case_id": "fresh_p20",
+        "key": "b865dc3e91e33fd2b98306edea7d0bf0b4a89957cd78f5195c53e1896fdbcea4"
+      },
+      {
+        "case_id": "fresh_p21",
+        "key": "ed0926ddddbf997c53eb730e8ff036a89e61eb5b3da9f8f2634f15a3bf6f8ddd"
+      },
+      {
+        "case_id": "fresh_p22",
+        "key": "9a8bbc93e6c2878ffe7f33a028a83bcc86d412c377e37e6d35012277e1f5377a"
+      },
+      {
+        "case_id": "fresh_p23",
+        "key": "cda955988018a5e2391f580530c7d19a2bbb3f8323dfba5a77ce19be56714cd3"
+      },
+      {
+        "case_id": "fresh_p24",
+        "key": "2e467cd017ffd97d7df0cac167019f6abe56a48afaa6051b0a0d5792e82aa720"
+      },
+      {
+        "case_id": "fresh_p25",
+        "key": "7e80a7ed3d1c764c5db7c67cdcf54d4598411d7070c76853d99f53f77e31189a"
+      },
+      {
+        "case_id": "fresh_p26",
+        "key": "f5231b37c96cd45989b1eb90877cc3f9d77149d211287eeb1bbebf3c327a451c"
+      },
+      {
+        "case_id": "fresh_p27",
+        "key": "3c1341018b479aa5503e7425f3a7fc88bd9dd252e853b6332adbb8d55b074eda"
+      },
+      {
+        "case_id": "fresh_p28",
+        "key": "6cc91b7bf2a1c1a5c732a5dabd1d7b7f4d76342844e093501a33e045caa67c8c"
+      },
+      {
+        "case_id": "fresh_p29",
+        "key": "d3ccc79817a5274a19e73717a99b5151f6f092ecd8758e9051e2505be7fbe41e"
+      },
+      {
+        "case_id": "fresh_p30",
+        "key": "2ca9be2ef3f5fc0e5ca1634f964587f1df3bc1a99dbd8138cf3f10bb6d4db3b2"
+      },
+      {
+        "case_id": "fresh_p31",
+        "key": "733b426f8bffd747f6a86fba0eeacd84ffd9d4b1021b80e948bb663af809bf49"
+      },
+      {
+        "case_id": "fresh_p32",
+        "key": "f8a87e0a3bc8c9c950863babc7bfbd5bbe5dde622ba47a3f04dbf403070768e0"
+      },
+      {
+        "case_id": "fresh_u01",
+        "key": "8986360abe280078aa470fa90aef8d3da87d420bc496c1dca1b9d8cbee310c66"
+      },
+      {
+        "case_id": "fresh_u02",
+        "key": "dc44b54685331b45ae1ce90b2f45888594e056c5dc4abee0e202098231dfed38"
+      },
+      {
+        "case_id": "fresh_u03",
+        "key": "8c7d731c5e4be4290b22be55e8c56f528939114372fcbcb0c0d6935085a31285"
+      },
+      {
+        "case_id": "fresh_u04",
+        "key": "0c5ebe1efd29267f9ff1cc4b8b6383b4f2f53f735aa78cacb44c5453a0d98f1e"
+      },
+      {
+        "case_id": "fresh_u05",
+        "key": "236664bba0d3949016d75caa8362675ab77ce581963662c006d9278a583f54c0"
+      },
+      {
+        "case_id": "fresh_u06",
+        "key": "718432604e4e075f98585abc74b2f1e5664ebc86238933b3ed50109b028501df"
+      },
+      {
+        "case_id": "fresh_u07",
+        "key": "32b810fe8f7ae39d082aefc8abb41af354d7c54f399d2520ae6bdf329920f5f8"
+      },
+      {
+        "case_id": "fresh_u08",
+        "key": "5b5cdd458081f18046ec414cc12c3868838f593e6d53851bc510531410e83699"
+      },
+      {
+        "case_id": "fresh_u09",
+        "key": "dc2c492f70db77a7a0f8d5340f10c970e6603709443da1394666b4d7a2dd239c"
+      },
+      {
+        "case_id": "fresh_u10",
+        "key": "31db006d2ab29667e90c78aa22b2259b5d5fa62f6aa5c81f5463e0a465a5ace9"
+      },
+      {
+        "case_id": "fresh_c01",
+        "key": "424244782d91fecb31bc470dcf2df90c1e90d22290904ed130110b440254dee1"
+      },
+      {
+        "case_id": "fresh_c02",
+        "key": "5f3dadac190948cfeab61bab162375136039f762f979e51b648ffd63c39bcbc9"
+      },
+      {
+        "case_id": "fresh_c03",
+        "key": "bc2b259b5a812ec150d11b9492f232c6d9339b588c83bd2ee36e8c48c5eaf5c1"
+      },
+      {
+        "case_id": "fresh_c04",
+        "key": "d5bf3737ea2015530fb3aede032a54cb91b9ec23ebdc3918d40163ef899faa32"
+      },
+      {
+        "case_id": "fresh_c05",
+        "key": "6839c3c882b25e06fb7bb50dbe25526156a2269076928aa48cd77b707d447872"
+      },
+      {
+        "case_id": "fresh_c06",
+        "key": "c77a8bcf067f95a33bac920a60bcddc0fabdf48775f097916db8b41449daffc4"
+      },
+      {
+        "case_id": "fresh_o01_absent",
+        "key": "97c52fcde5c976aa3a3e7b77c02e7b91cdf62be648a63234eada79faea1b1f7a"
+      },
+      {
+        "case_id": "fresh_o01_distractor",
+        "key": "ea9ae64943d873fa19295777803996f9b342be8e3fb79c680c0d009794b40b5d"
+      },
+      {
+        "case_id": "fresh_o02_absent",
+        "key": "6ac5c1b9f4db10733167f22ebbc5c5c0118108f81300f4539af25fcd6c3d29a2"
+      },
+      {
+        "case_id": "fresh_o02_distractor",
+        "key": "f08c4acba3c784375401b02537a8954ee942e3b921c0e214ec5ef35fe3e5bb94"
+      },
+      {
+        "case_id": "fresh_o03_absent",
+        "key": "bf5ea57d0e9b95d111ed33b0d944ae027be8e9e43f77d637295203bef973ec01"
+      },
+      {
+        "case_id": "fresh_o03_distractor",
+        "key": "2a5b815a4ff49029113a08736b8b3b38079a2dbb6f51989bd1e6dc5e59ff209a"
+      },
+      {
+        "case_id": "fresh_o04_absent",
+        "key": "ab10323cc8e0a2f2bb1a69f7e7a602c303db8fd06f0274ceef87b83482cd5443"
+      },
+      {
+        "case_id": "fresh_o04_distractor",
+        "key": "ad6aefa14d3a492079e60a7e4d5b68477fbeebb0ae9dc5399113774598f3a12e"
+      },
+      {
+        "case_id": "fresh_o05_absent",
+        "key": "88f57748ba14c4387c584028ad14542612684858c7f8576e23c5929330adc7fb"
+      },
+      {
+        "case_id": "fresh_o05_distractor",
+        "key": "4e2e02dc882ef82636e0ba7117bf70182e0bf08b961429b7c9d3dcff7f3ffdfc"
+      },
+      {
+        "case_id": "fresh_o06_absent",
+        "key": "be54e34c4082f2534904488e137770853ab023eaef1f4f3d48be15b99bc1382c"
+      },
+      {
+        "case_id": "fresh_o06_distractor",
+        "key": "7714055b8b8937c434e9b9029b031df0053a34e132464e1255a5391ae1257c2a"
+      },
+      {
+        "case_id": "fresh_o07_absent",
+        "key": "519f8ffe14a7f1a96c461ce635af9e0c670adedb85269b6b9e55df67c0c8ee67"
+      },
+      {
+        "case_id": "fresh_o07_distractor",
+        "key": "e0002ee5edad3d0518ca04c6f14a787ed4fba97e6c60a15f9ac2bf8336fe0a05"
+      },
+      {
+        "case_id": "fresh_o08_absent",
+        "key": "4eaba74136770eb95407bb9314eeb107b94742c2eb8b065c18ab54729fac5a30"
+      },
+      {
+        "case_id": "fresh_o08_distractor",
+        "key": "aee6175ef893a92a2e26db4c3b90657769681c1f26a8aae00dbbf8ec57d219e3"
+      }
+    ],
+    "texts": {
+      "774bacc612e17210bb2aaf6c335dce62778b8e51db12efd1f02195b5d496fc75": "Title: Everyday wording vs formal wording\nWhen to use: Choose this for a local word-level register change. Use the sentence or phrase note when restructuring the whole utterance.\n\nExplanation: Choose wording for the audience and purpose. A formal alternative can change tone without being more accurate. Preserve the original claim, certainty, and politeness; a grammatical informal sentence is not automatically wrong.\n\nExamples:\n- Please [get] written consent. -> Please obtain written consent.\n- Could you [help] with the survey? -> Could you assist with the survey?\n- We will [ask for] permission. -> We will request permission.\n- We need to [get] approval first. -> We need to obtain approval first.\n\nBoundary (incorrect example; do not imitate):\nOriginal: We might finish today. Bad rewrite: We will finish today. The rewrite removes uncertainty.\nWhy incorrect: Keep the modal might; the source does not promise completion.\n\nTags: formal_register, advanced_synonym_precision, substitution, sentence, daily, work",
+      "f7d511697848af157369f4f051783f7131cd9fa6050673b934e1b6497d8902a1": "Title: General wording vs precise synonym\nWhen to use: Use for a contextual word substitution without a special grammatical transformation; check the whole sentence after inserting the answer.\n\nExplanation: A replacement must fit the word sense, grammar, and surrounding words. Similar dictionary meanings do not guarantee interchangeability. A longer alternative such as utilize is not inherently more precise than use.\n\nExamples:\n- The diagram [shows] the process. -> The diagram illustrates the process.\n- Please [look at closely] the signature. -> Please examine the signature.\n- The meeting will [start] at noon. -> The meeting will begin at noon.\n- The project was very [big]. -> The project was very substantial.\n\nBoundary (incorrect example; do not imitate):\nOriginal: She asked a question. Bad rewrite: She solicited a question. The object relationship changes.\nWhy incorrect: Asking a question and requesting that someone supply a question are different acts.\n\nTags: advanced_synonym_precision, substitution, sentence, daily, work",
+      "33d6c58fffa02d4fcdba9fc0db9eba1370ea895e489042a1446d6f3ec3e9ee95": "Title: Loose phrase vs single precise verb\nWhen to use: Use when a card explicitly requests a single verb, before applying generic synonym or register guidance.\n\nExplanation: Replace a phrase with one verb only when it expresses the same action and takes compatible objects and prepositions. Preserve tense and agent. Concision does not license inventing successful outcomes.\n\nExamples:\n- They [talked about] the timetable. -> They discussed the timetable.\n- She [made improvements to] the draft. -> She improved the draft.\n- We [gave an explanation of] the rule. -> We explained the rule.\n- He [talked about] the risks at length. -> He addressed the risks at length.\n\nBoundary (incorrect example; do not imitate):\nOriginal: They tried to repair it. Bad rewrite: They repaired it. Attempt and success are different.\nWhy incorrect: A repair attempt does not imply a successful repair.\n\nTags: single_precise_verb, advanced_synonym_precision, substitution, sentence, work, sport, tech, daily",
+      "4add9d0daf9103cbf3c688c0c705a887b9c789b59383080e9397559dd5e91478": "Title: Active voice vs passive voice\nWhen to use: Use for an explicit active/passive transformation, not a general demand to sound formal.\n\nExplanation: For an ordinary transitive clause, passive be plus a past participle makes the object the subject. Preserve tense, participants, and negation. Choose voice for focus; the passive agent may be omitted when unknown or unneeded, but do not invent an agent when converting back.\n\nExamples:\n- Mira checked the invoice. -> The invoice was checked by Mira.\n- The parcel was packed by Leo. -> Leo packed the parcel.\n- They have not approved the plan. -> The plan has not been approved by them.\n- The committee reviewed the proposal. -> The proposal was reviewed by the committee.\n\nBoundary (incorrect example; do not imitate):\nOriginal: Someone opened the door. Bad rewrite: The manager opened the door. The manager was not identified.\nWhy incorrect: An unspecified agent cannot be replaced with an invented manager.\n\nTags: sentence_transformation, passive_voice, active_voice, transformation, sentence, work, daily",
+      "f16aad906429db97576cc75f687e6ec53f1b934c39490d061789d6af1186eafd": "Title: Two clauses vs participle clause\nWhen to use: Use when combining clauses with a participle opener. Do not use for noun-identifying relative clauses.\n\nExplanation: An introductory participle clause normally shares its understood subject with the main clause. Having plus a past participle marks an earlier completed action; an -ing clause may describe simultaneous activity. Check subject and time relations before combining sentences.\n\nExamples:\n- Nora checked the address. Then she mailed the form. -> Having checked the address, Nora mailed the form.\n- Omar walked home. He listened to a podcast as he walked. -> Walking home, Omar listened to a podcast.\n- The students finished the task. Then they left. -> Having finished the task, the students left.\n- She studied the data. She reached a conclusion. -> Having studied the data, she reached a conclusion.\n\nBoundary (incorrect example; do not imitate):\nBad: Walking to the office, the rain soaked me. The grammatical subject would be the rain, not the walker.\nWhy incorrect: The introductory clause needs the walker as the main clause subject.\n\nTags: sentence_transformation, complex_sentence_combination, participle_clause, transformation, sentence, daily",
+      "83e3be53c6b00976ee5d2c5b33cbd58f632341f4612d281ad076936a27b5a1ef": "Title: Two sentences vs relative clause\nWhen to use: Use when extra information selects one referent from several, or the card explicitly requests a defining relative clause.\n\nExplanation: A defining relative clause identifies which person or thing is intended. It normally has no surrounding commas. Use who for people and which or that for things; preserve the noun reference. Choosing defining rather than non-defining changes the information structure.\n\nExamples:\n- Several analysts applied. The analyst who speaks Arabic was selected. -> The selected analyst is identified by the clause who speaks Arabic.\n- Choose the file. It contains the final figures. -> Choose the file that contains the final figures.\n- I need the tool. It opens this panel. -> I need the tool that opens this panel.\n- The manager approved the budget. She leads the project. -> The manager who leads the project approved the budget.\n\nBoundary (incorrect example; do not imitate):\nIf there is only one already identified sister, adding identifying information without commas may imply a different context.\nWhy incorrect: Defining and parenthetical clauses assume different identification contexts.\n\nTags: sentence_transformation, complex_sentence_combination, relative_clause, transformation, sentence, daily",
+      "4201ea6b115f6a421bef491c8f76720580fa2660f603beb02a1fe5365b51e9e1": "Title: Casual sentence vs formal rewrite\nWhen to use: Use for a whole-sentence register change without a more specific domain or grammatical target.\n\nExplanation: Rewrite the sentence in a neutral professional tone while keeping its propositions intact. Do not add evidence, deadlines, magnitude, or completed actions. Formality does not require passive voice or abstract nouns.\n\nExamples:\n- We can't attend because we're busy. -> We cannot attend because we are busy.\n- They messed up the schedule. -> They made errors in the schedule.\n- We added a search option. -> We implemented a search option.\n- I think you should probably reconsider this. -> I would recommend reconsidering this course of action.\n\nBoundary (incorrect example; do not imitate):\nOriginal: We added a feature. Bad rewrite: We deployed a feature. Implementation does not establish deployment.\nWhy incorrect: Adding a feature does not establish that it was released to users.\n\nTags: formal_register, sentence_transformation, transformation, sentence, work, daily, rewrite",
+      "db412a08c2d69a286c907e740de40c7595d5deb90262330b9978f0d4a4fb9717": "Title: Wordy formal phrasing vs concise formal phrasing\nWhen to use: Use when concision is explicitly requested; register alone is not a request for maximum compression.\n\nExplanation: Remove wording that contributes no necessary meaning, retaining agency, conditions, and uncertainty. A shorter active formulation can remain professional. Do not omit facts simply to reduce word count.\n\nExamples:\n- At this point in time, we need a decision. -> We need a decision now.\n- We met for the purpose of planning. -> We met to plan.\n- Due to the fact that it rained, we stayed. -> Because it rained, we stayed.\n- Due to the fact that the deadline was missed, we lost the contract. -> Because the deadline was missed, we lost the contract.\n\nBoundary (incorrect example; do not imitate):\nOriginal: We may cancel if it rains. Bad rewrite: We will cancel. Both uncertainty and condition are lost.\nWhy incorrect: Preserve both the modal may and the condition if it rains.\n\nTags: formal_register, sentence_transformation, transformation, sentence, daily, rewrite, concise",
+      "069ec009f4ffefb34456427538d7ce8fe2f72eb8343fb60cb6f373ae2108286c": "Title: Conversational phrase vs formal phrase\nWhen to use: Use for an everyday short expression when the request is about tone rather than a specialized term.\n\nExplanation: Restate a conversational phrase in neutral language while preserving its speech act: request, apology, promise, or statement. Do not turn a suggestion into a command or add a deadline to a promise.\n\nExamples:\n- I don't understand that. -> I do not understand that point.\n- I'll reply later. -> I will respond later.\n- Sorry, that was my mistake. -> I apologize for my mistake.\n- Let's talk about this later. -> I suggest we revisit this matter at a later time.\n\nBoundary (incorrect example; do not imitate):\nOriginal: I will reply. Bad rewrite: I will reply immediately. The time commitment was added.\nWhy incorrect: Adding immediately creates a new time commitment.\n\nTags: phrase_idiom, formal_register, translation, phrase, work, daily",
+      "bdb1ffe067556436da78e6fc4ac0ca6a60bc458d24fff81e0c41a2a3549f765f": "Title: Domain commentary style vs everyday wording\nWhen to use: Use for a sentence-level commentary or technical-report rewrite with an event description; prefer explicit grammar notes for structural tasks.\n\nExplanation: Describe the same event using wording suited to a report. Domain context helps choose expressions, but does not supply new facts. Keep observed actions separate from evaluations and causes that were not stated.\n\nExamples:\n- The site stopped working after the update. -> The site became unavailable after the update.\n- The player ran very fast. -> The player ran at high speed.\n- The team made mistakes during the release. -> The team committed errors during the release.\n- He ran really fast to the finish line. -> He ran at high speed to the finish line.\n\nBoundary (incorrect example; do not imitate):\nOriginal: The site stopped after an update. Bad rewrite: The update caused the outage. Sequence alone does not establish cause.\nWhy incorrect: Temporal order does not by itself establish causation.\n\nTags: formal_register, sentence_transformation, translation, transformation, sentence, sport, tech, work",
+      "1332ae2fc251b03991070bc1eabd7058157d4a72a14596c1bc2bdeef8995be93": "Title: Casual workplace language vs formal business language\nWhen to use: Use for workplace sentence rewrites such as target reports and email openings; use the phrase note for short interaction formulas.\n\nExplanation: For workplace reports, make the actor, action, and limits of the claim clear. Choose professional wording without implying that all business writing must be impersonal. Retain hedging where the speaker is uncertain.\n\nExamples:\n- We did not hit the target. -> We did not meet the target.\n- I am checking on the request. -> I am following up on the request.\n- She runs the branch. -> She manages the branch.\n- We didn't hit our targets this quarter. -> We did not meet our targets this quarter.\n\nBoundary (incorrect example; do not imitate):\nOriginal: We think the delay is temporary. Bad rewrite: The delay is temporary. The confidence changed.\nWhy incorrect: Removing we think strengthens the level of certainty.\n\nTags: formal_register, sentence_transformation, transformation, sentence, work, rewrite",
+      "32e91011aba668399a2add801ad84dc6f4a76eb6afd9b13ea41eedb601cce9cc": "Title: Everyday language vs academic register\nWhen to use: Use for claims, interpretations, and scholarly argument; use education register for reports of grades, lectures, or institutional activity.\n\nExplanation: Academic phrasing should match the strength of the supplied evidence. A belief is not a finding, and a limited observation is not a universal law. First person is not universally prohibited; conventions depend on discipline and task.\n\nExamples:\n- We think this explanation is possible. -> We consider this explanation plausible.\n- This may be why the result changed. -> This may explain the change in the result.\n- This happened in our three trials. -> This occurred in the three trials we conducted.\n- Everyone knows this doesn't work. -> It is generally known that this approach is ineffective.\n\nBoundary (incorrect example; do not imitate):\nOriginal: We think this works. Bad rewrite: Research proves this works. No research was supplied.\nWhy incorrect: Do not introduce research evidence into a statement of belief.\n\nTags: formal_register, sentence_transformation, transformation, sentence, academic, education, rewrite",
+      "0f3cd0ac254d4f92bbf4a39e6fd21440d3068715c663734894172867e67708a3": "Title: Casual money talk vs formal financial language\nWhen to use: Use for a complete financial-report sentence, not for defining an accounting term or giving financial advice.\n\nExplanation: In a report about money, preserve the stated quantity, period, and kind of change. Do not infer an accounting category from an informal remark. Clear wording is preferable to unsupported precision.\n\nExamples:\n- The price went up a lot. -> The price increased substantially.\n- We spent less this month. -> Our spending decreased this month.\n- The company lost money last year. -> The company incurred a financial loss last year.\n- We lost a lot of money this year. -> We incurred substantial financial losses this year.\n\nBoundary (incorrect example; do not imitate):\nOriginal: Spending increased. Bad rewrite: Spending exceeded the budget. The budget comparison was not given.\nWhy incorrect: A spending increase is not a comparison against a budget.\n\nTags: formal_register, sentence_transformation, transformation, sentence, money, finance, rewrite",
+      "e95d78d1c0c1b070e4dfa910fbee346ed214736b6662402f31ac7ab7a8ff8fd0": "Title: Everyday health language vs formal medical language\nWhen to use: Use for tone in symptom descriptions; this note does not diagnose conditions or recommend care.\n\nExplanation: Preserve the symptom and the speaker in a health-related rewrite. Plain symptom descriptions can already be appropriate. Do not convert everyday uncertainty into a diagnosis or substitute a related medical condition.\n\nExamples:\n- I have a very bad headache. -> I have a severe headache.\n- She is tired all the time. -> She experiences persistent tiredness.\n- My stomach hurts. -> I have stomach pain.\n- She's really tired all the time. -> She experiences persistent fatigue.\n\nBoundary (incorrect example; do not imitate):\nOriginal: I feel dizzy. Bad rewrite: I have vertigo. A general symptom does not establish that specific condition.\nWhy incorrect: Keep the stated symptom; the source does not establish a specific condition.\n\nTags: formal_register, sentence_transformation, transformation, sentence, health, rewrite",
+      "2ce21481eff40e9731b280d3f884ee6c4818141b1176edd3b40aef2405e93a3d": "Title: Casual observation vs formal scientific description\nWhen to use: Use for experimental observations and research reports, not for a general request to define a scientific term.\n\nExplanation: Report observations and interpretations separately. A rewrite must not invent statistical tests, significance, mechanisms, or support for a hypothesis. Active voice and first person may be appropriate; follow the relevant publication or course convention.\n\nExamples:\n- We noticed an unexpected change. -> We observed an unexpected change.\n- The test ran as planned. -> The test proceeded as planned.\n- We do not know why the signal changed. -> The reason for the signal change remains unknown.\n- The experiment worked. -> The experiment functioned as intended.\n\nBoundary (incorrect example; do not imitate):\nOriginal: Scores improved. Bad rewrite: Scores improved significantly. Statistical significance was not established.\nWhy incorrect: Do not imply a statistical result without a stated test and evidence.\n\nTags: formal_register, sentence_transformation, transformation, sentence, science, academic, rewrite",
+      "4cd6697c3fe7a11476b5d2ea53d4fb1c99cd0eac3ad1c771c0ade859f8d06b54": "Title: Casual food description vs formal culinary language\nWhen to use: Use for culinary description rewrites; not as a recipe, food-safety rule, or cooking-method dictionary.\n\nExplanation: For a food description, retain the stated taste, texture, and preparation. Do not infer ingredients, measured temperatures, or cooking methods. Specific descriptions help only when the source supports them.\n\nExamples:\n- The soup has a thick consistency. -> The soup is thick.\n- The sauce tastes sour. -> The sauce has a sour taste.\n- The bread feels soft. -> The bread has a soft texture.\n- The steak was cooked just right. -> The steak was cooked to the desired degree of doneness.\n\nBoundary (incorrect example; do not imitate):\nOriginal: The fish is cooked. Bad rewrite: The fish was poached. The cooking method is unknown.\nWhy incorrect: Cooked does not specify the cooking method.\n\nTags: formal_register, sentence_transformation, transformation, sentence, food, rewrite",
+      "226ddcacb69ebe97c65aa3528819e0efc2e0d23e8a4b2c23b72b3a6fcc2af1cd": "Title: Informal work phrase vs formal workplace alternative\nWhen to use: Use for short workplace interaction phrases; use the workplace sentence note for reports of organizational facts.\n\nExplanation: Preserve the intent of workplace interaction: follow up, request a response, close a meeting, or acknowledge an idea. Politeness does not require a long formula. Keep urgency only when originally stated.\n\nExamples:\n- Let us finish the meeting. -> Let us bring the meeting to a close.\n- Please reply about the schedule. -> Please respond regarding the schedule.\n- That is a useful suggestion. -> That is a useful proposal.\n- That's a great idea. -> That is an excellent idea.\n\nBoundary (incorrect example; do not imitate):\nOriginal: Please reply when you can. Bad rewrite: Respond today. The deadline and politeness changed.\nWhy incorrect: Preserve the flexible timing and the original request tone.\n\nTags: phrase_idiom, formal_register, translation, phrase, work",
+      "996c6e4094e437d9624f95d7beaa398746b8741c1c5916081dbe9c67950756e5": "Title: Informal sport phrase vs formal sports commentary phrase\nWhen to use: Use for phrase-level sport reporting; use sport sentence guidance for a full performance description.\n\nExplanation: Rephrase a short sporting expression while retaining the prediction, result, and confidence level. A professional report need not exaggerate athletic performance.\n\nExamples:\n- They may win. -> Victory is possible for them.\n- They are likely to lose. -> They are expected to lose.\n- The match is over. -> The match has ended.\n- They're going to lose. -> They are expected to lose.\n\nBoundary (incorrect example; do not imitate):\nOriginal: They may win. Bad rewrite: They will win. A possibility became a certainty.\nWhy incorrect: May expresses possibility; will asserts a predicted outcome more strongly.\n\nTags: phrase_idiom, formal_register, translation, phrase, sport",
+      "3e1c83b4bb1770ec18418132290f63e1dc10f9d1a6cc4621bcbb156ead921545": "Title: Informal health phrase vs formal medical phrase\nWhen to use: Use for short symptom expressions; not treatment, emergency triage, or symptom interpretation.\n\nExplanation: Use a clear equivalent for the whole health-related phrase without making a diagnosis. Preserve who reports the experience. A reference for language should not imply clinical authority.\n\nExamples:\n- I feel sick to my stomach. -> I feel nauseated.\n- I do not feel well. -> I feel unwell.\n- My head hurts. -> I have a headache.\n- I feel sick to my stomach. -> I am experiencing nausea.\n\nBoundary (incorrect example; do not imitate):\nOriginal: I feel unwell. Bad rewrite: I have an infection. The diagnosis is unsupported.\nWhy incorrect: Feeling unwell is not evidence for a specific diagnosis.\n\nTags: phrase_idiom, formal_register, translation, phrase, health",
+      "1c50e75c30b9ac9f794f3ed6a84bc92bdf987acde384e27c211b89308a5236a2": "Title: Casual money phrase vs formal financial phrase\nWhen to use: Use for informal financial phrases; use the sentence note for full reports and the vocabulary note for defined terms.\n\nExplanation: Restate a short money-related expression without inserting a cause or a new accounting measure. If the informal phrase is ambiguous, ask what it refers to before choosing a specialized term.\n\nExamples:\n- We are losing money. -> We are making a financial loss.\n- We need to spend less. -> We need to reduce spending.\n- The price has gone up. -> The price has increased.\n- We're in the red. -> The organization is operating at a deficit.\n\nBoundary (incorrect example; do not imitate):\nOriginal: Money came in. Bad rewrite: Profit increased. Receipts alone do not establish profit.\nWhy incorrect: Money received and profit are different quantities.\n\nTags: phrase_idiom, formal_register, translation, phrase, money, finance",
+      "e1caaa900257908d020f1e89d89621678244f8e8acaba641c398421dfaa80020": "Title: Vague adjective vs precise adjective\nWhen to use: Use for contextual adjective substitutions; a request for formality alone does not establish a new quality.\n\nExplanation: An adjective describes a particular dimension: size, severity, clarity, or importance. Choose the intended dimension from the context rather than replacing every vague adjective with a stronger one.\n\nExamples:\n- The instructions are [easy to understand]. -> The instructions are clear.\n- The timetable is [not clear]. -> The timetable is unclear.\n- The error is [very serious]. -> The error is severe.\n- The plan has a [bad] flaw. -> The plan has a critical flaw.\n\nBoundary (incorrect example; do not imitate):\nOriginal: A large building. Bad rewrite: An important building. Size and importance are different dimensions.\nWhy incorrect: A physical size adjective cannot be replaced with an importance judgment.\n\nTags: advanced_synonym_precision, substitution, sentence, daily, work, sport",
+      "fed3960df85ad7ed9f162434e003e2589ec91c418f13cdc118ed6d3c6cc07b4c": "Title: Generic sport description vs precise sports term\nWhen to use: Use for contextual sport vocabulary, not an unsupported claim about a score or achievement.\n\nExplanation: Choose a sporting expression only when its meaning is supplied by the task. Admission of defeat, loss of a match, and conceding a goal are different events. Do not infer a record from a general description of good performance.\n\nExamples:\n- a session for practicing a sport -> a training session\n- admit defeat in a contest -> concede defeat\n- the points recorded for each side -> the score\n- win (verb) -> triumph\n\nBoundary (incorrect example; do not imitate):\nOriginal: The runner did well. Bad rewrite: The runner set a personal best. No record comparison was given.\nWhy incorrect: Good performance does not establish a personal record.\n\nTags: advanced_synonym_precision, topic_specific_vocab, substitution, sentence, sport, vocab",
+      "b784b7daaad60684ef0acdd7a6277675b11b2cb09b89372b3d2204e2742c37c5": "Title: Generic description vs precise technical term\nWhen to use: Use for software-operation vocabulary with enough context; do not infer a root cause from an outage.\n\nExplanation: Use technical terms according to the described operation. Testing, reviewing, deploying, and optimizing are not interchangeable improvements in formality. Preserve whether the source states an action, outcome, or symptom.\n\nExamples:\n- The process stopped unexpectedly. -> The process terminated unexpectedly.\n- We need to fix the defect. -> We need to resolve the defect.\n- Make execution faster. -> Improve execution speed.\n- The app [crashed]. -> The app terminated unexpectedly.\n\nBoundary (incorrect example; do not imitate):\nOriginal: The program was implemented. Bad rewrite: The program was deployed. Implementation does not entail release.\nWhy incorrect: Building software and releasing it are different lifecycle events.\n\nTags: advanced_synonym_precision, topic_specific_vocab, substitution, sentence, tech, vocab",
+      "b34f9f6bc98e5832c4f1596ecc8a238857ae6285beb3e13d10e52a13cccea9e7": "Title: Everyday work word vs precise business term\nWhen to use: Use for workplace vocabulary with a defined action or purpose, not general email tone.\n\nExplanation: Professional terms may name different activities rather than stronger synonyms. A consultation seeks advice; not every meeting does. State the context needed for the target term and preserve participants.\n\nExamples:\n- work together on a task -> collaborate on a task\n- a meeting to seek advice -> a consultation\n- leave a project voluntarily -> withdraw from a project\n- meeting to seek professional advice (noun) -> consultation\n\nBoundary (incorrect example; do not imitate):\nOriginal: A meeting occurred. Bad rewrite: A consultation occurred. The purpose of the meeting was not stated.\nWhy incorrect: A consultation implies an advice-seeking purpose absent from a generic meeting.\n\nTags: advanced_synonym_precision, topic_specific_vocab, substitution, sentence, work, vocab",
+      "334b56aa20f0679e7157d674a5c47eaddbd12d6054112b037834441e3b2fe299": "Title: Common everyday word vs advanced precise synonym\nWhen to use: Use for standalone vocabulary and sense restrictions; prefer a more specific note when a structural or domain objective is explicit.\n\nExplanation: Word choice depends on sense, grammatical frame, and collocation. Context-free synonym cards practice possible associations, not universal substitutions. Insert a proposed answer into a sentence before claiming it is equivalent.\n\nExamples:\n- begin a procedure -> start a procedure\n- finish a meeting -> conclude a meeting\n- change part of a document -> modify part of a document\n- start (verb) -> initiate\n\nBoundary (incorrect example; do not imitate):\nOriginal: A fast runner. Bad rewrite: An expeditious runner. The adjective does not fit that ordinary collocation.\nWhy incorrect: Choose an adjective that collocates with the intended noun and sense.\n\nTags: advanced_synonym_precision, topic_specific_vocab, substitution, sentence, daily, education, academic, vocab",
+      "fcb0f4aa088a1909e350b6af1123a46ee675b64b6889097afb18ab9cdc3087d6": "Title: Two sentences vs non-restrictive relative clause\nWhen to use: Use when extra information is parenthetical, not necessary to identify the noun.\n\nExplanation: A non-defining relative clause adds parenthetical information about an already identified referent. Separate an inserted clause with two commas and keep a relative pronoun such as who or which; do not use that. Contrast this with a defining clause that selects a referent.\n\nExamples:\n- Asha lives in Leeds. She designed this logo. -> Asha, who designed this logo, lives in Leeds.\n- This single invoice is overdue. It arrived on Friday. -> This invoice, which arrived on Friday, is overdue.\n- Our only office has reopened. It closed in May. -> Our only office, which closed in May, has reopened.\n\nBoundary (incorrect example; do not imitate):\nBad: Asha, that designed the logo, lives in Leeds. Use who, not that, in this parenthetical clause.\nWhy incorrect: Parenthetical relative clauses do not allow that as their relative pronoun.\n\nTags: sentence_transformation, complex_sentence_combination, relative_clause, non_restrictive, transformation, sentence, daily",
+      "6aaad10258cc851bf2806d3d9dbe3dacf65971f5c2c88d5207377049fc079d0f": "Title: Casual conditional vs formal inverted conditional\nWhen to use: Use only for an explicit inverted-conditional task; ordinary if conditionals remain valid.\n\nExplanation: Conditional inversion can replace if with should, were, or had. Keep the condition type and time reference: should plus base verb, were to for a hypothetical action, and had plus past participle for a past counterfactual. Inversion changes register and can affect perceived likelihood.\n\nExamples:\n- If you should need a receipt, ask me. -> Should you need a receipt, ask me.\n- If the system were to fail, we would stop. -> Were the system to fail, we would stop.\n- If I had known, I would have called. -> Had I known, I would have called.\n\nBoundary (incorrect example; do not imitate):\nBad: If should you need help, call. Do not retain if in the inverted form.\nWhy incorrect: Inverted conditional syntax replaces if rather than adding inversion after it.\n\nTags: formal_register, sentence_transformation, transformation, sentence, work, academic, conditional",
+      "ea2b451cf4e563dad7905b4659065d336c7d0a9d2af40f8b1a5a565f8ee876d3": "Title: Verb phrase vs nominalized form\nWhen to use: Use for an explicit verb-to-noun transformation, not as a synonym for passive voice.\n\nExplanation: Nominalization expresses an action through a noun, such as approval or revision. It can help discuss a process as a topic, but often adds words or hides the actor. Preserve the actor when it matters; a noun-based version is not automatically better writing.\n\nExamples:\n- The board approved the plan. -> The board gave approval to the plan.\n- We revised the schedule. -> We made a revision to the schedule.\n- They investigated the error. -> They conducted an investigation into the error.\n\nBoundary (incorrect example; do not imitate):\nOriginal: The board approved it. Bad rewrite: Approval occurred. Responsibility is lost.\nWhy incorrect: Nominalization should retain the responsible actor when that actor matters.\n\nTags: formal_register, sentence_transformation, transformation, sentence, work, academic, nominalization",
+      "a31feeabd0d55538268bd55feadf28e9b4a54a06981d8e42b4ca79ad5fb2f885": "Title: Casual sport report vs formal sport reporting language\nWhen to use: Use for full sentences about sporting performance rather than short predictions or sport terminology.\n\nExplanation: Report an athletic performance with the same level of detail and certainty as the source. Clear journalistic prose need not add composure, teamwork, or records when they were not described.\n\nExamples:\n- She played very well under pressure. -> She performed very well under pressure.\n- The team won by three points. -> The team secured a three-point victory.\n- The players made several mistakes. -> The players made several errors.\n- She played really well under pressure. -> She performed very well under pressure.\n\nBoundary (incorrect example; do not imitate):\nOriginal: The player performed well. Bad rewrite: The player broke the league record. The achievement is unsupported.\nWhy incorrect: A record requires comparison evidence, not a general positive assessment.\n\nTags: formal_register, sentence_transformation, transformation, sentence, sport, rewrite",
+      "cf698c2584450df1f677f42a920fb12947ba07a7b867b9c9158a0bbf27e6c2e7": "Title: Informal education language vs formal academic register\nWhen to use: Use for institutional or classroom reports; use academic register for reasoning about evidence and claims.\n\nExplanation: Report educational experiences without adding causal claims, learning gains, or institutional status. Grades, student reactions, and comprehension difficulties describe different outcomes.\n\nExamples:\n- I got a low grade. -> I received a low grade.\n- The lecture was hard to understand. -> The lecture was difficult to understand.\n- The students liked the session. -> The students enjoyed the session.\n- This book is really hard to understand. -> This text presents considerable interpretive challenges.\n\nBoundary (incorrect example; do not imitate):\nOriginal: Students enjoyed the lesson. Bad rewrite: Students learned more. Enjoyment does not establish learning.\nWhy incorrect: Enjoyment and learning are distinct outcomes.\n\nTags: formal_register, sentence_transformation, transformation, sentence, education, academic, rewrite, institutional_reporting",
+      "2c6d8223be006e4af3b802df8c25d4d633f1508bacb5bdf36560a99d55fb22f4": "Title: Everyday money word vs precise financial term\nWhen to use: Use for a defined financial vocabulary task; this note is not a complete accounting reference or financial advice.\n\nExplanation: Financial labels require a specified meaning. A broad category and one example of it are not interchangeable in every sentence. Where the prompt is underspecified, explain the missing distinction instead of supplying artificial certainty.\n\nExamples:\n- spend less money -> reduce spending\n- recover money previously lost -> recoup the money\n- an increase in the price -> a price increase\n- money earned from sales before expenses (noun) -> revenue\n\nBoundary (incorrect example; do not imitate):\nOriginal: Money was received. Bad rewrite: A profit was earned. Receipts alone do not establish a profit.\nWhy incorrect: Receipts alone do not establish that revenue exceeded relevant costs.\n\nTags: advanced_synonym_precision, topic_specific_vocab, substitution, sentence, money, finance, vocab",
+      "86f84ddc29eeff38de0e90266efc9b3ca8c84c57b131bf3001791925d887ca01": "Question: Would using request instead of ask make my chat with a teammate inherently more correct?",
+      "c6ce65e156fd52f36babc46f362aab165d59e8a3dc899f340dcba78660900e72": "Question: Can I replace run with operate in the phrase run a fever?",
+      "60ae82307d46087a38b1b09659979b0b9a4ef25e9c344b07259ad40e25779fb9": "Question: Does collapsing this phrase into a verb keep the action?\nCard prompt: The inspector made a recommendation for repairs.\nCard answer: The inspector recommended repairs.",
+      "064039001589a22a76e0f9e641e8d1cb92a4b1223eb8fdcb79aa2ac5f1b3b981": "Question: The files were not deleted by Luis. When I put Luis first, which tense and negative must I keep?",
+      "5103c88158dd4df6d1fb7aca4eb4994234dcc154532cb21b170da2874495abf4": "Question: After feeding the kitten, the cupboard was closed by Eva. Who does the opening phrase grammatically attach to?",
+      "717d46b7c4f03de5bd3910a5298d52eec3861de28931fe0946063ff4faae493f": "Question: I own six mugs, and only two have blue handles. How do I attach a clause that selects those two?",
+      "da395e0a907789c53af2e081cd5008de4981ec91fa2837e72be521167945519f": "Question: Does my business-style rewrite preserve the fact that the change was only proposed?\nCard prompt: We suggested a new layout.\nCard answer: We introduced a new layout.",
+      "b9989304ea38e4b85f64d1672112dcfe113eefcc5c1c0cf938d8d9d8387514f1": "Question: Could I shorten this while preserving both who acts and when?\nCard prompt: At such time as payment arrives, the clerk will issue the receipt.",
+      "7ffec8eb308c84eea0edfc1b52a6f3600f008c3f66eeebaa1f0043f0db3f1aa4": "Question: I want a neutral equivalent for Thanks for bearing with me. Would Please wait change its purpose?",
+      "97e185c5c807c26537699db63010c2fc7bdfb49063aaf6164c3c6cf9c3ea80a0": "Question: A reporter saw a delivery arrive after a traffic diversion. Can the report call the diversion the reason for the arrival time?",
+      "75b20ac7635d1351a94203d272e0522031a9543d72ac52ea0727ad1fe0db42c5": "Question: Does an update for executives allow me to drop the qualification in this sentence?\nCard prompt: Our team estimates that the migration could finish in June.",
+      "fbe07b0f7a674c9384abb3adab776417651526e0faf19d2cd90fe8a537e80c4e": "Question: A small interview study found a preference among its volunteers. Does academic tone let me call that a preference shared by everyone?",
+      "692aa96bc638c862bb64c3752fc677e6816b5df5e24eddba2c1e7049ac7e8a34": "Question: Can I describe a quarterly increase in sales receipts as an annual increase in earnings?",
+      "0db569c23f23e4fd63ebf72da9fe4637d992d9101c7a70dd2a7e33d787b2c3a6": "Question: For wording only, is it accurate to change a patient-reported sore throat into a confirmed throat infection?",
+      "714cf11993f3e47fc57311d2efceee2024950beef9e83a474703663e27cca509": "Question: We observed bubbles after heating a liquid. May scientific wording assert the precise chemical reaction without further evidence?",
+      "aec9cfefe4b55e184ab2e0054979be2aa22446b0fd1ade9520faea416c786035": "Question: Does describing a crust as crisp tell the reader that it was deep-fried?",
+      "b4b65299e5e4a4e2e0b0861ea52eb512f2b4ab9403698a47f4e8a1ff64710e0a": "Question: I want a professional way to ask someone to get back to me at their convenience. Can I add by 9 am?",
+      "f971c20e1b11dc5b53a94d8d40e16078877dbd2e8203e0f50c701162140a3879": "Question: Would a sports commentator preserve the prediction by turning could reach the final into will reach the final?",
+      "56b44469a62de29c643382ee616f237fc58b86b1f20dc2374c07731dc25098e1": "Question: As an English phrase, does feeling washed out tell us a specific illness or simply describe how someone feels?",
+      "b865dc3e91e33fd2b98306edea7d0bf0b4a89957cd78f5195c53e1896fdbcea4": "Question: Our treasurer said funds are tight. Do I need more detail before paraphrasing that as the organisation is insolvent?",
+      "ed0926ddddbf997c53eb730e8ff036a89e61eb5b3da9f8f2634f15a3bf6f8ddd": "Question: When I say a heavy suitcase, does serious suitcase preserve the quality described?",
+      "9a8bbc93e6c2878ffe7f33a028a83bcc86d412c377e37e6d35012277e1f5377a": "Question: If a tennis player lost one point, can I describe that alone as conceding the match?",
+      "cda955988018a5e2391f580530c7d19a2bbb3f8323dfba5a77ce19be56714cd3": "Question: A patch was inspected by the reviewer. Is that enough to write that the patch was optimized?",
+      "2e467cd017ffd97d7df0cac167019f6abe56a48afaa6051b0a0d5792e82aa720": "Question: Is a town-hall presentation necessarily a consultation when the audience supplies no advice?",
+      "7e80a7ed3d1c764c5db7c67cdcf54d4598411d7070c76853d99f53f77e31189a": "Question: Is weighty rain an ordinary replacement for heavy rain just because the adjectives share a dictionary meaning?",
+      "f5231b37c96cd45989b1eb90877cc3f9d77149d211287eeb1bbebf3c327a451c": "Question: The reader already knows which telescope I mean. How should I punctuate an inserted which-clause adding its age?",
+      "3c1341018b479aa5503e7425f3a7fc88bd9dd252e853b6332adbb8d55b074eda": "Question: How can I remove if while retaining the hypothetical condition in If the editor were to object, we would revise it?",
+      "6cc91b7bf2a1c1a5c732a5dabd1d7b7f4d76342844e093501a33e045caa67c8c": "Question: What information gets obscured if the sentence The trustees authorized the purchase becomes Authorization of the purchase was granted?",
+      "d3ccc79817a5274a19e73717a99b5151f6f092ecd8758e9051e2505be7fbe41e": "Question: Can a formal account of a good defensive performance add that the defenders showed exceptional teamwork when that was never observed?",
+      "2ca9be2ef3f5fc0e5ca1634f964587f1df3bc1a99dbd8138cf3f10bb6d4db3b2": "Question: Does a high attendance figure justify rewriting the course report as evidence that learners understood the material?",
+      "733b426f8bffd747f6a86fba0eeacd84ffd9d4b1021b80e948bb663af809bf49": "Question: Can financial vocabulary treat a customer deposit as profit before costs or repayment obligations are known?",
+      "f8a87e0a3bc8c9c950863babc7bfbd5bbe5dde622ba47a3f04dbf403070768e0": "Question: Why should I keep might here?\nCard prompt: The contractor might complete the inspection this week.\nCard answer: The contractor might complete the inspection this week.",
+      "8986360abe280078aa470fa90aef8d3da87d420bc496c1dca1b9d8cbee310c66": "Question: Why do we say interested in rather than interested on?",
+      "dc44b54685331b45ae1ce90b2f45888594e056c5dc4abee0e202098231dfed38": "Question: Which spelling is standard in Britain, travelling or traveling?",
+      "8c7d731c5e4be4290b22be55e8c56f528939114372fcbcb0c0d6935085a31285": "Question: Can whom be omitted when it is the object of a defining clause?",
+      "0c5ebe1efd29267f9ff1cc4b8b6383b4f2f53f735aa78cacb44c5453a0d98f1e": "Question: How do I put a direct quotation inside another quotation in American punctuation?",
+      "236664bba0d3949016d75caa8362675ab77ce581963662c006d9278a583f54c0": "Question: What is the plural form of criterion?",
+      "718432604e4e075f98585abc74b2f1e5664ebc86238933b3ed50109b028501df": "Question: When should an adjective take more instead of an er ending?",
+      "32b810fe8f7ae39d082aefc8abb41af354d7c54f399d2520ae6bdf329920f5f8": "Question: Does neither of the boxes take a singular verb or a plural verb?",
+      "5b5cdd458081f18046ec414cc12c3868838f593e6d53851bc510531410e83699": "Question: How is the past perfect continuous formed?",
+      "dc2c492f70db77a7a0f8d5340f10c970e6603709443da1394666b4d7a2dd239c": "Question: Is the final sound of walked pronounced like t or d?",
+      "31db006d2ab29667e90c78aa22b2259b5d5fa62f6aa5c81f5463e0a465a5ace9": "Question: What is the difference between a prefix and a suffix?",
+      "424244782d91fecb31bc470dcf2df90c1e90d22290904ed130110b440254dee1": "Question: Why is the word circled in red a mistake?",
+      "5f3dadac190948cfeab61bab162375136039f762f979e51b648ffd63c39bcbc9": "Question: Which of my two rewrites keeps the original meaning?",
+      "bc2b259b5a812ec150d11b9492f232c6d9339b588c83bd2ee36e8c48c5eaf5c1": "Question: Could you explain the rule used in the example above?",
+      "d5bf3737ea2015530fb3aede032a54cb91b9ec23ebdc3918d40163ef899faa32": "Question: Does the underlined expression sound natural?",
+      "6839c3c882b25e06fb7bb50dbe25526156a2269076928aa48cd77b707d447872": "Question: What should replace the blank in my sentence?",
+      "c77a8bcf067f95a33bac920a60bcddc0fabdf48775f097916db8b41449daffc4": "Question: Why did the tutor cross out my last word?",
+      "97c52fcde5c976aa3a3e7b77c02e7b91cdf62be648a63234eada79faea1b1f7a": "Question: Which dental clinic has an appointment available this afternoon?",
+      "ea9ae64943d873fa19295777803996f9b342be8e3fb79c680c0d009794b40b5d": "Question: Which dental clinic has an appointment available this afternoon?\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot.",
+      "6ac5c1b9f4db10733167f22ebbc5c5c0118108f81300f4539af25fcd6c3d29a2": "Question: Should I sell my shares before the next earnings announcement?",
+      "f08c4acba3c784375401b02537a8954ee942e3b921c0e214ec5ef35fe3e5bb94": "Question: Should I sell my shares before the next earnings announcement?\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot.",
+      "bf5ea57d0e9b95d111ed33b0d944ae027be8e9e43f77d637295203bef973ec01": "Question: Calculate the monthly payment on a 300000 dollar mortgage.",
+      "2a5b815a4ff49029113a08736b8b3b38079a2dbb6f51989bd1e6dc5e59ff209a": "Question: Calculate the monthly payment on a 300000 dollar mortgage.\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot.",
+      "ab10323cc8e0a2f2bb1a69f7e7a602c303db8fd06f0274ceef87b83482cd5443": "Question: Give me a shell command that finds the largest files on my computer.",
+      "ad6aefa14d3a492079e60a7e4d5b68477fbeebb0ae9dc5399113774598f3a12e": "Question: Give me a shell command that finds the largest files on my computer.\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot.",
+      "88f57748ba14c4387c584028ad14542612684858c7f8576e23c5929330adc7fb": "Question: How long should I bake a two-kilogram turkey?",
+      "4e2e02dc882ef82636e0ba7117bf70182e0bf08b961429b7c9d3dcff7f3ffdfc": "Question: How long should I bake a two-kilogram turkey?\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot.",
+      "be54e34c4082f2534904488e137770853ab023eaef1f4f3d48be15b99bc1382c": "Question: What is the next bus departure from the airport?",
+      "7714055b8b8937c434e9b9029b031df0053a34e132464e1255a5391ae1257c2a": "Question: What is the next bus departure from the airport?\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot.",
+      "519f8ffe14a7f1a96c461ce635af9e0c670adedb85269b6b9e55df67c0c8ee67": "Question: Which vitamin should I take for persistent fatigue?",
+      "e0002ee5edad3d0518ca04c6f14a787ed4fba97e6c60a15f9ac2bf8336fe0a05": "Question: Which vitamin should I take for persistent fatigue?\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot.",
+      "4eaba74136770eb95407bb9314eeb107b94742c2eb8b065c18ab54729fac5a30": "Question: How can I repair the broken seal on my washing machine?",
+      "aee6175ef893a92a2e26db4c3b90657769681c1f26a8aae00dbbf8ec57d219e3": "Question: How can I repair the broken seal on my washing machine?\nCard instruction: Combine using a non-defining relative clause.\nCard prompt: Mara is our only pilot. Mara owns a glider.\nCard answer: Mara, who owns a glider, is our only pilot."
+    }
+  },
+  "code": {
+    "evidence_gate.py": "3b37aab9fbd78a6da6ac6a2bbe1eacc44c5a1d6a11aee703d59eb55c33f24638",
+    "gate_eval.py": "52d788b042c4f9a6e1fe672e444c172a066958ae11f5cd4ae9f7b37f81ea5c5b",
+    "problem_metrics.py": "e1be295d749cfda016868f55ea3d50a52acd86ea29e0750bbf9dafe435dc50df",
+    "hybrid.py": "10bb34accc0b29652c4330c998d4e35793390c571018123fa0d2ee481eb47d77",
+    "embeddings.py": "7b7f9c95830e6c9729d3f80a97e2802d9dde3ed2013ee0e6b62b50d27ea9e912",
+    "tagger.py": "ff7ac911c195d9deebd794b244f8d0af8eea8c4401a650651e0ee883911d8471",
+    "retrieve.py": "2ab832a8f60eead393b72f31e485e4fbb2d7ffaf645843a8c2ab86dea6693d0d",
+    "loader.py": "7aeceb365f2a7f6c741e77b9994335e4ba84634add04c7150b5b9b8d23b451a2",
+    "manifest.py": "92fd94962eb301e39b5a20908ec9d957a5c9cc677b889566972392da1f1890cd",
+    "retrieval_comparison.py": "6bd3db5c9267be67730851a41da92065a94292cfbd699cb650b644f7c80baac8",
+    "gate_model_eval.py": "1ffadc144f6e3abb84f6d053015420fae89c98691afc403fd0c91cf77a53f105"
+  },
+  "git_revision": "d5b910901bc041c8953fdbe319ad30f0087f2a26",
+  "created_at": "2026-09-16T03:56:31.038618+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "protocol": "Candidate generator fixed; top-five semantic support verification, no threshold tuning on this set.",
+  "targets": {
+    "min_source_precision": 0.9,
+    "min_positive_recall": 0.8,
+    "max_negative_fp": 0.1,
+    "max_infrastructure_error_rate": 0.02
+  },
+  "budget": {
+    "verifier_requests": 64,
+    "max_output_tokens_per_request": 300,
+    "concurrency": 3,
+    "max_embedding_requests": 7
+  }
+}

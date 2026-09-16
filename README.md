@@ -12,7 +12,7 @@ LinguaFlow is a full-stack AI language-learning system built as a portfolio proj
 
 ### RAG engineering case study
 
-**Latest verification result:** the frozen 64-case test reduced false retrieval to **2/32 negatives (6.3%)**, but valid-source recall was **20/32 (62.5%)**, below the 80% release target. The [evidence-gate report](docs/EVIDENCE_GATE_RESULTS_02.md) records the failed gate, precision/coverage tradeoff, and isolated recall experiments. No quality pass is claimed.
+**Latest verification result:** an offline recall candidate recovered valid sources on **25/31 positive requests (80.6%)** in a frozen 65-case test, with **96.2% source precision**. It still **failed release criteria**: 4/65 verification failures and only 1/6 correct missing-context routes. The [evidence-gate report](docs/EVIDENCE_GATE_RESULTS_02.md) preserves earlier failures, development selection, and fresh-test results. The recall candidate remains undeployed.
 
 **Semantic comparison:** [Experiment 02](docs/RETRIEVAL_EXPERIMENT_02.md) now provides bounded embedding collection and offline replay across metadata, BM25, exact-vector, and hybrid arms. Provider run completed: nine requests, 8,589 input tokens. Hybrid with card context selected 26/31 challenge positives with 4/12 false positives; offline replay matched exactly. No serving policy was changed.
 

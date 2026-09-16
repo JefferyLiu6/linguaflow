@@ -63,3 +63,45 @@ The revised trial passed development targets. Verifier-only p50/p95 were 1,329/1
 Select the second GPT-4.1 mini trial without inspecting v3 predictions. Freeze 65 AI-authored cases: 31 positives, 12 unsupported English questions, 6 missing-context requests, and 8 out-of-scope questions tested both without a card and with one unrelated card. Labels include predeclared overlapping alternatives. All labels and rationale are in `agent/knowledge/evaluation/gate-fresh-v3.json`; maximum token Jaccard overlap with prior sets or other nonpaired cases is 0.625. This does not establish semantic independence.
 
 Keep the original joint targets (precision >=90%, recall >=80%, negative false retrieval <=10%, verification errors <=2%). No revisions based on v3 outcomes. Freeze the wrapper source, underlying serving code, corpus, embedding inputs and labels in `gate-fresh-v3-plan.json` and Git before provider execution. Budget: 65 verifier requests, concurrency three, 300 output tokens/request, eight-second verifier deadline, up to seven embedding requests. No generated answers or live learner inputs. Results remain an offline candidate regardless of outcome; this branch is not to be merged or deployed in this task.
+
+## Fresh v3 result: recall recovered, joint release gate still failed
+
+Frozen in `d5b9109` before provider execution. Do not promote this candidate.
+
+| Metric | Hybrid baseline | Selected offline verifier |
+|---|---:|---:|
+| Correct sources / all positive requests | 24/31 (77.4%) | 25/31 (80.6%) |
+| Conditional valid-source recall | 24/31 (77.4%) | 25/29 (86.2%) |
+| Source precision | 24/50 (48.0%) | 25/26 (96.2%) |
+| Negative false retrieval | 23/34 (67.6%) | 1/32 scored (3.1%) |
+| Verification failures | 0/65 | 4/65 (6.2%) |
+| Missing-context clarification | 0/6 | 1/6 |
+| Distractor-card contamination | 8/8 | 0/7 scored pairs |
+
+The conditional metrics exclude verification failures. The end-to-end positive metric includes them and is the more useful measure of whether a learner receives a valid source. Four verification failures comprise three eight-second timeouts and one response-validation failure. Two negative requests failed verification and are not counted as successful semantic abstentions. One of eight distractor pairs had failed requests and is excluded from the paired metric.
+
+The verifier-only p50/p95 was 1,344/4,668 ms (the metric excludes unavailable verdicts; three timeout requests took about eight seconds). Provider usage recorded 130,023 input and 4,145 output tokens; timeout usage is unknown, so token totals and cost estimates are incomplete. No generation requests were made.
+
+The only false retrieval was a context-dependent request asking which of two unspecified options changes meaning. A grammar rule was cited even though the options were absent. Five of six missing-context requests did not receive the intended clarification route. This is a distinct routing failure that precision alone hides. Many out-of-scope requests also took the `not_covered` route, which can invoke general-knowledge generation in the serving implementation; withholding citations does not establish correct scope enforcement.
+
+**Decision:** recall has improved enough to justify further work, but the error-rate gate failed and routing remains inadequate. Do not merge this experiment into serving. Next work should isolate routing from evidence selection within a single bounded call, replace fragile free-text quote copying with validated evidence-span identifiers, and investigate latency failures before selecting a revised timeout. These are hypotheses, not implemented fixes or demonstrated improvements. Do not simply increase the deadline and call the system faster or more reliable.
+
+The 65 cases are now exposed regression data. Any subsequent prompt/schema changes need another untouched test; replays of this run must remain unchanged. Saved-record replay reproduced every decision, metric, slice and bootstrap value. The full Python suite passed with 190 tests and six database-dependent skips; no load test was run.
+
+## Same-case recall regression
+
+After selecting and testing the candidate, replayed the exposed 64-case v2 questions through the revised verifier with cached embeddings. This is a provider-backed regression run, not a fresh holdout or deterministic replay of old verdicts. Valid-source recall increased from **20/32 (62.5%) to 28/32 (87.5%)**. Precision was 28/31 (90.3%); false retrieval was 1/29 scored negatives, with three other negative requests failing verification. Two positive questions received a wrong source and two were withheld. The error rate was 3/64 (4.7%), so the joint gate still failed. Clarification recall remained weak at 1/6. The quality/reliability tradeoff remains visible in `gate-v2-recall-regression-results.json`.
+
+### Replay the selected offline candidate
+
+From `agent/`, at this branch's frozen wrapper revision:
+
+```sh
+python -m retrieval.gate_model_eval replay \
+  --plan runs/gate-fresh-v3-plan.json \
+  --artifact runs/gate-fresh-v3-vectors.json.gz \
+  --records runs/gate-fresh-v3-records.jsonl \
+  --output /tmp/gate-fresh-v3-replay.json
+```
+
+Use a new output path. No API key or provider call is needed for replay. The failed first model comparison uses the wrapper at `51f715c`; the selected second trial uses the wrapper at `e31e911` and later. Original GPT-4o mini runs continue to use `retrieval.gate_eval`.
