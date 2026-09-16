@@ -89,7 +89,7 @@ jobs:
         working-directory: agent
         run: |
           python -m evals.rag.runner replay --plan runs/answer-pilot-v3-plan.json --records runs/answer-pilot-v3-records.jsonl --output runs/ci-answer-eval.json
-          cmp runs/answer-pilot-v3-results.json runs/ci-answer-eval.json
+          python ../scripts/compare_eval_reports.py runs/answer-pilot-v3-results.json runs/ci-answer-eval.json
         # Replays saved public synthetic answers/judgments; no provider or DB calls.
 
       - name: Preserve retrieval evidence

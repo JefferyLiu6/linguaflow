@@ -2,7 +2,7 @@
 
 ## Outcome
 
-**The evaluation pipeline ran; no arm passed the diagnostic quality gate. Nothing was merged or deployed.**
+**The evaluation pipeline ran; no arm passed the diagnostic quality gate. Nothing was merged or deployed to production.**
 
 The frozen pilot contains 12 public synthetic questions across four arms: 48 successful handler responses, comprising 46 model generations and two fixed routing replies. There were 24 live query-embedding calls, 24 read-only pgvector queries, 12 verifier calls and 48 answer-judge calls. Nine judge outputs failed (three rate-limit rejections and six validation failures), leaving 39 scored responses. These missing scores are not random: four occur in the full-corpus arm. Do not rank systems from conditional averages alone.
 
@@ -59,7 +59,7 @@ All pipeline token usage was recorded; the verifier lacks a cached-input breakdo
 - The selected GPT-4.1 judge passed four authored contrast checks, including an injected grading instruction. This is a smoke check, not independent calibration; later pilot failures demonstrate the limitation.
 - Saved-record replay reproduced the entire report byte for byte without provider or database calls.
 - DeepEval 4.2.3 custom-metric adapters reproduced 125 applicable saved scores without extra model calls. These are custom rubric adapters, not the built-in GEval/Faithfulness implementation.
-- Offline agent suite: 201 passed, six disposable-database tests skipped. CI now replays the frozen report and compares it with the committed result.
+- Offline agent suite: 208 passed, six disposable-database tests skipped. CI now replays the frozen report and compares it with the committed result.
 - Langfuse numeric-summary export is implemented and contract-tested, but no local Langfuse credentials are configured; no cloud export/dashboard verification is claimed. Raw questions, answers and contexts are excluded from this export.
 
 ## Decision and limits
@@ -76,3 +76,7 @@ Next evaluation work should improve judge validity and missing-context/scope beh
 - Raw answers, contexts, verdicts, spans and query vectors: `agent/runs/answer-pilot-v3-records.jsonl`
 - Metrics: `agent/runs/answer-pilot-v3-results.json`
 - Judge development: `agent/runs/answer-judge-checks-v1.json`, `v2.json`, `v3.json`
+
+### Cross-version replay check
+
+The first CI replay failed a byte comparison because Python 3.11 and local Python 3.13 summed floating-point costs slightly differently (for example, `0.006939000000000001` versus `0.006939`). Downloaded CI artifacts confirmed identical decisions and metrics apart from floating-point rounding. CI now compares every field with absolute numeric tolerance `1e-12`, zero relative tolerance, and exact booleans, integer counts, keys, hashes and strings. Tests reject material numeric drift, changed decisions, missing keys and non-finite values. No provider outputs, labels, gates or frozen metric code were changed.
