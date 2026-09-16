@@ -23,3 +23,9 @@ Report exact numerators/denominators and Wilson intervals for source precision, 
 Generation uses the existing GPT-4o-mini snapshot. Verifier and judge share GPT-4.1 and therefore may share mistakes; record this explicitly. One bounded optional rate-limit retry exists only in the offline judge. A conservative 5,000-token verifier reservation plus the judge's own reservation share a 24,000-token/minute evaluation pacer; waiting occurs outside tutor timing and is reported separately. Report token-based cost estimates, not an invoice or production load benchmark. No private learner history is used or uploaded; cases are public synthetic text.
 
 Old plans fingerprint old serving code. Replay their original source through `scripts/replay_historical_routing.py` (versions 2–5) and `scripts/replay_frozen_answer.py` instead of changing old hashes to bless new code. Release code and dataset fingerprints must match at replay. No provider calls are made by CI replay.
+
+## Development amendment 2 (before repeat execution)
+
+The first serving-path run completed all 16 requests and judgments. All eight positive sources were correct, but `release_dev_16` inferred an ordered alternative list from the card's prompt/answer fields and answered instead of clarifying. This also caused the precision, false-reference, clarification and faithfulness gates to fail. Preserve v1 unchanged, including the conservative missing-context label; the prompt/answer pair makes this an adversarial role-interpretation case, not an obviously empty context.
+
+The application contract is now explicit: ordinal references require an actual ordered list, while a reference to the card answer can use that answer. The verifier prompt adds this general rule; no question-specific pattern matcher, corpus rule, model or label is changed. Freeze a v2 plan and rerun every development case, not just the failure. The unexecuted fresh test remains untouched by provider outputs.

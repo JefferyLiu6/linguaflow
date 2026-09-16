@@ -80,3 +80,20 @@ def test_release_pipeline_uses_current_serving_policy():
     from evals.release.runner import identity
     assert pipeline.evidence_gate is p
     assert 'agent/study_assist/source_policy.py' in identity()
+
+
+def test_release_gate_keeps_failures_and_missing_routes_in_denominator():
+    from evals.release.runner import summarize
+    c1={'case_id':'positive','acceptable_note_ids':['note'],'expected_behavior':'answer'}
+    c2={'case_id':'negative','acceptable_note_ids':[],'expected_behavior':'clarify'}
+    plan={'dataset':{'cases':[c1,c2]},'arms':['candidate'],'prices_usd_per_million':{},'limitations':[],
+          'targets':{'correctness_mean_min':3,'faithfulness_mean_min':.9,'hallucinated_answer_rate_max':.1,'teaching_mean_min':4,'scope_pass_min':.9,'request_failure_rate_max':.02,'judge_failure_count_max':0},
+          'retrieval_targets':{'precision_min':.9,'recall_min':.8,'negative_fp_max':.1,'required_clarification_min':1,'required_redirect_min':1,'wrong_clarification_max':0}}
+    rows=[{'case':c,'arm':'candidate','status':'error','spans':[],'ranked_candidates':[],'selected_source_ids':[],
+           'raw_selected_source_ids':[],'retrieval_status':'error','routing_reason':'verification_unavailable'} for c in [c1,c2]]
+    r=summarize(plan,rows)
+    assert r['routing_counts']['positive_cases']==1 and r['routing_counts']['correct_sources']==0
+    assert r['routing_counts']['required_clarifications']==1 and r['routing_counts']['correct_clarifications']==0
+    assert r['retrieval_gates']['end_to_end_source_recall'] is False and r['retrieval_gates']['clarification'] is False
+    assert r['acceptance_pass'] is False and r['release_authorized'] is False
+    assert r['summaries']['candidate']['request_failure_rate']==1
