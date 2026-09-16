@@ -1,0 +1,4217 @@
+{
+  "plan_sha256": "a9b3ac1dca7eaf486068d7aaf86e8acefa61751ff76b5a5204ad7c84fed28346",
+  "created_at": "2026-09-16T03:51:53.837479+00:00",
+  "summaries": {
+    "baseline": {
+      "total": 68,
+      "scored": 68,
+      "infrastructure_errors": 0,
+      "infrastructure_error_rate": 0.0,
+      "positive_count": 53,
+      "negative_count": 15,
+      "correct_sources": 42,
+      "false_retrievals": 8,
+      "source_precision": 0.6885245901639344,
+      "source_precision_wilson95": [
+        0.5640856563035855,
+        0.7906256721938473
+      ],
+      "positive_source_recall": 0.7924528301886793,
+      "positive_source_recall_wilson95": [
+        0.6654225529835207,
+        0.8799540197358604
+      ],
+      "negative_false_retrieval_rate": 0.5333333333333333,
+      "negative_fp_wilson95": [
+        0.30116980025498397,
+        0.7519046463426261
+      ],
+      "negative_specificity": 0.4666666666666667,
+      "over_abstention_rate": 0.0,
+      "wrong_source_rate": 0.20754716981132076,
+      "coverage": 0.8970588235294118,
+      "selective_risk": 0.3114754098360656,
+      "harmful_source_rate_all_requests": 0.27941176470588236,
+      "abstention_precision": 1.0,
+      "source_f05": 0.7070707070707071,
+      "balanced_accuracy": 0.6295597484276729,
+      "candidate_recall_at_5": 1.0,
+      "candidate_mrr_at_5": 0.8852201257861635,
+      "clarification_recall": null,
+      "inappropriate_clarification_rate": 0.0,
+      "routing_accuracy": 0.7941176470588235,
+      "decision_counts": {
+        "supported": 61,
+        "not_covered": 7
+      },
+      "end_to_end_correct_source_rate_on_all_positive_requests": 0.7924528301886793,
+      "paired_distractor_cases": 0,
+      "card_contamination_rate": null,
+      "paired_negative_fp_delta": null,
+      "verifier_p50_ms": null,
+      "verifier_p95_ms": null,
+      "verifier_requests": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "verified": {
+      "total": 68,
+      "scored": 55,
+      "infrastructure_errors": 13,
+      "infrastructure_error_rate": 0.19117647058823528,
+      "positive_count": 41,
+      "negative_count": 14,
+      "correct_sources": 34,
+      "false_retrievals": 0,
+      "source_precision": 0.85,
+      "source_precision_wilson95": [
+        0.709276756335103,
+        0.9293881228267964
+      ],
+      "positive_source_recall": 0.8292682926829268,
+      "positive_source_recall_wilson95": [
+        0.6873738759959581,
+        0.91474748022405
+      ],
+      "negative_false_retrieval_rate": 0.0,
+      "negative_fp_wilson95": [
+        1.3877787807814457e-17,
+        0.2153108027376358
+      ],
+      "negative_specificity": 1.0,
+      "over_abstention_rate": 0.024390243902439025,
+      "wrong_source_rate": 0.14634146341463414,
+      "coverage": 0.7272727272727273,
+      "selective_risk": 0.15000000000000002,
+      "harmful_source_rate_all_requests": 0.08823529411764706,
+      "abstention_precision": 0.9333333333333333,
+      "source_f05": 0.845771144278607,
+      "balanced_accuracy": 0.9146341463414633,
+      "candidate_recall_at_5": 1.0,
+      "candidate_mrr_at_5": 0.8678861788617886,
+      "clarification_recall": null,
+      "inappropriate_clarification_rate": 0.0,
+      "routing_accuracy": 0.9090909090909091,
+      "decision_counts": {
+        "supported": 40,
+        "verification_unavailable": 13,
+        "not_covered": 13,
+        "out_of_scope": 2
+      },
+      "end_to_end_correct_source_rate_on_all_positive_requests": 0.6415094339622641,
+      "paired_distractor_cases": 0,
+      "card_contamination_rate": null,
+      "paired_negative_fp_delta": null,
+      "verifier_p50_ms": 1964,
+      "verifier_p95_ms": 2778,
+      "verifier_requests": 68,
+      "input_tokens": 134356,
+      "output_tokens": 8542
+    }
+  },
+  "paired_balanced_accuracy_delta": {
+    "metric": "balanced_accuracy_delta",
+    "delta": 0.28658536585365846,
+    "cluster_bootstrap95": [
+      0.14661654135338345,
+      0.4222689075630252
+    ],
+    "seed": 73193,
+    "resamples": 2000,
+    "interpretation": "Conditional uncertainty for these synthetic scenarios, not population representativeness; shared distractor-card negatives are one cluster; other template correlations may remain."
+  },
+  "slices": {
+    "baseline": {
+      "negative": {
+        "total": 15,
+        "scored": 15,
+        "infrastructure_errors": 0,
+        "infrastructure_error_rate": 0.0,
+        "positive_count": 0,
+        "negative_count": 15,
+        "correct_sources": 0,
+        "false_retrievals": 8,
+        "source_precision": 0.0,
+        "source_precision_wilson95": [
+          0,
+          0.32440756488388023
+        ],
+        "positive_source_recall": null,
+        "positive_source_recall_wilson95": null,
+        "negative_false_retrieval_rate": 0.5333333333333333,
+        "negative_fp_wilson95": [
+          0.30116980025498397,
+          0.7519046463426261
+        ],
+        "negative_specificity": 0.4666666666666667,
+        "over_abstention_rate": null,
+        "wrong_source_rate": null,
+        "coverage": 0.5333333333333333,
+        "selective_risk": 1.0,
+        "harmful_source_rate_all_requests": 0.5333333333333333,
+        "abstention_precision": 1.0,
+        "source_f05": 0.0,
+        "balanced_accuracy": null,
+        "candidate_recall_at_5": null,
+        "candidate_mrr_at_5": null,
+        "clarification_recall": null,
+        "inappropriate_clarification_rate": 0.0,
+        "routing_accuracy": 0.06666666666666667,
+        "decision_counts": {
+          "not_covered": 7,
+          "supported": 8
+        },
+        "end_to_end_correct_source_rate_on_all_positive_requests": null,
+        "paired_distractor_cases": 0,
+        "card_contamination_rate": null,
+        "paired_negative_fp_delta": null,
+        "verifier_p50_ms": null,
+        "verifier_p95_ms": null,
+        "verifier_requests": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "positive": {
+        "total": 53,
+        "scored": 53,
+        "infrastructure_errors": 0,
+        "infrastructure_error_rate": 0.0,
+        "positive_count": 53,
+        "negative_count": 0,
+        "correct_sources": 42,
+        "false_retrievals": 0,
+        "source_precision": 0.7924528301886793,
+        "source_precision_wilson95": [
+          0.6654225529835207,
+          0.8799540197358604
+        ],
+        "positive_source_recall": 0.7924528301886793,
+        "positive_source_recall_wilson95": [
+          0.6654225529835207,
+          0.8799540197358604
+        ],
+        "negative_false_retrieval_rate": null,
+        "negative_fp_wilson95": null,
+        "negative_specificity": null,
+        "over_abstention_rate": 0.0,
+        "wrong_source_rate": 0.20754716981132076,
+        "coverage": 1.0,
+        "selective_risk": 0.2075471698113207,
+        "harmful_source_rate_all_requests": 0.20754716981132076,
+        "abstention_precision": null,
+        "source_f05": 0.7924528301886793,
+        "balanced_accuracy": null,
+        "candidate_recall_at_5": 1.0,
+        "candidate_mrr_at_5": 0.8852201257861635,
+        "clarification_recall": null,
+        "inappropriate_clarification_rate": 0.0,
+        "routing_accuracy": 1.0,
+        "decision_counts": {
+          "supported": 53
+        },
+        "end_to_end_correct_source_rate_on_all_positive_requests": 0.7924528301886793,
+        "paired_distractor_cases": 0,
+        "card_contamination_rate": null,
+        "paired_negative_fp_delta": null,
+        "verifier_p50_ms": null,
+        "verifier_p95_ms": null,
+        "verifier_requests": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    "verified": {
+      "negative": {
+        "total": 15,
+        "scored": 14,
+        "infrastructure_errors": 1,
+        "infrastructure_error_rate": 0.06666666666666667,
+        "positive_count": 0,
+        "negative_count": 14,
+        "correct_sources": 0,
+        "false_retrievals": 0,
+        "source_precision": null,
+        "source_precision_wilson95": null,
+        "positive_source_recall": null,
+        "positive_source_recall_wilson95": null,
+        "negative_false_retrieval_rate": 0.0,
+        "negative_fp_wilson95": [
+          1.3877787807814457e-17,
+          0.2153108027376358
+        ],
+        "negative_specificity": 1.0,
+        "over_abstention_rate": null,
+        "wrong_source_rate": null,
+        "coverage": 0.0,
+        "selective_risk": null,
+        "harmful_source_rate_all_requests": 0.0,
+        "abstention_precision": 1.0,
+        "source_f05": 0.0,
+        "balanced_accuracy": null,
+        "candidate_recall_at_5": null,
+        "candidate_mrr_at_5": null,
+        "clarification_recall": null,
+        "inappropriate_clarification_rate": 0.0,
+        "routing_accuracy": 0.7142857142857143,
+        "decision_counts": {
+          "not_covered": 12,
+          "verification_unavailable": 1,
+          "out_of_scope": 2
+        },
+        "end_to_end_correct_source_rate_on_all_positive_requests": null,
+        "paired_distractor_cases": 0,
+        "card_contamination_rate": null,
+        "paired_negative_fp_delta": null,
+        "verifier_p50_ms": 1402,
+        "verifier_p95_ms": 2002,
+        "verifier_requests": 15,
+        "input_tokens": 29543,
+        "output_tokens": 1336
+      },
+      "positive": {
+        "total": 53,
+        "scored": 41,
+        "infrastructure_errors": 12,
+        "infrastructure_error_rate": 0.22641509433962265,
+        "positive_count": 41,
+        "negative_count": 0,
+        "correct_sources": 34,
+        "false_retrievals": 0,
+        "source_precision": 0.85,
+        "source_precision_wilson95": [
+          0.709276756335103,
+          0.9293881228267964
+        ],
+        "positive_source_recall": 0.8292682926829268,
+        "positive_source_recall_wilson95": [
+          0.6873738759959581,
+          0.91474748022405
+        ],
+        "negative_false_retrieval_rate": null,
+        "negative_fp_wilson95": null,
+        "negative_specificity": null,
+        "over_abstention_rate": 0.024390243902439025,
+        "wrong_source_rate": 0.14634146341463414,
+        "coverage": 0.975609756097561,
+        "selective_risk": 0.15000000000000002,
+        "harmful_source_rate_all_requests": 0.11320754716981132,
+        "abstention_precision": 0.0,
+        "source_f05": 0.845771144278607,
+        "balanced_accuracy": null,
+        "candidate_recall_at_5": 1.0,
+        "candidate_mrr_at_5": 0.8678861788617886,
+        "clarification_recall": null,
+        "inappropriate_clarification_rate": 0.0,
+        "routing_accuracy": 0.975609756097561,
+        "decision_counts": {
+          "supported": 40,
+          "verification_unavailable": 12,
+          "not_covered": 1
+        },
+        "end_to_end_correct_source_rate_on_all_positive_requests": 0.6415094339622641,
+        "paired_distractor_cases": 0,
+        "card_contamination_rate": null,
+        "paired_negative_fp_delta": null,
+        "verifier_p50_ms": 2076,
+        "verifier_p95_ms": 2787,
+        "verifier_requests": 53,
+        "input_tokens": 104813,
+        "output_tokens": 7206
+      }
+    }
+  },
+  "targets": {
+    "min_source_precision": 0.9,
+    "min_positive_recall": 0.8,
+    "max_negative_fp": 0.1,
+    "max_infrastructure_error_rate": 0.02
+  },
+  "passed": false,
+  "baseline_results": [
+    {
+      "case_id": "freeform_formal_001",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "Why does my sentence sound too casual for a professional email?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_001",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Replace the bracketed word with a more formal synonym.",
+        "prompt": "We need to [get] approval first.",
+        "answer": "obtain",
+        "expected_answer": "obtain",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'this is informal' \u2192 formal register note.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_formal_002",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "What's the difference between everyday language and business language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_002",
+        "category": "sentence",
+        "topic": "work",
+        "type": "substitution",
+        "instruction": "Express this casually-worded idea in formal English.",
+        "prompt": "He's really good at his job.",
+        "answer": "He demonstrates exceptional professional competence.",
+        "expected_answer": "He demonstrates exceptional professional competence.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Conceptual question about register \u2192 formal register note.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_formal_003",
+      "scenario_group": "en_work_formal_register",
+      "bucket": "positive",
+      "question": "How do I make this rewrite sound more professional?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_003",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Rewrite in formal business language.",
+        "prompt": "We didn't hit our targets this quarter.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_work_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'make it formal' for work domain \u2192 work formal register.",
+      "selected_note_id": "en_work_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_formal_004",
+      "scenario_group": "en_precise_synonym_choice",
+      "bucket": "positive",
+      "question": "What does it mean to use a precise synonym instead of a vague one?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_004",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Replace the bracketed word with a more formal synonym.",
+        "prompt": "The manager [said] the policy had changed.",
+        "answer": "stated",
+        "expected_answer": "stated",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_precise_synonym_choice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'why this word' \u2192 precise synonym note.",
+      "selected_note_id": "en_precise_synonym_choice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_formal_005",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "Why do I need to replace simple words with fancier ones here?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_005",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Replace the bracketed word with a more formal synonym.",
+        "prompt": "Please [look at] the attached document.",
+        "answer": "review",
+        "expected_answer": "review",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Casual paraphrase of 'why use formal synonyms' \u2192 formal register.",
+      "selected_note_id": "en_general_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_formal_006",
+      "scenario_group": "en_academic_formal_register",
+      "bucket": "positive",
+      "question": "This feels like academic writing \u2014 what's the pattern I'm learning?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_006",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "translation",
+        "instruction": "Paraphrase in academic style.",
+        "prompt": "Everyone knows this doesn't work.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_academic_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Learner identifies academic register \u2192 academic formal register note.",
+      "selected_note_id": "en_academic_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_voice_001",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "How do I flip the subject and the object around in a sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_001",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Transform to passive voice.",
+        "prompt": "The committee reviewed the proposal.",
+        "answer": "The proposal was reviewed by the committee.",
+        "expected_answer": "The proposal was reviewed by the committee.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'flip subject/object' \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_voice_002",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "What grammar rule makes the thing being acted on come first?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_002",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Rewrite using passive voice.",
+        "prompt": "The engineer designed the system.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Description of passive construction \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_voice_003",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "Why would I want to hide who did the action in a sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_003",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Transform to passive voice.",
+        "prompt": "The manager approved the budget.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Motivation for passive voice \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_voice_004",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "What's the difference between the doer and the receiver in a sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_004",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Rewrite in active voice.",
+        "prompt": "The report was submitted by the team.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Doer vs receiver \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_clause_001",
+      "scenario_group": "en_participle_clause_combination",
+      "bucket": "positive",
+      "question": "How do I turn two short sentences into one elegant sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_001",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Combine using a participle clause.",
+        "prompt": "She finished the report. She sent it to the manager.",
+        "answer": "Having finished the report, she sent it to the manager.",
+        "expected_answer": "Having finished the report, she sent it to the manager.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'combine sentences' \u2192 participle clause note.",
+      "selected_note_id": "en_participle_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_clause_002",
+      "scenario_group": "en_participle_clause_combination",
+      "bucket": "positive",
+      "question": "What's the grammar pattern that uses -ing to connect two actions?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_002",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Combine using a participle clause.",
+        "prompt": "He opened the window. He sat down at his desk.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'-ing to connect actions' \u2192 participle clause note.",
+      "selected_note_id": "en_participle_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_clause_003",
+      "scenario_group": "en_non_restrictive_relative_clause",
+      "bucket": "positive",
+      "question": "How do I add a 'which' clause to give extra information about something?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_003",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Add a non-restrictive relative clause.",
+        "prompt": "The conference was very productive. It was held in London.",
+        "answer": "The conference, which was held in London, was very productive.",
+        "expected_answer": "The conference, which was held in London, was very productive.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'which clause for extra info' \u2192 non-restrictive relative clause note.",
+      "selected_note_id": "en_non_restrictive_relative_clause",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_clause_004",
+      "scenario_group": "en_relative_clause_combination",
+      "bucket": "positive",
+      "question": "What does it mean to identify a specific person or thing in a sentence using a clause?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_004",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Combine using a relative clause.",
+        "prompt": "The scientist made the discovery. She won the award.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_relative_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Identifying referents via clause \u2192 relative clause note.",
+      "selected_note_id": "en_relative_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_phrase_001",
+      "scenario_group": "en_work_phrase_formal",
+      "bucket": "positive",
+      "question": "How do I say this workplace phrase in a more professional way?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_001",
+        "category": "phrase",
+        "topic": "work",
+        "type": "substitution",
+        "instruction": "Rephrase as a formal business phrase.",
+        "prompt": "touch base with the team",
+        "answer": "consult with the team",
+        "expected_answer": "consult with the team",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_work_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'professional way to say workplace phrase' \u2192 work phrase formal note.",
+      "selected_note_id": "en_work_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_phrase_002",
+      "scenario_group": "en_sport_phrase_formal",
+      "bucket": "positive",
+      "question": "What's the formal sports journalism way to describe this play?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_002",
+        "category": "phrase",
+        "topic": "sport",
+        "type": "substitution",
+        "instruction": "Rephrase using sports journalism language.",
+        "prompt": "scored a great goal",
+        "answer": "converted a precise finish",
+        "expected_answer": "converted a precise finish",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_sport_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Sports journalism phrasing question \u2192 sport phrase formal note.",
+      "selected_note_id": "en_sport_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_phrase_003",
+      "scenario_group": "en_health_phrase_formal",
+      "bucket": "positive",
+      "question": "How would a doctor or nurse say this instead of everyday language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_003",
+        "category": "phrase",
+        "topic": "health",
+        "type": "substitution",
+        "instruction": "Rephrase using clinical language.",
+        "prompt": "is getting better",
+        "answer": "is showing signs of recovery",
+        "expected_answer": "is showing signs of recovery",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_health_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Clinical phrasing question \u2192 health phrase formal note.",
+      "selected_note_id": "en_health_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_phrase_004",
+      "scenario_group": "en_finance_phrase_formal",
+      "bucket": "positive",
+      "question": "How would a financial analyst phrase this in a report?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_004",
+        "category": "phrase",
+        "topic": "finance",
+        "type": "substitution",
+        "instruction": "Rephrase using financial report language.",
+        "prompt": "money went up a lot",
+        "answer": "revenue increased significantly",
+        "expected_answer": "revenue increased significantly",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_finance_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Financial analyst phrasing question \u2192 finance phrase formal note.",
+      "selected_note_id": "en_finance_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_domain_001",
+      "scenario_group": "en_sport_vocabulary_precision",
+      "bucket": "positive",
+      "question": "What's the precise sports term for this instead of a general description?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_001",
+        "category": "vocab",
+        "topic": "sport",
+        "type": "substitution",
+        "instruction": "Replace with the precise sports term.",
+        "prompt": "kick the ball into the goal",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'precise sport term' freeform \u2192 sport vocab precision note.",
+      "selected_note_id": "en_sport_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_domain_002",
+      "scenario_group": "en_tech_vocabulary_precision",
+      "bucket": "positive",
+      "question": "How do programmers or engineers describe this concept technically?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_002",
+        "category": "vocab",
+        "topic": "tech",
+        "type": "substitution",
+        "instruction": "Replace with the precise technical term.",
+        "prompt": "the program crashed",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'technical engineer term' freeform \u2192 tech vocab precision note.",
+      "selected_note_id": "en_tech_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_domain_003",
+      "scenario_group": "en_general_vocabulary_precision",
+      "bucket": "positive",
+      "question": "What vocabulary would make this sound more academic or scholarly?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_003",
+        "category": "vocab",
+        "topic": "education",
+        "type": "substitution",
+        "instruction": "Give the advanced academic term.",
+        "prompt": "test (noun, academic)",
+        "answer": "assessment",
+        "expected_answer": "assessment",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'academic vocabulary' freeform \u2192 general vocab precision note (authoring match).",
+      "selected_note_id": "en_general_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_domain_004",
+      "scenario_group": "en_science_formal_register",
+      "bucket": "positive",
+      "question": "How do you describe this in proper scientific language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_004",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Rewrite using scientific language.",
+        "prompt": "The air got much hotter near the fire.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_science_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'scientific language' freeform \u2192 science formal register note.",
+      "selected_note_id": "en_science_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_no_hit_001",
+      "scenario_group": "freeform_no_hit_001",
+      "bucket": "negative",
+      "question": "What is the capital of France?",
+      "current_item": {
+        "id": "eval_freeform_freeform_no_hit_001",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Translate to English.",
+        "prompt": "La capital de Francia",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Off-topic geography question should not retrieve any contrast note.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_no_hit_002",
+      "scenario_group": "freeform_no_hit_002",
+      "bucket": "negative",
+      "question": "How many irregular verbs are there in English?",
+      "current_item": {
+        "id": "eval_freeform_freeform_no_hit_002",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Conjugate in past tense.",
+        "prompt": "go",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Grammar trivia question should not retrieve any contrast note.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "freeform_no_hit_003",
+      "scenario_group": "freeform_no_hit_003",
+      "bucket": "negative",
+      "question": "Can you give me a fun fact about language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_no_hit_003",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Translate.",
+        "prompt": "hello",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Off-topic fun fact request should not retrieve any contrast note.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_formal_register_precision",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "Does replacing get with obtain change the tone or the factual claim?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_register_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_precise_synonym_choice",
+      "scenario_group": "en_precise_synonym_choice",
+      "bucket": "positive",
+      "question": "How can I tell whether a replacement word fits the meaning and grammar of this sentence?",
+      "current_item": {
+        "id": "eval_coverage_en_precise_synonym_choice",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_precise_synonym_choice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_general_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_single_precise_verb",
+      "scenario_group": "en_single_precise_verb",
+      "bucket": "positive",
+      "question": "How can I express gave an explanation of using just one verb?",
+      "current_item": {
+        "id": "eval_coverage_en_single_precise_verb",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_single_precise_verb"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_passive_vs_active_voice",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "How do I put the object first while keeping the same tense and people involved?",
+      "current_item": {
+        "id": "eval_coverage_en_passive_vs_active_voice",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": 3,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_participle_clause_combination",
+      "scenario_group": "en_participle_clause_combination",
+      "bucket": "positive",
+      "question": "Who must perform the action in an introductory having-finished phrase?",
+      "current_item": {
+        "id": "eval_coverage_en_participle_clause_combination",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": 4,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_relative_clause_combination",
+      "scenario_group": "en_relative_clause_combination",
+      "bucket": "positive",
+      "question": "How do I identify which of several files I mean using a clause?",
+      "current_item": {
+        "id": "eval_coverage_en_relative_clause_combination",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_relative_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_relative_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_formal_rewrite_sentence",
+      "scenario_group": "en_formal_rewrite_sentence",
+      "bucket": "positive",
+      "question": "How can I rewrite a whole casual sentence without adding facts?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_rewrite_sentence",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_rewrite_sentence",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_concise_formal_rewrite",
+      "scenario_group": "en_concise_formal_rewrite",
+      "bucket": "positive",
+      "question": "Can I shorten due to the fact that without changing the reason?",
+      "current_item": {
+        "id": "eval_coverage_en_concise_formal_rewrite",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_concise_formal_rewrite"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_concise_formal_rewrite",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_formal_phrase_rephrasing",
+      "scenario_group": "en_formal_phrase_rephrasing",
+      "bucket": "positive",
+      "question": "How do I make an everyday apology neutral while preserving its intent?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_phrase_rephrasing",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_commentary_and_domain_register",
+      "scenario_group": "en_commentary_and_domain_register",
+      "bucket": "positive",
+      "question": "Should a report say an update caused an outage if I only know the outage followed it?",
+      "current_item": {
+        "id": "eval_coverage_en_commentary_and_domain_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_commentary_and_domain_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_commentary_and_domain_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_work_formal_register",
+      "scenario_group": "en_work_formal_register",
+      "bucket": "positive",
+      "question": "Does a professional workplace report need to remove uncertainty from a tentative statement?",
+      "current_item": {
+        "id": "eval_coverage_en_work_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_work_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_work_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_academic_formal_register",
+      "scenario_group": "en_academic_formal_register",
+      "bucket": "positive",
+      "question": "Can I turn we think into research proves just to sound scholarly?",
+      "current_item": {
+        "id": "eval_coverage_en_academic_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_academic_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_academic_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_finance_formal_register",
+      "scenario_group": "en_finance_formal_register",
+      "bucket": "positive",
+      "question": "May a financial rewrite say spending exceeded a budget when the original only says spending rose?",
+      "current_item": {
+        "id": "eval_coverage_en_finance_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_finance_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_finance_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_health_formal_register",
+      "scenario_group": "en_health_formal_register",
+      "bucket": "positive",
+      "question": "Should a formal symptom description add a diagnosis?",
+      "current_item": {
+        "id": "eval_coverage_en_health_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_health_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_health_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_science_formal_register",
+      "scenario_group": "en_science_formal_register",
+      "bucket": "positive",
+      "question": "Can I add statistically significant when rewriting a result that only says scores improved?",
+      "current_item": {
+        "id": "eval_coverage_en_science_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_science_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_science_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_food_formal_register",
+      "scenario_group": "en_food_formal_register",
+      "bucket": "positive",
+      "question": "Can I infer a cooking method when a food description only says cooked?",
+      "current_item": {
+        "id": "eval_coverage_en_food_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_food_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_food_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_work_phrase_formal",
+      "scenario_group": "en_work_phrase_formal",
+      "bucket": "positive",
+      "question": "How do I close a meeting politely without adding a deadline?",
+      "current_item": {
+        "id": "eval_coverage_en_work_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_work_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_work_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_sport_phrase_formal",
+      "scenario_group": "en_sport_phrase_formal",
+      "bucket": "positive",
+      "question": "How do I restate a prediction of defeat without making it certain or immediate?",
+      "current_item": {
+        "id": "eval_coverage_en_sport_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_sport_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_sport_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_health_phrase_formal",
+      "scenario_group": "en_health_phrase_formal",
+      "bucket": "positive",
+      "question": "How can I restate sick to my stomach without guessing what illness caused it?",
+      "current_item": {
+        "id": "eval_coverage_en_health_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_health_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_health_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_finance_phrase_formal",
+      "scenario_group": "en_finance_phrase_formal",
+      "bucket": "positive",
+      "question": "How can I express losing money without making an unsupported accounting claim?",
+      "current_item": {
+        "id": "eval_coverage_en_finance_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_finance_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_finance_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_precise_adjective_choice",
+      "scenario_group": "en_precise_adjective_choice",
+      "bucket": "positive",
+      "question": "Why is important not a meaning-preserving replacement for large?",
+      "current_item": {
+        "id": "eval_coverage_en_precise_adjective_choice",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_precise_adjective_choice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_precise_synonym_choice",
+      "decision": "supported",
+      "gold_rank": 3,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_sport_vocabulary_precision",
+      "scenario_group": "en_sport_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Why does doing well in a race not mean setting a personal best?",
+      "current_item": {
+        "id": "eval_coverage_en_sport_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_sport_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_tech_vocabulary_precision",
+      "scenario_group": "en_tech_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Does implementing a feature mean that it has already been deployed?",
+      "current_item": {
+        "id": "eval_coverage_en_tech_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_rewrite_sentence",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_work_vocabulary_precision",
+      "scenario_group": "en_work_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Is every meeting a consultation or does its purpose matter?",
+      "current_item": {
+        "id": "eval_coverage_en_work_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_work_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_work_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_general_vocabulary_precision",
+      "scenario_group": "en_general_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Why is a dictionary synonym not interchangeable in every sentence?",
+      "current_item": {
+        "id": "eval_coverage_en_general_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_precise_synonym_choice",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_non_restrictive_relative_clause",
+      "scenario_group": "en_non_restrictive_relative_clause",
+      "bucket": "positive",
+      "question": "When do I put commas around a who-clause about an already identified person?",
+      "current_item": {
+        "id": "eval_coverage_en_non_restrictive_relative_clause",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_relative_clause_combination",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_formal_conditional",
+      "scenario_group": "en_formal_conditional",
+      "bucket": "positive",
+      "question": "How do should, were, and had introduce conditionals without if?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_conditional",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_conditional",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_nominalization",
+      "scenario_group": "en_nominalization",
+      "bucket": "positive",
+      "question": "How can I turn a verb into an action noun without hiding who acted?",
+      "current_item": {
+        "id": "eval_coverage_en_nominalization",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_nominalization",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_sport_formal_sentence",
+      "scenario_group": "en_sport_formal_sentence",
+      "bucket": "positive",
+      "question": "Can a sporting report add a record achievement when the source only describes good performance?",
+      "current_item": {
+        "id": "eval_coverage_en_sport_formal_sentence",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_sport_formal_sentence"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_sport_formal_sentence",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_education_formal_register",
+      "scenario_group": "en_education_formal_register",
+      "bucket": "positive",
+      "question": "Does a positive student reaction establish that the lesson improved learning?",
+      "current_item": {
+        "id": "eval_coverage_en_education_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_education_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_education_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": null
+    },
+    {
+      "case_id": "coverage_en_money_vocabulary_precision",
+      "scenario_group": "en_money_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Does receiving money necessarily mean earning a profit?",
+      "current_item": {
+        "id": "eval_coverage_en_money_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_finance_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": null
+    },
+    {
+      "case_id": "scope_01",
+      "scenario_group": "scope_01",
+      "bucket": "negative",
+      "question": "What is the capital of France?",
+      "current_item": {
+        "id": "eval_scope_01",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What is the capital of France?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_02",
+      "scenario_group": "scope_02",
+      "bucket": "negative",
+      "question": "How do I form the past tense of go?",
+      "current_item": {
+        "id": "eval_scope_02",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "How do I form the past tense of go?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_03",
+      "scenario_group": "scope_03",
+      "bucket": "negative",
+      "question": "When should I use a versus an?",
+      "current_item": {
+        "id": "eval_scope_03",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "When should I use a versus an?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": "en_general_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_04",
+      "scenario_group": "scope_04",
+      "bucket": "negative",
+      "question": "Is she go grammatically correct?",
+      "current_item": {
+        "id": "eval_scope_04",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Is she go grammatically correct?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_05",
+      "scenario_group": "scope_05",
+      "bucket": "negative",
+      "question": "What is the difference between past simple and present perfect?",
+      "current_item": {
+        "id": "eval_scope_05",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What is the difference between past simple and present perfect?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_06",
+      "scenario_group": "scope_06",
+      "bucket": "negative",
+      "question": "Translate this paragraph into Japanese.",
+      "current_item": {
+        "id": "eval_scope_06",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Translate this paragraph into Japanese."
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_07",
+      "scenario_group": "scope_07",
+      "bucket": "negative",
+      "question": "What medicine should I take for a headache?",
+      "current_item": {
+        "id": "eval_scope_07",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What medicine should I take for a headache?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_08",
+      "scenario_group": "scope_08",
+      "bucket": "negative",
+      "question": "Which stock should I buy tomorrow?",
+      "current_item": {
+        "id": "eval_scope_08",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Which stock should I buy tomorrow?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_09",
+      "scenario_group": "scope_09",
+      "bucket": "negative",
+      "question": "Explain how photosynthesis works.",
+      "current_item": {
+        "id": "eval_scope_09",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Explain how photosynthesis works."
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_10",
+      "scenario_group": "scope_10",
+      "bucket": "negative",
+      "question": "What is the emergency number in my city?",
+      "current_item": {
+        "id": "eval_scope_10",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What is the emergency number in my city?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_11",
+      "scenario_group": "scope_11",
+      "bucket": "negative",
+      "question": "How do I pronounce the th sound?",
+      "current_item": {
+        "id": "eval_scope_11",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "How do I pronounce the th sound?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": null
+    },
+    {
+      "case_id": "scope_12",
+      "scenario_group": "scope_12",
+      "bucket": "negative",
+      "question": "List every irregular verb in English.",
+      "current_item": {
+        "id": "eval_scope_12",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "List every irregular verb in English."
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": null,
+      "verification": null
+    }
+  ],
+  "verified_results": [
+    {
+      "case_id": "freeform_formal_001",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "Why does my sentence sound too casual for a professional email?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_001",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Replace the bracketed word with a more formal synonym.",
+        "prompt": "We need to [get] approval first.",
+        "answer": "obtain",
+        "expected_answer": "obtain",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'this is informal' \u2192 formal register note.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_register_precision",
+        "support_quote": "Choose wording for the audience and purpose. A formal alternative can change tone without being more accurate. Preserve the original claim, certainty, and politeness; a grammatical informal sentence is not automatically wrong.\n\nExamples:\n- Please [get] written consent. -> Please obtain written consent.\n- Could you [help] with the survey? -> Could you assist with the survey?\n- We will [ask for] permission. -> We will request permission.\n- We need to [get] approval first. -> We need to obtain approval first.",
+        "rationale": "The question asks why a sentence sounds too casual for a professional email. The reference explains how choosing a more formal synonym can change the tone to be more appropriate for formal or professional contexts, illustrating with examples including 'get' replaced by 'obtain' to sound more formal. This directly supports the question about formality and tone in professional writing.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 3177,
+        "provider_requests": 1,
+        "input_tokens": 1979,
+        "output_tokens": 202
+      }
+    },
+    {
+      "case_id": "freeform_formal_002",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "What's the difference between everyday language and business language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_002",
+        "category": "sentence",
+        "topic": "work",
+        "type": "substitution",
+        "instruction": "Express this casually-worded idea in formal English.",
+        "prompt": "He's really good at his job.",
+        "answer": "He demonstrates exceptional professional competence.",
+        "expected_answer": "He demonstrates exceptional professional competence.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Conceptual question about register \u2192 formal register note.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_register_precision",
+        "support_quote": "Choose wording for the audience and purpose. A formal alternative can change tone without being more accurate. Preserve the original claim, certainty, and politeness; a grammatical informal sentence is not automatically wrong.",
+        "rationale": "The question asks about the difference between everyday language and business language, which relates to register and tone. The note 'Everyday wording vs formal wording' explains that formal alternatives change tone for audience and purpose without necessarily changing meaning or accuracy, which directly addresses the difference between everyday and business language.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2602,
+        "provider_requests": 1,
+        "input_tokens": 1967,
+        "output_tokens": 118
+      }
+    },
+    {
+      "case_id": "freeform_formal_003",
+      "scenario_group": "en_work_formal_register",
+      "bucket": "positive",
+      "question": "How do I make this rewrite sound more professional?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_003",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Rewrite in formal business language.",
+        "prompt": "We didn't hit our targets this quarter.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_work_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'make it formal' for work domain \u2192 work formal register.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 3321,
+        "provider_requests": 1,
+        "input_tokens": 2012,
+        "output_tokens": 145
+      }
+    },
+    {
+      "case_id": "freeform_formal_004",
+      "scenario_group": "en_precise_synonym_choice",
+      "bucket": "positive",
+      "question": "What does it mean to use a precise synonym instead of a vague one?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_004",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Replace the bracketed word with a more formal synonym.",
+        "prompt": "The manager [said] the policy had changed.",
+        "answer": "stated",
+        "expected_answer": "stated",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_precise_synonym_choice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'why this word' \u2192 precise synonym note.",
+      "selected_note_id": "en_precise_synonym_choice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_precise_synonym_choice",
+        "support_quote": "Explanation: A replacement must fit the word sense, grammar, and surrounding words. Similar dictionary meanings do not guarantee interchangeability.",
+        "rationale": "The question asks about the meaning of using a precise synonym instead of a vague one. The note 'General wording vs precise synonym' explains that a precise synonym must fit the word sense, grammar, and context, and that similar dictionary meanings do not guarantee interchangeability. This directly addresses what it means to use a precise synonym rather than a vague one.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2787,
+        "provider_requests": 1,
+        "input_tokens": 1983,
+        "output_tokens": 117
+      }
+    },
+    {
+      "case_id": "freeform_formal_005",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "Why do I need to replace simple words with fancier ones here?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_005",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Replace the bracketed word with a more formal synonym.",
+        "prompt": "Please [look at] the attached document.",
+        "answer": "review",
+        "expected_answer": "review",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Casual paraphrase of 'why use formal synonyms' \u2192 formal register.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_register_precision",
+        "support_quote": "Choose wording for the audience and purpose. A formal alternative can change tone without being more accurate. Preserve the original claim, certainty, and politeness; a grammatical informal sentence is not automatically wrong.",
+        "rationale": "The question asks why simple words need to be replaced with fancier ones, which relates to changing the register from informal to formal. The reference explains that formal wording changes tone to suit audience and purpose, which directly answers the question about the need for replacing simple words with more formal synonyms.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2778,
+        "provider_requests": 1,
+        "input_tokens": 1980,
+        "output_tokens": 117
+      }
+    },
+    {
+      "case_id": "freeform_formal_006",
+      "scenario_group": "en_academic_formal_register",
+      "bucket": "positive",
+      "question": "This feels like academic writing \u2014 what's the pattern I'm learning?",
+      "current_item": {
+        "id": "eval_freeform_freeform_formal_006",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "translation",
+        "instruction": "Paraphrase in academic style.",
+        "prompt": "Everyone knows this doesn't work.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_academic_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Learner identifies academic register \u2192 academic formal register note.",
+      "selected_note_id": "en_academic_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_academic_formal_register",
+        "support_quote": "Academic phrasing should match the strength of the supplied evidence. A belief is not a finding, and a limited observation is not a universal law. First person is not universally prohibited; conventions depend on discipline and task.",
+        "rationale": "The question asks about the pattern in academic writing style being learned, which relates to how academic phrasing differs from everyday language. The reference explains the principles of academic register, including matching phrasing to evidence strength and avoiding overstatements, which directly supports understanding the pattern in academic writing.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2521,
+        "provider_requests": 1,
+        "input_tokens": 2008,
+        "output_tokens": 122
+      }
+    },
+    {
+      "case_id": "freeform_voice_001",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "How do I flip the subject and the object around in a sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_001",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Transform to passive voice.",
+        "prompt": "The committee reviewed the proposal.",
+        "answer": "The proposal was reviewed by the committee.",
+        "expected_answer": "The proposal was reviewed by the committee.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'flip subject/object' \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_passive_vs_active_voice",
+        "support_quote": "For an ordinary transitive clause, passive be plus a past participle makes the object the subject. Preserve tense, participants, and negation. Choose voice for focus; the passive agent may be omitted when unknown or unneeded, but do not invent an agent when converting back.",
+        "rationale": "The question asks how to flip the subject and object in a sentence, which is exactly the transformation from active to passive voice or vice versa. The reference explains the rule for this transformation, including how the object becomes the subject in passive voice, preserving tense and participants, which directly answers the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2423,
+        "provider_requests": 1,
+        "input_tokens": 1994,
+        "output_tokens": 137
+      }
+    },
+    {
+      "case_id": "freeform_voice_002",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "What grammar rule makes the thing being acted on come first?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_002",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Rewrite using passive voice.",
+        "prompt": "The engineer designed the system.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Description of passive construction \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_passive_vs_active_voice",
+        "support_quote": "For an ordinary transitive clause, passive be plus a past participle makes the object the subject.",
+        "rationale": "The question asks about the grammar rule that makes the thing being acted on come first. The reference explains that in passive voice, the object of an active sentence becomes the subject of the passive sentence, thus coming first. This directly answers the question about the grammar rule involved.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2095,
+        "provider_requests": 1,
+        "input_tokens": 2004,
+        "output_tokens": 96
+      }
+    },
+    {
+      "case_id": "freeform_voice_003",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "Why would I want to hide who did the action in a sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_003",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Transform to passive voice.",
+        "prompt": "The manager approved the budget.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Motivation for passive voice \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_passive_vs_active_voice",
+        "support_quote": "Choose voice for focus; the passive agent may be omitted when unknown or unneeded, but do not invent an agent when converting back.",
+        "rationale": "The question asks why one might want to hide who did the action in a sentence. The reference explains that in passive voice, the agent (the doer of the action) can be omitted when it is unknown or unneeded, which effectively hides who did the action. This directly answers the question about the purpose of hiding the actor in a sentence.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1964,
+        "provider_requests": 1,
+        "input_tokens": 1988,
+        "output_tokens": 119
+      }
+    },
+    {
+      "case_id": "freeform_voice_004",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "What's the difference between the doer and the receiver in a sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_voice_004",
+        "category": "sentence",
+        "topic": "work",
+        "type": "transformation",
+        "instruction": "Rewrite in active voice.",
+        "prompt": "The report was submitted by the team.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Doer vs receiver \u2192 passive/active voice note.",
+      "selected_note_id": "en_passive_vs_active_voice",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_passive_vs_active_voice",
+        "support_quote": "For an ordinary transitive clause, passive be plus a past participle makes the object the subject. Preserve tense, participants, and negation. Choose voice for focus; the passive agent may be omitted when unknown or unneeded, but do not invent an agent when converting back.",
+        "rationale": "The question asks about the difference between the doer and the receiver in a sentence, which relates to the subject and object roles in active and passive voice. The reference explains how the passive voice makes the object the subject and the agent (doer) may be omitted, directly addressing the distinction between doer and receiver.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2211,
+        "provider_requests": 1,
+        "input_tokens": 2008,
+        "output_tokens": 142
+      }
+    },
+    {
+      "case_id": "freeform_clause_001",
+      "scenario_group": "en_participle_clause_combination",
+      "bucket": "positive",
+      "question": "How do I turn two short sentences into one elegant sentence?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_001",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Combine using a participle clause.",
+        "prompt": "She finished the report. She sent it to the manager.",
+        "answer": "Having finished the report, she sent it to the manager.",
+        "expected_answer": "Having finished the report, she sent it to the manager.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Paraphrase of 'combine sentences' \u2192 participle clause note.",
+      "selected_note_id": "en_participle_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_participle_clause_combination",
+        "support_quote": "An introductory participle clause normally shares its understood subject with the main clause. Having plus a past participle marks an earlier completed action; an -ing clause may describe simultaneous activity. Check subject and time relations before combining sentences.\n\nExamples:\n- Nora checked the address. Then she mailed the form. -> Having checked the address, Nora mailed the form.\n- Omar walked home. He listened to a podcast as he walked. -> Walking home, Omar listened to a podcast.\n- The students finished the task. Then they left. -> Having finished the task, the students left.\n- She studied the data. She reached a conclusion. -> Having studied the data, she reached a conclusion.",
+        "rationale": "The question asks how to combine two short sentences into one elegant sentence using a participle clause. The reference explains the rule for combining clauses with a participle opener, including the use of 'Having' plus a past participle for earlier completed actions, and provides examples directly relevant to the question's example. This directly supports the question's request.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2589,
+        "provider_requests": 1,
+        "input_tokens": 2136,
+        "output_tokens": 235
+      }
+    },
+    {
+      "case_id": "freeform_clause_002",
+      "scenario_group": "en_participle_clause_combination",
+      "bucket": "positive",
+      "question": "What's the grammar pattern that uses -ing to connect two actions?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_002",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Combine using a participle clause.",
+        "prompt": "He opened the window. He sat down at his desk.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'-ing to connect actions' \u2192 participle clause note.",
+      "selected_note_id": "en_participle_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_participle_clause_combination",
+        "support_quote": "An introductory participle clause normally shares its understood subject with the main clause. Having plus a past participle marks an earlier completed action; an -ing clause may describe simultaneous activity. Check subject and time relations before combining sentences.",
+        "rationale": "The question asks about the grammar pattern that uses -ing to connect two actions. The reference explains that an -ing participle clause can describe simultaneous activity and is used to combine clauses with a participle opener, which directly answers the question about the grammar pattern using -ing to connect two actions.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2212,
+        "provider_requests": 1,
+        "input_tokens": 2110,
+        "output_tokens": 127
+      }
+    },
+    {
+      "case_id": "freeform_clause_003",
+      "scenario_group": "en_non_restrictive_relative_clause",
+      "bucket": "positive",
+      "question": "How do I add a 'which' clause to give extra information about something?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_003",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Add a non-restrictive relative clause.",
+        "prompt": "The conference was very productive. It was held in London.",
+        "answer": "The conference, which was held in London, was very productive.",
+        "expected_answer": "The conference, which was held in London, was very productive.",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'which clause for extra info' \u2192 non-restrictive relative clause note.",
+      "selected_note_id": "en_non_restrictive_relative_clause",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_non_restrictive_relative_clause",
+        "support_quote": "A non-defining relative clause adds parenthetical information about an already identified referent. Separate an inserted clause with two commas and keep a relative pronoun such as who or which; do not use that.",
+        "rationale": "The question asks how to add a 'which' clause to give extra information about something, which is exactly the function of a non-restrictive (non-defining) relative clause. The reference explains the use of 'which' in such clauses, the punctuation with commas, and the difference from defining clauses, directly answering the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2572,
+        "provider_requests": 1,
+        "input_tokens": 2143,
+        "output_tokens": 131
+      }
+    },
+    {
+      "case_id": "freeform_clause_004",
+      "scenario_group": "en_relative_clause_combination",
+      "bucket": "positive",
+      "question": "What does it mean to identify a specific person or thing in a sentence using a clause?",
+      "current_item": {
+        "id": "eval_freeform_freeform_clause_004",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Combine using a relative clause.",
+        "prompt": "The scientist made the discovery. She won the award.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_relative_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Identifying referents via clause \u2192 relative clause note.",
+      "selected_note_id": "en_relative_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_relative_clause_combination",
+        "support_quote": "A defining relative clause identifies which person or thing is intended. It normally has no surrounding commas. Use who for people and which or that for things; preserve the noun reference. Choosing defining rather than non-defining changes the information structure.",
+        "rationale": "The question asks about identifying a specific person or thing in a sentence using a clause. The reference explains that a defining relative clause is used to identify which person or thing is intended, which directly answers the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2054,
+        "provider_requests": 1,
+        "input_tokens": 2096,
+        "output_tokens": 110
+      }
+    },
+    {
+      "case_id": "freeform_phrase_001",
+      "scenario_group": "en_work_phrase_formal",
+      "bucket": "positive",
+      "question": "How do I say this workplace phrase in a more professional way?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_001",
+        "category": "phrase",
+        "topic": "work",
+        "type": "substitution",
+        "instruction": "Rephrase as a formal business phrase.",
+        "prompt": "touch base with the team",
+        "answer": "consult with the team",
+        "expected_answer": "consult with the team",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_work_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'professional way to say workplace phrase' \u2192 work phrase formal note.",
+      "selected_note_id": "en_work_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_work_phrase_formal",
+        "support_quote": "Preserve the intent of workplace interaction: follow up, request a response, close a meeting, or acknowledge an idea. Politeness does not require a long formula. Keep urgency only when originally stated.",
+        "rationale": "The question asks how to say 'touch base with the team' in a more professional way, which is a short workplace interaction phrase. The reference 'en_work_phrase_formal' provides guidance on rephrasing informal workplace phrases into formal ones while preserving intent and politeness, which directly supports the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1684,
+        "provider_requests": 1,
+        "input_tokens": 1948,
+        "output_tokens": 123
+      }
+    },
+    {
+      "case_id": "freeform_phrase_002",
+      "scenario_group": "en_sport_phrase_formal",
+      "bucket": "positive",
+      "question": "What's the formal sports journalism way to describe this play?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_002",
+        "category": "phrase",
+        "topic": "sport",
+        "type": "substitution",
+        "instruction": "Rephrase using sports journalism language.",
+        "prompt": "scored a great goal",
+        "answer": "converted a precise finish",
+        "expected_answer": "converted a precise finish",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_sport_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Sports journalism phrasing question \u2192 sport phrase formal note.",
+      "selected_note_id": "en_sport_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_sport_vocabulary_precision",
+        "support_quote": "Use for contextual sport vocabulary, not an unsupported claim about a score or achievement.",
+        "rationale": "The question asks for a formal sports journalism way to describe the play \"scored a great goal.\" The reference en_sport_vocabulary_precision explains how to choose precise sporting expressions that fit the context without adding unsupported claims. The card's answer \"converted a precise finish\" is a precise, formal sports term that fits the context of scoring a goal, matching the guidance in the reference.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1941,
+        "provider_requests": 1,
+        "input_tokens": 1948,
+        "output_tokens": 115
+      }
+    },
+    {
+      "case_id": "freeform_phrase_003",
+      "scenario_group": "en_health_phrase_formal",
+      "bucket": "positive",
+      "question": "How would a doctor or nurse say this instead of everyday language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_003",
+        "category": "phrase",
+        "topic": "health",
+        "type": "substitution",
+        "instruction": "Rephrase using clinical language.",
+        "prompt": "is getting better",
+        "answer": "is showing signs of recovery",
+        "expected_answer": "is showing signs of recovery",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_health_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Clinical phrasing question \u2192 health phrase formal note.",
+      "selected_note_id": "en_health_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_health_phrase_formal",
+        "support_quote": "Use a clear equivalent for the whole health-related phrase without making a diagnosis. Preserve who reports the experience. A reference for language should not imply clinical authority.",
+        "rationale": "The question asks how a doctor or nurse would say 'is getting better' in clinical language. The note 'Informal health phrase vs formal medical phrase' provides guidance on rephrasing short symptom expressions into formal medical phrases without making a diagnosis, which directly supports the example given in the card ('is getting better' -> 'is showing signs of recovery'). This matches the question's intent to rephrase everyday language into clinical language.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2068,
+        "provider_requests": 1,
+        "input_tokens": 1960,
+        "output_tokens": 138
+      }
+    },
+    {
+      "case_id": "freeform_phrase_004",
+      "scenario_group": "en_finance_phrase_formal",
+      "bucket": "positive",
+      "question": "How would a financial analyst phrase this in a report?",
+      "current_item": {
+        "id": "eval_freeform_freeform_phrase_004",
+        "category": "phrase",
+        "topic": "finance",
+        "type": "substitution",
+        "instruction": "Rephrase using financial report language.",
+        "prompt": "money went up a lot",
+        "answer": "revenue increased significantly",
+        "expected_answer": "revenue increased significantly",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_finance_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Financial analyst phrasing question \u2192 finance phrase formal note.",
+      "selected_note_id": "en_finance_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_finance_formal_register",
+        "support_quote": "In a report about money, preserve the stated quantity, period, and kind of change. Do not infer an accounting category from an informal remark. Clear wording is preferable to unsupported precision.\n\nExamples:\n- The price went up a lot. -> The price increased substantially.",
+        "rationale": "The question asks how a financial analyst would phrase 'money went up a lot' in a report. The reference 'en_finance_formal_register' directly addresses rephrasing informal money talk into formal financial language, preserving the quantity and kind of change without adding unsupported precision. The example given matches the question's prompt and shows the formal phrasing 'increased significantly' or 'increased substantially' as appropriate.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2111,
+        "provider_requests": 1,
+        "input_tokens": 1935,
+        "output_tokens": 161
+      }
+    },
+    {
+      "case_id": "freeform_domain_001",
+      "scenario_group": "en_sport_vocabulary_precision",
+      "bucket": "positive",
+      "question": "What's the precise sports term for this instead of a general description?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_001",
+        "category": "vocab",
+        "topic": "sport",
+        "type": "substitution",
+        "instruction": "Replace with the precise sports term.",
+        "prompt": "kick the ball into the goal",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'precise sport term' freeform \u2192 sport vocab precision note.",
+      "selected_note_id": "en_sport_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_sport_vocabulary_precision",
+        "support_quote": "Choose a sporting expression only when its meaning is supplied by the task. Admission of defeat, loss of a match, and conceding a goal are different events. Do not infer a record from a general description of good performance.\n\nExamples:\n- a session for practicing a sport -> a training session\n- admit defeat in a contest -> concede defeat\n- the points recorded for each side -> the score\n- win (verb) -> triumph",
+        "rationale": "The question asks for the precise sports term to replace the general description 'kick the ball into the goal.' The reference explains how to choose a precise sporting expression when the meaning is clear and provides examples of replacing general descriptions with precise sports terms. This directly supports the question's request for a precise sports term instead of a general description.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1539,
+        "provider_requests": 1,
+        "input_tokens": 1920,
+        "output_tokens": 179
+      }
+    },
+    {
+      "case_id": "freeform_domain_002",
+      "scenario_group": "en_tech_vocabulary_precision",
+      "bucket": "positive",
+      "question": "How do programmers or engineers describe this concept technically?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_002",
+        "category": "vocab",
+        "topic": "tech",
+        "type": "substitution",
+        "instruction": "Replace with the precise technical term.",
+        "prompt": "the program crashed",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'technical engineer term' freeform \u2192 tech vocab precision note.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2332,
+        "provider_requests": 1,
+        "input_tokens": 1914,
+        "output_tokens": 148
+      }
+    },
+    {
+      "case_id": "freeform_domain_003",
+      "scenario_group": "en_general_vocabulary_precision",
+      "bucket": "positive",
+      "question": "What vocabulary would make this sound more academic or scholarly?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_003",
+        "category": "vocab",
+        "topic": "education",
+        "type": "substitution",
+        "instruction": "Give the advanced academic term.",
+        "prompt": "test (noun, academic)",
+        "answer": "assessment",
+        "expected_answer": "assessment",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'academic vocabulary' freeform \u2192 general vocab precision note (authoring match).",
+      "selected_note_id": "en_general_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_general_vocabulary_precision",
+        "support_quote": "Title: Common everyday word vs advanced precise synonym\nWhen to use: Use for standalone vocabulary and sense restrictions; prefer a more specific note when a structural or domain objective is explicit.\n\nExplanation: Word choice depends on sense, grammatical frame, and collocation. Context-free synonym cards practice possible associations, not universal substitutions. Insert a proposed answer into a sentence before claiming it is equivalent.\n\nExamples:\n- begin a procedure -> start a procedure\n- finish a meeting -> conclude a meeting\n- change part of a document -> modify part of a document\n- start (verb) -> initiate",
+        "rationale": "The question asks for vocabulary that makes a word sound more academic or scholarly, specifically replacing 'test' with a more advanced term. The note 'Common everyday word vs advanced precise synonym' directly addresses this by explaining how to choose more precise or advanced vocabulary for academic contexts, providing examples and guidance on substituting common words with scholarly terms like 'assessment' for 'test.'",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2623,
+        "provider_requests": 1,
+        "input_tokens": 1883,
+        "output_tokens": 217
+      }
+    },
+    {
+      "case_id": "freeform_domain_004",
+      "scenario_group": "en_science_formal_register",
+      "bucket": "positive",
+      "question": "How do you describe this in proper scientific language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_domain_004",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "transformation",
+        "instruction": "Rewrite using scientific language.",
+        "prompt": "The air got much hotter near the fire.",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [
+        "en_science_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "'scientific language' freeform \u2192 science formal register note.",
+      "selected_note_id": "en_science_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_science_formal_register",
+        "support_quote": "Report observations and interpretations separately. A rewrite must not invent statistical tests, significance, mechanisms, or support for a hypothesis. Active voice and first person may be appropriate; follow the relevant publication or course convention.",
+        "rationale": "The question asks how to describe a casual observation ('The air got much hotter near the fire') in proper scientific language. The reference 'Casual observation vs formal scientific description' provides explicit guidance on rewriting casual observations into formal scientific descriptions, including examples and rules about reporting observations and interpretations separately without adding unsupported claims. This directly supports the question about rewriting into scientific language.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1766,
+        "provider_requests": 1,
+        "input_tokens": 1978,
+        "output_tokens": 136
+      }
+    },
+    {
+      "case_id": "freeform_no_hit_001",
+      "scenario_group": "freeform_no_hit_001",
+      "bucket": "negative",
+      "question": "What is the capital of France?",
+      "current_item": {
+        "id": "eval_freeform_freeform_no_hit_001",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Translate to English.",
+        "prompt": "La capital de Francia",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Off-topic geography question should not retrieve any contrast note.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for the capital of France, which is a factual knowledge question unrelated to English language tutoring or grammar. None of the provided references address how to answer such a factual question or provide relevant English tutoring guidance. The references focus on vocabulary precision, verb substitution, and formal phrasing, none of which help answer the question about the capital of France.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1698,
+        "provider_requests": 1,
+        "input_tokens": 1976,
+        "output_tokens": 88
+      }
+    },
+    {
+      "case_id": "freeform_no_hit_002",
+      "scenario_group": "freeform_no_hit_002",
+      "bucket": "negative",
+      "question": "How many irregular verbs are there in English?",
+      "current_item": {
+        "id": "eval_freeform_freeform_no_hit_002",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Conjugate in past tense.",
+        "prompt": "go",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Grammar trivia question should not retrieve any contrast note.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": null,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1909,
+        "provider_requests": 1,
+        "input_tokens": 2025,
+        "output_tokens": 124
+      }
+    },
+    {
+      "case_id": "freeform_no_hit_003",
+      "scenario_group": "freeform_no_hit_003",
+      "bucket": "negative",
+      "question": "Can you give me a fun fact about language?",
+      "current_item": {
+        "id": "eval_freeform_freeform_no_hit_003",
+        "category": "sentence",
+        "topic": "daily",
+        "type": "substitution",
+        "instruction": "Translate.",
+        "prompt": "hello",
+        "answer": "",
+        "expected_answer": "",
+        "user_answer": "",
+        "feedback": "incorrect"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Off-topic fun fact request should not retrieve any contrast note.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for a fun fact about language, which is a general knowledge or trivia request. None of the provided references discuss fun facts, trivia, or general information about language. The references focus on precise verb usage, vocabulary precision, synonym choice, and register differences, none of which address the question's request for a fun fact.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1737,
+        "provider_requests": 1,
+        "input_tokens": 1955,
+        "output_tokens": 84
+      }
+    },
+    {
+      "case_id": "coverage_en_formal_register_precision",
+      "scenario_group": "en_formal_register_precision",
+      "bucket": "positive",
+      "question": "Does replacing get with obtain change the tone or the factual claim?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_register_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_register_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_register_precision",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_register_precision",
+        "support_quote": "A formal alternative can change tone without being more accurate. Preserve the original claim, certainty, and politeness; a grammatical informal sentence is not automatically wrong.",
+        "rationale": "The question asks whether replacing 'get' with 'obtain' changes the tone or the factual claim. The note explains that such a formal alternative changes tone but does not make the claim more accurate or change the factual content. Therefore, the replacement changes tone but not the factual claim.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1933,
+        "provider_requests": 1,
+        "input_tokens": 1981,
+        "output_tokens": 109
+      }
+    },
+    {
+      "case_id": "coverage_en_precise_synonym_choice",
+      "scenario_group": "en_precise_synonym_choice",
+      "bucket": "positive",
+      "question": "How can I tell whether a replacement word fits the meaning and grammar of this sentence?",
+      "current_item": {
+        "id": "eval_coverage_en_precise_synonym_choice",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_precise_synonym_choice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_general_vocabulary_precision",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_general_vocabulary_precision",
+        "support_quote": "Word choice depends on sense, grammatical frame, and collocation. Context-free synonym cards practice possible associations, not universal substitutions. Insert a proposed answer into a sentence before claiming it is equivalent.",
+        "rationale": "The question asks how to determine if a replacement word fits the meaning and grammar of a sentence. The note explains that word choice depends on sense, grammatical frame, and collocation, and that one should insert the proposed word into the sentence to check equivalence. This directly supports the learner's question about verifying fit in meaning and grammar.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1815,
+        "provider_requests": 1,
+        "input_tokens": 1944,
+        "output_tokens": 126
+      }
+    },
+    {
+      "case_id": "coverage_en_single_precise_verb",
+      "scenario_group": "en_single_precise_verb",
+      "bucket": "positive",
+      "question": "How can I express gave an explanation of using just one verb?",
+      "current_item": {
+        "id": "eval_coverage_en_single_precise_verb",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_single_precise_verb"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_single_precise_verb",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_single_precise_verb",
+        "support_quote": "We [gave an explanation of] the rule. -> We explained the rule.",
+        "rationale": "The question asks how to express 'gave an explanation of' using just one verb. The reference explicitly provides this transformation as an example, showing that 'gave an explanation of the rule' can be replaced by 'explained the rule.' This directly answers the learner's question with a precise single verb substitution.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1575,
+        "provider_requests": 1,
+        "input_tokens": 1986,
+        "output_tokens": 99
+      }
+    },
+    {
+      "case_id": "coverage_en_passive_vs_active_voice",
+      "scenario_group": "en_passive_vs_active_voice",
+      "bucket": "positive",
+      "question": "How do I put the object first while keeping the same tense and people involved?",
+      "current_item": {
+        "id": "eval_coverage_en_passive_vs_active_voice",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": 3,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks how to put the object first while keeping the same tense and people involved, which is essentially about changing sentence structure (e.g., active to passive voice or fronting the object). None of the provided references explicitly explain how to reorder sentence elements to put the object first while preserving tense and participants. The closest relevant note is about active/passive voice transformation, but the question does not explicitly ask about passive voice, and the note is for explicit active/passive transformations only. Other notes focus on verb substitution or word choice, not sentence restructuring to front the object. Therefore, no reference substantively answers the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2640,
+        "provider_requests": 1,
+        "input_tokens": 1979,
+        "output_tokens": 142
+      }
+    },
+    {
+      "case_id": "coverage_en_participle_clause_combination",
+      "scenario_group": "en_participle_clause_combination",
+      "bucket": "positive",
+      "question": "Who must perform the action in an introductory having-finished phrase?",
+      "current_item": {
+        "id": "eval_coverage_en_participle_clause_combination",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_participle_clause_combination",
+      "decision": "supported",
+      "gold_rank": 4,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_participle_clause_combination",
+        "support_quote": "An introductory participle clause normally shares its understood subject with the main clause. Having plus a past participle marks an earlier completed action; an -ing clause may describe simultaneous activity. Check subject and time relations before combining sentences.",
+        "rationale": "The question asks who must perform the action in an introductory having-finished phrase. The note on participle clause combination explains that the introductory participle clause normally shares its understood subject with the main clause, indicating that the same subject performs the action in both clauses. This directly answers the question about the agent of the action in the introductory phrase.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1936,
+        "provider_requests": 1,
+        "input_tokens": 2024,
+        "output_tokens": 136
+      }
+    },
+    {
+      "case_id": "coverage_en_relative_clause_combination",
+      "scenario_group": "en_relative_clause_combination",
+      "bucket": "positive",
+      "question": "How do I identify which of several files I mean using a clause?",
+      "current_item": {
+        "id": "eval_coverage_en_relative_clause_combination",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_relative_clause_combination"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_relative_clause_combination",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_relative_clause_combination",
+        "support_quote": "A defining relative clause identifies which person or thing is intended. It normally has no surrounding commas. Use who for people and which or that for things; preserve the noun reference. Choosing defining rather than non-defining changes the information structure.",
+        "rationale": "The question asks how to identify which of several files is meant using a clause. The reference explains that a defining relative clause is used to identify which person or thing is intended among several, which directly answers the question about selecting one referent from several using a clause.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1866,
+        "provider_requests": 1,
+        "input_tokens": 2085,
+        "output_tokens": 121
+      }
+    },
+    {
+      "case_id": "coverage_en_formal_rewrite_sentence",
+      "scenario_group": "en_formal_rewrite_sentence",
+      "bucket": "positive",
+      "question": "How can I rewrite a whole casual sentence without adding facts?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_rewrite_sentence",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_rewrite_sentence",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_rewrite_sentence",
+        "support_quote": "Rewrite the sentence in a neutral professional tone while keeping its propositions intact. Do not add evidence, deadlines, magnitude, or completed actions.",
+        "rationale": "The question asks how to rewrite a whole casual sentence without adding facts. The note 'Casual sentence vs formal rewrite' explicitly instructs to keep the propositions intact and not add evidence or other facts when rewriting a sentence in a more formal tone. This directly answers the question about rewriting without adding facts.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1841,
+        "provider_requests": 1,
+        "input_tokens": 1963,
+        "output_tokens": 109
+      }
+    },
+    {
+      "case_id": "coverage_en_concise_formal_rewrite",
+      "scenario_group": "en_concise_formal_rewrite",
+      "bucket": "positive",
+      "question": "Can I shorten due to the fact that without changing the reason?",
+      "current_item": {
+        "id": "eval_coverage_en_concise_formal_rewrite",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_concise_formal_rewrite"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_concise_formal_rewrite",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_concise_formal_rewrite",
+        "support_quote": "Remove wording that contributes no necessary meaning, retaining agency, conditions, and uncertainty. A shorter active formulation can remain professional. Do not omit facts simply to reduce word count.",
+        "rationale": "The question asks if 'due to the fact that' can be shortened without changing the reason. The note explicitly addresses shortening wordy formal phrasing like 'due to the fact that' to 'because' while preserving the original meaning and conditions, which directly supports the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1350,
+        "provider_requests": 1,
+        "input_tokens": 1991,
+        "output_tokens": 113
+      }
+    },
+    {
+      "case_id": "coverage_en_formal_phrase_rephrasing",
+      "scenario_group": "en_formal_phrase_rephrasing",
+      "bucket": "positive",
+      "question": "How do I make an everyday apology neutral while preserving its intent?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_phrase_rephrasing",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_phrase_rephrasing",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_phrase_rephrasing",
+        "support_quote": "Restate a conversational phrase in neutral language while preserving its speech act: request, apology, promise, or statement. Do not turn a suggestion into a command or add a deadline to a promise.",
+        "rationale": "The question asks how to make an everyday apology neutral while preserving its intent. The note 'Conversational phrase vs formal phrase' explicitly addresses restating conversational phrases in neutral language while preserving the speech act, including apologies, which directly supports the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1836,
+        "provider_requests": 1,
+        "input_tokens": 1953,
+        "output_tokens": 111
+      }
+    },
+    {
+      "case_id": "coverage_en_commentary_and_domain_register",
+      "scenario_group": "en_commentary_and_domain_register",
+      "bucket": "positive",
+      "question": "Should a report say an update caused an outage if I only know the outage followed it?",
+      "current_item": {
+        "id": "eval_coverage_en_commentary_and_domain_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_commentary_and_domain_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1986,
+        "provider_requests": 1,
+        "input_tokens": 1996,
+        "output_tokens": 139
+      }
+    },
+    {
+      "case_id": "coverage_en_work_formal_register",
+      "scenario_group": "en_work_formal_register",
+      "bucket": "positive",
+      "question": "Does a professional workplace report need to remove uncertainty from a tentative statement?",
+      "current_item": {
+        "id": "eval_coverage_en_work_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_work_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_work_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_work_formal_register",
+        "support_quote": "For workplace reports, make the actor, action, and limits of the claim clear. Choose professional wording without implying that all business writing must be impersonal. Retain hedging where the speaker is uncertain.",
+        "rationale": "The question asks whether a professional workplace report needs to remove uncertainty from a tentative statement. The reference explicitly states that in workplace reports, hedging (which expresses uncertainty) should be retained when the speaker is uncertain, meaning uncertainty should not be removed if it is genuine. This directly answers the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2202,
+        "provider_requests": 1,
+        "input_tokens": 1956,
+        "output_tokens": 121
+      }
+    },
+    {
+      "case_id": "coverage_en_academic_formal_register",
+      "scenario_group": "en_academic_formal_register",
+      "bucket": "positive",
+      "question": "Can I turn we think into research proves just to sound scholarly?",
+      "current_item": {
+        "id": "eval_coverage_en_academic_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_academic_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_academic_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_academic_formal_register",
+        "support_quote": "Boundary (incorrect example; do not imitate): Original: We think this works. Bad rewrite: Research proves this works. No research was supplied. Why incorrect: Do not introduce research evidence into a statement of belief.",
+        "rationale": "The question asks if it is appropriate to change 'we think' into 'research proves' to sound scholarly. The note explicitly states that it is incorrect to rewrite a statement of belief as a research-proven fact without supplying research evidence. This directly answers the question by explaining that such a change is not appropriate.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2261,
+        "provider_requests": 1,
+        "input_tokens": 1975,
+        "output_tokens": 127
+      }
+    },
+    {
+      "case_id": "coverage_en_finance_formal_register",
+      "scenario_group": "en_finance_formal_register",
+      "bucket": "positive",
+      "question": "May a financial rewrite say spending exceeded a budget when the original only says spending rose?",
+      "current_item": {
+        "id": "eval_coverage_en_finance_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_finance_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2463,
+        "provider_requests": 1,
+        "input_tokens": 1941,
+        "output_tokens": 165
+      }
+    },
+    {
+      "case_id": "coverage_en_health_formal_register",
+      "scenario_group": "en_health_formal_register",
+      "bucket": "positive",
+      "question": "Should a formal symptom description add a diagnosis?",
+      "current_item": {
+        "id": "eval_coverage_en_health_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_health_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_health_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_health_formal_register",
+        "support_quote": "Preserve the symptom and the speaker in a health-related rewrite. Plain symptom descriptions can already be appropriate. Do not convert everyday uncertainty into a diagnosis or substitute a related medical condition.",
+        "rationale": "The question asks whether a formal symptom description should add a diagnosis. The note explicitly states that in formal symptom descriptions, one should preserve the symptom and not convert uncertainty into a diagnosis or substitute a related medical condition. This directly answers the question by advising against adding a diagnosis in a formal symptom description.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2076,
+        "provider_requests": 1,
+        "input_tokens": 1923,
+        "output_tokens": 116
+      }
+    },
+    {
+      "case_id": "coverage_en_science_formal_register",
+      "scenario_group": "en_science_formal_register",
+      "bucket": "positive",
+      "question": "Can I add statistically significant when rewriting a result that only says scores improved?",
+      "current_item": {
+        "id": "eval_coverage_en_science_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_science_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2351,
+        "provider_requests": 1,
+        "input_tokens": 1939,
+        "output_tokens": 139
+      }
+    },
+    {
+      "case_id": "coverage_en_food_formal_register",
+      "scenario_group": "en_food_formal_register",
+      "bucket": "positive",
+      "question": "Can I infer a cooking method when a food description only says cooked?",
+      "current_item": {
+        "id": "eval_coverage_en_food_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_food_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2112,
+        "provider_requests": 1,
+        "input_tokens": 1972,
+        "output_tokens": 145
+      }
+    },
+    {
+      "case_id": "coverage_en_work_phrase_formal",
+      "scenario_group": "en_work_phrase_formal",
+      "bucket": "positive",
+      "question": "How do I close a meeting politely without adding a deadline?",
+      "current_item": {
+        "id": "eval_coverage_en_work_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_work_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_work_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_work_phrase_formal",
+        "support_quote": "Preserve the intent of workplace interaction: follow up, request a response, close a meeting, or acknowledge an idea. Politeness does not require a long formula. Keep urgency only when originally stated.",
+        "rationale": "The question asks how to close a meeting politely without adding a deadline. The note 'Informal work phrase vs formal workplace alternative' explicitly addresses how to close a meeting politely while preserving the original tone and urgency, and warns against adding deadlines or urgency that were not originally present. This directly supports the question about polite meeting closure without deadlines.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1694,
+        "provider_requests": 1,
+        "input_tokens": 1984,
+        "output_tokens": 129
+      }
+    },
+    {
+      "case_id": "coverage_en_sport_phrase_formal",
+      "scenario_group": "en_sport_phrase_formal",
+      "bucket": "positive",
+      "question": "How do I restate a prediction of defeat without making it certain or immediate?",
+      "current_item": {
+        "id": "eval_coverage_en_sport_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_sport_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2732,
+        "provider_requests": 1,
+        "input_tokens": 1938,
+        "output_tokens": 201
+      }
+    },
+    {
+      "case_id": "coverage_en_health_phrase_formal",
+      "scenario_group": "en_health_phrase_formal",
+      "bucket": "positive",
+      "question": "How can I restate sick to my stomach without guessing what illness caused it?",
+      "current_item": {
+        "id": "eval_coverage_en_health_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_health_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1998,
+        "provider_requests": 1,
+        "input_tokens": 1906,
+        "output_tokens": 169
+      }
+    },
+    {
+      "case_id": "coverage_en_finance_phrase_formal",
+      "scenario_group": "en_finance_phrase_formal",
+      "bucket": "positive",
+      "question": "How can I express losing money without making an unsupported accounting claim?",
+      "current_item": {
+        "id": "eval_coverage_en_finance_phrase_formal",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_finance_phrase_formal"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_finance_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_finance_phrase_formal",
+        "support_quote": "Restate a short money-related expression without inserting a cause or a new accounting measure. If the informal phrase is ambiguous, ask what it refers to before choosing a specialized term.\n\nExamples:\n- We are losing money. -> We are making a financial loss.",
+        "rationale": "The question asks how to express losing money without making an unsupported accounting claim. The note 'Casual money phrase vs formal financial phrase' directly addresses this by advising to restate informal phrases like 'We are losing money' as 'We are making a financial loss' without adding unsupported accounting details.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1723,
+        "provider_requests": 1,
+        "input_tokens": 1901,
+        "output_tokens": 135
+      }
+    },
+    {
+      "case_id": "coverage_en_precise_adjective_choice",
+      "scenario_group": "en_precise_adjective_choice",
+      "bucket": "positive",
+      "question": "Why is important not a meaning-preserving replacement for large?",
+      "current_item": {
+        "id": "eval_coverage_en_precise_adjective_choice",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_precise_adjective_choice"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 3,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2093,
+        "provider_requests": 1,
+        "input_tokens": 1932,
+        "output_tokens": 166
+      }
+    },
+    {
+      "case_id": "coverage_en_sport_vocabulary_precision",
+      "scenario_group": "en_sport_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Why does doing well in a race not mean setting a personal best?",
+      "current_item": {
+        "id": "eval_coverage_en_sport_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1804,
+        "provider_requests": 1,
+        "input_tokens": 1879,
+        "output_tokens": 142
+      }
+    },
+    {
+      "case_id": "coverage_en_tech_vocabulary_precision",
+      "scenario_group": "en_tech_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Does implementing a feature mean that it has already been deployed?",
+      "current_item": {
+        "id": "eval_coverage_en_tech_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_rewrite_sentence",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_rewrite_sentence",
+        "support_quote": "Boundary (incorrect example; do not imitate): Original: We added a feature. Bad rewrite: We deployed a feature. Implementation does not establish deployment. Why incorrect: Adding a feature does not establish that it was released to users.",
+        "rationale": "The question asks if implementing a feature means it has already been deployed. The reference explicitly states that implementation (adding a feature) does not establish deployment (release to users), directly answering the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1213,
+        "provider_requests": 1,
+        "input_tokens": 1941,
+        "output_tokens": 107
+      }
+    },
+    {
+      "case_id": "coverage_en_work_vocabulary_precision",
+      "scenario_group": "en_work_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Is every meeting a consultation or does its purpose matter?",
+      "current_item": {
+        "id": "eval_coverage_en_work_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_work_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2058,
+        "provider_requests": 1,
+        "input_tokens": 1955,
+        "output_tokens": 144
+      }
+    },
+    {
+      "case_id": "coverage_en_general_vocabulary_precision",
+      "scenario_group": "en_general_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Why is a dictionary synonym not interchangeable in every sentence?",
+      "current_item": {
+        "id": "eval_coverage_en_general_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_general_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_precise_synonym_choice",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_precise_synonym_choice",
+        "support_quote": "Explanation: A replacement must fit the word sense, grammar, and surrounding words. Similar dictionary meanings do not guarantee interchangeability.",
+        "rationale": "The question asks why dictionary synonyms are not interchangeable in every sentence. The note 'General wording vs precise synonym' explains that even if two words have similar dictionary meanings, they may not be interchangeable because the replacement must fit the word sense, grammar, and surrounding words. This directly answers the question by highlighting the need for contextual fit beyond dictionary definitions.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1672,
+        "provider_requests": 1,
+        "input_tokens": 1931,
+        "output_tokens": 116
+      }
+    },
+    {
+      "case_id": "coverage_en_non_restrictive_relative_clause",
+      "scenario_group": "en_non_restrictive_relative_clause",
+      "bucket": "positive",
+      "question": "When do I put commas around a who-clause about an already identified person?",
+      "current_item": {
+        "id": "eval_coverage_en_non_restrictive_relative_clause",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_non_restrictive_relative_clause",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_non_restrictive_relative_clause",
+        "support_quote": "A non-defining relative clause adds parenthetical information about an already identified referent. Separate an inserted clause with two commas and keep a relative pronoun such as who or which; do not use that. Contrast this with a defining clause that selects a referent.",
+        "rationale": "The question asks when to put commas around a who-clause about an already identified person. The note 'Two sentences vs non-restrictive relative clause' explains that non-defining (non-restrictive) relative clauses add parenthetical information about an already identified referent and are set off by commas. It also specifies the use of 'who' and the comma placement, directly addressing the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1904,
+        "provider_requests": 1,
+        "input_tokens": 2075,
+        "output_tokens": 156
+      }
+    },
+    {
+      "case_id": "coverage_en_formal_conditional",
+      "scenario_group": "en_formal_conditional",
+      "bucket": "positive",
+      "question": "How do should, were, and had introduce conditionals without if?",
+      "current_item": {
+        "id": "eval_coverage_en_formal_conditional",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_formal_conditional",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_formal_conditional",
+        "support_quote": "Conditional inversion can replace if with should, were, or had. Keep the condition type and time reference: should plus base verb, were to for a hypothetical action, and had plus past participle for a past counterfactual. Inversion changes register and can affect perceived likelihood.",
+        "rationale": "The question asks how should, were, and had introduce conditionals without if. The reference explicitly explains that these words can replace if in conditional inversion, specifying the verb forms and the types of conditionals they introduce, which directly answers the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2125,
+        "provider_requests": 1,
+        "input_tokens": 2039,
+        "output_tokens": 126
+      }
+    },
+    {
+      "case_id": "coverage_en_nominalization",
+      "scenario_group": "en_nominalization",
+      "bucket": "positive",
+      "question": "How can I turn a verb into an action noun without hiding who acted?",
+      "current_item": {
+        "id": "eval_coverage_en_nominalization",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_nominalization",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_nominalization",
+        "support_quote": "Nominalization expresses an action through a noun, such as approval or revision. It can help discuss a process as a topic, but often adds words or hides the actor. Preserve the actor when it matters; a noun-based version is not automatically better writing.",
+        "rationale": "The question asks how to turn a verb into an action noun without hiding who acted. The note on nominalization explicitly addresses this by explaining that nominalization can hide the actor and that the actor should be preserved when it matters. It provides examples showing how to nominalize while keeping the actor explicit, directly answering the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2124,
+        "provider_requests": 1,
+        "input_tokens": 2002,
+        "output_tokens": 136
+      }
+    },
+    {
+      "case_id": "coverage_en_sport_formal_sentence",
+      "scenario_group": "en_sport_formal_sentence",
+      "bucket": "positive",
+      "question": "Can a sporting report add a record achievement when the source only describes good performance?",
+      "current_item": {
+        "id": "eval_coverage_en_sport_formal_sentence",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_sport_formal_sentence"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": null,
+      "decision": "verification_unavailable",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "verification_unavailable",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "Evidence verification unavailable",
+        "error_type": "ValueError",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2098,
+        "provider_requests": 1,
+        "input_tokens": 1927,
+        "output_tokens": 146
+      }
+    },
+    {
+      "case_id": "coverage_en_education_formal_register",
+      "scenario_group": "en_education_formal_register",
+      "bucket": "positive",
+      "question": "Does a positive student reaction establish that the lesson improved learning?",
+      "current_item": {
+        "id": "eval_coverage_en_education_formal_register",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_education_formal_register"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_education_formal_register",
+      "decision": "supported",
+      "gold_rank": 1,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_education_formal_register",
+        "support_quote": "Enjoyment and learning are distinct outcomes.",
+        "rationale": "The question asks whether a positive student reaction establishes that the lesson improved learning. The reference explicitly states that enjoyment (student reaction) and learning are distinct outcomes, so a positive reaction does not establish improved learning.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1153,
+        "provider_requests": 1,
+        "input_tokens": 1979,
+        "output_tokens": 71
+      }
+    },
+    {
+      "case_id": "coverage_en_money_vocabulary_precision",
+      "scenario_group": "en_money_vocabulary_precision",
+      "bucket": "positive",
+      "question": "Does receiving money necessarily mean earning a profit?",
+      "current_item": {
+        "id": "eval_coverage_en_money_vocabulary_precision",
+        "type": "question",
+        "category": "custom",
+        "topic": "custom",
+        "instruction": "Answer the learner question."
+      },
+      "acceptable_note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "expected_decision": "supported",
+      "label_rationale": "Original concept-targeted diagnostic; reviewed for intended meaning, not held out.",
+      "selected_note_id": "en_finance_phrase_formal",
+      "decision": "supported",
+      "gold_rank": 2,
+      "verification": {
+        "decision": "supported",
+        "source_id": "en_finance_phrase_formal",
+        "support_quote": "Boundary (incorrect example; do not imitate): Original: Money came in. Bad rewrite: Profit increased. Receipts alone do not establish profit. Why incorrect: Money received and profit are different quantities.",
+        "rationale": "The question asks whether receiving money necessarily means earning a profit. The reference explicitly states that money received (receipts) alone do not establish profit, indicating that receiving money does not necessarily mean earning a profit. This directly answers the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1778,
+        "provider_requests": 1,
+        "input_tokens": 1922,
+        "output_tokens": 109
+      }
+    },
+    {
+      "case_id": "scope_01",
+      "scenario_group": "scope_01",
+      "bucket": "negative",
+      "question": "What is the capital of France?",
+      "current_item": {
+        "id": "eval_scope_01",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What is the capital of France?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for factual information about the capital of France, which is a general knowledge question rather than an English tutoring question. The provided references focus on vocabulary precision, synonym choice, and phrasing in English, none of which address how to answer or verify factual questions about geography or capitals. Therefore, none of the references substantively support answering this question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 915,
+        "provider_requests": 1,
+        "input_tokens": 1965,
+        "output_tokens": 88
+      }
+    },
+    {
+      "case_id": "scope_02",
+      "scenario_group": "scope_02",
+      "bucket": "negative",
+      "question": "How do I form the past tense of go?",
+      "current_item": {
+        "id": "eval_scope_02",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "How do I form the past tense of go?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks how to form the past tense of the verb 'go'. None of the provided references discuss verb tense formation, irregular verbs, or specifically the past tense of 'go'. The references focus on topics like replacing phrases with single verbs, formal vs informal wording, sports vocabulary, active vs passive voice, and concise formal phrasing, none of which address the formation of past tense for 'go'.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1983,
+        "provider_requests": 1,
+        "input_tokens": 1991,
+        "output_tokens": 99
+      }
+    },
+    {
+      "case_id": "scope_03",
+      "scenario_group": "scope_03",
+      "bucket": "negative",
+      "question": "When should I use a versus an?",
+      "current_item": {
+        "id": "eval_scope_03",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "When should I use a versus an?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks about the usage rule for 'a' versus 'an', which is a specific grammatical rule about article usage before words starting with vowel or consonant sounds. None of the provided references discuss article usage or the distinction between 'a' and 'an'. The references focus on word choice, synonym precision, verb substitution, and register changes, which do not address the question about when to use 'a' versus 'an'.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 2002,
+        "provider_requests": 1,
+        "input_tokens": 1953,
+        "output_tokens": 105
+      }
+    },
+    {
+      "case_id": "scope_04",
+      "scenario_group": "scope_04",
+      "bucket": "negative",
+      "question": "Is she go grammatically correct?",
+      "current_item": {
+        "id": "eval_scope_04",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Is she go grammatically correct?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks whether the phrase 'Is she go' is grammatically correct, which concerns verb form and subject-verb agreement. None of the provided references address basic grammar rules about verb conjugation or subject-verb agreement in questions. The references focus on synonym precision, register, and voice transformations, which do not substantively answer the question about grammatical correctness of 'Is she go'.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1377,
+        "provider_requests": 1,
+        "input_tokens": 1972,
+        "output_tokens": 95
+      }
+    },
+    {
+      "case_id": "scope_05",
+      "scenario_group": "scope_05",
+      "bucket": "negative",
+      "question": "What is the difference between past simple and present perfect?",
+      "current_item": {
+        "id": "eval_scope_05",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What is the difference between past simple and present perfect?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks about the difference between past simple and present perfect tenses, which is a fundamental English grammar topic. None of the provided references discuss verb tense distinctions, usage rules, or differences between past simple and present perfect. The references focus on verb precision, vocabulary choice, register, participle clauses, and sports vocabulary, none of which address the requested grammar explanation.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1310,
+        "provider_requests": 1,
+        "input_tokens": 1985,
+        "output_tokens": 91
+      }
+    },
+    {
+      "case_id": "scope_06",
+      "scenario_group": "scope_06",
+      "bucket": "negative",
+      "question": "Translate this paragraph into Japanese.",
+      "current_item": {
+        "id": "eval_scope_06",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Translate this paragraph into Japanese."
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for a translation of a paragraph into Japanese, which is a direct translation task. None of the provided references discuss translation methods, Japanese language, or how to translate English paragraphs into Japanese. The references focus on English synonym precision, register, and verb usage, which do not substantively address the translation request.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1605,
+        "provider_requests": 1,
+        "input_tokens": 1934,
+        "output_tokens": 81
+      }
+    },
+    {
+      "case_id": "scope_07",
+      "scenario_group": "scope_07",
+      "bucket": "negative",
+      "question": "What medicine should I take for a headache?",
+      "current_item": {
+        "id": "eval_scope_07",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What medicine should I take for a headache?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "out_of_scope",
+      "gold_rank": null,
+      "verification": {
+        "decision": "out_of_scope",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for medical advice about what medicine to take for a headache, which is outside the scope of English tutoring. The references provided focus on vocabulary precision, register, and synonym choice in English language use, not on medical recommendations.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1154,
+        "provider_requests": 1,
+        "input_tokens": 1954,
+        "output_tokens": 64
+      }
+    },
+    {
+      "case_id": "scope_08",
+      "scenario_group": "scope_08",
+      "bucket": "negative",
+      "question": "Which stock should I buy tomorrow?",
+      "current_item": {
+        "id": "eval_scope_08",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Which stock should I buy tomorrow?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "out_of_scope",
+      "gold_rank": null,
+      "verification": {
+        "decision": "out_of_scope",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for specific stock purchase advice, which is a financial decision and not an English tutoring matter. The references provided focus on vocabulary precision, formal wording, synonym choice, financial vocabulary distinctions, and sentence structure, none of which address how to choose stocks or provide financial advice.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1241,
+        "provider_requests": 1,
+        "input_tokens": 1976,
+        "output_tokens": 73
+      }
+    },
+    {
+      "case_id": "scope_09",
+      "scenario_group": "scope_09",
+      "bucket": "negative",
+      "question": "Explain how photosynthesis works.",
+      "current_item": {
+        "id": "eval_scope_09",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "Explain how photosynthesis works."
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for an explanation of how photosynthesis works, which is a scientific process description. None of the provided references discuss the explanation of photosynthesis or provide rules or guidance on explaining scientific processes. The references focus on English grammar and vocabulary precision, not on content about photosynthesis.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1196,
+        "provider_requests": 1,
+        "input_tokens": 2000,
+        "output_tokens": 74
+      }
+    },
+    {
+      "case_id": "scope_10",
+      "scenario_group": "scope_10",
+      "bucket": "negative",
+      "question": "What is the emergency number in my city?",
+      "current_item": {
+        "id": "eval_scope_10",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "What is the emergency number in my city?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "out_of_scope",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for the emergency number in the user's city, which is a factual lookup about local emergency services. None of the provided references discuss how to find or express emergency numbers, or provide any relevant English tutoring guidance related to this question. The references focus on word choice, register, and synonym precision, which do not substantively answer the question about emergency numbers.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1402,
+        "provider_requests": 1,
+        "input_tokens": 1949,
+        "output_tokens": 90
+      }
+    },
+    {
+      "case_id": "scope_11",
+      "scenario_group": "scope_11",
+      "bucket": "negative",
+      "question": "How do I pronounce the th sound?",
+      "current_item": {
+        "id": "eval_scope_11",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "How do I pronounce the th sound?"
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks about how to pronounce the 'th' sound, which is a phonetic and pronunciation question. None of the provided references discuss pronunciation, phonetics, or how to produce specific English sounds. The references focus on vocabulary precision, synonym choice, formal vs informal wording, and health language tone, none of which address pronunciation guidance. Therefore, none of the references substantively answer the question.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1454,
+        "provider_requests": 1,
+        "input_tokens": 1952,
+        "output_tokens": 97
+      }
+    },
+    {
+      "case_id": "scope_12",
+      "scenario_group": "scope_12",
+      "bucket": "negative",
+      "question": "List every irregular verb in English.",
+      "current_item": {
+        "id": "eval_scope_12",
+        "type": "substitution",
+        "category": "sentence",
+        "topic": "daily",
+        "instruction": "List every irregular verb in English."
+      },
+      "acceptable_note_ids": [],
+      "expected_decision": "not_covered",
+      "label_rationale": "Out of the selected writing-reference scope despite ordinary card metadata.",
+      "selected_note_id": null,
+      "decision": "not_covered",
+      "gold_rank": null,
+      "verification": {
+        "decision": "not_covered",
+        "source_id": "",
+        "support_quote": "",
+        "rationale": "The question asks for a list of every irregular verb in English, which is a comprehensive lexical request. None of the provided references address irregular verbs, their identification, or listing. The references focus on verb precision, synonym choice, register, financial vocabulary, and voice transformation, none of which substantively answer the question about irregular verbs.",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "elapsed_ms": 1302,
+        "provider_requests": 1,
+        "input_tokens": 1956,
+        "output_tokens": 83
+      }
+    }
+  ],
+  "limitations": [
+    "AI-authored corpus-aware labels; not independent human ground truth.",
+    "Verifier is the system under test, not the label judge.",
+    "Provider timing is local verifier-only at concurrency three, not deployed endpoint p95.",
+    "Infrastructure failures excluded from conditional quality but counted separately and in end-to-end positive source rate.",
+    "Routing accuracy for legacy labels mapped into new categories is descriptive only.",
+    "No answer generation: citation faithfulness and answer correctness remain unmeasured."
+  ]
+}

@@ -1,0 +1,327 @@
+[
+  {
+    "case_id": "gate_v3_001",
+    "closest_case_id": "freeform_no_hit_002",
+    "token_jaccard": 0.08333333333333333
+  },
+  {
+    "case_id": "gate_v3_002",
+    "closest_case_id": "freeform_clause_004",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_003",
+    "closest_case_id": "fresh_c05",
+    "token_jaccard": 0.07692307692307693
+  },
+  {
+    "case_id": "gate_v3_004",
+    "closest_case_id": "heldout_p03_1",
+    "token_jaccard": 0.13333333333333333
+  },
+  {
+    "case_id": "gate_v3_005",
+    "closest_case_id": "freeform_voice_001",
+    "token_jaccard": 0.058823529411764705
+  },
+  {
+    "case_id": "gate_v3_006",
+    "closest_case_id": "heldout_p05_1",
+    "token_jaccard": 0.15
+  },
+  {
+    "case_id": "gate_v3_007",
+    "closest_case_id": "freeform_formal_003",
+    "token_jaccard": 0.16666666666666666
+  },
+  {
+    "case_id": "gate_v3_008",
+    "closest_case_id": "fresh_p08",
+    "token_jaccard": 0.2
+  },
+  {
+    "case_id": "gate_v3_009",
+    "closest_case_id": "heldout_p08_2",
+    "token_jaccard": 0.17647058823529413
+  },
+  {
+    "case_id": "gate_v3_010",
+    "closest_case_id": "heldout_p29_1",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_011",
+    "closest_case_id": "coverage_en_formal_register_precision",
+    "token_jaccard": 0.1111111111111111
+  },
+  {
+    "case_id": "gate_v3_012",
+    "closest_case_id": "coverage_en_academic_formal_register",
+    "token_jaccard": 0.11764705882352941
+  },
+  {
+    "case_id": "gate_v3_013",
+    "closest_case_id": "heldout_p12_2",
+    "token_jaccard": 0.13043478260869565
+  },
+  {
+    "case_id": "gate_v3_014",
+    "closest_case_id": "heldout_p13_2",
+    "token_jaccard": 0.1111111111111111
+  },
+  {
+    "case_id": "gate_v3_015",
+    "closest_case_id": "heldout_p14_1",
+    "token_jaccard": 0.22727272727272727
+  },
+  {
+    "case_id": "gate_v3_016",
+    "closest_case_id": "heldout_p15_1",
+    "token_jaccard": 0.09523809523809523
+  },
+  {
+    "case_id": "gate_v3_017",
+    "closest_case_id": "coverage_en_work_phrase_formal",
+    "token_jaccard": 0.13333333333333333
+  },
+  {
+    "case_id": "gate_v3_018",
+    "closest_case_id": "coverage_en_sport_phrase_formal",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_019",
+    "closest_case_id": "heldout_p18_1",
+    "token_jaccard": 0.21052631578947367
+  },
+  {
+    "case_id": "gate_v3_020",
+    "closest_case_id": "heldout_n23",
+    "token_jaccard": 0.06666666666666667
+  },
+  {
+    "case_id": "gate_v3_021",
+    "closest_case_id": "fresh_p21",
+    "token_jaccard": 0.25
+  },
+  {
+    "case_id": "gate_v3_022",
+    "closest_case_id": "heldout_p21_1",
+    "token_jaccard": 0.29411764705882354
+  },
+  {
+    "case_id": "gate_v3_023",
+    "closest_case_id": "heldout_p30_1",
+    "token_jaccard": 0.15
+  },
+  {
+    "case_id": "gate_v3_024",
+    "closest_case_id": "heldout_p07_1",
+    "token_jaccard": 0.15789473684210525
+  },
+  {
+    "case_id": "gate_v3_025",
+    "closest_case_id": "freeform_formal_005",
+    "token_jaccard": 0.13333333333333333
+  },
+  {
+    "case_id": "gate_v3_026",
+    "closest_case_id": "heldout_p25_1",
+    "token_jaccard": 0.21052631578947367
+  },
+  {
+    "case_id": "gate_v3_027",
+    "closest_case_id": "heldout_p07_1",
+    "token_jaccard": 0.23529411764705882
+  },
+  {
+    "case_id": "gate_v3_028",
+    "closest_case_id": "coverage_en_nominalization",
+    "token_jaccard": 0.1111111111111111
+  },
+  {
+    "case_id": "gate_v3_029",
+    "closest_case_id": "coverage_en_sport_formal_sentence",
+    "token_jaccard": 0.13636363636363635
+  },
+  {
+    "case_id": "gate_v3_030",
+    "closest_case_id": "heldout_p29_1",
+    "token_jaccard": 0.25
+  },
+  {
+    "case_id": "gate_v3_031",
+    "closest_case_id": "heldout_p05_1",
+    "token_jaccard": 0.1
+  },
+  {
+    "case_id": "gate_v3_032",
+    "closest_case_id": "heldout_n06",
+    "token_jaccard": 0.3333333333333333
+  },
+  {
+    "case_id": "gate_v3_033",
+    "closest_case_id": "freeform_no_hit_002",
+    "token_jaccard": 0.1
+  },
+  {
+    "case_id": "gate_v3_034",
+    "closest_case_id": "fresh_u01",
+    "token_jaccard": 0.2222222222222222
+  },
+  {
+    "case_id": "gate_v3_035",
+    "closest_case_id": "fresh_u06",
+    "token_jaccard": 0.25
+  },
+  {
+    "case_id": "gate_v3_036",
+    "closest_case_id": "heldout_n23",
+    "token_jaccard": 0.16666666666666666
+  },
+  {
+    "case_id": "gate_v3_037",
+    "closest_case_id": "fresh_u05",
+    "token_jaccard": 0.1111111111111111
+  },
+  {
+    "case_id": "gate_v3_038",
+    "closest_case_id": "scope_05",
+    "token_jaccard": 0.625
+  },
+  {
+    "case_id": "gate_v3_039",
+    "closest_case_id": "fresh_u04",
+    "token_jaccard": 0.2727272727272727
+  },
+  {
+    "case_id": "gate_v3_040",
+    "closest_case_id": "fresh_u09",
+    "token_jaccard": 0.16666666666666666
+  },
+  {
+    "case_id": "gate_v3_041",
+    "closest_case_id": "freeform_voice_003",
+    "token_jaccard": 0.2222222222222222
+  },
+  {
+    "case_id": "gate_v3_042",
+    "closest_case_id": "freeform_no_hit_002",
+    "token_jaccard": 0.09090909090909091
+  },
+  {
+    "case_id": "gate_v3_043",
+    "closest_case_id": "heldout_n10",
+    "token_jaccard": 0.3333333333333333
+  },
+  {
+    "case_id": "gate_v3_044",
+    "closest_case_id": "fresh_c02",
+    "token_jaccard": 0.375
+  },
+  {
+    "case_id": "gate_v3_045",
+    "closest_case_id": "scope_09",
+    "token_jaccard": 0.14285714285714285
+  },
+  {
+    "case_id": "gate_v3_046",
+    "closest_case_id": "heldout_p05_2",
+    "token_jaccard": 0.18181818181818182
+  },
+  {
+    "case_id": "gate_v3_047",
+    "closest_case_id": "heldout_n25",
+    "token_jaccard": 0.2
+  },
+  {
+    "case_id": "gate_v3_048",
+    "closest_case_id": "heldout_n25",
+    "token_jaccard": 0.14285714285714285
+  },
+  {
+    "case_id": "gate_v3_049",
+    "closest_case_id": "heldout_n24",
+    "token_jaccard": 0.16666666666666666
+  },
+  {
+    "case_id": "gate_v3_050",
+    "closest_case_id": "scope_07",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_051",
+    "closest_case_id": "scope_07",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_052",
+    "closest_case_id": "heldout_n28",
+    "token_jaccard": 0.23076923076923078
+  },
+  {
+    "case_id": "gate_v3_053",
+    "closest_case_id": "heldout_n28",
+    "token_jaccard": 0.23076923076923078
+  },
+  {
+    "case_id": "gate_v3_054",
+    "closest_case_id": "heldout_n18",
+    "token_jaccard": 0.2
+  },
+  {
+    "case_id": "gate_v3_055",
+    "closest_case_id": "heldout_n18",
+    "token_jaccard": 0.2
+  },
+  {
+    "case_id": "gate_v3_056",
+    "closest_case_id": "freeform_voice_003",
+    "token_jaccard": 0.1
+  },
+  {
+    "case_id": "gate_v3_057",
+    "closest_case_id": "freeform_voice_003",
+    "token_jaccard": 0.1
+  },
+  {
+    "case_id": "gate_v3_058",
+    "closest_case_id": "fresh_p32",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_059",
+    "closest_case_id": "fresh_p32",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_060",
+    "closest_case_id": "fresh_o02_absent",
+    "token_jaccard": 0.3333333333333333
+  },
+  {
+    "case_id": "gate_v3_061",
+    "closest_case_id": "fresh_o02_absent",
+    "token_jaccard": 0.3333333333333333
+  },
+  {
+    "case_id": "gate_v3_062",
+    "closest_case_id": "heldout_n17",
+    "token_jaccard": 0.3333333333333333
+  },
+  {
+    "case_id": "gate_v3_063",
+    "closest_case_id": "heldout_n17",
+    "token_jaccard": 0.3333333333333333
+  },
+  {
+    "case_id": "gate_v3_064",
+    "closest_case_id": "freeform_no_hit_003",
+    "token_jaccard": 0.125
+  },
+  {
+    "case_id": "gate_v3_065",
+    "closest_case_id": "freeform_no_hit_003",
+    "token_jaccard": 0.125
+  }
+]

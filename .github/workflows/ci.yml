@@ -85,6 +85,13 @@ jobs:
         working-directory: agent
         run: python -m retrieval.retrieval_comparison plan --output runs/retrieval-comparison-plan.json
 
+      - name: Three-layer answer evaluation replay (offline)
+        working-directory: agent
+        run: |
+          python -m evals.rag.runner replay --plan runs/answer-pilot-v3-plan.json --records runs/answer-pilot-v3-records.jsonl --output runs/ci-answer-eval.json
+          python ../scripts/compare_eval_reports.py runs/answer-pilot-v3-results.json runs/ci-answer-eval.json
+        # Replays saved public synthetic answers/judgments; no provider or DB calls.
+
       - name: Preserve retrieval evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -96,6 +103,7 @@ jobs:
             agent/runs/lexical-evidence.json
             agent/runs/relevance-review.json
             agent/runs/retrieval-comparison-plan.json
+            agent/runs/ci-answer-eval.json
           if-no-files-found: warn
 
   retrieval-integration:
