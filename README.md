@@ -12,6 +12,8 @@ LinguaFlow is a full-stack AI language-learning system built as a portfolio proj
 
 ### RAG engineering case study
 
+**Routing development regression:** [24 paired responses with the indexed judge](docs/ROUTING_ANSWER_RESULTS_02.md). All judgments completed, but the candidate wrongly clarified 5/8 answerable questions and reduced source recall to 3/6. It remains an offline, unmerged candidate; improved precision alone does not justify promotion.
+
 **Three-layer answer pilot:** [48 real responses across four context/retrieval strategies](docs/ANSWER_EVALUATION_01.md), with deterministic retrieval metrics, custom LLM-judge correctness/grounding/teaching/scope scores, and live pipeline latency/token/cost measurement. Nine judge failures are retained; no arm passed all diagnostic gates. This is a small synthetic pilot, not production accuracy or proof that RAG outperforms the no-reference baseline.
 
 **Latest verification result:** an offline recall candidate recovered valid sources on **25/31 positive requests (80.6%)** in a frozen 65-case test, with **96.2% source precision**. It still **failed release criteria**: 4/65 verification failures and only 1/6 correct missing-context routes. The [evidence-gate report](docs/EVIDENCE_GATE_RESULTS_02.md) preserves earlier failures, development selection, and fresh-test results. The recall candidate remains undeployed.

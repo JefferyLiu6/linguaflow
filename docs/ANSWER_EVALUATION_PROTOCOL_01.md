@@ -71,10 +71,12 @@ Run from `agent/`. Provide `OPENAI_API_KEY` and `DATABASE_URL` through the local
 ```sh
 python -m evals.rag.runner freeze --dataset evals/datasets/answer-pilot-v1.json --plan runs/new-answer-plan.json
 python -m evals.rag.runner run --plan runs/new-answer-plan.json --records runs/new-answer-records.jsonl --output runs/new-answer-results.json
-python -m evals.rag.runner replay --plan runs/answer-pilot-v3-plan.json --records runs/answer-pilot-v3-records.jsonl --output /tmp/answer-replay.json
+python ../scripts/replay_frozen_answer.py /tmp/answer-replay.json
 ```
 
 Freeze and commit any new plan before collecting. Existing plan/record/result paths cannot be overwritten. The chosen plan is v3; v1/v2 plans preserve judge-development history and were not used to generate the 48 pilot answers.
+
+The original plan fingerprints the handler source. For the optional historical DeepEval/Langfuse commands below, use the original complete artifact snapshot: `git worktree add --detach /tmp/linguaflow-pilot-v1 8af66fd`, then `cd /tmp/linguaflow-pilot-v1/agent`. The current branch includes an additional policy file and intentionally fails the old plan identity check. The replay helper above manages the original source automatically.
 
 Optional DeepEval check (saved judgments only):
 
