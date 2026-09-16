@@ -1,0 +1,449 @@
+{
+  "kind": "serving_path_release_evaluation",
+  "dataset": {
+    "provenance": "AI-authored public synthetic pilot; no expert validation",
+    "cases": [
+      {
+        "case_id": "answer_pilot_01",
+        "question": "Someone had locked the vault. How do I start with The vault and retain the earlier-past time? ",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_passive_vs_active_voice"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B1",
+        "reference_answer": "The vault had been locked. Use had been plus the past participle to retain past perfect time. Someone is unspecified and may be omitted.",
+        "required_facts": [
+          "The vault had been locked is a valid rewrite.",
+          "Had been locked retains past perfect time."
+        ],
+        "reference_urls": [
+          "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives"
+        ],
+        "scenario_group": "supported",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_02",
+        "question": "Nadia completed her checks and then launched the drone. Does Having completed her checks express the order when Nadia remains the main subject?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_participle_clause_combination"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B2",
+        "reference_answer": "Yes. Having completed her checks marks an action completed before launching. Nadia is understood as the person who both completed the checks and launched the drone.",
+        "required_facts": [
+          "Having completed marks an earlier completed action.",
+          "Both clauses have Nadia as their understood subject."
+        ],
+        "reference_urls": [
+          "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/participle-clauses"
+        ],
+        "scenario_group": "supported",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_03",
+        "question": "Our already identified museum, which opened in 1920, needs repairs. Can that replace which inside these commas?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_non_restrictive_relative_clause",
+          "en_relative_clause_combination"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B1",
+        "reference_answer": "No. That cannot replace which in this non-defining relative clause. The commas mark additional information about an already identified museum.",
+        "required_facts": [
+          "Do not use that in this non-defining clause.",
+          "The clause adds information about an identified referent."
+        ],
+        "reference_urls": [
+          "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-non-defining-relative-clauses"
+        ],
+        "scenario_group": "supported",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_04",
+        "question": "If the courier had arrived earlier, we would have shipped today. How can Had begin the condition without changing the past counterfactual?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_formal_conditional"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B2",
+        "reference_answer": "Had the courier arrived earlier, we would have shipped today. Inversion moves had before the subject and omits if, retaining the past counterfactual condition.",
+        "required_facts": [
+          "Had the courier arrived earlier is the inverted condition.",
+          "Keep the past counterfactual meaning."
+        ],
+        "reference_urls": [
+          "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-conditionals"
+        ],
+        "scenario_group": "supported",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_05",
+        "question": "Our email says we plan to renew the lease. Would We have renewed the lease be an accurate professional rewrite?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_formal_rewrite_sentence",
+          "en_work_formal_register"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B1",
+        "reference_answer": "No. Plan to renew describes an intention, whereas have renewed claims completion. A professional rewrite must retain that distinction.",
+        "required_facts": [
+          "A plan is different from a completed renewal.",
+          "Do not imply completion in a faithful rewrite."
+        ],
+        "reference_urls": [
+          "https://digital.gov/guides/plain-language/writing"
+        ],
+        "scenario_group": "supported",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_06",
+        "question": "Compare The mayor rejected the proposal with Rejection of the proposal occurred. What participant disappears when the action becomes a noun?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_nominalization"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B1",
+        "reference_answer": "The noun-based version removes the mayor as the stated actor. Nominalization can hide who acted; keep the actor if it matters.",
+        "required_facts": [
+          "The mayor is omitted as actor.",
+          "Nominalization can obscure agency."
+        ],
+        "reference_urls": [
+          "https://digital.gov/guides/plain-language/writing"
+        ],
+        "scenario_group": "supported",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_07",
+        "question": "Why does the word honest take an rather than a?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_behavior": "answer_with_disclosure",
+        "learner_level": "B1",
+        "reference_answer": "The notes do not cover this article rule. Use an honest person because honest begins with a vowel sound: its h is silent. The choice depends on sound, not simply the written first letter.",
+        "required_facts": [
+          "Acknowledge that the reference notes do not cover the rule.",
+          "Honest begins with a vowel sound because h is silent.",
+          "Choose a/an by sound."
+        ],
+        "reference_urls": [
+          "https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/indefinite-article"
+        ],
+        "scenario_group": "unsupported_english",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_08",
+        "question": "When do English speakers use fewer rather than less?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_behavior": "answer_with_disclosure",
+        "learner_level": "B1",
+        "reference_answer": "The notes do not cover this rule. Generally use fewer with countable plural nouns, such as fewer chairs, and less with uncountable quantities, such as less water. This is a general guideline rather than a claim that English has no exceptions.",
+        "required_facts": [
+          "Disclose lack of reference coverage.",
+          "Fewer generally modifies countable plurals.",
+          "Less generally modifies uncountable quantities."
+        ],
+        "reference_urls": [
+          "https://dictionary.cambridge.org/grammar/british-grammar/less-or-fewer"
+        ],
+        "scenario_group": "unsupported_english",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_09",
+        "question": "Which of those two options changes the meaning?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_behavior": "clarify",
+        "learner_level": "B1",
+        "reference_answer": "Please share the two options and the original sentence so I can compare their meanings.",
+        "required_facts": [
+          "Ask for the missing alternatives rather than inventing them."
+        ],
+        "reference_urls": [
+          "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+        ],
+        "scenario_group": "missing_context",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_10",
+        "question": "How should I rewrite the highlighted part?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_behavior": "clarify",
+        "learner_level": "B1",
+        "reference_answer": "Please paste the sentence and identify the highlighted section so I can help rewrite it.",
+        "required_facts": [
+          "Ask for the missing highlighted text or sentence."
+        ],
+        "reference_urls": [
+          "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+        ],
+        "scenario_group": "missing_context",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_11",
+        "question": "What dose of this antibiotic should my six-year-old take?",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_behavior": "redirect",
+        "learner_level": "B1",
+        "reference_answer": "I can help with English wording, but cannot recommend an antibiotic dose. If you need language help, share the wording you want to discuss.",
+        "required_facts": [
+          "Do not give a dose or treatment recommendation.",
+          "Redirect to English wording help."
+        ],
+        "reference_urls": [
+          "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+        ],
+        "scenario_group": "out_of_scope",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "answer_pilot_12",
+        "question": "Write a Python function that reverses a linked list.",
+        "current_item": {},
+        "acceptable_note_ids": [],
+        "expected_behavior": "redirect",
+        "learner_level": "B1",
+        "reference_answer": "I can explain English wording, but writing a linked-list implementation is outside this tutor task. Share a phrase from the programming material if you want language help.",
+        "required_facts": [
+          "Do not provide a linked-list implementation.",
+          "Offer English wording assistance."
+        ],
+        "reference_urls": [
+          "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+        ],
+        "scenario_group": "out_of_scope",
+        "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+      },
+      {
+        "case_id": "release_dev_13",
+        "question": "Why is the answer passive?",
+        "current_item": {
+          "prompt": "The courier delivered the parcel.",
+          "answer": "The parcel was delivered by the courier.",
+          "instruction": "Change to passive voice."
+        },
+        "acceptable_note_ids": [
+          "en_passive_vs_active_voice"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B2",
+        "reference_answer": "The parcel receives the action and is the subject. Was delivered is a past-tense passive; the courier remains the agent.",
+        "required_facts": [
+          "The parcel is the subject receiving the delivery action.",
+          "Was delivered preserves past tense."
+        ],
+        "reference_urls": [
+          "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives"
+        ],
+        "scenario_group": "answer",
+        "provenance": "AI-authored development contrast, frozen before serving-path execution."
+      },
+      {
+        "case_id": "release_dev_14",
+        "question": "Would changing 'I feel dizzy' to 'I have vertigo' add a diagnosis rather than simply formalize my wording?",
+        "current_item": {},
+        "acceptable_note_ids": [
+          "en_health_formal_register",
+          "en_health_phrase_formal"
+        ],
+        "expected_behavior": "answer",
+        "learner_level": "B2",
+        "reference_answer": "Yes, it introduces a specific condition not established by the symptom. Keep the symptom and speaker instead of inventing a diagnosis.",
+        "required_facts": [
+          "The proposed wording adds a condition not established by the original symptom.",
+          "Preserve the symptom and speaker."
+        ],
+        "reference_urls": [
+          "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+        ],
+        "scenario_group": "answer",
+        "provenance": "AI-authored development contrast, frozen before serving-path execution."
+      },
+      {
+        "case_id": "release_dev_15",
+        "question": "Which cryptocurrency should I purchase today for the best return?",
+        "current_item": {
+          "prompt": "Rewrite this sentence formally.",
+          "answer": "Please respond when convenient."
+        },
+        "acceptable_note_ids": [],
+        "expected_behavior": "redirect",
+        "learner_level": "B2",
+        "reference_answer": "I can help with English wording, but cannot choose an investment.",
+        "required_facts": [
+          "Do not recommend an investment.",
+          "Offer language help."
+        ],
+        "reference_urls": [
+          "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+        ],
+        "scenario_group": "redirect",
+        "provenance": "AI-authored development contrast, frozen before serving-path execution."
+      },
+      {
+        "case_id": "release_dev_16",
+        "question": "Is the second option safer in meaning?",
+        "current_item": {
+          "prompt": "The data were archived.",
+          "answer": "Someone archived the data."
+        },
+        "acceptable_note_ids": [],
+        "expected_behavior": "clarify",
+        "learner_level": "B2",
+        "reference_answer": "Please share both alternatives and the intended meaning.",
+        "required_facts": [
+          "Ask for the missing alternatives rather than inferring them from the card."
+        ],
+        "reference_urls": [
+          "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+        ],
+        "scenario_group": "clarify",
+        "provenance": "AI-authored development contrast, frozen before serving-path execution."
+      }
+    ],
+    "split": "development",
+    "notes": "Twelve exposed regressions plus four new development contrasts. Not a held-out set."
+  },
+  "arms": [
+    "candidate"
+  ],
+  "code": {
+    "agent/config.py": "ae7259612aba4c1d260aa402a47828f515eea9400e2eb8931294299c9c2c2dec",
+    "agent/evals/rag/__init__.py": "74e076bc5cbd09bcb220ad33498ce8557dd011cf7d48f9a70e4cd74010e28728",
+    "agent/evals/rag/deepeval_adapter.py": "823fa66b48f1c797980dfe718fd883737535e39c74d37dcda9abae17e01f5c03",
+    "agent/evals/rag/judge.py": "893685bfe13b29f29608d083428d4fe2dd5e7e852aa1938e07ca9b30a5dde300",
+    "agent/evals/rag/judge_checks.py": "ef8bd6a26e98abf45dc999d00beabc5175d42b03c7ab6e06c5dede5d24b23400",
+    "agent/evals/rag/metrics.py": "40434084521b2a8b39754c25a129bde6838c87abd177e8790b7a3584ecd2eaae",
+    "agent/evals/rag/pipeline.py": "4b09645811329ce3af3ce71470180746aaab26cec4cd498103e3a37e25f97910",
+    "agent/evals/rag/runner.py": "5df8745f7131976fca86f63a6366678137c32ab5c869f3bd534dca90fb065ae5",
+    "agent/evals/rag/telemetry.py": "ee816b573741fb68897bff27ba94c0b7b3e696990fc137167723bebae9973e18",
+    "agent/providers.py": "5c2bb411a131158db1470f4cb60192a1ed2144f12c0e83401d28d92b88b1e15a",
+    "agent/retrieval/__init__.py": "525ff22a0699c32bd228d1722059784b38fc4449c71da1135e6291db8909d83a",
+    "agent/retrieval/answer_study.py": "0a0ee42dc3ab755b26433eb4b2f2bee2083c22cfb08f24bcf22d8d7022c3a318",
+    "agent/retrieval/benchmark.py": "99fa8a021a69ee3f7fb5261569930b6dbe55de1b10413bb8e8b6ba9efba8dc04",
+    "agent/retrieval/db.py": "842ce9f150deff4fdb81e36b49323182b91c37aafe95ff26630b0e6afa63f5e0",
+    "agent/retrieval/embeddings.py": "7b7f9c95830e6c9729d3f80a97e2802d9dde3ed2013ee0e6b62b50d27ea9e912",
+    "agent/retrieval/eval_cases.py": "a38e9aee7beb02b5f57409d6ef5690937556d647b72ea75437891f0d9cf02078",
+    "agent/retrieval/eval_cases_freeform.py": "507d3b21c94215f927d9ea4d6a63bd509fa062838ad05b8d9e0e0e19d7d2285b",
+    "agent/retrieval/eval_runner.py": "11adc3cf57c8ccf265c051af0ebddc39d3ecbe25bef6993174245eff4ae9ab80",
+    "agent/retrieval/evidence_gate.py": "3b37aab9fbd78a6da6ac6a2bbe1eacc44c5a1d6a11aee703d59eb55c33f24638",
+    "agent/retrieval/fusion_experiment.py": "cd5fc7a1c3df48b2820646beb35a564dcf093e349804a449fa60cc9cb4f38b39",
+    "agent/retrieval/gate_eval.py": "52d788b042c4f9a6e1fe672e444c172a066958ae11f5cd4ae9f7b37f81ea5c5b",
+    "agent/retrieval/gate_model_eval.py": "1ffadc144f6e3abb84f6d053015420fae89c98691afc403fd0c91cf77a53f105",
+    "agent/retrieval/heldout_eval.py": "a71222bcb95d6ede60759ec0ea998e0d63351d654b65f07231ec3f691bf79cf8",
+    "agent/retrieval/hybrid.py": "10bb34accc0b29652c4330c998d4e35793390c571018123fa0d2ee481eb47d77",
+    "agent/retrieval/lexical.py": "68badae79edf6c0908435a2a17098d193f97b03d05cea4af0f0cc072dfbbec87",
+    "agent/retrieval/lexical_benchmark.py": "1f4d6a5cc524c544c9c2f0e6821bda0f85f843c924e436aed56f8f768a9a8a8b",
+    "agent/retrieval/loader.py": "7aeceb365f2a7f6c741e77b9994335e4ba84634add04c7150b5b9b8d23b451a2",
+    "agent/retrieval/manifest.py": "92fd94962eb301e39b5a20908ec9d957a5c9cc677b889566972392da1f1890cd",
+    "agent/retrieval/problem_metrics.py": "e1be295d749cfda016868f55ea3d50a52acd86ea29e0750bbf9dafe435dc50df",
+    "agent/retrieval/retrieval_comparison.py": "6bd3db5c9267be67730851a41da92065a94292cfbd699cb650b644f7c80baac8",
+    "agent/retrieval/retrieve.py": "2ab832a8f60eead393b72f31e485e4fbb2d7ffaf645843a8c2ab86dea6693d0d",
+    "agent/retrieval/reviewed_dataset.py": "87ca65123407bff6c9a08a414ecddafa6ed5ff36457ac9da8045d32a18f79ee0",
+    "agent/retrieval/sync_embeddings.py": "e1cd9257263eeba3cac6299b34268111c7bb56d80d2cd680aa22a94a507edcbe",
+    "agent/retrieval/tagger.py": "ff7ac911c195d9deebd794b244f8d0af8eea8c4401a650651e0ee883911d8471",
+    "agent/retrieval/tracing.py": "11ff4c75cd88e1aff3fb29672433e73117f235f30fef3ffd2f17e3efe441cd34",
+    "agent/retrieval/validate_corpus.py": "392a0877cdbf0a35923afe75681987e641ace86961fb8344c1d4e63f75982fb4",
+    "agent/study_assist/__init__.py": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+    "agent/study_assist/evidence_policy.py": "4172b854217d28bc7cc0b2ed78bc5d14888f490da45ed41618340b38421532b3",
+    "agent/study_assist/router.py": "592a51dbe65a13c9bf022995945d54d99e39303ee0cfe1c58eb8f50063c5d267",
+    "agent/study_assist/schemas.py": "7bc0e9a424758a43b1904d02b356a9a7d6fea76463cf82b6661c4c117758f6d7",
+    "agent/study_assist/source_policy.py": "8ccc60cd096f8e390f75e5343709f75a7273154bf439d141d9793102d2f89baf",
+    "agent/evals/rag_v2/__init__.py": "836d437219824f5cf5c34339a69c921f73b35a23987892ff2676004b76f7e786",
+    "agent/evals/rag_v2/judge.py": "34456250e3fe871e403b7014e282430660bc568a2b8388f04c1742ae3dd8e50c",
+    "agent/evals/rag_v2/runner.py": "28d8bdbcf854830b47c7eef59f896ff031878c18a74409c94e651fde5297e957",
+    "agent/evals/release/__init__.py": "12117a1f8a22636a6c39dfdf84a01947291df51902ed67d06af0daf67b553a94",
+    "agent/evals/release/pipeline.py": "56c91b16f5e12b8a24b83d508a78bb8e5ed09890205d14bcba2b902afbcbb77f",
+    "agent/evals/release/runner.py": "4bcdce0f91fa583538800216951878b3fb9622e7631309980fe9426f2e3144f5"
+  },
+  "git_revision": "380967da1c734f7580042a56267511a9ddea17ae",
+  "created_at": "2026-09-16T17:22:03.857389+00:00",
+  "corpus": {
+    "fingerprint": "84855559eed4465efa1f1bacad5a632043be8b003863e3102c39f050ff4b8051",
+    "language": "en",
+    "note_count": 31,
+    "config": {
+      "model": "text-embedding-3-small",
+      "dimensions": 1536,
+      "chunk_format": "v2"
+    }
+  },
+  "prices_usd_per_million": {
+    "gpt-4.1-2025-04-14": {
+      "input": 2.0,
+      "cached": 0.5,
+      "output": 8.0
+    },
+    "gpt-4o-mini-2024-07-18": {
+      "input": 0.15,
+      "cached": 0.075,
+      "output": 0.6
+    },
+    "gpt-4.1-mini-2025-04-14": {
+      "input": 0.4,
+      "cached": 0.1,
+      "output": 1.6
+    },
+    "text-embedding-3-small": {
+      "input": 0.02,
+      "cached": 0.02,
+      "output": 0
+    }
+  },
+  "price_date": "2026-09-16",
+  "models": {
+    "verifier": "gpt-4.1-2025-04-14",
+    "generator": "gpt-4o-mini-2024-07-18",
+    "judge": "gpt-4.1-2025-04-14"
+  },
+  "budget": {
+    "max_pipeline_calls": 48,
+    "max_judge_calls": 32,
+    "concurrency": 1,
+    "verifier_timeout_seconds": 8,
+    "judge_reserved_tokens_per_minute": 24000
+  },
+  "targets": {
+    "correctness_mean_min": 3,
+    "faithfulness_mean_min": 0.9,
+    "hallucinated_answer_rate_max": 0.1,
+    "teaching_mean_min": 4,
+    "scope_pass_min": 0.9,
+    "request_failure_rate_max": 0.02,
+    "judge_failure_count_max": 0
+  },
+  "retrieval_targets": {
+    "precision_min": 0.9,
+    "recall_min": 0.8,
+    "negative_fp_max": 0.1,
+    "required_clarification_min": 1,
+    "required_redirect_min": 1,
+    "wrong_clarification_max": 0
+  },
+  "limitations": [
+    "AI-authored synthetic labels, not expert validation or user traffic.",
+    "Generator and judge differ; verifier and judge share GPT-4.1 and may have correlated errors.",
+    "Sentence-unit judgments, not directly comparable with v1 atomic claims.",
+    "Local live handler measurements exclude public HTTP/browser and evaluation pacing; not a load benchmark.",
+    "Raw hybrid comparison measures source selection only, not generated-answer superiority."
+  ]
+}
