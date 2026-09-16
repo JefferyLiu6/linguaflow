@@ -436,6 +436,8 @@ MIT © JL200126 — see [LICENSE](LICENSE).
 
 ### Evaluation evidence and remaining gates
 
+**Frozen retrieval holdout completed:** 93 new AI-authored, corpus-aware queries, frozen before execution. Hybrid selected an accepted source on **52/62 positives (83.9%)**, but falsely retrieved on **16/31 negatives (51.6%)**, failing the predeclared abstention target. Vector-only made identical selections. This supports a concrete failure analysis, not a claim of hybrid superiority or independent validation. See the [held-out report](docs/HELDOUT_EVALUATION_01.md), [pre-run protocol](docs/HELDOUT_PROTOCOL_01.md), and [failure ledger](docs/HELDOUT_FAILURES_01.md).
+
 See [the feedback response and answer-study protocol](docs/EVALUATION_FEEDBACK_RESPONSE.md) for the seven-arm comparison, evaluation intake with provenance, measured rank-fusion results, and remaining answer-quality/operational gates. Whole-corpus context remains a serious baseline for this small dataset; RAG is not assumed to win.
 
 The answer-generation pilot completed **56/56 structurally valid responses**, with estimated generation cost **$0.0184**. [AI-assisted evaluation is complete](docs/ANSWER_EXPERIMENT_03.md); it identifies shared generation failures and does not establish that complex RAG improves tutoring.

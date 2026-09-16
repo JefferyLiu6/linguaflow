@@ -1,0 +1,20 @@
+{
+  "python_tests": {
+    "passed": 178,
+    "skipped": 6,
+    "warning": "Existing Starlette/AnyIO deprecation warning",
+    "note": "Six optional DB/operations tests skipped without their dedicated test environment; separate production parity checked independently."
+  },
+  "new_integrity_tests": 6,
+  "offline_replay_exact_match": true,
+  "production_code_changed": false,
+  "gate_passed": false,
+  "freeze_commit": "b970703",
+  "private_notes_and_credentials_tracked": false,
+  "production_pgvector_parity": {
+    "matches": 93,
+    "cases": 93,
+    "first_attempt": "invalid_infrastructure_error",
+    "retry": "complete_unchanged_dataset"
+  }
+}

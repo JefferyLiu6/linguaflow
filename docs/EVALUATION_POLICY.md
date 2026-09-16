@@ -11,3 +11,7 @@ Human review is optional, not a project or release requirement. Current evaluati
 Existing answer packets may omit `evaluation_kind` and `model`; add them when completing ratings. The scoring tool rejects missing provenance. Historical run summaries are retained unchanged for reproducibility.
 
 Validation: **177 tests passed**, including real pgvector integration. The suite checks that a project author can freeze labeled data without external reviewers and that AI-assisted evaluations cannot omit model provenance. Evidence: `agent/runs/evaluation-policy-validation.json`.
+
+## Frozen synthetic holdout
+
+The [93-case retrieval holdout](HELDOUT_EVALUATION_01.md) is AI-authored and corpus-aware. Its protocol, labels and code hashes were committed before execution. The first-run results failed the abstention target and show no hybrid improvement over vector-only. Preserve this result. This set is now a regression suite; tuning against its failures requires a fresh untouched set for the next generalization claim. It does not replace independent label review or held-out answer-quality evaluation.
