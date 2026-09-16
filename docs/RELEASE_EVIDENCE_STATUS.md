@@ -2,7 +2,7 @@
 
 ## Latest source-policy validation
 
-The current branch changes the actual freeform handler and adds reproducible three-layer validation. See [release results](RELEASE_VALIDATION_RESULTS.md) and the [frozen protocol](RELEASE_VALIDATION_PROTOCOL.md). A successful local/provider evaluation or PR check does not establish that Render runs this revision. The historical production observations below apply only to their named commit. No new migration or embedding rebuild is needed for the source-policy change.
+The current branch changes the actual freeform handler and adds reproducible three-layer validation. Fresh-v2 passed its fixed gates (11/11 source precision, 11/12 recall, 0/12 negative false references, 8/8 required clarification/redirect routes), and 269 local tests passed including disposable pgvector. Fresh-v1 failed and remains preserved. See [release results](RELEASE_VALIDATION_RESULTS.md) and the [frozen protocol](RELEASE_VALIDATION_PROTOCOL.md). A successful local/provider evaluation or PR check does not establish that Render runs this revision. The historical production observations below apply only to their named commit. No new migration or embedding rebuild is needed for the source-policy change.
 
 ## Historical deployment check: production RAG verified
 

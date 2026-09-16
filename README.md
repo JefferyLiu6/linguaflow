@@ -12,6 +12,8 @@ LinguaFlow is a full-stack AI language-learning system built as a portfolio proj
 
 ### RAG engineering case study
 
+**Latest validation:** the frozen 24-case synthetic follow-up passed its predeclared gates: 11/11 source precision, 11/12 source recall, 0/12 false references, and 8/8 required clarification/redirect routes. These are small AI-authored, AI-judged results; earlier failures and limitations remain in the [full report](docs/RELEASE_VALIDATION_RESULTS.md).
+
 **Problem:** a learner needs the rule behind a rewrite, without a plausible but irrelevant citation or an invented change in meaning. The English freeform tutor separates missing learner context, missing reference coverage, and out-of-scope requests. Supported explanations show a reference; uncovered English questions receive general help with an explicit disclosure.
 
 **Why RAG here:** maintain a versioned, inspectable teaching curriculum and select the relevant rule at request time. With only 31 notes, a whole-corpus prompt is a credible alternative. This project measures retrieval and answer quality separately and does **not** claim that RAG universally beats that alternative.

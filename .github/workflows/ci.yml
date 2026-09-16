@@ -87,6 +87,27 @@ jobs:
         working-directory: agent
         run: python -m retrieval.retrieval_comparison plan --output runs/retrieval-comparison-plan.json
 
+      - name: Release development history replay (offline)
+        working-directory: agent
+        run: |
+          for version in 1 2 3 4; do
+            python ../scripts/replay_release_snapshot.py --plan runs/release-development-v${version}-plan.json --records runs/release-development-v${version}-records.jsonl --output runs/ci-release-development-v${version}.json
+            python ../scripts/compare_eval_reports.py runs/release-development-v${version}-results.json runs/ci-release-development-v${version}.json
+          done
+
+      - name: Retired fresh-test replay (offline)
+        working-directory: agent
+        run: |
+          python ../scripts/replay_release_snapshot.py --plan runs/release-fresh-v1-plan.json --records runs/release-fresh-v1-records.jsonl --output runs/ci-release-retired-v1.json
+          python ../scripts/compare_eval_reports.py runs/release-fresh-v1-results.json runs/ci-release-retired-v1.json
+
+      - name: Current serving release evaluation replay (offline)
+        working-directory: agent
+        run: |
+          python -m evals.release.runner replay --plan runs/release-fresh-v2-plan.json --records runs/release-fresh-v2-records.jsonl --output runs/ci-release-fresh-v2.json
+          python ../scripts/compare_eval_reports.py runs/release-fresh-v2-results.json runs/ci-release-fresh-v2.json
+          python -c "import json; assert json.load(open('runs/ci-release-fresh-v2.json'))['acceptance_pass'], 'Current serving release gate failed'"
+
       - name: Context-sufficiency probes replay (offline)
         working-directory: agent
         run: |
@@ -120,6 +141,7 @@ jobs:
             agent/runs/relevance-review.json
             agent/runs/retrieval-comparison-plan.json
             agent/runs/ci-answer-eval.json
+            agent/runs/ci-release-*.json
           if-no-files-found: warn
 
   retrieval-integration:

@@ -1,4 +1,6 @@
-# Serving-path release validation
+# Historical serving-path validation: fresh-v1 failed
+
+This is the preserved first fresh test, now retired to regression. Its source snapshot is recorded in `agent/runs/release-fresh-v1-plan.json`. Use `scripts/replay_release_snapshot.py` to replay it after source changes; the direct current-code command below describes the collection-time checkout. See [current release results](RELEASE_VALIDATION_RESULTS.md) for the follow-up.
 
 ## Outcome and scope
 
