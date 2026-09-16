@@ -1,446 +1,88 @@
-# LinguaFlow — AI Language Coaching System
+# LinguaFlow
 
-[![CI](https://github.com/JefferyLiu6/linguaflow/actions/workflows/ci.yml/badge.svg)](https://github.com/JefferyLiu6/linguaflow/actions/workflows/ci.yml)
-[![Next.js](https://img.shields.io/badge/next.js-16-black?logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/react-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/typescript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Python](https://img.shields.io/badge/python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+**An English tutor that explains why a rewrite works, with teaching references learners can inspect.**
 
-> **Live demo:** https://linguaflow-demo.vercel.app
+Built with Next.js, FastAPI, LangGraph and PostgreSQL/pgvector. The engineering focus is the RAG pipeline: reliable data, relevant references, explicit fallback behavior and reproducible evaluation.
 
-LinguaFlow is a full-stack AI language-learning system built as a portfolio project. It combines timed drills, a LangGraph-orchestrated tutor, a session planner, a retrieval-augmented coaching layer (metadata + pgvector hybrid), a Study-mode assistant, and a helpfulness-feedback loop — all wired together across a Next.js web app, a FastAPI agent, Supabase Auth, and Postgres.
+[Try the demo](https://linguaflow-demo.vercel.app) · [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) · [Evaluation results](docs/RELEASE_VALIDATION_RESULTS.md)
 
-### RAG engineering case study
+![Recorded LinguaFlow product walkthrough](docs/demo/linguaflow-demo.gif)
 
-**Latest validation:** the frozen 24-case synthetic follow-up passed its predeclared gates: 11/11 source precision, 11/12 source recall, 0/12 false references, and 8/8 required clarification/redirect routes. These are small AI-authored, AI-judged results; earlier failures and limitations remain in the [full report](docs/RELEASE_VALIDATION_RESULTS.md).
+## The problem
 
-**Problem:** a learner needs the rule behind a rewrite, without a plausible but irrelevant citation or an invented change in meaning. The English freeform tutor separates missing learner context, missing reference coverage, and out-of-scope requests. Supported explanations show a reference; uncovered English questions receive general help with an explicit disclosure.
+A fluent explanation can still teach the wrong rule. Changing “I may finish” to “I have finished,” for example, changes both certainty and completion. A tutor should explain that distinction, cite a relevant rule when available, and ask for context when the learner has not supplied enough information.
 
-**Why RAG here:** maintain a versioned, inspectable teaching curriculum and select the relevant rule at request time. With only 31 notes, a whole-corpus prompt is a credible alternative. This project measures retrieval and answer quality separately and does **not** claim that RAG universally beats that alternative.
+LinguaFlow combines timed drills, conversational coaching and study cards. Learners can ask for explanations, see the selected teaching reference, and rate the response. A session planner recommends what to practice next.
 
-- [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md): product contract, alternatives, cleaning, chunking, embedding choice, retrieval policy and failure behavior.
-- [Dataset card](docs/DATASET_CARD.md): 171 canonical English drills, 31 notes, 121 examples, 31 counterexamples and 11 references. Content is AI-assisted; no independent expert validation is claimed.
-- [Release validation](docs/RELEASE_VALIDATION_RESULTS.md): frozen development and fresh synthetic tests, exact denominators, answer judgments, tokens, cost, latency and limitations. [Protocol](docs/RELEASE_VALIDATION_PROTOCOL.md) fixes acceptance criteria before execution.
-- [Deployment evidence](docs/RELEASE_EVIDENCE_STATUS.md): historical production smoke checks are separated from the latest source-policy validation. Local evaluation is not evidence that a new backend revision has been deployed.
-- [Data lifecycle](docs/INDEX_PUBLICATION.md): atomic publication, corpus/model fingerprints and rejection of mismatched indexes.
+**Why RAG?** It makes the teaching curriculum editable and its source choices inspectable. With only 31 notes, putting the entire corpus in the prompt is also a credible alternative; the experiments do not establish that RAG always produces better answers.
 
-**Evaluation history stays visible.** The [original held-out retrieval test](docs/HELDOUT_EVALUATION_01.md) exposed 16/31 false references. [Evidence-gate trials](docs/EVIDENCE_GATE_RESULTS_02.md), the [four-arm answer pilot](docs/ANSWER_EVALUATION_01.md), [routing regression](docs/ROUTING_ANSWER_RESULTS_02.md), and [context probes](docs/CONTEXT_SUFFICIENCY_RESULTS_03.md) document failed attempts and their precision/recall trade-offs. [Lexical](docs/RETRIEVAL_EXPERIMENT_01.md) and [semantic](docs/RETRIEVAL_EXPERIMENT_02.md) comparisons provide reproducible baselines.
+## What I built
 
-CI validates the corpus, tests serving behavior and index publication, and replays saved evaluation artifacts without paid API calls. The [update plan](docs/RAG_UPDATE_PLAN.md) records completed work and bounded future work. There is no production load benchmark or measured learner-outcome study.
+| Area | Implementation and reasoning |
+|---|---|
+| **Data pipeline** | 171 canonical English drills and 31 teaching notes, with examples, counterexamples and 11 external references. Validation checks IDs, relationships and content structure before indexing. |
+| **Retrieval** | One concept per chunk; `text-embedding-3-small` embeddings; pgvector candidates reranked with card metadata. Short notes keep rules and qualifications together. |
+| **Source and context checks** | One bounded verification call checks task scope, missing learner text and evidence support. Uncovered questions get an explicit disclosure; incomplete questions get clarification. |
+| **Index reliability** | Atomic publication and corpus/model fingerprints prevent partial or incompatible indexes from being served. Provider and index failures return explicit errors. |
+| **Evaluation** | Separate retrieval, answer-quality and latency/token/cost metrics. Frozen plans, saved outputs and offline replay keep experiments inspectable—including failed attempts. |
 
+## Measured results
 
----
+**Latest frozen test: 24 synthetic questions** covering supported questions, uncovered English questions, missing context and out-of-scope requests.
 
-## Review this project in 5 minutes
+| Measure | Result |
+|---|---:|
+| Selected references that were correct | **11/11** |
+| Supported questions that received a correct reference | **11/12** |
+| False references on negative cases | **0/12** |
+| Required clarifications / scope redirects | **4/4 / 4/4** |
+| Local pipeline p95 latency | **4.60 s** |
+| Mean pipeline token cost, excluding evaluation judge | **$0.00433/request** |
 
-**Fastest path (no account needed):**
+**269 Python tests passed**, including disposable PostgreSQL/pgvector integration. CI also runs web lint, type checks, tests, build, guest browser tests and evaluation replay.
 
-1. Go to https://linguaflow-demo.vercel.app
-2. Click **Begin Training** → choose English → run a 4-item session
-3. On the Results screen, look at the **Next session recommendation** (planner)
-4. Click a drill item → open the **Coach** tab → ask "Explain this" → look for the **Coach reference** label
+These are small, AI-authored synthetic tests; answer-quality scores use an AI judge. One source was still missed. The timings are from an instrumented local pipeline, not a production load test. Earlier failures, confidence intervals, answer metrics and exact configurations are in the [full evaluation report](docs/RELEASE_VALIDATION_RESULTS.md).
 
-**Authenticated path (planner + RAG + feedback loop):**
-
-1. Sign in with the reviewer account:
-   - Email: `reviewer@linguaflow.demo`
-   - Password: `LinguaFlow2026!`
-2. The dashboard loads with 12 pre-seeded sessions — the planner fires immediately
-3. Run an English session → Results → see the AI-generated session plan
-4. Open Coach on an English card → ask "Explain this" or "Why is this wrong?" → grounded reply with **Coach reference** and 👍/👎
-5. Visit **Study** on an English card → click "Explain card" or "What contrast is this?" → grounded reply with **Study reference** and 👍/👎
-6. Click 👍 or 👎 — feedback persists to the database and is reportable
-
----
-
-## System architecture
-
-LinguaFlow is split across four layers: Next.js (UI + API routes), Supabase Auth + Postgres (persistence), a FastAPI Python agent (LLM logic, LangGraph, RAG), and an optional Langfuse trace sink.
+## How it works
 
 ```mermaid
 flowchart LR
-  subgraph browser["Browser"]
-    UI["Next.js App Router\nReact 19"]
-  end
-
-  subgraph next["Next.js Server (Vercel)"]
-    API["Route Handlers /api/*"]
-    AUTH["Supabase SSR Session"]
-    RLIMIT["Rate Limiting\n(session · IP · global)"]
-  end
-
-  subgraph data["Supabase / Postgres"]
-    SUPA["Supabase Auth"]
-    DB[("Postgres + Prisma\nDrillSession · CustomList\nUserSettings · AiResponseFeedback\nretrival_doc (pgvector)")]
-  end
-
-  subgraph agent["Python Agent (Render)"]
-    FASTAPI["FastAPI :8000"]
-
-    subgraph tutor["Tutor — LangGraph"]
-      ROUTER["Router node\nhint · socratic · explain\nclarify · ready_check"]
-      RAG1["Metadata retrieval"]
-      TRACE1["Langfuse trace\nrequest_id linked"]
-    end
-
-    subgraph study["Study assist"]
-      STUDY_RT["study_assist router\nexplain · similar · what_contrast\nfreeform_help (hybrid)"]
-      RAG2["Metadata card actions +\nhybrid freeform retrieval"]
-      TRACE2["Langfuse trace\nrequest_id linked"]
-    end
-
-    subgraph planner["Planner"]
-      PLAN_RT["plan_session endpoint\nLLM + heuristic fallback"]
-    end
-
-    CORPUS["Contrast-note corpus\n31 English notes\nknowledge/en/contrasts.jsonl"]
-    PVEC["pgvector index\ntext-embedding-3-small\n1536d"]
-    PROVIDERS["LLM providers\nOpenAI · Anthropic\nGoogle · Groq · Ollama"]
-  end
-
-  UI --> API
-  API --> AUTH --> SUPA
-  API --> DB
-  API --> RLIMIT
-  API -->|"/api/tutor/stream\n/api/tutor"| FASTAPI
-  API -->|"/api/study-assist"| FASTAPI
-  API -->|"/api/plan-session"| FASTAPI
-  API -->|"/api/generate-drills"| FASTAPI
-  API -->|"POST /api/ai-feedback"| DB
-
-  FASTAPI --> ROUTER --> RAG1 --> CORPUS
-  RAG1 --> TRACE1
-  FASTAPI --> STUDY_RT --> RAG2 --> CORPUS
-  RAG2 --> PVEC
-  RAG2 --> TRACE2
-  FASTAPI --> PLAN_RT
-  ROUTER --> PROVIDERS
-  STUDY_RT --> PROVIDERS
-  PLAN_RT --> PROVIDERS
+    UI[Next.js app] --> API[FastAPI agent]
+    API --> R[pgvector + metadata retrieval]
+    R --> V[Scope, context and source checks]
+    V --> A[Answer with reference or disclosure]
+    V --> C[Clarify or redirect]
 ```
 
----
+This is the **Study freeform** path. Card-based explanations use metadata retrieval; the conversational tutor uses LangGraph routing. Supabase handles authentication and persistence. [Read the design decisions and trade-offs →](docs/RAG_ENGINEERING_CASE_STUDY.md)
 
-## Feature highlights
+## Try it
 
-### 1. Contrastive RAG (Tutor + Study, Phase 1–3)
+Open the [demo](https://linguaflow-demo.vercel.app), choose **Begin Training → English**, and complete a short session. Open **Coach** on a drill to ask for an explanation. Guest mode requires no account.
 
-Tutor `explain`/`clarify` and Study card actions retrieve from a curated 31-note English contrast corpus using metadata. Study `freeform_help` embeds the learner question plus card context, retrieves pgvector candidates, and reranks with 0.6 × vector + 0.4 × normalized metadata. A structured hybrid helper is implemented and tested but is not wired into the structured request handlers. See the [case study](docs/RAG_ENGINEERING_CASE_STUDY.md) for the actual call paths and limitations.
+The free backend host can take time to wake up. The recording above provides a quick product preview; [deployment evidence](docs/RELEASE_EVIDENCE_STATUS.md) identifies which backend revisions were verified.
 
-The frontend surfaces grounding lightly: a "Coach reference" or "Study reference" label shows the matched note title. Tracing is designed to record retrieval details in Langfuse using request/response IDs for correlation. Trace delivery is optional and still requires live SDK/infrastructure verification; a displayed source label alone does not verify answer faithfulness.
+## Explore the engineering
 
-**Measured retrieval:** see the [release results](docs/RELEASE_VALIDATION_RESULTS.md) for the current freeform path. Card-action metadata results, historical hybrid baselines and verified freeform results use different datasets and must not be combined into one accuracy figure.
-
-### 2. Session planner (Phase 1)
-
-After each English session, the Results screen shows an AI-generated plan card recommending what to practice next, with a confidence score and fallback to a deterministic heuristic when the LLM output is below threshold (0.85, calibrated from a 30-case eval sweep). The planner uses the last 5 sessions and the full English taxonomy as context.
-
-### 3. Helpfulness feedback loop (Phase 4)
-
-Authenticated users can rate any grounded Tutor or Study reply as 👍 or 👎. The rating is persisted in `AiResponseFeedback` and linkable to the Langfuse trace via `responseId = request_id`, enabling the full proof loop:
-
-```
-learner clicks 👎
-  → AiResponseFeedback row: { sourceId, surface, mode, responseId }
-  → Langfuse trace filtered by request_id: what note was retrieved, why
-  → fix note's when_to_use or tags
-  → re-run eval → measure subsequent helpfulness
-```
-
-Internal report: `DATABASE_URL=... npx tsx scripts/feedback-report.ts`
-
-### 4. LangGraph tutor orchestration
-
-The tutor uses a router-plus-specialist graph. The router classifies learner intent into one of five routes; LangGraph conditional edges dispatch to the matching specialist node. Each node applies route-specific prompting policy. The streaming path (`/tutor/stream`) reuses the same router and specialists but delivers incremental SSE tokens.
-
----
-
-## Animated demo
-
-![LinguaFlow animated demo](docs/demo/linguaflow-demo.gif)
-
----
-
-## Screenshots
-
-**Home — drill session widget and language picker**
-![Drill session](docs/screenshots/drill-session.png)
-
-**Drill feedback + AI Tutor coaching exchange**
-![Drill feedback and tutor](docs/screenshots/drill-feedback.png)
-
-**Dashboard — rolling accuracy, response time, training intensity heatmap**
-![Dashboard](docs/screenshots/dashboard.png)
-
-> Screenshots showing the planner card (Results screen), grounded Study reply with helpfulness feedback, and a grounded Tutor reply with the Coach reference label are pending capture from the live deployment.
-
----
-
-## Iteration history
-
-### Phase 1 — Timing + core loop
-Implemented the strict drill loop (20s timer, submit/skip/timeout, immediate feedback, session scoring). Validated UX mechanics before adding architecture complexity.
-
-### Phase 2 — Data contracts + Prisma persistence
-Added typed Next.js API routes and Prisma models (`DrillSession`, `CustomList`, `UserSettings`). Decoupled UI from data logic; established stable request/response contracts.
-
-### Phase 3 — Isolated FastAPI generation service
-Introduced a separate FastAPI service with guided/raw generation modes, JSON extraction, and output filtering. AI failures are isolated from the web app.
-
-### Phase 4 — LangGraph tutor routing
-Replaced one-shot tutoring with LangGraph routing (5 specialist nodes, hint-level state, structured JSON output with fallback). Makes tutor behavior controllable and debuggable.
-
-### Phase 5 — Auth, reliability, and security hardening
-Added Supabase Auth + Postgres persistence, JWT-cookie session handling, protected data routes, turn caps, input validation, and clearer upstream error mapping.
-
-### Phase 6 — SSE streaming + deployment prep
-Added `/tutor/stream` SSE endpoint. Streaming path reuses router + specialist policies and delivers incremental tokens with runtime metadata (`route`, `hint_level`, `elapsed_ms`).
-
-### Phase 7 — Contrastive RAG (metadata)
-Built a 31-note English contrast corpus and a metadata-first retrieval scorer (drill id, type, category, topic, taxonomy tags, authoring item IDs). Added a 31-case eval harness with per-bucket metrics. Grounded `explain` and `clarify` routes. Added `Coach reference` label to the tutor panel.
-
-### Phase 8 — Session planner
-Added `POST /plan-session` and the LangGraph planner graph (LLM plan + heuristic fallback + confidence threshold). Planner card appears on Results after each English session.
-
-### Phase 9 — Study mode + Study-assist RAG
-Added the Study screen (card flip, progress tracking) and the `/study-assist` endpoint with four actions (`explain_card`, `show_similar_examples`, `what_contrast_is_this`, `freeform_help`). Study-mode RAG reuses the Phase 7 corpus.
-
-### Phase 10 — Hybrid pgvector retrieval (Phase 3)
-Added `text-embedding-3-small` embeddings, a pgvector `retrieval_doc` table, offline sync (`python -m retrieval.sync_embeddings`), and hybrid reranking (0.6 × vector + 0.4 × normalized metadata). Freeform help uses vector-first retrieval. 25-case freeform eval harness with head-to-head metadata vs hybrid comparison.
-
-### Phase 11 — Helpfulness feedback loop (Phase 4)
-Added `response_id` plumbing (`Next.js → Python → SSE done event`), `AiResponseFeedback` model, `POST /api/ai-feedback`, and inline 👍/👎 controls on grounded replies. Feedback rows are linkable to Langfuse traces via `responseId`.
-
-### Phase 12 — Portfolio packaging (Phase 5)
-Reviewer-oriented README, deployment runbook, seed/reset script for the shared demo account, and CI upgrade from per-file `py_compile` to `pytest`.
-
----
-
-## API surface (web layer)
-
-| Method | Path | Purpose | Auth |
-|---|---|---|---|
-| POST | `/api/register` | Create account + issue Supabase session | Open |
-| POST | `/api/auth/login` | Sign in + issue Supabase session | Open |
-| POST | `/api/auth/logout` | Clear Supabase auth cookies | Signed-in |
-| GET | `/api/auth/me` | Return normalized auth state | Open |
-| GET/POST | `/api/sessions` | Load or upsert authenticated drill sessions | Signed-in |
-| GET/PUT/DELETE | `/api/custom-list` | Load or replace the authenticated custom list | Signed-in |
-| GET/PUT | `/api/language` | Load or save language preference | Signed-in |
-| POST | `/api/import-demo-data` | Import guest browser data into authenticated account | Signed-in |
-| POST | `/api/plan-session` | Proxy to Python planner with rate limits | Open |
-| POST | `/api/generate-drills` | Proxy to Python generation with rate limits | Open |
-| POST | `/api/tutor` | Proxy to Python tutor (non-streaming) with rate limits | Open |
-| POST | `/api/tutor/stream` | Proxy to Python SSE tutor stream with rate limits | Open |
-| POST | `/api/study-assist` | Proxy to Python study-assist with rate limits | Open |
-| POST | `/api/ai-feedback` | Persist helpfulness feedback for a grounded reply | Signed-in |
-
----
-
-## Data model
-
-```
-DrillSession       — user-scoped session performance (results JSON, drill type, language)
-CustomList         — one persisted custom list per user
-UserSettings       — language preference
-AiResponseFeedback — 👍/👎 signal linked to responseId and retrieval trace
-retrieval_doc      — pgvector document store for hybrid RAG (managed via psycopg2)
-```
-
-Supabase owns identity. All app tables use the Supabase user UUID as `userId`.
-
-The first version intentionally stored session results and custom-list items as JSON because that matched the frontend payloads and kept iteration fast. As planner logic, analytics, and review flows grew, that shape became harder to query, index, and evolve safely.
-
-The next hardening step is to normalize per-item learning data into relational tables while keeping session-level aggregates in `DrillSession`. That preserves the current product behavior but gives the system a better story around query design, indexing, migrations, and backfills.
-
-See:
-- [docs/CASE_STUDY_DATA_MODEL.md](docs/CASE_STUDY_DATA_MODEL.md) for the full current-vs-ideal schema walkthrough
-- [docs/ENGINEERING_NOTES.md](docs/ENGINEERING_NOTES.md) for recent engineering fixes
-- [docs/BACKLOG.md](docs/BACKLOG.md) for still-open hardening work
-
----
-
-## Tech stack
-
-| Area | Technologies |
+| Interested in… | Start here |
 |---|---|
-| Frontend | Next.js 16, React 19, Tailwind CSS 4 |
-| Web backend | Next.js Route Handlers, TypeScript |
-| AI backend | FastAPI, LangGraph, LangChain |
-| LLM providers | OpenAI · Anthropic · Google · Groq · Ollama |
-| Retrieval | Hand-authored 31-note corpus, metadata scorer, pgvector hybrid |
-| Auth | Supabase Auth with SSR cookie handling |
-| Data | Supabase Postgres + Prisma (pooled + direct) |
-| Tracing | Langfuse (fail-open) |
-| Testing | Vitest (75 unit/integration), Pytest (agent unit tests and disposable pgvector integration), Playwright E2E |
-| CI | GitHub Actions: lint · tsc · vitest · build · playwright · pytest |
+| Problem, architecture and design trade-offs | [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) |
+| Data selection, cleaning and provenance | [Dataset card](docs/DATASET_CARD.md) |
+| Metrics, failure analysis and reproducibility | [Evaluation report](docs/RELEASE_VALIDATION_RESULTS.md) |
+| Running the app and tests | [Local development](docs/LOCAL_DEVELOPMENT.md) |
+| Hosting, migrations and operations | [Deployment runbook](docs/DEPLOYMENT.md) |
 
----
+## Run locally
 
-## Local development
-
-### Prerequisites
-
-- Node.js 20+, pnpm
-- Python 3.11+
-- A Supabase project (optional — guest mode works without it)
-- An LLM provider key (e.g. `OPENAI_API_KEY`) for the agent
-
-### 1. Web app (guest mode)
+For the guest web app, with Node.js 20+ and pnpm:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Open `http://localhost:3000`. Guest mode works immediately — no database or auth setup required.
-
-### 2. Authenticated mode
-
-Create a Supabase project, disable email confirmation, and add to `.env.local`:
-
-```bash
-NEXT_PUBLIC_SUPABASE_URL=...
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
-DATABASE_URL=...       # pooled connection string
-DIRECT_URL=...         # direct connection string
-```
-
-Run migrations:
-
-```bash
-npx prisma migrate deploy
-```
-
-### 3. Python agent
-
-```bash
-cd agent
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env        # add OPENAI_API_KEY (or another provider key)
-uvicorn main:app --port 8000 --reload
-```
-
-Health check: `curl http://localhost:8000/health`
-
-### 4. (Optional) Hybrid RAG with pgvector
-
-```bash
-# Sync corpus embeddings to the database
-cd agent
-DATABASE_URL=... OPENAI_API_KEY=... python -m retrieval.sync_embeddings
-```
-
-The agent falls back to metadata-only retrieval if this step is skipped.
+Open [localhost:3000](http://localhost:3000). AI features need the Python agent and provider configuration; freeform RAG also needs a published pgvector index. See the [setup guide](docs/LOCAL_DEVELOPMENT.md).
 
 ---
 
-## Environment variables
-
-See `.env.example` (web) and `agent/.env.example` (agent) for the full list with descriptions.
-
-**Web app minimum (authenticated mode):**
-
-| Variable | Description |
-|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Supabase anon key |
-| `DATABASE_URL` | Pooled Postgres URL |
-| `DIRECT_URL` | Direct Postgres URL (Prisma CLI) |
-| `AGENT_URL` | Python agent base URL |
-
-**Agent minimum:**
-
-| Variable | Description |
-|---|---|
-| `OPENAI_API_KEY` | LLM key for default model |
-
----
-
-## Scripts
-
-| Command | Purpose |
-|---|---|
-| `pnpm dev` | Start dev server |
-| `pnpm build` | Production bundle |
-| `pnpm test` | Vitest unit/integration suite |
-| `pnpm test:e2e` | Playwright E2E (guest mode; authenticated skips without env vars) |
-| `npx tsx scripts/seed-demo-account.ts <userId>` | Seed or reset the reviewer demo account |
-| `npx tsx scripts/feedback-report.ts` | Print helpfulness rates by surface, mode, source note |
-| `python -m pytest tests/ -q` | Agent suite; disposable runner enables the real database checks |
-| `python -m retrieval.sync_embeddings` | Sync corpus embeddings to pgvector |
-| `python -m retrieval.eval_runner` | Run retrieval eval harness |
-| `python -m retrieval.eval_runner --arm freeform` | Freeform eval + metadata-vs-hybrid comparison |
-
----
-
-## CI
-
-CI runs on every push and PR (`/.github/workflows/ci.yml`):
-
-| Step | What it checks |
-|---|---|
-| `pnpm lint` | ESLint |
-| `npx tsc --noEmit` | TypeScript |
-| `pnpm test` | Vitest (75 tests) |
-| `pnpm build` | Next.js production build |
-| `pnpm test:e2e` | Playwright (guest flow; authenticated flow skips without env vars) |
-| `pytest tests/ -q` | Python suite; add disposable pgvector integration with the index check script |
-
----
-
-## Deployment
-
-See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for the full runbook covering:
-- Supabase setup and migration order
-- Render agent deploy
-- Vercel web app deploy
-- Embedding sync
-- Reviewer account seeding and reset
-
----
-
-## Engineering highlights
-
-### 1. Typed cross-service bridge
-
-The Next.js API layer maps camelCase frontend payloads to Python snake_case contracts and maps responses back. This keeps the UI ergonomic without sacrificing strict backend contracts.
-
-### 2. LangGraph tutor with retrieval-grounded nodes
-
-The tutor graph routes each learner message to a specialist node. Only `explain` and `clarify` run retrieval — `hint`, `ready_check`, and `socratic` never touch the corpus, reducing reference-based answer exposure; this is not a general guarantee against answer leakage.
-
-### 3. Retrieval matched to the product surface
-
-Structured handlers use local metadata retrieval; Study freeform help uses vector candidates with metadata reranking. The separate structured hybrid helper implements a strong-metadata shortcut, but is not currently called by those handlers. The [case study](docs/RAG_ENGINEERING_CASE_STUDY.md) distinguishes implemented helpers from live routing.
-
-### 4. End-to-end response_id linkage
-
-`crypto.randomUUID()` is generated in the Next.js proxy, forwarded as `request_id` to Python, echoed back as `response_id` in the response body and in the SSE `done` event, and persisted as `responseId` in `AiResponseFeedback`. This makes every feedback row joinable to its Langfuse trace without any out-of-band correlation step.
-
-### 5. Fail-open everywhere
-
-Structured retrieval uses local metadata. Freeform DB/embedding failures return no reference, and the assistant may answer from card context and model knowledge. Langfuse credentials unset → no tracing, behavior unchanged. LLM planner below confidence threshold → deterministic heuristic. The system has no hard dependencies on optional infrastructure.
-
----
-
-## License
-
-MIT © JL200126 — see [LICENSE](LICENSE).
-
-### Evaluation evidence and remaining gates
-
-**Frozen retrieval holdout completed:** 93 new AI-authored, corpus-aware queries, frozen before execution. Hybrid selected an accepted source on **52/62 positives (83.9%)**, but falsely retrieved on **16/31 negatives (51.6%)**, failing the predeclared abstention target. Vector-only made identical selections. This supports a concrete failure analysis, not a claim of hybrid superiority or independent validation. See the [held-out report](docs/HELDOUT_EVALUATION_01.md), [pre-run protocol](docs/HELDOUT_PROTOCOL_01.md), and [failure ledger](docs/HELDOUT_FAILURES_01.md).
-
-See [the feedback response and answer-study protocol](docs/EVALUATION_FEEDBACK_RESPONSE.md) for the seven-arm comparison, evaluation intake with provenance, measured rank-fusion results, and remaining answer-quality/operational gates. Whole-corpus context remains a serious baseline for this small dataset; RAG is not assumed to win.
-
-The answer-generation pilot completed **56/56 structurally valid responses**, with estimated generation cost **$0.0184**. [AI-assisted evaluation is complete](docs/ANSWER_EXPERIMENT_03.md); it identifies shared generation failures and does not establish that complex RAG improves tutoring.
-
-[Operational experiment 01](docs/OPERATIONS_EXPERIMENT_01.md) records 600 local database requests at concurrency 1 and 5 with no unexpected results, including missing/incomplete-index guards. These measurements exclude provider and endpoint latency.
-
-See [release status](docs/RELEASE_EVIDENCE_STATUS.md): the warm Study smoke succeeds, local generation/timeout handling is tested, and both AI-assisted evaluations are complete. Deployed load measurements remain pending.
-
-[Evaluation policy](docs/EVALUATION_POLICY.md): external human review is optional. Author and AI-assisted evaluation are supported with explicit provenance; simulated perspectives are not independent human reviewers.
-
-**Historical deployment evidence:** 178 Python tests and 75 web tests passed at that revision; lint and production build pass. The deployed Study path succeeds after the Render agent becomes healthy, but startup took 42.5 seconds in one observation. The prompt/timeout changes are deployed; the production database migration and 31-note index publication are verified. A positive freeform smoke retrieves the expected passive-voice source. [Current release status](docs/RELEASE_EVIDENCE_STATUS.md).
+[MIT License](LICENSE) · JL200126
