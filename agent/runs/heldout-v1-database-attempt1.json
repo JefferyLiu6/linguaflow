@@ -1,0 +1,7 @@
+{
+  "status": "invalid_infrastructure_error",
+  "failed_case": "heldout_n26",
+  "reason": "db_unavailable",
+  "reported_score": null,
+  "note": "First optional database parity attempt aborted; offline held-out results remain unchanged. No infrastructure fallback counted as a relevance judgment."
+}
