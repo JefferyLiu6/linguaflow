@@ -19,7 +19,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from config import DEFAULT_MODEL
 from providers import get_llm
-from retrieval.evidence_gate import retrieve_verified_question as retrieve_for_freeform_question
+from .source_policy import retrieve_verified_question as retrieve_for_freeform_question
 from retrieval.retrieve import retrieve_contrast_note
 from retrieval.tracing import tutor_retrieval_trace
 
@@ -31,6 +31,8 @@ from .schemas import (
 )
 
 router = APIRouter()
+
+REFERENCE_DISCLOSURE = "The reference notes do not cover this question; this explanation uses general English knowledge."
 
 _EXPLAIN_SYSTEM = """\
 You are a language learning coach helping a student understand a flashcard during study.
@@ -234,8 +236,9 @@ async def study_assist(req: StudyAssistRequest) -> StudyAssistResponse:
             "Policy:\n"
             "- Answer the student's question directly and clearly.\n"
             "- Use the retrieved contrast note as your primary source (if provided).\n"
-            "- If no note was retrieved, you may explain English from general knowledge, but state that the reference notes do not cover this question. Never imply a reference supports it.\n"
-            "- Reference the card's prompt and answer to make the explanation concrete.\n"
+            "- If no note was retrieved, you may explain English from general knowledge, and the application will add a coverage disclosure. Do not add your own coverage statement or imply a reference supports it.\n"
+            "- Use card text only when relevant to the current question. Never invent missing learner text.\n"
+            "- Preserve tense, participants, uncertainty and meaning in rewrites. A complete sentence rewrite needs a finite verb, not just a participle phrase.\n"
             "- 2–4 sentences. Plain text only, no markdown."
         )
         card_block = _build_card_block(req)
@@ -247,6 +250,10 @@ async def study_assist(req: StudyAssistRequest) -> StudyAssistResponse:
         assistant_message = await _generate_reply(model_name, [
             SystemMessage(content=system_msg), HumanMessage(content=learner_data),
         ])
+
+        assistant_message = assistant_message.strip()
+        if not freeform_hit:
+            assistant_message = REFERENCE_DISCLOSURE + " " + assistant_message
 
         elapsed_ms = int((time.monotonic() - t0) * 1000)
         return StudyAssistResponse(

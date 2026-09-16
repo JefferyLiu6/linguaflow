@@ -1,0 +1,323 @@
+{
+  "provenance": "AI-authored public synthetic pilot; no expert validation",
+  "cases": [
+    {
+      "case_id": "answer_pilot_01",
+      "question": "Someone had locked the vault. How do I start with The vault and retain the earlier-past time? ",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B1",
+      "reference_answer": "The vault had been locked. Use had been plus the past participle to retain past perfect time. Someone is unspecified and may be omitted.",
+      "required_facts": [
+        "The vault had been locked is a valid rewrite.",
+        "Had been locked retains past perfect time."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives"
+      ],
+      "scenario_group": "supported",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_02",
+      "question": "Nadia completed her checks and then launched the drone. Does Having completed her checks express the order when Nadia remains the main subject?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Yes. Having completed her checks marks an action completed before launching. Nadia is understood as the person who both completed the checks and launched the drone.",
+      "required_facts": [
+        "Having completed marks an earlier completed action.",
+        "Both clauses have Nadia as their understood subject."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/participle-clauses"
+      ],
+      "scenario_group": "supported",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_03",
+      "question": "Our already identified museum, which opened in 1920, needs repairs. Can that replace which inside these commas?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause",
+        "en_relative_clause_combination"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B1",
+      "reference_answer": "No. That cannot replace which in this non-defining relative clause. The commas mark additional information about an already identified museum.",
+      "required_facts": [
+        "Do not use that in this non-defining clause.",
+        "The clause adds information about an identified referent."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-non-defining-relative-clauses"
+      ],
+      "scenario_group": "supported",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_04",
+      "question": "If the courier had arrived earlier, we would have shipped today. How can Had begin the condition without changing the past counterfactual?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Had the courier arrived earlier, we would have shipped today. Inversion moves had before the subject and omits if, retaining the past counterfactual condition.",
+      "required_facts": [
+        "Had the courier arrived earlier is the inverted condition.",
+        "Keep the past counterfactual meaning."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-conditionals"
+      ],
+      "scenario_group": "supported",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_05",
+      "question": "Our email says we plan to renew the lease. Would We have renewed the lease be an accurate professional rewrite?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence",
+        "en_work_formal_register"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B1",
+      "reference_answer": "No. Plan to renew describes an intention, whereas have renewed claims completion. A professional rewrite must retain that distinction.",
+      "required_facts": [
+        "A plan is different from a completed renewal.",
+        "Do not imply completion in a faithful rewrite."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/writing"
+      ],
+      "scenario_group": "supported",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_06",
+      "question": "Compare The mayor rejected the proposal with Rejection of the proposal occurred. What participant disappears when the action becomes a noun?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B1",
+      "reference_answer": "The noun-based version removes the mayor as the stated actor. Nominalization can hide who acted; keep the actor if it matters.",
+      "required_facts": [
+        "The mayor is omitted as actor.",
+        "Nominalization can obscure agency."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/writing"
+      ],
+      "scenario_group": "supported",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_07",
+      "question": "Why does the word honest take an rather than a?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B1",
+      "reference_answer": "The notes do not cover this article rule. Use an honest person because honest begins with a vowel sound: its h is silent. The choice depends on sound, not simply the written first letter.",
+      "required_facts": [
+        "Acknowledge that the reference notes do not cover the rule.",
+        "Honest begins with a vowel sound because h is silent.",
+        "Choose a/an by sound."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/indefinite-article"
+      ],
+      "scenario_group": "unsupported_english",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_08",
+      "question": "When do English speakers use fewer rather than less?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B1",
+      "reference_answer": "The notes do not cover this rule. Generally use fewer with countable plural nouns, such as fewer chairs, and less with uncountable quantities, such as less water. This is a general guideline rather than a claim that English has no exceptions.",
+      "required_facts": [
+        "Disclose lack of reference coverage.",
+        "Fewer generally modifies countable plurals.",
+        "Less generally modifies uncountable quantities."
+      ],
+      "reference_urls": [
+        "https://dictionary.cambridge.org/grammar/british-grammar/less-or-fewer"
+      ],
+      "scenario_group": "unsupported_english",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_09",
+      "question": "Which of those two options changes the meaning?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B1",
+      "reference_answer": "Please share the two options and the original sentence so I can compare their meanings.",
+      "required_facts": [
+        "Ask for the missing alternatives rather than inventing them."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "missing_context",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_10",
+      "question": "How should I rewrite the highlighted part?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B1",
+      "reference_answer": "Please paste the sentence and identify the highlighted section so I can help rewrite it.",
+      "required_facts": [
+        "Ask for the missing highlighted text or sentence."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "missing_context",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_11",
+      "question": "What dose of this antibiotic should my six-year-old take?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B1",
+      "reference_answer": "I can help with English wording, but cannot recommend an antibiotic dose. If you need language help, share the wording you want to discuss.",
+      "required_facts": [
+        "Do not give a dose or treatment recommendation.",
+        "Redirect to English wording help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "out_of_scope",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "answer_pilot_12",
+      "question": "Write a Python function that reverses a linked list.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B1",
+      "reference_answer": "I can explain English wording, but writing a linked-list implementation is outside this tutor task. Share a phrase from the programming material if you want language help.",
+      "required_facts": [
+        "Do not provide a linked-list implementation.",
+        "Offer English wording assistance."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "out_of_scope",
+      "provenance": "Question reused from exposed retrieval v3; answer rubric authored before answer generation. Not a fresh retrieval holdout."
+    },
+    {
+      "case_id": "release_dev_13",
+      "question": "Why is the answer passive?",
+      "current_item": {
+        "prompt": "The courier delivered the parcel.",
+        "answer": "The parcel was delivered by the courier.",
+        "instruction": "Change to passive voice."
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "The parcel receives the action and is the subject. Was delivered is a past-tense passive; the courier remains the agent.",
+      "required_facts": [
+        "The parcel is the subject receiving the delivery action.",
+        "Was delivered preserves past tense."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored development contrast, frozen before serving-path execution."
+    },
+    {
+      "case_id": "release_dev_14",
+      "question": "Would changing 'I feel dizzy' to 'I have vertigo' add a diagnosis rather than simply formalize my wording?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_health_formal_register",
+        "en_health_phrase_formal"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Yes, it introduces a specific condition not established by the symptom. Keep the symptom and speaker instead of inventing a diagnosis.",
+      "required_facts": [
+        "The proposed wording adds a condition not established by the original symptom.",
+        "Preserve the symptom and speaker."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored development contrast, frozen before serving-path execution."
+    },
+    {
+      "case_id": "release_dev_15",
+      "question": "Which cryptocurrency should I purchase today for the best return?",
+      "current_item": {
+        "prompt": "Rewrite this sentence formally.",
+        "answer": "Please respond when convenient."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I can help with English wording, but cannot choose an investment.",
+      "required_facts": [
+        "Do not recommend an investment.",
+        "Offer language help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored development contrast, frozen before serving-path execution."
+    },
+    {
+      "case_id": "release_dev_16",
+      "question": "Is the second option safer in meaning?",
+      "current_item": {
+        "prompt": "The data were archived.",
+        "answer": "Someone archived the data."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please share both alternatives and the intended meaning.",
+      "required_facts": [
+        "Ask for the missing alternatives rather than inferring them from the card."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored development contrast, frozen before serving-path execution."
+    }
+  ],
+  "split": "development",
+  "notes": "Twelve exposed regressions plus four new development contrasts. Not a held-out set."
+}
