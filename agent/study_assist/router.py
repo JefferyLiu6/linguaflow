@@ -19,7 +19,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from config import DEFAULT_MODEL
 from providers import get_llm
-from retrieval.hybrid import retrieve_for_freeform_question
+from retrieval.evidence_gate import retrieve_verified_question as retrieve_for_freeform_question
 from retrieval.retrieve import retrieve_contrast_note
 from retrieval.tracing import tutor_retrieval_trace
 
@@ -197,7 +197,7 @@ async def study_assist(req: StudyAssistRequest) -> StudyAssistResponse:
         if not req.question or not req.question.strip():
             raise HTTPException(400, "question is required for freeform_help action")
 
-        freeform_debug = retrieve_for_freeform_question(
+        freeform_debug = await retrieve_for_freeform_question(
             req.question,
             language=req.language,
             current_item=item_dict,
@@ -208,6 +208,19 @@ async def study_assist(req: StudyAssistRequest) -> StudyAssistResponse:
                 item_id=req.current_item.id,
                 debug=freeform_debug,
             )
+
+        reason = freeform_debug.get("reason")
+        if reason in {"verification_unavailable", "embeddings_unavailable", "db_unavailable"} or str(reason).startswith("index_"):
+            raise HTTPException(503, "Reference checking is temporarily unavailable. Please try again.")
+        if reason in {"needs_context", "out_of_scope"}:
+            message = (
+                "Please share the sentence, highlighted phrase, or answer you want help with so I can explain it accurately."
+                if reason == "needs_context" else
+                "I can help with English wording, but I cannot answer that request. If you want language help, share the phrase you would like to discuss."
+            )
+            return StudyAssistResponse(assistant_message=message, retrieval_hit=False,
+                retrieved_sources=[], similar_examples=None, model=model_name,
+                elapsed_ms=int((time.monotonic()-t0)*1000), response_id=req.request_id)
 
         freeform_note = freeform_debug["note"]
         freeform_hit = freeform_debug["hit"]
@@ -221,7 +234,7 @@ async def study_assist(req: StudyAssistRequest) -> StudyAssistResponse:
             "Policy:\n"
             "- Answer the student's question directly and clearly.\n"
             "- Use the retrieved contrast note as your primary source (if provided).\n"
-            "- If no note was retrieved, answer based on the card content and your knowledge.\n"
+            "- If no note was retrieved, you may explain English from general knowledge, but state that the reference notes do not cover this question. Never imply a reference supports it.\n"
             "- Reference the card's prompt and answer to make the explanation concrete.\n"
             "- 2–4 sentences. Plain text only, no markdown."
         )

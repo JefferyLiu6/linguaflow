@@ -97,6 +97,8 @@ class TutorRetrievalTrace:
             # Phase 3 hybrid fields (present only on HybridRetrievalDebug)
             "retrieval_mode": debug.get("retrieval_mode"),          # type: ignore[attr-defined]
             "vector_score": debug.get("vector_score"),              # type: ignore[attr-defined]
+            "verification": {k: v for k, v in (debug.get("verification") or {}).items()
+                             if k in {"decision", "model", "elapsed_ms", "provider_requests", "input_tokens", "output_tokens", "error_type"}},
             "top_candidates": debug.get("top_candidates", []),      # type: ignore[attr-defined]
         }
         if self._trace is not None:
