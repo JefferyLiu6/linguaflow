@@ -80,7 +80,7 @@ Frozen in `d5b9109` before provider execution. Do not promote this candidate.
 
 The conditional metrics exclude verification failures. The end-to-end positive metric includes them and is the more useful measure of whether a learner receives a valid source. Four verification failures comprise three eight-second timeouts and one response-validation failure. Two negative requests failed verification and are not counted as successful semantic abstentions. One of eight distractor pairs had failed requests and is excluded from the paired metric.
 
-The verifier-only p50/p95 was 1,344/4,668 ms (the metric excludes unavailable verdicts; three timeout requests took about eight seconds). Provider usage recorded 130,023 input and 4,145 output tokens; timeout usage is unknown, so token totals and cost estimates are incomplete. No generation requests were made.
+The verifier-only p50/p95 was 1,344/4,668 ms (the metric includes unavailable verdicts; three timeout requests took about eight seconds). Provider usage recorded 130,023 input and 4,145 output tokens; timeout usage is unknown, so token totals and cost estimates are incomplete. No generation requests were made.
 
 The only false retrieval was a context-dependent request asking which of two unspecified options changes meaning. A grammar rule was cited even though the options were absent. Five of six missing-context requests did not receive the intended clarification route. This is a distinct routing failure that precision alone hides. Many out-of-scope requests also took the `not_covered` route, which can invoke general-knowledge generation in the serving implementation; withholding citations does not establish correct scope enforcement.
 
