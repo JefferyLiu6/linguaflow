@@ -4,6 +4,7 @@ import time
 
 # USD / million tokens; freeze in each plan. Not a billing receipt.
 PRICES = {
+    'gpt-4.1-2025-04-14': {'input': 2.0, 'cached': .50, 'output': 8.0},
     'gpt-4o-mini-2024-07-18': {'input': .15, 'cached': .075, 'output': .60},
     'gpt-4.1-mini-2025-04-14': {'input': .40, 'cached': .10, 'output': 1.60},
     'text-embedding-3-small': {'input': .02, 'cached': .02, 'output': 0},

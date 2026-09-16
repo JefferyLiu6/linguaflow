@@ -27,7 +27,7 @@ Also report selected-source precision/recall, negative false-positive rate, nega
 
 ## Answer metrics and judge
 
-Use one bounded structured `gpt-4.1-mini-2025-04-14` judge call per successful response. The judge receives the question, card, expected behavior, frozen reference answer/required facts, generated answer and actual supplied reference context. It does not receive the arm name. No reference answer or required facts enter generation.
+Use one bounded structured `gpt-4.1-2025-04-14` judge call per successful response. The judge receives the question, card, expected behavior, frozen reference answer/required facts, generated answer and actual supplied reference context. It does not receive the arm name. No reference answer or required facts enter generation.
 
 - Correctness: rubric 0–4, plus required-fact coverage and judged factual-claim accuracy. These are automated estimates, not measured objective truth.
 - Faithfulness: supported substantive claims / grounding-applicable claims. No reference context or no substantive claims yields N/A, not 100%. Correct general knowledge can be ungrounded without being a hallucination. Grounding evidence must quote an actual supplied context; claim excerpts must occur in the answer.
@@ -43,7 +43,7 @@ DeepEval 4.2.3 is an optional offline dependency. Its `BaseMetric` adapters cons
 
 Record embedding, database, retrieval (including verifier for verified arm), verifier, generation, full local handler pipeline, and judge durations. Parent/child durations overlap and must not be summed. Pipeline latency excludes judge work. p50/p95 include failed attempts; counts accompany percentiles. This is single-concurrency local-to-provider/DB timing, not deployed HTTP/browser latency or load capacity.
 
-Token usage and cost are stage-specific. Separate pipeline cost from judge cost. Missing timeout usage makes cost incomplete; never substitute zero. Cache usage is applied when known; legacy verifier usage lacks the cache breakdown, so uncached rates produce a disclosed estimate. Rates are frozen as of 2026-09-16: GPT-4o mini $0.15/$0.075/$0.60 per million input/cached/output tokens; GPT-4.1 mini $0.40/$0.10/$1.60; text-embedding-3-small $0.02 input. Estimates exclude hosting and are not billing receipts.
+Token usage and cost are stage-specific. Separate pipeline cost from judge cost. Missing timeout usage makes cost incomplete; never substitute zero. Cache usage is applied when known; legacy verifier usage lacks the cache breakdown, so uncached rates produce a disclosed estimate. Rates are frozen as of 2026-09-16: GPT-4o mini $0.15/$0.075/$0.60 per million input/cached/output tokens; GPT-4.1 mini $0.40/$0.10/$1.60; GPT-4.1 judge $2.00/$0.50/$8.00; text-embedding-3-small $0.02 input. Estimates exclude hosting and are not billing receipts.
 
 Optional `langfuse-export` sends only case IDs, arm, numeric scores, measured durations, usage and cost metadata. It uploads no questions, answers, reference text or judge reasons. The export observation is labelled a replay summary: its own duration is not the original request duration. Live serving tracing is not changed. Export failure is explicit; local evidence remains available.
 
@@ -59,3 +59,7 @@ CI runs deterministic unit tests and saved-record replay, without provider crede
 - [Langfuse token and cost tracking](https://langfuse.com/docs/observability/features/token-and-cost-tracking)
 - [OpenAI structured outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
 - [GPT-4o mini](https://developers.openai.com/api/docs/models/gpt-4o-mini), [GPT-4.1 mini](https://developers.openai.com/api/docs/models/gpt-4.1-mini), [embedding model](https://developers.openai.com/api/docs/models/text-embedding-3-small)
+
+## Judge selection amendment (before answer generation)
+
+The first mini judge check passed 3/4; after an applicability clarification it passed 2/4, with a validation failure and a scope-category error. Both raw attempts are retained. The third plan tests pinned GPT-4.1 with the same clarified rubric. No answer-system prompt or pilot labels changed. Three four-case judge checks permit 12 setup calls total; they remain development diagnostics, not calibration evidence. [GPT-4.1 pricing and snapshot](https://developers.openai.com/api/docs/models/gpt-4.1).
