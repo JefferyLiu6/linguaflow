@@ -39,3 +39,10 @@ The v2 prompt-only amendment repeated the same ordinal-context failure. Preserve
 ## Infrastructure repeat (before development v4)
 
 v3 fixed the semantic routing error and passed all retrieval/routing gates, but one embedding request returned InternalServerError and one judge request timed out. It failed reliability and judgment-completeness gates. No code, prompt, label, timeout or threshold changes follow these errors. Run one complete v4 development repeat with a new frozen plan; do not replace individual failed rows or overwrite v3. Report both attempts, and do not treat a clean repeat as proof of production reliability. Only a full accepted repeat permits opening the fresh test under this protocol.
+
+
+## Follow-up after the failed fresh-v1 test
+
+Fresh-v1 failed the all-required-clarifications gate: 3/4. Preserve its entire report as `RELEASE_VALIDATION_01.md`; it is now exposed regression data, never reused as fresh evidence. The new change adds a conservative guard for deictic references to absent learner text when the card contains only an instruction. Explicit quotes/colon-introduced text or a real card prompt/answer leave interpretation to the verifier. Unknown formats may still cause unnecessary clarification. The disclosure now says no supporting reference was found, avoiding a claim that the entire corpus lacks a rule after a candidate miss.
+
+Before new provider testing, development validation consists of the full unit/integration suite, eight additional supplied/missing-text contrasts, and reapplication of the deterministic guard to all 40 saved verdicts from development-v4 and fresh-v1. This cached regression checks routing only; it does not claim a new model rerun, source recall improvement or answer-quality pass. Verifier prompt/model, retrieval, labels and judge remain unchanged. Then freeze one new 24-question fresh-v2 test under the same acceptance thresholds and run the complete measured handler once. Preserve v1 and v2 separately and disclose adaptive test construction and shared grammar families. No thresholds are relaxed.

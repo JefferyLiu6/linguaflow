@@ -32,7 +32,7 @@ from .schemas import (
 
 router = APIRouter()
 
-REFERENCE_DISCLOSURE = "The reference notes do not cover this question; this explanation uses general English knowledge."
+REFERENCE_DISCLOSURE = "I could not find a supporting reference for this question; this explanation uses general English knowledge."
 
 _EXPLAIN_SYSTEM = """\
 You are a language learning coach helping a student understand a flashcard during study.

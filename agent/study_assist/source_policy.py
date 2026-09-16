@@ -83,12 +83,33 @@ def unresolved_ordered_options(question, card):
     return True
 
 
+def unresolved_learner_text(question, card):
+    """A task instruction is not the learner text named by a deictic request.
+
+    This conservative English guard handles explicit references to absent text.
+    Quoted text, a colon introducing text, or actual card text leaves resolution
+    to the verifier. It is not a general parser of every possible reference.
+    """
+    if any((card or {}).get(k, '').strip() for k in ('prompt', 'answer')):
+        return False
+    if ':' in question or re.search(r'["“‘]|(?<!\w)\'[^\']+\'(?!\w)', question):
+        return False
+    return bool(re.search(
+        r"\b(?:this|that|these|those|the other|the highlighted|the underlined|the circled|my previous|my last)\s+"
+        r"(?:words?|phrases?|sentences?|paragraphs?|text|repl(?:y|ies)|answers?|expressions?)\b",
+        question, re.I))
+
+
 def enforce_context_contract(result, question, card):
-    if result.get('routing', {}).get('scope') == 'english' and unresolved_ordered_options(question, card):
+    if result.get('routing', {}).get('scope') != 'english':
+        return result
+    guard = ('unresolved_ordered_options' if unresolved_ordered_options(question, card) else
+             'unresolved_learner_text' if unresolved_learner_text(question, card) else None)
+    if guard:
         return {**result, 'decision': 'needs_context', 'source_id': '', 'support_quote': '',
                 'evidence_id': '', 'routing': {'scope': 'english', 'context': 'missing'},
-                'rationale': 'Please provide the explicitly ordered alternatives; card prompt and answer are distinct roles.',
-                'context_guard': 'unresolved_ordered_options'}
+                'rationale': 'Please provide the referenced learner text or ordered alternatives; task instructions are not learner text.',
+                'context_guard': guard}
     return result
 
 

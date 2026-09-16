@@ -119,3 +119,31 @@ def test_ordinal_context_guard_preserves_scope_and_clears_evidence():
     supported=p.decode(verdict(evidence_id='a'),{'a':{'source_id':'note','text':'A rule'}})
     r=p.enforce_context_contract(supported,q,{'prompt':'One','answer':'Two'})
     assert r['decision']=='needs_context' and r['source_id']=='' and r['support_quote']==''
+
+
+@pytest.mark.parametrize('question,card,missing', [
+    ('Can that phrase replace the other expression?', {'instruction':'Change the tense.'}, True),
+    ('What is wrong with the highlighted word?', {}, True),
+    ('Can I replace this word without changing tone?', {}, True),
+    ('Can I replace this word?', {'prompt':'Mira helped Leo.'}, False),
+    ('Would replacing help with assist affect tone?', {}, False),
+    ("Can this word, 'assist', sound formal?", {}, False),
+    ('Can this phrase sound formal: help me?', {}, False),
+    ('What is the difference between help and assist?', {}, False),
+])
+def test_missing_learner_text_contract(question, card, missing):
+    assert p.unresolved_learner_text(question,card) is missing
+
+
+def test_context_guards_regress_saved_public_development_outputs():
+    # This is a cached-verdict routing regression, not a fresh provider evaluation.
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]
+    for name in ('release-development-v4','release-fresh-v1'):
+        for line in (root/'runs'/f'{name}-records.jsonl').read_text().splitlines():
+            row=json.loads(line);case=row['case'];old=row['verification']
+            result=p.enforce_context_contract(old,case['question'],case['current_item'])
+            expected=case['expected_behavior']
+            if expected=='clarify':assert result['decision']=='needs_context',case['case_id']
+            elif expected=='redirect':assert result['decision']=='out_of_scope',case['case_id']
+            else:assert result['decision'] not in ('needs_context','out_of_scope'),case['case_id']
