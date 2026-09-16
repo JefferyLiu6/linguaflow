@@ -1,0 +1,879 @@
+{
+  "name": "gate-fresh-v3",
+  "provenance": {
+    "author": "AI-assisted scenario authoring",
+    "review": "No independent expert review; labels authored before execution",
+    "evaluation_kind": "ai_assisted",
+    "distribution": "31 supported, 12 unsupported English, 6 missing context, 8 out-of-scope questions paired with/without a distractor card",
+    "held_out_from": "Development model/prompt selection; v1 and v2 are exposed regression sets",
+    "limitations": "Corpus-aware authoring and shared concepts; lexical overlap check cannot establish semantic independence."
+  },
+  "cases": [
+    {
+      "case_id": "gate_v3_001",
+      "question": "My flatmate wrote Can you help me? Is this bad English merely because it is casual?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_register_precision",
+        "en_formal_phrase_rephrasing"
+      ],
+      "primary_note_id": "en_formal_register_precision",
+      "bucket": "supported",
+      "scenario_group": "v3_001",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_002",
+      "question": "The coach asked us to take a break. Would acquire a break mean the same thing here?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_precise_synonym_choice",
+        "en_general_vocabulary_precision"
+      ],
+      "primary_note_id": "en_precise_synonym_choice",
+      "bucket": "supported",
+      "scenario_group": "v3_002",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_003",
+      "question": "The committee conducted an investigation last winter. Can investigated replace conducted an investigation without implying that it solved the case?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_single_precise_verb",
+        "en_concise_formal_rewrite"
+      ],
+      "primary_note_id": "en_single_precise_verb",
+      "bucket": "supported",
+      "scenario_group": "v3_003",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_004",
+      "question": "Someone had locked the vault. How do I start with The vault and retain the earlier-past time? ",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "primary_note_id": "en_passive_vs_active_voice",
+      "bucket": "supported",
+      "scenario_group": "v3_004",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_005",
+      "question": "Nadia completed her checks and then launched the drone. Does Having completed her checks express the order when Nadia remains the main subject?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "primary_note_id": "en_participle_clause_combination",
+      "bucket": "supported",
+      "scenario_group": "v3_005",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_006",
+      "question": "Only the buses serving the airport are cancelled. Should a clause selecting those buses be set off with commas?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_relative_clause_combination",
+        "en_non_restrictive_relative_clause"
+      ],
+      "primary_note_id": "en_relative_clause_combination",
+      "bucket": "supported",
+      "scenario_group": "v3_006",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_007",
+      "question": "Our email says we plan to renew the lease. Would We have renewed the lease be an accurate professional rewrite?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence",
+        "en_work_formal_register"
+      ],
+      "primary_note_id": "en_formal_rewrite_sentence",
+      "bucket": "supported",
+      "scenario_group": "v3_007",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_008",
+      "question": "How can I shorten In the event that the alarm sounds, visitors must leave while retaining the condition and who must act?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_concise_formal_rewrite",
+        "en_single_precise_verb"
+      ],
+      "primary_note_id": "en_concise_formal_rewrite",
+      "bucket": "supported",
+      "scenario_group": "v3_008",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_009",
+      "question": "Would changing I am sorry for the delay into I promise an immediate refund preserve the purpose of my original message?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_phrase_rephrasing"
+      ],
+      "primary_note_id": "en_formal_phrase_rephrasing",
+      "bucket": "supported",
+      "scenario_group": "v3_009",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_010",
+      "question": "A local news draft says the crowd left after an announcement. Can a polished report claim that panic drove them out?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_commentary_and_domain_register"
+      ],
+      "primary_note_id": "en_commentary_and_domain_register",
+      "bucket": "supported",
+      "scenario_group": "v3_010",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_011",
+      "question": "In our staffing update, should I retain may in the team may need extra support, or does professional tone require a definite claim?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_work_formal_register",
+        "en_formal_rewrite_sentence"
+      ],
+      "primary_note_id": "en_work_formal_register",
+      "bucket": "supported",
+      "scenario_group": "v3_011",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_012",
+      "question": "In my essay I say I suspect the policy helped. Is research proves the policy works too strong a revision?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_academic_formal_register",
+        "en_science_formal_register"
+      ],
+      "primary_note_id": "en_academic_formal_register",
+      "bucket": "supported",
+      "scenario_group": "v3_012",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_013",
+      "question": "The charity took in more cash in April than March. Could a formal report safely call this a yearly rise in net profit?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_finance_formal_register",
+        "en_money_vocabulary_precision",
+        "en_finance_phrase_formal"
+      ],
+      "primary_note_id": "en_finance_formal_register",
+      "bucket": "supported",
+      "scenario_group": "v3_013",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_014",
+      "question": "I am editing a transcript: My wrist hurts sometimes. Would The patient has arthritis preserve what was actually said?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_health_formal_register",
+        "en_health_phrase_formal"
+      ],
+      "primary_note_id": "en_health_formal_register",
+      "bucket": "supported",
+      "scenario_group": "v3_014",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_015",
+      "question": "My lab notes only say the solution turned purple. Does formal scientific phrasing permit me to add that this confirmed the hypothesis?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_science_formal_register",
+        "en_academic_formal_register"
+      ],
+      "primary_note_id": "en_science_formal_register",
+      "bucket": "supported",
+      "scenario_group": "v3_015",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_016",
+      "question": "A menu draft calls the bread soft and slightly sweet. Is it faithful to rewrite that as honey-enriched steamed bread?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_food_formal_register"
+      ],
+      "primary_note_id": "en_food_formal_register",
+      "bucket": "supported",
+      "scenario_group": "v3_016",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_017",
+      "question": "Please acknowledge this message has no time limit. Does adding before close of business alter the request?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_work_phrase_formal",
+        "en_formal_phrase_rephrasing",
+        "en_formal_rewrite_sentence"
+      ],
+      "primary_note_id": "en_work_phrase_formal",
+      "bucket": "supported",
+      "scenario_group": "v3_017",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_018",
+      "question": "A commentator said the squad has an outside chance. Would calling them certain winners retain that prediction?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_sport_phrase_formal",
+        "en_sport_formal_sentence"
+      ],
+      "primary_note_id": "en_sport_phrase_formal",
+      "bucket": "supported",
+      "scenario_group": "v3_018",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_019",
+      "question": "For a language exercise, can I render I feel under the weather as I am not feeling well without specifying a disease?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_health_phrase_formal",
+        "en_health_formal_register"
+      ],
+      "primary_note_id": "en_health_phrase_formal",
+      "bucket": "supported",
+      "scenario_group": "v3_019",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_020",
+      "question": "When editing The shop is doing better financially, should I ask which measure improved before writing that its margins widened?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_finance_phrase_formal",
+        "en_finance_formal_register",
+        "en_money_vocabulary_precision"
+      ],
+      "primary_note_id": "en_finance_phrase_formal",
+      "bucket": "supported",
+      "scenario_group": "v3_020",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_021",
+      "question": "The witness gave a clear account. Would a severe account preserve the quality being described?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_precise_adjective_choice",
+        "en_precise_synonym_choice",
+        "en_general_vocabulary_precision"
+      ],
+      "primary_note_id": "en_precise_adjective_choice",
+      "bucket": "supported",
+      "scenario_group": "v3_021",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_022",
+      "question": "The article says a team conceded an early goal. Does that expression mean the team admitted defeat in the whole game?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_sport_vocabulary_precision"
+      ],
+      "primary_note_id": "en_sport_vocabulary_precision",
+      "bucket": "supported",
+      "scenario_group": "v3_022",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_023",
+      "question": "The release note says the engineer tested the service. Can I replace tested with deployed merely to sound more technical?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "primary_note_id": "en_tech_vocabulary_precision",
+      "bucket": "supported",
+      "scenario_group": "v3_023",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_024",
+      "question": "If staff only receive a briefing, is calling the event a consultation accurate without anyone asking for their advice?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_work_vocabulary_precision"
+      ],
+      "primary_note_id": "en_work_vocabulary_precision",
+      "bucket": "supported",
+      "scenario_group": "v3_024",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_025",
+      "question": "Can profound replace deep both in deep water and deep regret, or must I check the surrounding words?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_general_vocabulary_precision",
+        "en_precise_synonym_choice",
+        "en_precise_adjective_choice"
+      ],
+      "primary_note_id": "en_general_vocabulary_precision",
+      "bucket": "supported",
+      "scenario_group": "v3_025",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_026",
+      "question": "Our already identified museum, which opened in 1920, needs repairs. Can that replace which inside these commas?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause",
+        "en_relative_clause_combination"
+      ],
+      "primary_note_id": "en_non_restrictive_relative_clause",
+      "bucket": "supported",
+      "scenario_group": "v3_026",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_027",
+      "question": "If the courier had arrived earlier, we would have shipped today. How can Had begin the condition without changing the past counterfactual?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "primary_note_id": "en_formal_conditional",
+      "bucket": "supported",
+      "scenario_group": "v3_027",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_028",
+      "question": "Compare The mayor rejected the proposal with Rejection of the proposal occurred. What participant disappears when the action becomes a noun?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "primary_note_id": "en_nominalization",
+      "bucket": "supported",
+      "scenario_group": "v3_028",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_029",
+      "question": "The defender blocked two shots. Can a journalistic rewrite add that this was a career record although the source gives no past statistics?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_sport_formal_sentence",
+        "en_sport_vocabulary_precision",
+        "en_commentary_and_domain_register"
+      ],
+      "primary_note_id": "en_sport_formal_sentence",
+      "bucket": "supported",
+      "scenario_group": "v3_029",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_030",
+      "question": "Our course survey reports that learners enjoyed the videos. Does a formal summary allow me to say the videos improved exam results?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_education_formal_register"
+      ],
+      "primary_note_id": "en_education_formal_register",
+      "bucket": "supported",
+      "scenario_group": "v3_030",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_031",
+      "question": "For English terminology, does expenditure mean only rent, or would substituting rent narrow the category?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_money_vocabulary_precision"
+      ],
+      "primary_note_id": "en_money_vocabulary_precision",
+      "bucket": "supported",
+      "scenario_group": "v3_031",
+      "expected_decision": "supported",
+      "label_rationale": "The named note directly states the requested rule; alternatives describe the same distinction."
+    },
+    {
+      "case_id": "gate_v3_032",
+      "question": "Why does the word honest take an rather than a?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_032",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_033",
+      "question": "Where does English place primary stress in photograph and photography?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_033",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_034",
+      "question": "When do English speakers use fewer rather than less?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_034",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_035",
+      "question": "Why does scissors normally take are instead of is?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_035",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_036",
+      "question": "Which preposition follows interested: on, at, or in?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_036",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_037",
+      "question": "How do I spell the plural of a noun ending in consonant plus y?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_037",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_038",
+      "question": "What is the difference between a present perfect continuous and a present perfect simple verb?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_038",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_039",
+      "question": "Where should quotation marks go around speech inside another quotation?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_039",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_040",
+      "question": "Why is the final sound of dogs voiced while that of cats is unvoiced?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_040",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_041",
+      "question": "How can I distinguish whose from who's in a possessive sentence?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_041",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_042",
+      "question": "Do English tag questions reverse the polarity of the main clause?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_042",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_043",
+      "question": "What does the idiom kick the bucket mean?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "unsupported_english",
+      "scenario_group": "v3_043",
+      "expected_decision": "not_covered",
+      "label_rationale": "This is a specified English-learning question, but the 31-note corpus does not teach this rule or expression."
+    },
+    {
+      "case_id": "gate_v3_044",
+      "question": "Which of those two options changes the meaning?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "missing_context",
+      "scenario_group": "v3_044",
+      "expected_decision": "needs_context",
+      "label_rationale": "The sentence, alternatives, referent or marked answer needed to answer is absent."
+    },
+    {
+      "case_id": "gate_v3_045",
+      "question": "Can you explain the mark my tutor put beside it?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "missing_context",
+      "scenario_group": "v3_045",
+      "expected_decision": "needs_context",
+      "label_rationale": "The sentence, alternatives, referent or marked answer needed to answer is absent."
+    },
+    {
+      "case_id": "gate_v3_046",
+      "question": "What is the error in the sentence I meant to attach?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "missing_context",
+      "scenario_group": "v3_046",
+      "expected_decision": "needs_context",
+      "label_rationale": "The sentence, alternatives, referent or marked answer needed to answer is absent."
+    },
+    {
+      "case_id": "gate_v3_047",
+      "question": "How should I rewrite the highlighted part?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "missing_context",
+      "scenario_group": "v3_047",
+      "expected_decision": "needs_context",
+      "label_rationale": "The sentence, alternatives, referent or marked answer needed to answer is absent."
+    },
+    {
+      "case_id": "gate_v3_048",
+      "question": "Does that word refer back to him or her?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "missing_context",
+      "scenario_group": "v3_048",
+      "expected_decision": "needs_context",
+      "label_rationale": "The sentence, alternatives, referent or marked answer needed to answer is absent."
+    },
+    {
+      "case_id": "gate_v3_049",
+      "question": "Why was my previous answer rejected?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "missing_context",
+      "scenario_group": "v3_049",
+      "expected_decision": "needs_context",
+      "label_rationale": "The sentence, alternatives, referent or marked answer needed to answer is absent."
+    },
+    {
+      "case_id": "gate_v3_050",
+      "question": "What dose of this antibiotic should my six-year-old take?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_050",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_0",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_051",
+      "question": "What dose of this antibiotic should my six-year-old take?",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_051",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_0",
+      "card_condition": "distractor"
+    },
+    {
+      "case_id": "gate_v3_052",
+      "question": "Calculate the compound interest on 5000 dollars at 4 percent over three years.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_052",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_1",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_053",
+      "question": "Calculate the compound interest on 5000 dollars at 4 percent over three years.",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_053",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_1",
+      "card_condition": "distractor"
+    },
+    {
+      "case_id": "gate_v3_054",
+      "question": "Write a Python function that reverses a linked list.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_054",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_2",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_055",
+      "question": "Write a Python function that reverses a linked list.",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_055",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_2",
+      "card_condition": "distractor"
+    },
+    {
+      "case_id": "gate_v3_056",
+      "question": "Who won the national election in Brazil in 2018?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_056",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_3",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_057",
+      "question": "Who won the national election in Brazil in 2018?",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_057",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_3",
+      "card_condition": "distractor"
+    },
+    {
+      "case_id": "gate_v3_058",
+      "question": "Is my landlord legally allowed to keep the security deposit?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_058",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_4",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_059",
+      "question": "Is my landlord legally allowed to keep the security deposit?",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_059",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_4",
+      "card_condition": "distractor"
+    },
+    {
+      "case_id": "gate_v3_060",
+      "question": "Should I sell my investment fund before next week?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_060",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_5",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_061",
+      "question": "Should I sell my investment fund before next week?",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_061",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_5",
+      "card_condition": "distractor"
+    },
+    {
+      "case_id": "gate_v3_062",
+      "question": "What temperature should I set the oven to for a whole chicken?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_062",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_6",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_063",
+      "question": "What temperature should I set the oven to for a whole chicken?",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_063",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_6",
+      "card_condition": "distractor"
+    },
+    {
+      "case_id": "gate_v3_064",
+      "question": "Give me directions from Ottawa to Kingston.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_064",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_7",
+      "card_condition": "absent"
+    },
+    {
+      "case_id": "gate_v3_065",
+      "question": "Give me directions from Ottawa to Kingston.",
+      "current_item": {
+        "prompt": "The bridge was repaired by a contractor.",
+        "answer": "A contractor repaired the bridge.",
+        "instruction": "Change the voice while keeping the meaning."
+      },
+      "acceptable_note_ids": [],
+      "primary_note_id": null,
+      "bucket": "out_of_scope",
+      "scenario_group": "v3_065",
+      "expected_decision": "out_of_scope",
+      "label_rationale": "The request seeks non-tutoring assistance; an unrelated grammar card does not change its purpose.",
+      "pair_id": "v3_pair_7",
+      "card_condition": "distractor"
+    }
+  ]
+}

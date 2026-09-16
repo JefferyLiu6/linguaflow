@@ -45,3 +45,21 @@ Replay the original gate reports at commit `8649863` using `python -m retrieval.
 Compare a pinned GPT-4.1 mini verifier on the historical 68 development cases with identical prompt, candidates, labels, timeout and token cap. `retrieval.gate_model_eval` changes the model only inside the offline CLI; the serving configuration remains unchanged. Its own source is included in the frozen plan's code hashes. Cached embeddings are reused with explicit provenance, not recollected.
 
 Select using development results. Do not relabel exposed failures or tune on the 64-case test and describe it as untouched. A candidate that passes development still needs a new pre-run frozen test. Answer correctness, citation faithfulness and production load performance remain unmeasured.
+
+## Development model/prompt selection
+
+| Variant (same 68 cases) | Correct / all 53 positives | Source precision | False retrieval | Verification errors |
+|---|---:|---:|---:|---:|
+| GPT-4o mini, original prompt | 42/53 | 42/50 (84.0%) | 0/15 | 1/68 |
+| GPT-4.1 mini, original prompt | 34/53 | 34/40 (85.0%) | 0/14 scored | 13/68 |
+| GPT-4.1 mini, explicit semantic applicability + exact short quote | 48/53 | 48/53 (90.6%) | 0/15 | 0/68 |
+
+The first model swap failed; conditional recall excluded 12 positive verification errors. Those failures were validation errors, not measured network outages. The saved error record does not distinguish quote mismatch from other response validation failures, so a precise causal attribution is unavailable. The second prompt trial clarifies that learners need not use grammatical category names and instructs a short contiguous quote from the rule field, with a rationale under 35 words. These two instructions changed together; the run does not isolate their individual effects.
+
+The revised trial passed development targets. Verifier-only p50/p95 were 1,329/1,752 ms; usage 142,040 input and 4,988 output tokens across 68 calls. At the published uncached GPT-4.1 mini rates ($0.40/$1.60 per million input/output tokens), this is about $0.065 of verifier tokens, excluding embeddings and any other work. This is an estimate, not a billing receipt. [Official model documentation](https://developers.openai.com/api/docs/models/gpt-4.1-mini).
+
+## Fresh v3 pre-run protocol
+
+Select the second GPT-4.1 mini trial without inspecting v3 predictions. Freeze 65 AI-authored cases: 31 positives, 12 unsupported English questions, 6 missing-context requests, and 8 out-of-scope questions tested both without a card and with one unrelated card. Labels include predeclared overlapping alternatives. All labels and rationale are in `agent/knowledge/evaluation/gate-fresh-v3.json`; maximum token Jaccard overlap with prior sets or other nonpaired cases is 0.625. This does not establish semantic independence.
+
+Keep the original joint targets (precision >=90%, recall >=80%, negative false retrieval <=10%, verification errors <=2%). No revisions based on v3 outcomes. Freeze the wrapper source, underlying serving code, corpus, embedding inputs and labels in `gate-fresh-v3-plan.json` and Git before provider execution. Budget: 65 verifier requests, concurrency three, 300 output tokens/request, eight-second verifier deadline, up to seven embedding requests. No generated answers or live learner inputs. Results remain an offline candidate regardless of outcome; this branch is not to be merged or deployed in this task.
