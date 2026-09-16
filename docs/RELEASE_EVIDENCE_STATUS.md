@@ -1,6 +1,10 @@
-# Remaining release gates
+# Release and deployment evidence
 
-## Deployment check: production RAG verified
+## Latest source-policy validation
+
+The current branch changes the actual freeform handler and adds reproducible three-layer validation. Fresh-v2 passed its fixed gates (11/11 source precision, 11/12 recall, 0/12 negative false references, 8/8 required clarification/redirect routes), and 269 local tests passed including disposable pgvector. Fresh-v1 failed and remains preserved. See [release results](RELEASE_VALIDATION_RESULTS.md) and the [frozen protocol](RELEASE_VALIDATION_PROTOCOL.md). A successful local/provider evaluation or PR check does not establish that Render runs this revision. The historical production observations below apply only to their named commit. No new migration or embedding rebuild is needed for the source-policy change.
+
+## Historical deployment check: production RAG verified
 
 Vercel and Render deployed commit `1c50fcdc7321c3c66983804af692d788d5ebba6d`
 from merged PR #4. Its checks passed, including web tests/build, guest browser
@@ -56,6 +60,6 @@ The dataset intake accepts project-author or AI-assisted cases and one documente
 
 Historical raw reports and corpus provenance still record the status at collection time. A historical pending human-review field is not a current release gate and must not be rewritten to imply completed validation.
 
-## Completion criteria
+## Historical completion summary
 
-Completed: AI-assisted pilot evaluation, publication, passing CI, deployment verification, migration and complete index publication, warm card retrieval, positive freeform retrieval with the expected source, and a deployed scope-refusal smoke. Free-tier cold starts remain an operational limitation. The 93-case synthetic retrieval holdout is complete and its failed abstention target is reported. The larger 240-case set and permitted endpoint load benchmark remain uncollected; do not claim independent generalization, held-out answer quality, or production latency percentiles. No external reviewer recruitment is required.
+Completed: AI-assisted pilot evaluation, publication, passing CI, deployment verification, migration and complete index publication, warm card retrieval, positive freeform retrieval with the expected source, and a deployed scope-refusal smoke. Free-tier cold starts remain an operational limitation. The 93-case synthetic retrieval holdout is complete and its failed abstention target is reported. The larger 240-case set and permitted endpoint load benchmark remain uncollected; do not infer independent generalization or production latency percentiles. New synthetic answer-test evidence is reported separately in the latest release results. No external reviewer recruitment is required.

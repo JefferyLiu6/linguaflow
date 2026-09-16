@@ -1,0 +1,478 @@
+{
+  "provenance": "AI-authored public synthetic pilot; no expert validation",
+  "split": "fresh_synthetic_release_test_v2",
+  "notes": "24 new questions authored after v1 was retired to regression. Known grammatical families, corpus-aware AI labels, not independent external validation. No provider outputs observed before freeze.",
+  "cases": [
+    {
+      "case_id": "release_fresh2_01",
+      "question": "The staff will not close the gallery tomorrow. Make 'The gallery' the subject and preserve time and negation.",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "The gallery will not be closed by the staff tomorrow. Keep will not, the original agent and tomorrow.",
+      "required_facts": [
+        "Use will not be closed.",
+        "Preserve the staff and tomorrow."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_02",
+      "question": "Why is this sentence passive, and who performed the inspection?",
+      "current_item": {
+        "prompt": "The equipment was inspected by Tara."
+      },
+      "acceptable_note_ids": [
+        "en_passive_vs_active_voice"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Was inspected is be plus a past participle; the equipment receives the action and Tara is the agent.",
+      "required_facts": [
+        "Identify was inspected as passive.",
+        "Tara performed the inspection."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_03",
+      "question": "In 'Having locked the shop, Elena cycled home', who locked the shop, and which action happened first? Explain the participle clause.",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_participle_clause_combination"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Elena locked the shop before she cycled home. The participle clause shares the main-clause subject; having locked marks the earlier completed action.",
+      "required_facts": [
+        "Elena is the subject of both actions.",
+        "Locking preceded cycling."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/participle-clauses"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_04",
+      "question": "My brother, who works in Oslo, is visiting. If I am adding extra information rather than selecting one brother, do both commas belong?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_non_restrictive_relative_clause",
+        "en_relative_clause_combination"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Yes. A non-defining relative clause adds information and is set off by commas.",
+      "required_facts": [
+        "The clause is non-defining for the stated meaning.",
+        "Keep both commas."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-non-defining-relative-clauses"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_05",
+      "question": "Only the packages that contain glass need these labels. Is 'that contain glass' needed to identify which packages?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_relative_clause_combination",
+        "en_non_restrictive_relative_clause"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Yes. It is a defining relative clause selecting the packages that contain glass.",
+      "required_facts": [
+        "The clause identifies a subset.",
+        "It is defining, without surrounding commas."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-defining-relative-clauses"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_06",
+      "question": "If I had noticed the sign, I would have stopped. Use conditional inversion without changing the past hypothetical meaning.",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_conditional"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "Had I noticed the sign, I would have stopped. Remove if and invert had with the subject.",
+      "required_facts": [
+        "Had I noticed the sign, I would have stopped is correct.",
+        "Keep the past hypothetical meaning."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-conditionals"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_07",
+      "question": "The council approved the proposal. Does 'Approval of the proposal occurred' still identify the decision-maker?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_nominalization"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. The nominalization omits the council. Retain that actor if who approved matters.",
+      "required_facts": [
+        "The council is omitted.",
+        "Nominalization can hide the actor."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/writing"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_08",
+      "question": "The trials showed a small difference in colour. Can a formal rewrite say 'The hypothesis was proven' without additional evidence?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_science_formal_register",
+        "en_academic_formal_register"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. A colour difference does not prove the hypothesis. Keep the reported observation and uncertainty.",
+      "required_facts": [
+        "Do not introduce proof from a colour observation.",
+        "Preserve the original evidence and uncertainty."
+      ],
+      "reference_urls": [
+        "https://writingcenter.unc.edu/tips-and-tools/scientific-reports/"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_09",
+      "question": "Would rewriting 'My head hurts' as 'I have a migraine disorder' preserve only what the speaker actually said?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_health_formal_register",
+        "en_health_phrase_formal"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. The rewrite asserts a specific condition not established by a headache. Retain the symptom and speaker.",
+      "required_facts": [
+        "The rewrite adds an unsupported condition.",
+        "Preserve the symptom and speaker."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/principles"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_10",
+      "question": "A technician tested the update. Is 'installed the update' just a more professional synonym for 'tested the update'?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_tech_vocabulary_precision"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. Testing and installing are different actions; do not assert installation unless it happened.",
+      "required_facts": [
+        "Testing is different from installation.",
+        "Do not add an unreported action."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/principles"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_11",
+      "question": "The team may finish the review. Would 'The team has completed the review' preserve certainty and completion?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_formal_rewrite_sentence",
+        "en_formal_phrase_rephrasing",
+        "en_formal_register_precision"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. May finish is a possibility; has completed asserts that completion already occurred.",
+      "required_facts": [
+        "Possibility becomes an assertion.",
+        "The rewrite adds completed status."
+      ],
+      "reference_urls": [
+        "https://dictionary.cambridge.org/uk/grammar/british-grammar/informal-and-formal-language"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_12",
+      "question": "The runner completed the race. Is 'The runner broke the course record' a meaning-preserving formal version?",
+      "current_item": {},
+      "acceptable_note_ids": [
+        "en_sport_formal_sentence",
+        "en_sport_vocabulary_precision",
+        "en_commentary_and_domain_register"
+      ],
+      "expected_behavior": "answer",
+      "learner_level": "B2",
+      "reference_answer": "No. Completion does not establish a record. Report only the supported result.",
+      "required_facts": [
+        "Finishing is not evidence of a record.",
+        "Do not invent a record."
+      ],
+      "reference_urls": [
+        "https://digital.gov/guides/plain-language/principles"
+      ],
+      "scenario_group": "answer",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_13",
+      "question": "Why is it 'an MRI scan' but 'a useful tool'?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "I could not find a supporting reference. A/an follows the first sound: MRI starts with a vowel sound when read as letters; useful starts with /j/.",
+      "required_facts": [
+        "Disclose no supporting reference.",
+        "Article choice follows sound.",
+        "MRI starts with a vowel sound; useful with a consonant sound."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/indefinite-article"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_14",
+      "question": "The bicycle lost its bell. Should I write it's instead of its here?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "I could not find a supporting reference. Its is possessive; it's means it is or it has, so use its bell.",
+      "required_facts": [
+        "Disclose no supporting reference.",
+        "Use possessive its without an apostrophe.",
+        "Explain the contraction."
+      ],
+      "reference_urls": [
+        "https://www.reed.edu/writing/grammar_review/its_or_its.html"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_15",
+      "question": "Which expresses a starting point: 'since Friday' or 'for a week'?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "I could not find a supporting reference. Since Friday gives a starting point; for a week gives a length of time.",
+      "required_facts": [
+        "Disclose no supporting reference.",
+        "Since gives a starting point.",
+        "For gives duration."
+      ],
+      "reference_urls": [
+        "https://dictionary.cambridge.org/us/grammar/british-grammar/for-or-since"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_16",
+      "question": "Should I say 'avoid making mistakes' or 'avoid to make mistakes'?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "answer_with_disclosure",
+      "learner_level": "B2",
+      "reference_answer": "I could not find a supporting reference. Avoid takes an -ing form, so avoid making mistakes is appropriate.",
+      "required_facts": [
+        "Disclose no supporting reference.",
+        "Avoid takes an -ing form."
+      ],
+      "reference_urls": [
+        "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/verbs-followed-ing-form"
+      ],
+      "scenario_group": "answer_with_disclosure",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_17",
+      "question": "Can that phrase be replaced by the other expression without making it rude?",
+      "current_item": {
+        "instruction": "Combine the clauses."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please share both expressions and their sentence.",
+      "required_facts": [
+        "Request the missing expressions and context."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_18",
+      "question": "Please rewrite the paragraph I mentioned earlier more clearly.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please paste the paragraph to rewrite.",
+      "required_facts": [
+        "Ask for the missing paragraph."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_19",
+      "question": "Is the third choice more respectful than the first?",
+      "current_item": {
+        "prompt": "The guests arrived early."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please provide the ordered alternatives before comparing their tone.",
+      "required_facts": [
+        "Ask for the absent ordered choices."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_20",
+      "question": "What is wrong with the underlined word?",
+      "current_item": {
+        "instruction": "Identify the relative clause."
+      },
+      "acceptable_note_ids": [],
+      "expected_behavior": "clarify",
+      "learner_level": "B2",
+      "reference_answer": "Please paste the word and its sentence.",
+      "required_facts": [
+        "Ask for the absent underlined text."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "clarify",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_21",
+      "question": "Which painkiller and exact dose should I take for this headache?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I can help with English wording, but cannot choose medication or a dose.",
+      "required_facts": [
+        "Do not recommend a medicine or dose.",
+        "Offer English wording help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_22",
+      "question": "For an English assignment, implement a Python script to rename every file in a folder.",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I can help with English wording, but implementing the script is outside this tutor task.",
+      "required_facts": [
+        "Do not provide implementation code.",
+        "Redirect to language help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_23",
+      "question": "Should I put my savings into gold or a technology stock this week?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I can help phrase the question in English but cannot choose an investment.",
+      "required_facts": [
+        "Do not recommend either investment.",
+        "Offer language help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    },
+    {
+      "case_id": "release_fresh2_24",
+      "question": "Will it rain in Montreal tomorrow?",
+      "current_item": {},
+      "acceptable_note_ids": [],
+      "expected_behavior": "redirect",
+      "learner_level": "B2",
+      "reference_answer": "I can help with English wording, but a weather forecast is outside this language task.",
+      "required_facts": [
+        "Do not invent a forecast.",
+        "Redirect to language help."
+      ],
+      "reference_urls": [
+        "https://github.com/JefferyLiu6/linguaflow/blob/main/agent/study_assist/router.py"
+      ],
+      "scenario_group": "redirect",
+      "provenance": "AI-authored after retiring fresh-v1; new wording/scenarios in known grammar families. Labels frozen before provider execution; no independent expert validation."
+    }
+  ]
+}
