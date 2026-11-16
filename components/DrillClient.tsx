@@ -8,14 +8,16 @@ import {
   ignoreClientAuthExpiredError,
   isClientAuthExpiredError,
   loadCustomList,
-  loadLanguage,
   loadSessions,
-  readLanguageSync,
   saveCustomList,
-  saveLanguage,
   saveSession,
   clearCustomList,
 } from '@/lib/stats'
+import { useLearningLanguage } from '@/lib/useLearningLanguage'
+import LanguageSupport from './LanguageSupport'
+import { aiFetch, AiRequestError, asAiError } from '@/lib/aiClient'
+import { AiFailure, AiLoading, useAiCooldown } from './AiRequestState'
+import AiUsage from './AiUsage'
 import ExercisePreview from './ExercisePreview'
 import DrillCoachPanel from '@/components/DrillCoachPanel'
 import { TAXONOMY_DISPLAY, type TaxonomyLabel } from '@/lib/englishTaxonomy'
@@ -147,8 +149,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
   // Config
   const [drillType, setDrillType] = useState<DrillType>(urlOverrides.drillType ?? initialType)
   const [count,     setCount]     = useState(reviewItems?.length ?? urlOverrides.count ?? initialCount)
-  const [language,      setLanguage]      = useState<Language>(reviewLanguage ?? urlOverrides.language ?? readLanguageSync())
-  const [languageReady, setLanguageReady] = useState(!!(reviewLanguage || urlOverrides.language))
+  const { language, setLanguage, languageError } = useLearningLanguage(reviewLanguage ?? urlOverrides.language)
   const [topic,     setTopic]     = useState<DrillTopic | null>(urlOverrides.topic ?? null)
 
   // Custom list
@@ -173,22 +174,25 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
   const [genPrompt,     setGenPrompt]     = useState('')
   const aiModel = 'openai/gpt-4o-mini'
   const [isGenerating,  setIsGenerating]  = useState(false)
-  const [genError,      setGenError]      = useState('')
+  const [genError,      setGenError]      = useState<AiRequestError | null>(null)
+  const genCooldown = useAiCooldown(genError)
   const [genPreview,    setGenPreview]    = useState<DrillItem[]>([])
   const [planLoading,   setPlanLoading]   = useState(false)
   const [planSummary,   setPlanSummary]   = useState<{ topic: string; weakLabels: string[]; confidence: number } | null>(null)
-  const [planError,     setPlanError]     = useState('')
+  const [planError,     setPlanError]     = useState<AiRequestError | null>(null)
+  const planCooldown = useAiCooldown(planError)
 
   const handleGenerateDrills = async () => {
+    if (isGenerating || planLoading || genCooldown > 0 || planCooldown > 0) return
     setIsGenerating(true)
-    setGenError('')
+    setGenError(null)
     setGenPreview([])
     try {
-      const res = await fetch('/api/generate-drills', {
+      const res = await aiFetch('/api/generate-drills', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          mode:       genMode,
+          mode:       genMode === 'recommended' ? 'guided' : genMode,
           rawPrompt:  genPrompt,
           topic:      genTopic ?? '',
           difficulty: genDifficulty,
@@ -201,39 +205,39 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
       })
       const data = await res.json()
       if (!res.ok || data.error) {
-        setGenError(data.error ?? 'Generation failed.')
+        setGenError(new AiRequestError('Your exercises could not be created. Please try again.'))
         return
       }
       setGenPreview(data.drills)
       void saveCustomList(data.drills).catch(ignoreClientAuthExpiredError)
-    } catch {
-      setGenError('We couldn’t create your practice. Please try again.')
+    } catch (error) {
+      setGenError(asAiError(error))
     } finally {
       setIsGenerating(false)
     }
   }
 
   const handleGenerateFromPlan = async () => {
-    if (language !== 'en') return
+    if (language !== 'en' || isGenerating || planLoading || genCooldown > 0 || planCooldown > 0) return
     setPlanLoading(true)
-    setPlanError('')
+    setPlanError(null)
     setPlanSummary(null)
     setGenPreview([])
-    setGenError('')
+    setGenError(null)
 
     let planTopic: DrillTopic = 'daily'
     let weakLabels: string[] = []
     let planConfidence = 0
 
     try {
-      const planRes = await fetch('/api/plan-session', {
+      const planRes = await aiFetch('/api/plan-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ language: 'en' }),
       })
       const planData = await planRes.json() as Record<string, unknown>
       if (!planRes.ok || planData.error) {
-        setPlanError((planData.error as string) ?? 'Could not fetch recommendation.')
+        setPlanError(new AiRequestError('Your recommendation could not be prepared. Please try again.'))
         return
       }
 
@@ -247,17 +251,17 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
 
       setPlanSummary({ topic: planTopic, weakLabels, confidence: planConfidence })
       setGenTopic(planTopic)
-    } catch {
-      setPlanError('Network error — could not fetch recommendation.')
+    } catch (error) {
+      setPlanError(asAiError(error))
       return
     } finally {
       setPlanLoading(false)
     }
 
     setIsGenerating(true)
-    setGenError('')
+    setGenError(null)
     try {
-      const genRes = await fetch('/api/generate-drills', {
+      const genRes = await aiFetch('/api/generate-drills', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -274,13 +278,13 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
       })
       const genData = await genRes.json()
       if (!genRes.ok || genData.error) {
-        setGenError(genData.error ?? 'Generation failed.')
+        setGenError(new AiRequestError('Your exercises could not be created. Please try again.'))
         return
       }
       setGenPreview(genData.drills)
       void saveCustomList(genData.drills).catch(ignoreClientAuthExpiredError)
-    } catch {
-      setGenError('We couldn’t create your practice. Please try again.')
+    } catch (error) {
+      setGenError(asAiError(error))
     } finally {
       setIsGenerating(false)
     }
@@ -313,17 +317,12 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
   const accuracy = results.length === 0 ? null
     : Math.round(results.filter(r => r.correct).length / results.length * 100)
 
-  // On mount, load language and custom list from API.
-  // Skip the language sync if a URL ?language=... param took precedence.
+  // Practice starts in English unless a link or review specifies another language.
+  // Load saved exercises without replacing the selected practice language.
   useEffect(() => {
     if (reviewItems) return
     ;(async () => {
       try {
-        if (!urlOverridesRef.current?.language) {
-          const savedLang = await loadLanguage()
-          setLanguage(savedLang)
-        }
-        setLanguageReady(true)
         const savedCustom = await loadCustomList()
         if (savedCustom.length > 0 && (urlOverridesRef.current?.source === 'custom' || urlOverridesRef.current?.drillType === 'custom')) {
           // Don't switch into custom mode when the planner deep-link asked for a specific built-in type.
@@ -591,9 +590,11 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
   if (!started) {
     return <div className="learning-page product-setup">
       <header className="learning-header"><div><span className="product-eyebrow">A few minutes. A little more fluent.</span><h1>Begin <em>practice.</em></h1><p>Choose what to work on. Get feedback after every answer.</p></div></header>
+      <LanguageSupport language={language} />
+      {languageError && <p role="alert">{languageError}</p>}
       <div className="product-practice-workspace"><div className="product-form">
         <div className="product-form-row">
-          <label className="learning-select">Language<select aria-label="Language" value={language} onChange={e => { const next = e.target.value as Language; setLanguage(next); setTopic(null); void saveLanguage(next).catch(ignoreClientAuthExpiredError) }}>{Object.entries(LANGUAGES).map(([code, info]) => <option key={code} value={code}>{info.name}</option>)}</select></label>
+          <label className="learning-select">Language<select aria-label="Language" value={language} onChange={e => { const next = e.target.value as Language; setLanguage(next); setTopic(null) }}>{Object.entries(LANGUAGES).map(([code, info]) => <option key={code} value={code}>{info.name}</option>)}</select></label>
           <label className="learning-select">Material<select aria-label="Material" value={useCustom ? 'custom' : 'built-in'} onChange={e => { const custom = e.target.value === 'custom'; setUseCustom(custom); if (!custom && drillType === 'custom') setDrillType('mixed') }}><option value="built-in">Library exercises</option><option value="custom">My exercises</option></select></label>
         </div>
         {useCustom ? <div className="product-material"><div><strong>{customItems.length ? `${customItems.length} saved exercise${customItems.length === 1 ? '' : 's'}` : 'Add your own exercises'}</strong><p>{customItems.length ? customFileName || 'Your saved practice list is ready.' : 'Import a CSV or JSON file, or generate a set for a topic.'}</p></div><button className="btn-secondary" onClick={() => setShowCustomPanel(true)}>{customItems.length ? 'Manage exercises' : 'Add exercises'}</button></div> : <>
@@ -601,7 +602,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
           <label className="learning-select">Topic<select aria-label="Topic" value={topic ?? ''} onChange={e => setTopic((e.target.value || null) as DrillTopic | null)}><option value="">All topics</option>{Object.entries(TOPICS).map(([key, info]) => <option key={key} value={key}>{info.label}</option>)}</select></label>
         </>}
         <div className="product-count-row"><div><strong>Questions per session</strong><p>20 seconds per question</p></div><div className="product-stepper"><button aria-label="Decrease item count" disabled={Math.min(count, maxCount) <= 1} onClick={() => setCount(c => Math.max(1, Math.min(c, maxCount) - 1))}>−</button><output aria-live="polite">{Math.min(count, maxCount)}</output><button aria-label="Increase item count" disabled={count >= maxCount} onClick={() => setCount(c => Math.min(maxCount, c + 1))}>+</button></div></div>
-        <div className="product-start"><button className="btn-primary" data-testid="begin-session" onClick={startSession} disabled={!languageReady || !availableItems.length}>Start practice →</button><span>{availableItems.length ? `${Math.min(count, maxCount)} question${Math.min(count, maxCount) === 1 ? '' : 's'} · 20 seconds each` : 'No exercises match. Choose another topic or practice type.'}</span></div>
+        <div className="product-start"><button className="btn-primary" data-testid="begin-session" onClick={startSession} disabled={!availableItems.length}>Start practice →</button><span>{availableItems.length ? `${Math.min(count, maxCount)} question${Math.min(count, maxCount) === 1 ? '' : 's'} · 20 seconds each` : 'No exercises match. Choose another topic or practice type.'}</span></div>
       </div><aside className="product-practice-preview">{availableItems[0] ? <ExercisePreview item={availableItems[0]} language={language} label="From your practice" /> : <div className="product-study-note"><span>Your words, your practice.</span><p>Add a list of expressions you want to remember, and make them part of your everyday vocabulary.</p></div>}<p className="product-preview-caption">A moment to think.<br /><em>A phrase to remember.</em></p></aside></div>
           {/* ── Custom list drawer ──────────────────────────────── */}
           {showCustomPanel && (
@@ -764,7 +765,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                           {(['guided', 'raw', 'recommended'] as const).map((mode, i, arr) => (
                             <button
                               key={mode}
-                              onClick={() => { setGenMode(mode); setPlanError(''); setPlanSummary(null) }}
+                              onClick={() => { setGenMode(mode); setPlanError(null); setPlanSummary(null) }}
                               style={{
                                 padding: '8px 18px',
                                 border: 'none',
@@ -917,7 +918,8 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                         <textarea
                           value={genPrompt}
                           onChange={e => setGenPrompt(e.target.value)}
-                          placeholder="e.g., Generate 10 advanced French substitution drills focusing on explaining reinforcement learning, option pricing, and data analytics..."
+                          aria-label="Describe your exercises"
+                          placeholder="e.g., Create five English exercises for everyday conversations at work."
                           style={{
                             width: '100%', padding: '12px 14px',
                             border: '1px solid #E2DDD8', borderRadius: 8,
@@ -958,12 +960,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
 
                                 </div>
                               )}
-                              {planError && (
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, background: 'rgba(178,34,34,0.06)', border: '1px solid rgba(178,34,34,0.2)', borderRadius: 8, padding: '10px 14px' }}>
-                                  <span style={{ color: '#B22222', flexShrink: 0 }}>⚠</span>
-                                  <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 12, color: '#B22222', lineHeight: 1.6 }}>{planError}</span>
-                                </div>
-                              )}
+                              <AiFailure error={planError} retryIn={planCooldown} onRetry={() => void handleGenerateFromPlan()} />
                             </>
                           )}
                         </div>
@@ -974,7 +971,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                         const busy = isGenerating || planLoading
                         const isFromPlan = genMode === 'recommended' && language === 'en'
                         const rawDisabled = genMode === 'raw' && !genPrompt.trim()
-                        const disabled = busy || !languageReady || rawDisabled || (genMode === 'recommended' && language !== 'en')
+                        const disabled = busy || genCooldown > 0 || planCooldown > 0 || rawDisabled || (genMode === 'recommended' && language !== 'en')
                         const bgActive = '#1F5C3A'
                         const bgDisabled = '#A8BFB0'
                         const bg = disabled ? bgDisabled : bgActive
@@ -1018,12 +1015,9 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                       })()}
 
                       {/* Error */}
-                      {genError && (
-                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, background: 'rgba(178,34,34,0.06)', border: '1px solid rgba(178,34,34,0.2)', borderRadius: 8, padding: '10px 14px' }}>
-                          <span style={{ color: '#B22222', flexShrink: 0 }}>⚠</span>
-                          <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 12, color: '#B22222', lineHeight: 1.6 }}>{genError}</span>
-                        </div>
-                      )}
+                      <AiFailure error={genError} retryIn={genCooldown} onRetry={() => void handleGenerateDrills()} />
+                      {(isGenerating || planLoading) && <AiLoading active />}
+                      <AiUsage feature="generate" />
 
                       {/* Preview ledger */}
                       {genPreview.length > 0 && (
@@ -1034,8 +1028,8 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                             </span>
                             <button
                               onClick={() => { setGenPreview([]); if (genMode === 'recommended') { void handleGenerateFromPlan() } else { void handleGenerateDrills() } }}
-                              disabled={planLoading || isGenerating || !languageReady}
-                              style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 12, fontWeight: 500, color: '#4A5A50', background: 'white', border: '1px solid #E2DDD8', borderRadius: 6, padding: '4px 10px', cursor: 'pointer', opacity: (planLoading || isGenerating || !languageReady) ? 0.5 : 1 }}
+                              disabled={planLoading || isGenerating}
+                              style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 12, fontWeight: 500, color: '#4A5A50', background: 'white', border: '1px solid #E2DDD8', borderRadius: 6, padding: '4px 10px', cursor: 'pointer', opacity: (planLoading || isGenerating) ? 0.5 : 1 }}
                             >
                               ↻ Regenerate
                             </button>
@@ -1360,7 +1354,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
         )}
 
         {/* Drill Coach — appears after feedback; key resets chat on every new item */}
-        {feedback && (
+        {feedback && language === 'en' && (
           <DrillCoachPanel
             key={index}
             language={language}

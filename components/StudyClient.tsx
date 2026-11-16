@@ -1,12 +1,16 @@
 'use client'
 
 import Link from 'next/link'
+import { aiFetch, asAiError, type AiRequestError } from '@/lib/aiClient'
+import { AiFailure, AiLoading, useAiCooldown } from './AiRequestState'
+import AiUsage from './AiUsage'
+import { useLearningLanguage } from '@/lib/useLearningLanguage'
+import LanguageSupport from './LanguageSupport'
 import ExercisePreview from './ExercisePreview'
 import { reviewHref } from '@/lib/learningProgress'
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import type { Language, DrillTopic, DrillItem } from '@/lib/drills'
 import { LANGUAGES, TOPICS, getDB, shuffle } from '@/lib/drills'
-import { ignoreClientAuthExpiredError, loadLanguage, readLanguageSync } from '@/lib/stats'
 import { getClientAuthenticatedUser } from '@/lib/clientAuth'
 
 // BCP-47 codes for Web Speech API
@@ -75,8 +79,10 @@ async function callStudyAssist(
   language: Language,
   card: DrillItem,
   question?: string,
+  signal?: AbortSignal,
 ): Promise<StudyAssistResult> {
-  const res = await fetch('/api/study-assist', {
+  const res = await aiFetch('/api/study-assist', {
+    signal,
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -104,8 +110,8 @@ async function callStudyAssist(
 
 // ── Component ──────────────────────────────────────────────────────────────────
 
-export default function StudyClient({ reviewItems, reviewLanguage, reviewSessionId }: { reviewItems?: DrillItem[]; reviewLanguage?: Language; reviewSessionId?: string } = {}) {
-  const [language,     setLanguage]     = useState<Language>(() => reviewLanguage ?? readLanguageSync())
+export default function StudyClient({ reviewItems, reviewLanguage, reviewSessionId, initialLanguage }: { initialLanguage?: Language; reviewItems?: DrillItem[]; reviewLanguage?: Language; reviewSessionId?: string } = {}) {
+  const { language, setLanguage, languageError } = useLearningLanguage(reviewLanguage ?? initialLanguage)
   const [topic,        setTopic]        = useState<DrillTopic | null>(null)
   const [selectedIds,  setSelectedIds]  = useState<Set<string>>(new Set())
   const [search, setSearch] = useState('')
@@ -123,15 +129,16 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
   // Study assist state
   const [assistLoading,      setAssistLoading]      = useState(false)
   const [assistResult,       setAssistResult]       = useState<StudyAssistResult | null>(null)
-  const [assistError,        setAssistError]        = useState<string | null>(null)
+  const [assistError,        setAssistError]        = useState<AiRequestError | null>(null)
+  const assistCooldown = useAiCooldown(assistError)
+  const assistRequest = useRef<AbortController | null>(null)
+  const assistGeneration = useRef(0)
+  useEffect(() => () => assistRequest.current?.abort(), [])
   const [freeformInput,      setFreeformInput]      = useState('')
   const [lastFreeformQ,      setLastFreeformQ]      = useState<string | null>(null)
   const [lastAssistAction,   setLastAssistAction]   = useState<StudyAction | null>(null)
   const [studyFeedbackState, setStudyFeedbackState] = useState<StudyFeedbackState>({ status: 'idle' })
 
-  useEffect(() => {
-    if (!reviewLanguage) loadLanguage().then(setLanguage).catch(ignoreClientAuthExpiredError)
-  }, [reviewLanguage])
 
   const allItems = useMemo(() => getDB(language), [language])
 
@@ -171,6 +178,11 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
   // ── Start study ────────────────────────────────────────────────────────────
 
   const startStudy = useCallback((overrideDeck?: DrillItem[]) => {
+    assistRequest.current?.abort()
+    assistGeneration.current++
+    setAssistLoading(false)
+    setAssistError(null)
+    setAssistResult(null)
     const ordered = overrideDeck ?? allItems.filter(d => selectedIds.has(d.id))
     const finalDeck = isShuffled ? shuffle([...ordered]) : ordered
     setDeck(finalDeck)
@@ -182,6 +194,9 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
   // ── Flashcard navigation ───────────────────────────────────────────────────
 
   const navigate = useCallback((newIndex: number) => {
+    assistRequest.current?.abort()
+    assistGeneration.current++
+    setAssistLoading(false)
     setFlipped(false)
     setIndex(newIndex)
     setAssistResult(null)
@@ -214,6 +229,28 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
 
   const card = deck[index]
 
+  async function requestAssist(action: StudyAction, question?: string) {
+    if (!card || assistLoading || assistCooldown > 0) return
+    assistRequest.current?.abort()
+    const controller = new AbortController()
+    assistRequest.current = controller
+    const generation = ++assistGeneration.current
+    setAssistLoading(true)
+    setAssistResult(null)
+    setAssistError(null)
+    setStudyFeedbackState({ status: 'idle' })
+    setLastAssistAction(action)
+    setLastFreeformQ(question ?? null)
+    try {
+      const result = await callStudyAssist(action, language, card, question, controller.signal)
+      if (generation === assistGeneration.current && !controller.signal.aborted) setAssistResult(result)
+    } catch (error) {
+      if (!controller.signal.aborted && generation === assistGeneration.current) setAssistError(asAiError(error))
+    } finally {
+      if (generation === assistGeneration.current) setAssistLoading(false)
+    }
+  }
+
   // ─────────────────────────────────────────────────────────────────────────
   // SELECT PHASE
   // ─────────────────────────────────────────────────────────────────────────
@@ -223,6 +260,8 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
     const allFilteredSelected = filteredItems.length > 0 && filteredItems.every(item => selectedIds.has(item.id))
     return <div className="learning-page">
       <header className="learning-header"><div><span className="product-eyebrow">Make room for the words</span><h1>Study <em>{LANGUAGES[language].name}.</em></h1><p>Review at your own pace. Choose the questions you want to learn.</p></div></header>
+      <LanguageSupport language={language} />
+      {languageError && <p role="alert">{languageError}</p>}
       <div className="product-toolbar">
         <label className="learning-select">Language<select aria-label="Language" value={language} onChange={e => { setLanguage(e.target.value as Language); setTopic(null); clearAll() }}>{Object.entries(LANGUAGES).map(([code, info]) => <option key={code} value={code}>{info.name}</option>)}</select></label>
         <label className="learning-select">Topic<select aria-label="Topic" value={topic ?? ''} onChange={e => setTopic((e.target.value || null) as DrillTopic | null)}><option value="">All topics</option>{topicsWithItems.map(key => <option key={key} value={key}>{TOPICS[key].label}</option>)}</select></label>
@@ -265,7 +304,7 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
         <div style={{ borderBottom: '1px solid #E2DDD8', background: 'var(--bg)' }}>
           <div className="study-session-header" style={{ maxWidth: 800, margin: '0 auto', padding: '16px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <button
-              onClick={() => { if (reviewItems) window.location.href = '/study'; else setPhase('select') }}
+              onClick={() => { if (reviewItems) window.location.href = '/study'; else { assistRequest.current?.abort(); assistGeneration.current++; setAssistLoading(false); setPhase('select') } }}
               style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: 'none', fontFamily: 'var(--font-manrope), sans-serif', fontSize: '0.875rem', color: '#4A5A50', cursor: 'pointer', padding: '4px 0' }}
             >
               {reviewItems ? 'Browse study cards' : '← Back to selection'}
@@ -388,23 +427,8 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
                     ] as { action: StudyAction; label: string }[]).map(({ action, label }) => (
                       <button
                         key={action}
-                        disabled={assistLoading}
-                        onClick={async () => {
-                          setAssistLoading(true)
-                          setAssistResult(null)
-                          setAssistError(null)
-                          setStudyFeedbackState({ status: 'idle' })
-                          setLastAssistAction(action)
-                          setLastFreeformQ(null)
-                          try {
-                            const result = await callStudyAssist(action, language, card)
-                            setAssistResult(result)
-                          } catch (err) {
-                            setAssistError(err instanceof Error ? err.message : String(err))
-                          } finally {
-                            setAssistLoading(false)
-                          }
-                        }}
+                        disabled={assistLoading || assistCooldown > 0}
+                        onClick={() => void requestAssist(action)}
                         style={{
                           padding: '7px 16px', borderRadius: 8,
                           border: '1px solid #E2DDD8', background: 'white',
@@ -425,21 +449,9 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
                       value={freeformInput}
                       onChange={e => setFreeformInput(e.target.value)}
                       onKeyDown={e => {
-                        if (e.key === 'Enter' && freeformInput.trim() && !assistLoading) {
-                          e.preventDefault()
-                          const q = freeformInput.trim()
-                          setAssistLoading(true)
-                          setAssistResult(null)
-                          setAssistError(null)
-                          setStudyFeedbackState({ status: 'idle' })
-                          setLastAssistAction('freeform_help')
-                          setLastFreeformQ(q)
-                          callStudyAssist('freeform_help', language, card, q)
-                            .then(setAssistResult)
-                            .catch(err => setAssistError(err instanceof Error ? err.message : String(err)))
-                            .finally(() => setAssistLoading(false))
-                        }
+                        if (e.key === 'Enter' && freeformInput.trim()) { e.preventDefault(); void requestAssist('freeform_help', freeformInput.trim()) }
                       }}
+                      aria-label="Question for your study coach"
                       placeholder="Ask a question about this card…"
                       style={{
                         flex: 1, padding: '7px 12px', borderRadius: 8,
@@ -449,25 +461,8 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
                       }}
                     />
                     <button
-                      disabled={assistLoading || !freeformInput.trim()}
-                      onClick={async () => {
-                        const q = freeformInput.trim()
-                        if (!q) return
-                        setAssistLoading(true)
-                        setAssistResult(null)
-                        setAssistError(null)
-                        setStudyFeedbackState({ status: 'idle' })
-                        setLastAssistAction('freeform_help')
-                        setLastFreeformQ(q)
-                        try {
-                          const result = await callStudyAssist('freeform_help', language, card, q)
-                          setAssistResult(result)
-                        } catch (err) {
-                          setAssistError(err instanceof Error ? err.message : String(err))
-                        } finally {
-                          setAssistLoading(false)
-                        }
-                      }}
+                      disabled={assistLoading || assistCooldown > 0 || !freeformInput.trim()}
+                      onClick={() => { if (freeformInput.trim()) void requestAssist('freeform_help', freeformInput.trim()) }}
                       style={{
                         padding: '7px 16px', borderRadius: 8,
                         border: 'none', background: '#0B1E12',
@@ -481,17 +476,9 @@ export default function StudyClient({ reviewItems, reviewLanguage, reviewSession
                     </button>
                   </div>
 
-                  {assistLoading && (
-                    <div style={{ marginTop: 16, fontFamily: 'var(--font-jetbrains), monospace', fontSize: '0.6875rem', color: '#8CA090' }}>
-                      Thinking…
-                    </div>
-                  )}
-
-                  {assistError && (
-                    <div style={{ marginTop: 16, padding: '12px 16px', borderRadius: 8, background: '#FFF3F3', border: '1px solid #FCCFCF', fontFamily: 'var(--font-manrope), sans-serif', fontSize: '0.8125rem', color: '#C0392B' }}>
-                      {assistError}
-                    </div>
-                  )}
+                  {assistLoading && <AiLoading active />}
+                  <AiFailure error={assistError} retryIn={assistCooldown} onRetry={() => { if (lastAssistAction) void requestAssist(lastAssistAction, lastFreeformQ ?? undefined) }} />
+                  <AiUsage feature="study" />
 
                   {assistResult && (
                     <div style={{ marginTop: 16, background: 'white', border: '1px solid #E2DDD8', borderRadius: 10, padding: '16px 20px' }}>

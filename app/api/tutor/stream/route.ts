@@ -1,5 +1,7 @@
 import { applyRequestActorResponseHeaders, enforceAiRateLimit } from '@/lib/aiRateLimit'
 
+export const maxDuration = 60
+
 const AGENT_URL = process.env.AGENT_URL ?? 'http://localhost:8000'
 
 export async function POST(req: Request) {
@@ -70,7 +72,7 @@ export async function POST(req: Request) {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(payload),
-      signal:  AbortSignal.timeout(60_000),
+      signal:  AbortSignal.timeout(55_000),
     })
 
     if (!agentRes.ok || !agentRes.body) {
@@ -86,11 +88,10 @@ export async function POST(req: Request) {
         },
       }),
     )
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
+  } catch {
     return respond(
       new Response(
-        `data: ${JSON.stringify({ error: `Agent unavailable: ${msg}` })}\n\n`,
+        `data: ${JSON.stringify({ error: 'Your coach is temporarily unavailable. Please try again.' })}\n\n`,
         { status: 502, headers: { 'Content-Type': 'text/event-stream' } },
       ),
     )

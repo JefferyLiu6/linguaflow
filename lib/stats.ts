@@ -111,7 +111,7 @@ function getRawGuestImportPayload(): DemoImportPayload | null {
   const sessions = sanitizeSessionRecords(getStorage<unknown>(SESSIONS_KEY, []))
   const customList = getStorage<DrillItem[]>(CUSTOM_KEY, [])
   const hasLanguagePreference = localStorage.getItem(LANGUAGE_KEY) !== null
-  const language = hasLanguagePreference ? getStorage<Language>(LANGUAGE_KEY, 'es') : undefined
+  const language = hasLanguagePreference ? getStorage<Language>(LANGUAGE_KEY, 'en') : undefined
 
   const payload: DemoImportPayload = {}
   if (sessions.length > 0) payload.sessions = sessions
@@ -162,30 +162,30 @@ export async function saveSession(session: SessionRecord): Promise<void> {
 const VALID_LANGUAGES = new Set<string>(['es', 'fr', 'de', 'zh', 'ja', 'ko', 'en'])
 
 export function readLanguageSync(): Language {
-  if (typeof window === 'undefined') return 'es'
+  if (typeof window === 'undefined') return 'en'
   try {
     const raw = localStorage.getItem(LANGUAGE_KEY)
-    if (!raw) return 'es'
+    if (!raw) return 'en'
     const val = JSON.parse(raw) as string
-    return VALID_LANGUAGES.has(val) ? (val as Language) : 'es'
+    return VALID_LANGUAGES.has(val) ? (val as Language) : 'en'
   } catch {
-    return 'es'
+    return 'en'
   }
 }
 
 export async function loadLanguage(): Promise<Language> {
   if (!isAuthenticatedClient()) {
-    return getStorage<Language>(LANGUAGE_KEY, 'es')
+    return readLanguageSync()
   }
 
   try {
     const data = await requestJson<{ language: Language }>('/api/language', { method: 'GET' })
-    return data.language ?? 'es'
+    return VALID_LANGUAGES.has(data.language) ? data.language : 'en'
   } catch (error) {
     if (isClientAuthExpiredError(error)) {
       throw error
     }
-    return 'es'
+    return 'en'
   }
 }
 

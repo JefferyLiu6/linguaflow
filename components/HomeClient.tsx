@@ -28,15 +28,15 @@ export default function HomeClient({ redirectReturning = true }: { redirectRetur
     <section className="landing-hero" aria-labelledby="landing-heading">
       <div className="landing-intro">
         <h1 id="landing-heading">Practice the sentences<br /><em>you need.</em></h1>
-        <p>Put your language skills to work with focused exercises, immediate feedback, and a clear view of what to practice next.</p>
-        <Link href="/drill" className="btn-primary landing-start">Start practicing <span aria-hidden="true">→</span></Link>
-        <span className="landing-start-note">Start without an account.</span>
+        <p>Build your English with focused exercises, immediate feedback, and AI coaching to help you understand your mistakes.</p>
+        <Link href="/drill?language=en&type=mixed&count=5" className="btn-primary landing-start">Start practicing <span aria-hidden="true">→</span></Link>
+        <span className="landing-start-note">Start with five questions. No account needed.</span>
       </div>
       <DrillPreview />
     </section>
 
     <section className="landing-languages" aria-label="Available languages">
-      <p>Practice in</p>
+      <p>AI coaching in English. Exercises and flashcards in</p>
       <ul>{['English', 'Spanish', 'French', 'German', 'Chinese', 'Japanese', 'Korean'].map(language => <li key={language}>{language}</li>)}</ul>
     </section>
 

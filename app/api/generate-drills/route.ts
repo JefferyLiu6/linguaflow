@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { applyRequestActorResponseHeaders, enforceAiRateLimit } from '@/lib/aiRateLimit'
 
+export const maxDuration = 60
+
 const AGENT_URL = process.env.AGENT_URL ?? 'http://localhost:8000'
 
 export async function POST(req: Request) {
@@ -22,7 +24,7 @@ export async function POST(req: Request) {
   // Remap camelCase from the frontend to the snake_case the Python agent expects
   const payload = {
     mode:       body.mode,
-    language:   body.language   ?? 'Spanish',
+    language:   body.language   ?? 'English',
     count:      body.count      ?? 10,
     model:      body.model      ?? 'openai/gpt-4o-mini',
     raw_prompt: body.rawPrompt  ?? '',
@@ -39,8 +41,8 @@ export async function POST(req: Request) {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(payload),
-      // Ollama can be slow — give the agent up to 120s
-      signal:  AbortSignal.timeout(120_000),
+      // Leave time for a useful error before the hosting deadline.
+      signal:  AbortSignal.timeout(55_000),
     })
 
     const data = await agentRes.json()
@@ -77,8 +79,8 @@ export async function POST(req: Request) {
       NextResponse.json(
         {
           error: isDown
-            ? 'Python agent is not running — start it with: cd agent && uvicorn main:app --port 8000 --reload'
-            : msg,
+            ? 'Exercise creation is temporarily unavailable. Please try again.'
+            : 'Your exercises could not be created. Please try again.',
         },
         { status: 502 },
       ),

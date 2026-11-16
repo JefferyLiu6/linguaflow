@@ -31,7 +31,9 @@ test.describe('authenticated flow', () => {
 
     await expect(page).toHaveURL(/\/today$/)
 
-    await page.goto('/drill')
+    await page.goto('/drill?language=en')
+    await expect(page.getByLabel('Language', { exact: true })).toHaveValue('en')
+    await page.getByLabel('Language', { exact: true }).selectOption('es')
     await page.getByRole('button', { name: 'Select Phrase mode' }).click()
 
     const decreaseCount = page.getByRole('button', { name: 'Decrease item count' })
@@ -40,7 +42,7 @@ test.describe('authenticated flow', () => {
     }
 
     await page.getByTestId('begin-session').click()
-    await expect(page).toHaveURL(/\/drill$/)
+    await expect(page).toHaveURL(/\/drill\?language=en$/)
 
     for (let index = 0; index < 4; index += 1) {
       const prompt = (await page.getByTestId('drill-prompt').textContent())?.trim()

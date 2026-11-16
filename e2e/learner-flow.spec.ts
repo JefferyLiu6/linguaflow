@@ -31,15 +31,17 @@ test.describe('learner flow', () => {
     await page.locator('main').getByRole('link', { name: 'Start practicing' }).first().click()
     await expect(page.getByRole('heading', { name: /^begin practice\./i })).toBeVisible()
 
+    await expect(page.getByLabel('Language', { exact: true })).toHaveValue('en')
+    await page.getByLabel('Language', { exact: true }).selectOption('es')
     await page.getByRole('button', { name: 'Select Phrase mode' }).click()
 
     const decreaseCount = page.getByRole('button', { name: 'Decrease item count' })
-    for (let count = 10; count > 4; count -= 1) {
+    for (let count = 5; count > 4; count -= 1) {
       await decreaseCount.click()
     }
 
     await page.getByTestId('begin-session').click()
-    await expect(page).toHaveURL(/\/drill$/)
+    await expect(page).toHaveURL(/\/drill\?language=en&type=mixed&count=5$/)
 
     for (let index = 0; index < 4; index += 1) {
       const prompt = (await page.getByTestId('drill-prompt').textContent())?.trim()

@@ -1,5 +1,9 @@
 'use client'
 
+import { streamSSE } from '@/lib/aiStream'
+import { asAiError, type AiRequestError } from '@/lib/aiClient'
+import { AiFailure, AiLoading, useAiCooldown } from './AiRequestState'
+import AiUsage from './AiUsage'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import type { DrillItem, DrillResult, Language } from '@/lib/drills'
 import { LANGUAGES } from '@/lib/drills'
@@ -62,48 +66,6 @@ type Mode = 'feedback' | 'coach'
 
 // ── SSE streaming helper ──────────────────────────────────────────────────────
 
-async function streamSSE(
-  payload: object,
-  onToken: (t: string) => void,
-  onDone:  (meta: Record<string, unknown>) => void,
-  onError: (e: string) => void,
-  signal:  AbortSignal,
-) {
-  const res = await fetch('/api/tutor/stream', {
-    method:  'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body:    JSON.stringify(payload),
-    signal,
-  })
-  if (!res.ok || !res.body) {
-    onError(`Request failed: ${res.status}`)
-    return
-  }
-
-  const reader  = res.body.getReader()
-  const decoder = new TextDecoder()
-  let buf = ''
-
-  while (true) {
-    const { done, value } = await reader.read()
-    if (done) break
-    buf += decoder.decode(value, { stream: true })
-
-    const lines = buf.split('\n')
-    buf = lines.pop() ?? ''
-
-    for (const line of lines) {
-      if (!line.startsWith('data: ')) continue
-      try {
-        const data = JSON.parse(line.slice(6)) as Record<string, unknown>
-        if (typeof data.token === 'string') onToken(data.token)
-        if (data.done)  onDone(data)
-        if (data.error) onError(data.error as string)
-      } catch { /* skip malformed line */ }
-    }
-  }
-}
-
 // ── Component ─────────────────────────────────────────────────────────────────
 
 const MSG_FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", "Noto Sans JP", "Hiragino Kaku Gothic Pro", "Malgun Gothic", sans-serif'
@@ -124,13 +86,16 @@ export default function DrillCoachPanel({
   // feedback tab state
   const [feedbackText,      setFeedbackText]      = useState('')
   const [feedbackStreaming,  setFeedbackStreaming]  = useState(false)
-  const [feedbackError,     setFeedbackError]     = useState('')
+  const [feedbackError,     setFeedbackError]     = useState<AiRequestError | null>(null)
+  const [feedbackAttempt, setFeedbackAttempt] = useState(0)
+  const feedbackCooldown = useAiCooldown(feedbackError)
 
   // coach tab state
   const [messages,       setMessages]       = useState<CoachMessage[]>([])
   const [inputVal,       setInputVal]       = useState('')
   const [coachLoading,   setCoachLoading]   = useState(false)
-  const [coachError,     setCoachError]     = useState('')
+  const [coachError,     setCoachError]     = useState<AiRequestError | null>(null)
+  const coachCooldown = useAiCooldown(coachError)
   const [hintLevel,      setHintLevel]      = useState(0)
   const [streamingMsg,   setStreamingMsg]   = useState('')   // in-flight coach reply
   const [feedbackStates, setFeedbackStates] = useState<Record<number, FeedbackState>>({})
@@ -139,6 +104,8 @@ export default function DrillCoachPanel({
   const bottomRef  = useRef<HTMLDivElement>(null)
   const inputRef   = useRef<HTMLInputElement>(null)
   const abortRef   = useRef<AbortController | null>(null)
+  const feedbackAbortRef = useRef<AbortController | null>(null)
+  useEffect(() => () => abortRef.current?.abort(), [])
 
   // scroll to bottom whenever content changes
   useEffect(() => {
@@ -148,16 +115,18 @@ export default function DrillCoachPanel({
   // ── Auto-trigger feedback on new item ─────────────────────────────────────
   useEffect(() => {
     setFeedbackText('')
-    setFeedbackError('')
-    setMessages([])
-    setHintLevel(0)
-    setStreamingMsg('')
-    setFeedbackStates({})
-    setMode('feedback')
+    setFeedbackError(null)
+    if (feedbackAttempt === 0) {
+      setMessages([])
+      setHintLevel(0)
+      setStreamingMsg('')
+      setFeedbackStates({})
+      setMode('feedback')
+    }
 
-    abortRef.current?.abort()
+    feedbackAbortRef.current?.abort()
     const ctrl = new AbortController()
-    abortRef.current = ctrl
+    feedbackAbortRef.current = ctrl
 
     setFeedbackStreaming(true)
     let accumulated = ''
@@ -204,25 +173,24 @@ export default function DrillCoachPanel({
       ctrl.signal,
     ).catch((err: unknown) => {
       if (err instanceof Error && err.name === 'AbortError') return
-      setFeedbackError('Network error — is the Python agent running?')
+      setFeedbackError(asAiError(err))
       setFeedbackStreaming(false)
     })
 
     return () => ctrl.abort()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemIndex, feedback])
+  }, [itemIndex, feedback, feedbackAttempt])
 
   // ── Send coach message ─────────────────────────────────────────────────────
   const sendCoachMessage = useCallback(async (text: string) => {
     const trimmed = text.trim()
-    if (!trimmed || coachLoading) return
+    if (!trimmed || coachLoading || coachCooldown > 0) return
 
     const userMsg: CoachMessage = { role: 'user', content: trimmed }
     const nextMsgs = [...messages, userMsg]
     setMessages(nextMsgs)
-    setInputVal('')
     setCoachLoading(true)
-    setCoachError('')
+    setCoachError(null)
     setStreamingMsg('')
 
     abortRef.current?.abort()
@@ -292,6 +260,7 @@ export default function DrillCoachPanel({
             },
           ])
           setStreamingMsg('')
+          setInputVal('')
           setCoachLoading(false)
           if (typeof meta.hint_level === 'number') setHintLevel(meta.hint_level)
           setTimeout(() => inputRef.current?.focus(), 50)
@@ -306,13 +275,13 @@ export default function DrillCoachPanel({
       )
     } catch (err: unknown) {
       if (err instanceof Error && err.name === 'AbortError') return
-      setCoachError('Network error — is the Python agent running?')
+      setCoachError(asAiError(err))
       setMessages(messages)
       setStreamingMsg('')
       setCoachLoading(false)
     }
   }, [
-    messages, coachLoading, currentItem, expectedAnswer, submittedVal,
+    messages, coachLoading, coachCooldown, currentItem, expectedAnswer, submittedVal,
     feedback, results, items, itemIndex, language, model, hintLevel,
   ])
 
@@ -337,6 +306,7 @@ export default function DrillCoachPanel({
         overflow: 'hidden',
       }}
     >
+      <div style={{ padding: '0 14px' }}><AiUsage feature="coach" />{(feedbackStreaming || coachLoading) && <AiLoading active />}</div>
       {/* ── Header / tab bar ── */}
       <div
         style={{
@@ -386,7 +356,7 @@ export default function DrillCoachPanel({
                 color:      'var(--incorrect)',
               }}
             >
-              {feedbackError}
+              <AiFailure error={feedbackError} retryIn={feedbackCooldown} onRetry={() => setFeedbackAttempt(n => n + 1)} />
             </div>
           ) : feedbackText ? (
             <div>
@@ -650,7 +620,7 @@ export default function DrillCoachPanel({
                 color:      'var(--incorrect)',
               }}
             >
-              {coachError}
+              <AiFailure error={coachError} retryIn={coachCooldown} onRetry={() => void sendCoachMessage(inputVal)} />
             </div>
           )}
 
@@ -662,7 +632,7 @@ export default function DrillCoachPanel({
               value={inputVal}
               onChange={e => setInputVal(e.target.value)}
               onKeyDown={handleKeyDown}
-              disabled={coachLoading}
+              disabled={coachLoading || coachCooldown > 0}
               placeholder={messages.length > 0 ? 'Follow-up question…' : 'Ask for a hint, explanation, or guidance…'}
               autoComplete="off"
               spellCheck={false}
@@ -680,7 +650,7 @@ export default function DrillCoachPanel({
             />
             <button
               onClick={() => void sendCoachMessage(inputVal)}
-              disabled={coachLoading || !inputVal.trim()}
+              disabled={coachLoading || coachCooldown > 0 || !inputVal.trim()}
               style={{
                 background: coachLoading || !inputVal.trim() ? 'var(--surface-2)' : 'var(--text-1)',
                 color:      coachLoading || !inputVal.trim() ? 'var(--text-3)' : 'var(--bg)',

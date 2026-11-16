@@ -8,7 +8,7 @@ export const GET = withAuthenticatedUser(async (_request, user) => {
     where: { userId: user.userId },
   })
 
-  return NextResponse.json({ language: normalizeLanguage(settings?.language) })
+  return NextResponse.json({ language: normalizeLanguage(settings?.language, 'en') })
 })
 
 export const PUT = withAuthenticatedUser(async (request, user) => {
@@ -19,7 +19,7 @@ export const PUT = withAuthenticatedUser(async (request, user) => {
     return NextResponse.json({ error: 'Invalid JSON body.' }, { status: 400 })
   }
 
-  const language = normalizeLanguage(body.language)
+  const language = normalizeLanguage(body.language, 'en')
   await prisma.userSettings.upsert({
     where: { userId: user.userId },
     create: { userId: user.userId, language },

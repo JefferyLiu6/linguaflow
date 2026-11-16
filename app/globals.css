@@ -523,3 +523,15 @@ button:disabled { cursor: not-allowed; opacity: .5; }
 .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 10px 18px; border: 1px solid #C9CEC2; border-radius: 7px; background: #F7F6F1; color: #1F5C3A; font: inherit; font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; }
 .btn-secondary:hover:not(:disabled) { background: #E8EDE2; border-color: #9AAE98; }
 .product-drill-card .btn-primary { box-shadow: none; }
+.language-support { padding: 14px 18px; background: #E8EDE2; border-left: 2px solid #8A9F81; border-radius: 0 6px 6px 0; margin-bottom: 26px !important; font-size: 13px !important; }
+.language-support a { color: #1F5C3A; text-underline-offset: 3px; }
+.first-practice-note { padding: 0 0 22px; }
+.first-practice-note strong { font-size: 14px; color: #1F5C3A; }
+.first-practice-note p { font-size: 14px; margin: 8px 0 0; max-width: 720px; }
+.ai-loading { font-size: 13px !important; color: #4A5A50; line-height: 1.65; margin: 16px 0 !important; }
+.ai-failure { background: #F5EEE3; border: 1px solid #DBD0BE; border-radius: 7px; padding: 16px; margin: 14px 0; }
+.ai-failure p { font-family: var(--font-manrope), sans-serif; color: #534A3C; font-size: 13px !important; line-height: 1.65; margin: 0 0 12px !important; }
+.ai-failure button { font-size: 13px; }
+.ai-usage { margin: 14px 0; color: #647567; font-size: 12px; }
+.ai-usage summary { cursor: pointer; }
+.ai-usage p { font-size: 12px !important; line-height: 1.65; margin: 8px 0 0 !important; max-width: 680px; }

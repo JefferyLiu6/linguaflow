@@ -33,7 +33,7 @@ model CustomList {
 
 model UserSettings {
   userId    String   @id @db.Uuid
-  language  String   @default("es")
+  language  String   @default("en")
   updatedAt DateTime @updatedAt
 }
 
