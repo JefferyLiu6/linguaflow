@@ -368,16 +368,7 @@ export default function DrillCoachPanel({
             {m === 'feedback' ? 'Feedback' : 'Ask Coach'}
           </button>
         ))}
-        <span
-          style={{
-            fontFamily: 'var(--font-jetbrains), monospace',
-            fontSize:   '0.5625rem',
-            color:      'var(--text-3)',
-            marginLeft: 'auto',
-          }}
-        >
-          {model}
-        </span>
+
       </div>
 
       {/* ── Feedback tab ── */}

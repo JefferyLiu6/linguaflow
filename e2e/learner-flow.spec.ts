@@ -28,8 +28,8 @@ test.describe('learner flow', () => {
     const initialDemoCookie = await getDemoCookieValue(page.context())
     expect(initialDemoCookie).toBeTruthy()
 
-    await page.locator('main').getByRole('link', { name: 'Begin Training' }).first().click()
-    await expect(page.getByRole('heading', { name: /begin training/i })).toBeVisible()
+    await page.locator('main').getByRole('link', { name: 'Start practicing' }).first().click()
+    await expect(page.getByRole('heading', { name: /^begin practice\./i })).toBeVisible()
 
     await page.getByRole('button', { name: 'Select Phrase mode' }).click()
 
@@ -53,13 +53,12 @@ test.describe('learner flow', () => {
 
       const feedbackPanel = page.getByTestId('drill-feedback')
       await expect(feedbackPanel).toContainText('Correct.')
-      await feedbackPanel.getByRole('button', { name: index === 3 ? /View results/ : /^Next/ }).click()
+      await feedbackPanel.getByRole('button', { name: index === 3 ? /See session summary/ : /^Next/ }).click()
     }
 
-    await expect(page).toHaveURL(/\/dashboard$/)
-    await expect(page.getByRole('heading', { name: 'Training Results' })).toBeVisible()
-    await expect(page.getByText('Rolling Accuracy')).toBeVisible()
-    await expect(page.getByText('across 1 sessions')).toBeVisible()
+    await expect(page).toHaveURL(/\/session\//)
+    await expect(page.getByRole('heading', { name: 'Practice complete.' })).toBeVisible()
+    await expect(page.getByText('You answered 4 of 4 questions correctly.', { exact: false })).toBeVisible()
 
     const sessions = await page.evaluate(() =>
       JSON.parse(window.localStorage.getItem('linguaflow_demo_sessions') ?? '[]'),
@@ -75,8 +74,8 @@ test.describe('learner flow', () => {
     })
 
     await page.reload()
-    await expect(page.getByRole('heading', { name: 'Training Results' })).toBeVisible()
-    await expect(page.getByText('across 1 sessions')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Practice complete.' })).toBeVisible()
+    await expect(page.getByText('You answered 4 of 4 questions correctly.', { exact: false })).toBeVisible()
 
     const sessionsAfterReload = await page.evaluate(() =>
       JSON.parse(window.localStorage.getItem('linguaflow_demo_sessions') ?? '[]'),
@@ -94,5 +93,15 @@ test.describe('learner flow', () => {
     const demoCookieAfterReload = await getDemoCookieValue(page.context())
     expect(demoCookieAfterReload).toBeTruthy()
     expect(demoCookieAfterReload).toBe(initialDemoCookie)
+
+    await page.goto('/')
+    await expect(page).toHaveURL(/\/today$/)
+    await expect(page.getByRole('heading', { name: 'Your next practice' })).toBeVisible()
+    await page.getByRole('link', { name: 'See your progress' }).click()
+    await expect(page.getByRole('heading', { name: 'Your progress.' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Accuracy over time' })).toBeVisible()
+    await page.screenshot({ path: '/tmp/linguaflow-progress-refined-desktop.png', fullPage: true })
+    await page.getByText('Explore detailed progress', { exact: true }).click()
+    await expect(page.getByText('Not enough practice yet', { exact: true })).toBeVisible()
   })
 })

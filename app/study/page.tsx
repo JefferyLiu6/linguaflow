@@ -1,8 +1,6 @@
 'use client'
 import dynamic from 'next/dynamic'
 
-const StudyClient = dynamic(() => import('@/components/StudyClient'), { ssr: false })
+const ReviewEntry = dynamic(() => import('@/components/ReviewEntry'), { ssr: false })
 
-export default function StudyPage() {
-  return <StudyClient />
-}
+export default function Page() { return <ReviewEntry surface="study" /> }

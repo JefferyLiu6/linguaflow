@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import type { DrillItem, DrillResult, DrillType, DrillTopic, Language } from '@/lib/drills'
-import { checkAnswer, buildItems, LANGUAGES, TOPICS } from '@/lib/drills'
+import { checkAnswer, buildItems, getPracticePool, LANGUAGES, TOPICS } from '@/lib/drills'
 import {
   ignoreClientAuthExpiredError,
   isClientAuthExpiredError,
@@ -16,6 +16,7 @@ import {
   saveSession,
   clearCustomList,
 } from '@/lib/stats'
+import ExercisePreview from './ExercisePreview'
 import DrillCoachPanel from '@/components/DrillCoachPanel'
 import { TAXONOMY_DISPLAY, type TaxonomyLabel } from '@/lib/englishTaxonomy'
 
@@ -33,6 +34,8 @@ type FeedbackType = 'correct' | 'incorrect' | 'timeout' | null
 interface Props {
   initialType?: DrillType
   initialCount?: number
+  reviewItems?: DrillItem[]
+  reviewLanguage?: Language
 }
 
 // ── CSV / JSON parsing helpers ─────────────────────────────────────────────────
@@ -105,10 +108,10 @@ const DRILL_MODES: { type: DrillType; label: string; desc: string }[] = [
   { type: 'mixed',    label: 'Mixed',     desc: 'All categories combined' },
 ]
 
-const VALID_DRILL_TYPES: ReadonlySet<DrillType> = new Set(['sentence', 'vocab', 'phrase', 'mixed', 'custom'] as const)
+const VALID_DRILL_TYPES: ReadonlySet<DrillType> = new Set(['sentence', 'vocab', 'phrase', 'mixed', 'custom', 'translation', 'substitution', 'transformation'] as const)
 const VALID_LANGUAGES: ReadonlySet<Language>   = new Set(['es', 'fr', 'de', 'zh', 'ja', 'ko', 'en'] as const)
 
-export default function DrillClient({ initialType = 'sentence', initialCount = 10 }: Props) {
+export default function DrillClient({ initialType = 'sentence', initialCount = 10, reviewItems, reviewLanguage }: Props) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -143,26 +146,23 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
 
   // Config
   const [drillType, setDrillType] = useState<DrillType>(urlOverrides.drillType ?? initialType)
-  const [count,     setCount]     = useState(urlOverrides.count ?? initialCount)
-  const [language,      setLanguage]      = useState<Language>(urlOverrides.language ?? readLanguageSync())
-  const [languageReady, setLanguageReady] = useState(!!urlOverrides.language)
+  const [count,     setCount]     = useState(reviewItems?.length ?? urlOverrides.count ?? initialCount)
+  const [language,      setLanguage]      = useState<Language>(reviewLanguage ?? urlOverrides.language ?? readLanguageSync())
+  const [languageReady, setLanguageReady] = useState(!!(reviewLanguage || urlOverrides.language))
   const [topic,     setTopic]     = useState<DrillTopic | null>(urlOverrides.topic ?? null)
 
   // Custom list
-  const [customItems,    setCustomItems]    = useState<DrillItem[]>([])
-  const [useCustom,      setUseCustom]      = useState(false)
-  const [customFileName, setCustomFileName] = useState('')
+  const [customItems,    setCustomItems]    = useState<DrillItem[]>(reviewItems ?? [])
+  const [useCustom,      setUseCustom]      = useState(!!reviewItems || urlOverrides.source === 'custom' || urlOverrides.drillType === 'custom')
+  const [customFileName, setCustomFileName] = useState(reviewItems ? 'Questions from your review' : '')
   const [parseError,     setParseError]     = useState('')
 
-  // Language picker visibility
-  const [showLangPicker, setShowLangPicker] = useState(false)
 
   // Custom list — drawer visibility
-  const [showCustomPanel, setShowCustomPanel] = useState(false)
+  const [showCustomPanel, setShowCustomPanel] = useState(urlOverrides.source === 'custom')
 
   // Custom list — source tabs & AI generation
   const [customTab,     setCustomTab]     = useState<'upload' | 'generate'>('generate')
-  const [showAdvanced,  setShowAdvanced]  = useState(false)
   const [topicsExpanded,    setTopicsExpanded]    = useState(false)
   const [recentTopics,      setRecentTopics]      = useState<DrillTopic[] | null>(null)
   const [genMode,       setGenMode]       = useState<'guided' | 'raw' | 'recommended'>('guided')
@@ -171,7 +171,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
   const [genGrammar,    setGenGrammar]    = useState('mixed')
   const [genDrillType,  setGenDrillType]  = useState('translation')
   const [genPrompt,     setGenPrompt]     = useState('')
-  const [aiModel,       setAiModel]       = useState('openai/gpt-4o-mini')
+  const aiModel = 'openai/gpt-4o-mini'
   const [isGenerating,  setIsGenerating]  = useState(false)
   const [genError,      setGenError]      = useState('')
   const [genPreview,    setGenPreview]    = useState<DrillItem[]>([])
@@ -207,7 +207,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
       setGenPreview(data.drills)
       void saveCustomList(data.drills).catch(ignoreClientAuthExpiredError)
     } catch {
-      setGenError('Network error — is the AI agent running?')
+      setGenError('We couldn’t create your practice. Please try again.')
     } finally {
       setIsGenerating(false)
     }
@@ -280,7 +280,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
       setGenPreview(genData.drills)
       void saveCustomList(genData.drills).catch(ignoreClientAuthExpiredError)
     } catch {
-      setGenError('Network error — is the AI agent running?')
+      setGenError('We couldn’t create your practice. Please try again.')
     } finally {
       setIsGenerating(false)
     }
@@ -316,6 +316,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
   // On mount, load language and custom list from API.
   // Skip the language sync if a URL ?language=... param took precedence.
   useEffect(() => {
+    if (reviewItems) return
     ;(async () => {
       try {
         if (!urlOverridesRef.current?.language) {
@@ -324,11 +325,11 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
         }
         setLanguageReady(true)
         const savedCustom = await loadCustomList()
-        if (savedCustom.length > 0 && !urlOverridesRef.current?.drillType) {
+        if (savedCustom.length > 0 && (urlOverridesRef.current?.source === 'custom' || urlOverridesRef.current?.drillType === 'custom')) {
           // Don't switch into custom mode when the planner deep-link asked for a specific built-in type.
           setCustomItems(savedCustom)
           setUseCustom(true)
-          setCustomFileName('(previously uploaded)')
+          setCustomFileName('Saved practice list')
         } else if (savedCustom.length > 0) {
           // Still load the deck so it's available if the user opens the drawer, but don't auto-select it.
           setCustomItems(savedCustom)
@@ -337,7 +338,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
         ignoreClientAuthExpiredError(error)
       }
     })()
-  }, [])
+  }, [reviewItems])
 
   // Compute the last 4 unique topics from session history, chronologically
   useEffect(() => {
@@ -437,15 +438,26 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
     )
   }, [submitted, inputVal, currentItem, clearTimer, recordAndShow])
 
+  const savingRef = useRef(false)
+  const sessionIdRef = useRef<string | null>(null)
+  const [saveError, setSaveError] = useState('')
+  const [saving, setSaving] = useState(false)
+
   const handleNext = useCallback(async () => {
     const next = index + 1
     if (next >= items.length) {
+      if (savingRef.current) return
+      savingRef.current = true
+      setSaving(true)
+      setSaveError('')
+      const sessionId = sessionIdRef.current ?? crypto.randomUUID()
+      sessionIdRef.current = sessionId
       const res = resultsRef.current
       const correct = res.filter(r => r.correct).length
       const avgTime = res.length > 0 ? res.reduce((a, r) => a + r.timeUsed, 0) / res.length : 0
       try {
         await saveSession({
-          id: Date.now().toString(),
+          id: sessionId,
           date: Date.now(),
           drillType: useCustom ? 'custom' : drillType,
           correct,
@@ -456,14 +468,17 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
           language,
         })
       } catch (error) {
+        savingRef.current = false
+        setSaving(false)
         if (isClientAuthExpiredError(error)) {
           return
         }
 
-        throw error
+        setSaveError('Your session could not be saved. Try again to keep your progress.')
+        return
       }
 
-      router.push('/dashboard')
+      router.push(`/session/${encodeURIComponent(sessionId)}`)
       return
     }
     setIndex(next)
@@ -537,7 +552,8 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
     reader.readAsText(file)
   }
 
-  const maxCount = useCustom ? Math.max(1, customItems.length) : 20
+  const availableItems = useCustom ? (genPreview.length ? genPreview : customItems) : getPracticePool(drillType, language, topic ?? undefined)
+  const maxCount = Math.min(useCustom ? availableItems.length : 20, availableItems.length)
 
   const startSession = () => {
     // Auto-accept any pending AI preview before starting
@@ -550,11 +566,14 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
     }
     const sessionItems = buildItems(
       useCustom ? 'custom' : drillType,
-      count,
+      Math.min(count, maxCount),
       language,
       useCustom ? effectiveItems : undefined,
       useCustom ? undefined : (topic ?? undefined),
     )
+    if (!sessionItems.length) return
+    sessionIdRef.current = null
+    setSaveError('')
     setItems(sessionItems)
     setIndex(0)
     setResults([])
@@ -562,185 +581,31 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
     startRef.current = Date.now()
   }
 
-  // ── Config screen ─────────────────────────────────────────────
+  if (!started && reviewItems) return <div className="learning-page">
+    <header className="learning-header"><div><h1>Try them again.</h1><p>{reviewItems.length} questions in {LANGUAGES[language].name}, picked from your review.</p></div></header>
+    <section className="learning-panel"><h2>Put your review into practice</h2><p>Answer each question from memory. Your coach is here if you need help, and your results will update your progress.</p>
+    <button className="btn-primary" data-testid="begin-session" onClick={startSession}>Start practice →</button></section>
+  </div>
+
+  // Practice setup keeps advanced material tools available without crowding the main task.
   if (!started) {
-    const StepLabel = ({ n, label }: { n: number; label: string }) => (
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-        <span style={{
-          width: 22, height: 22, borderRadius: '50%',
-          border: '1.5px solid #CEC9C2',
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: 'var(--font-manrope), sans-serif',
-          fontSize: 11, fontWeight: 600, color: '#4A5A50', flexShrink: 0,
-        }}>{n}</span>
-        <span style={{
-          fontFamily: 'var(--font-manrope), sans-serif',
-          fontSize: 11, fontWeight: 700,
-          letterSpacing: '1.2px', textTransform: 'uppercase', color: '#4A5A50',
-        }}>{label}</span>
-      </div>
-    )
-
-    return (
-      <div className="mob-config-pad" style={{ flex: 1, background: 'var(--bg)', padding: '48px 32px', minHeight: 'calc(100vh - 60px)' }}>
-        <div style={{ maxWidth: 1280, width: '100%', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 360px', gap: 48, alignItems: 'start' }}>
-
-          {/* ── LEFT COLUMN ─── */}
-          <div>
-
-            {/* Hero */}
-            <div style={{ marginBottom: 52 }}>
-              <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1.2px', textTransform: 'uppercase', color: '#8CA090', marginBottom: 12 }}>
-                Training · New Session
-              </div>
-              <h1 style={{ fontFamily: 'var(--font-fraunces), serif', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: '#0B1E12', lineHeight: 1.1, marginBottom: 12 }}>
-                Begin <em style={{ fontStyle: 'italic', color: '#1F5C3A' }}>training.</em>
-              </h1>
-              <p style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 14, color: '#4A5A50', lineHeight: 1.65, marginBottom: 20 }}>
-                Pick a mode and item count. Timer starts on the first item — errors are shown immediately, no partial credit.
-              </p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontSize: '1rem' }}>{LANGUAGES[language].flag}</span>
-                <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, fontWeight: 600, color: '#0B1E12' }}>{LANGUAGES[language].native}</span>
-                <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, color: '#4A5A50' }}>{LANGUAGES[language].name}</span>
-                <button onClick={() => setShowLangPicker(v => !v)} style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#4A5A50', background: 'transparent', border: 'none', cursor: 'pointer', marginLeft: 4, padding: 0, display: 'inline-flex', alignItems: 'center', gap: 3 }}>
-                  Change {showLangPicker ? '↑' : '↓'}
-                </button>
-              </div>
-              {showLangPicker && (
-                <div style={{ marginTop: 10, background: 'white', border: '1px solid #E2DDD8', borderRadius: 12, padding: '12px 14px', display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                  {(Object.entries(LANGUAGES) as [Language, { name: string; native: string; flag: string }][]).map(([code, info]) => {
-                    const active = language === code
-                    return (
-                      <button key={code} onClick={() => { setLanguage(code); void saveLanguage(code).catch(ignoreClientAuthExpiredError); setShowLangPicker(false) }} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 14px', borderRadius: 20, background: active ? '#0B1E12' : 'white', border: active ? '1px solid #0B1E12' : '1px solid #E2DDD8', color: active ? 'white' : '#4A5A50', fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, fontWeight: active ? 600 : 400, cursor: 'pointer' }}>
-                        <span style={{ fontSize: '0.875rem', lineHeight: 1 }}>{info.flag}</span>
-                        {info.native}
-                      </button>
-                    )
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* §1 — Study material */}
-            <div style={{ marginBottom: 40 }}>
-              <StepLabel n={1} label="Study material" />
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                <button onClick={() => setUseCustom(false)} style={{ background: 'white', textAlign: 'left', cursor: 'pointer', border: !useCustom ? '1.5px solid #1F5C3A' : '1px solid #E2DDD8', borderRadius: 12, padding: '16px 18px', display: 'flex', alignItems: 'flex-start', gap: 12, boxShadow: !useCustom ? '0 0 0 3px rgba(31,92,58,0.08)' : 'none', transition: 'border-color 0.15s' }}>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontFamily: 'var(--font-fraunces), serif', fontStyle: !useCustom ? 'italic' : 'normal', fontWeight: 700, fontSize: 15, color: '#0B1E12', marginBottom: 4 }}>Built-in drills</div>
-                    <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', letterSpacing: '0.06em' }}>§ standard</div>
-                  </div>
-                  {!useCustom && <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#1F5C3A', display: 'inline-block', flexShrink: 0, marginTop: 4 }} />}
-                </button>
-                <button
-                  onClick={() => { setUseCustom(true); setShowCustomPanel(true) }}
-                  style={{
-                    background: 'white', textAlign: 'left', cursor: 'pointer',
-                    border: useCustom ? '1.5px solid #1F5C3A' : '1px solid #E2DDD8',
-                    borderRadius: 12, padding: '16px 18px',
-                    display: 'flex', flexDirection: 'column', gap: 0,
-                    boxShadow: useCustom ? '0 0 0 3px rgba(31,92,58,0.08)' : 'none',
-                    transition: 'border-color 0.15s', width: '100%',
-                  }}
-                >
-                  {/* Card header row */}
-                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', width: '100%' }}>
-                    <div>
-                      <div style={{ fontFamily: 'var(--font-fraunces), serif', fontStyle: useCustom ? 'italic' : 'normal', fontWeight: 700, fontSize: 15, color: '#0B1E12', marginBottom: 4 }}>
-                        Custom list
-                      </div>
-                      {customItems.length > 0 ? (
-                        <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#4A5A50', letterSpacing: '0.06em' }}>
-                          {customFileName || `${customItems.length} items`}
-                        </div>
-                      ) : (
-                        <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', letterSpacing: '0.06em' }}>+ new</div>
-                      )}
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-                      {useCustom && customItems.length > 0 && (
-                        <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#1F5C3A', display: 'inline-block' }} />
-                      )}
-                      {customItems.length > 0 && (
-                        <span
-                          onClick={e => { e.stopPropagation(); setShowCustomPanel(true) }}
-                          style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#1F5C3A', letterSpacing: '0.06em', textTransform: 'uppercase' }}
-                        >
-                          Edit ›
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  {/* Inline drill preview — up to 3 items */}
-                  {customItems.length > 0 && (
-                    <div style={{ marginTop: 10, width: '100%', borderTop: '1px solid #F0EDE8', paddingTop: 8 }}>
-                      {customItems.slice(0, 3).map((item, i) => (
-                        <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: i < 2 && i < customItems.length - 1 ? 4 : 0 }}>
-                          <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 9, color: '#CEC9C2', flexShrink: 0, width: 10 }}>{i + 1}</span>
-                          <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 11, color: '#4A5A50', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
-                            {item.prompt}
-                          </span>
-                          <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 9, color: '#CEC9C2', flexShrink: 0 }}>→</span>
-                          <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 11, fontWeight: 600, color: '#1F5C3A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
-                            {item.answer}
-                          </span>
-                        </div>
-                      ))}
-                      {customItems.length > 3 && (
-                        <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 9, color: '#8CA090', marginTop: 5 }}>
-                          +{customItems.length - 3} more
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* §2 — Topic */}
-            {!useCustom && (
-              <div style={{ marginBottom: 40 }}>
-                <StepLabel n={2} label="Topic" />
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                  {([null, ...Object.keys(TOPICS)] as (DrillTopic | null)[]).map(t => {
-                    const active = topic === t
-                    const info = t ? TOPICS[t] : null
-                    return (
-                      <button key={t ?? 'none'} onClick={() => setTopic(t)} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: active ? '#0B1E12' : 'white', color: active ? 'white' : '#4A5A50', fontFamily: 'var(--font-manrope), sans-serif', fontWeight: active ? 600 : 400, fontSize: 13, padding: '7px 15px', borderRadius: 20, border: active ? '1px solid #0B1E12' : '1px solid #E2DDD8', cursor: 'pointer', transition: 'all 0.15s' }}>
-                        {info && <span style={{ fontSize: '0.75rem', opacity: 0.8 }}>{info.icon}</span>}
-                        {info ? info.label : 'No theme'}
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* §3 — Mode */}
-            {!useCustom && (
-              <div style={{ marginBottom: 40 }}>
-                <StepLabel n={3} label="Mode" />
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                  {DRILL_MODES.map(({ type: t, label, desc }) => {
-                    const active = drillType === t
-                    return (
-                      <button key={t} onClick={() => setDrillType(t)} aria-label={`Select ${label} mode`} style={{ background: 'white', border: active ? '1.5px solid #1F5C3A' : '1px solid #E2DDD8', borderRadius: 12, cursor: 'pointer', textAlign: 'left', padding: '16px 18px', transition: 'border-color 0.15s', boxShadow: active ? '0 0 0 3px rgba(31,92,58,0.08)' : 'none' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
-                          <span style={{ fontFamily: 'var(--font-fraunces), serif', fontStyle: active ? 'italic' : 'normal', fontWeight: 700, fontSize: 15, color: '#0B1E12' }}>{label}</span>
-                          {active && <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#1F5C3A', display: 'inline-block', flexShrink: 0 }} />}
-                        </div>
-                        <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 12, color: '#8CA090', lineHeight: 1.5 }}>{desc}</div>
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-
+    return <div className="learning-page product-setup">
+      <header className="learning-header"><div><span className="product-eyebrow">A few minutes. A little more fluent.</span><h1>Begin <em>practice.</em></h1><p>Choose what to work on. Get feedback after every answer.</p></div></header>
+      <div className="product-practice-workspace"><div className="product-form">
+        <div className="product-form-row">
+          <label className="learning-select">Language<select aria-label="Language" value={language} onChange={e => { const next = e.target.value as Language; setLanguage(next); setTopic(null); void saveLanguage(next).catch(ignoreClientAuthExpiredError) }}>{Object.entries(LANGUAGES).map(([code, info]) => <option key={code} value={code}>{info.name}</option>)}</select></label>
+          <label className="learning-select">Material<select aria-label="Material" value={useCustom ? 'custom' : 'built-in'} onChange={e => { const custom = e.target.value === 'custom'; setUseCustom(custom); if (!custom && drillType === 'custom') setDrillType('mixed') }}><option value="built-in">Library exercises</option><option value="custom">My exercises</option></select></label>
+        </div>
+        {useCustom ? <div className="product-material"><div><strong>{customItems.length ? `${customItems.length} saved exercise${customItems.length === 1 ? '' : 's'}` : 'Add your own exercises'}</strong><p>{customItems.length ? customFileName || 'Your saved practice list is ready.' : 'Import a CSV or JSON file, or generate a set for a topic.'}</p></div><button className="btn-secondary" onClick={() => setShowCustomPanel(true)}>{customItems.length ? 'Manage exercises' : 'Add exercises'}</button></div> : <>
+          <fieldset className="product-fieldset"><legend>Practice type</legend><div className="product-mode-options">{DRILL_MODES.map(mode => <button type="button" key={mode.type} aria-label={`Select ${mode.label} mode`} aria-pressed={drillType === mode.type} onClick={() => setDrillType(mode.type)}><strong>{mode.type === 'vocab' ? 'Vocabulary' : mode.type === 'sentence' ? 'Sentences' : mode.type === 'phrase' ? 'Phrases' : mode.label}</strong><span>{mode.desc}</span></button>)}</div>{!DRILL_MODES.some(mode => mode.type === drillType) && <p>Selected practice: {drillType}</p>}</fieldset>
+          <label className="learning-select">Topic<select aria-label="Topic" value={topic ?? ''} onChange={e => setTopic((e.target.value || null) as DrillTopic | null)}><option value="">All topics</option>{Object.entries(TOPICS).map(([key, info]) => <option key={key} value={key}>{info.label}</option>)}</select></label>
+        </>}
+        <div className="product-count-row"><div><strong>Questions per session</strong><p>20 seconds per question</p></div><div className="product-stepper"><button aria-label="Decrease item count" disabled={Math.min(count, maxCount) <= 1} onClick={() => setCount(c => Math.max(1, Math.min(c, maxCount) - 1))}>−</button><output aria-live="polite">{Math.min(count, maxCount)}</output><button aria-label="Increase item count" disabled={count >= maxCount} onClick={() => setCount(c => Math.min(maxCount, c + 1))}>+</button></div></div>
+        <div className="product-start"><button className="btn-primary" data-testid="begin-session" onClick={startSession} disabled={!languageReady || !availableItems.length}>Start practice →</button><span>{availableItems.length ? `${Math.min(count, maxCount)} question${Math.min(count, maxCount) === 1 ? '' : 's'} · 20 seconds each` : 'No exercises match. Choose another topic or practice type.'}</span></div>
+      </div><aside className="product-practice-preview">{availableItems[0] ? <ExercisePreview item={availableItems[0]} language={language} label="From your practice" /> : <div className="product-study-note"><span>Your words, your practice.</span><p>Add a list of expressions you want to remember, and make them part of your everyday vocabulary.</p></div>}<p className="product-preview-caption">A moment to think.<br /><em>A phrase to remember.</em></p></aside></div>
           {/* ── Custom list drawer ──────────────────────────────── */}
           {showCustomPanel && (
-            <div
+            <div className="product-material-overlay" role="dialog" aria-modal="true" aria-labelledby="custom-material-title"
               style={{
                 position: 'fixed', inset: 0, zIndex: 200,
                 display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
@@ -753,7 +618,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
               />
 
               {/* Sheet */}
-              <div
+              <div className="product-material-sheet"
                 style={{
                   position: 'relative', zIndex: 1,
                   background: 'white',
@@ -766,10 +631,10 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                 {/* Header */}
                 <div style={{ padding: '32px 32px 0', flexShrink: 0 }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 6 }}>
-                    <h2 style={{ fontFamily: 'var(--font-fraunces), serif', fontWeight: 700, fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: '#0B1E12', lineHeight: 1.1 }}>
+                    <h2 id="custom-material-title" style={{ fontFamily: 'var(--font-fraunces), serif', fontWeight: 700, fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: '#0B1E12', lineHeight: 1.1 }}>
                       Custom list
                     </h2>
-                    <button
+                    <button aria-label="Close exercise editor"
                       onClick={() => setShowCustomPanel(false)}
                       style={{
                         width: 36, height: 36, borderRadius: '50%',
@@ -784,7 +649,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                     </button>
                   </div>
                   <p style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 14, color: '#4A5A50', marginBottom: 24, lineHeight: 1.5 }}>
-                    Generate drills with a model, or upload your own deck.
+                    Create practice for your goals, or upload your own exercises.
                   </p>
 
                   {/* Tab bar */}
@@ -807,7 +672,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                             cursor: 'pointer',
                           }}
                         >
-                          {tab === 'upload' ? 'Upload File' : 'Generate (Local AI)'}
+                          {tab === 'upload' ? 'Upload File' : 'Create exercises'}
                         </button>
                       )
                     })}
@@ -835,7 +700,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                             CSV · JSON
                           </span>
                           <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 14, fontWeight: 500, color: '#0B1E12' }}>
-                            Drop a file here, or pick one.
+                            Choose a CSV or JSON file.
                           </span>
                           <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', lineHeight: 1.7, textAlign: 'center' }}>
                             CSV: prompt,answer (one per line) · JSON: [&#123;prompt, answer&#125;]
@@ -890,82 +755,6 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                   {customTab === 'generate' && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
 
-                      {/* Advanced toggle — model picker hidden by default */}
-                      <div>
-                        <button
-                          onClick={() => setShowAdvanced(v => !v)}
-                          style={{
-                            display: 'flex', alignItems: 'center', gap: 6,
-                            background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-                          }}
-                        >
-                          <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#8CA090' }}>
-                            {showAdvanced ? '▲' : '▼'} Advanced
-                          </span>
-                          {!showAdvanced && (
-                            <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#4A5A50' }}>
-                              {aiModel.split('/').pop()}
-                            </span>
-                          )}
-                        </button>
-                        {showAdvanced && (
-                          <div style={{ marginTop: 10 }}>
-                            <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1.2px', textTransform: 'uppercase', color: '#4A5A50', marginBottom: 8 }}>
-                              AI Model
-                            </div>
-                            <select
-                              value={aiModel}
-                              onChange={e => setAiModel(e.target.value)}
-                              style={{
-                                width: '100%', padding: '10px 14px',
-                                border: '1px solid #E2DDD8', borderRadius: 8,
-                                background: 'white', fontFamily: 'var(--font-manrope), sans-serif',
-                                fontSize: 14, color: '#0B1E12', cursor: 'pointer',
-                                appearance: 'none',
-                                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238CA090' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
-                                backgroundRepeat: 'no-repeat',
-                                backgroundPosition: 'right 14px center',
-                                paddingRight: 36,
-                              }}
-                            >
-                              <optgroup label="OpenAI">
-                                <option value="openai/gpt-4o-mini">GPT-4o mini</option>
-                                <option value="openai/gpt-4o">GPT-4o</option>
-                                <option value="openai/o4-mini">o4-mini</option>
-                              </optgroup>
-                              <optgroup label="Anthropic">
-                                <option value="anthropic/claude-3-5-haiku-20241022">Claude 3.5 Haiku</option>
-                                <option value="anthropic/claude-3-5-sonnet-20241022">Claude 3.5 Sonnet</option>
-                                <option value="anthropic/claude-opus-4-5">Claude Opus 4.5</option>
-                              </optgroup>
-                              <optgroup label="Google">
-                                <option value="google/gemini-2.0-flash">Gemini 2.0 Flash</option>
-                                <option value="google/gemini-1.5-pro">Gemini 1.5 Pro</option>
-                              </optgroup>
-                              <optgroup label="Groq (fast free tier)">
-                                <option value="groq/llama-3.1-70b-versatile">Llama 3.1 70B</option>
-                                <option value="groq/mixtral-8x7b-32768">Mixtral 8x7B</option>
-                              </optgroup>
-                              <optgroup label="Ollama (local)">
-                                <option value="ollama/llama3.1">llama3.1</option>
-                                <option value="ollama/llama3.2">llama3.2</option>
-                                <option value="ollama/mistral">mistral</option>
-                                <option value="ollama/qwen2.5">qwen2.5</option>
-                              </optgroup>
-                              <optgroup label="Ollama Cloud (OLLAMA_API_KEY)">
-                                <option value="ollama-cloud/llama3.3">llama3.3</option>
-                                <option value="ollama-cloud/llama3.1:70b">llama3.1:70b</option>
-                                <option value="ollama-cloud/mistral-large">mistral-large</option>
-                                <option value="ollama-cloud/gemma3:27b">gemma3:27b</option>
-                                <option value="ollama-cloud/qwen2.5:72b">qwen2.5:72b</option>
-                                <option value="ollama-cloud/deepseek-r1:32b">deepseek-r1:32b</option>
-                                <option value="ollama-cloud/phi4">phi4</option>
-                              </optgroup>
-                            </select>
-                          </div>
-                        )}
-                      </div>
-
                       {/* Guided / Raw toggle */}
                       <div>
                         <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1.2px', textTransform: 'uppercase', color: '#4A5A50', marginBottom: 8 }}>
@@ -988,7 +777,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                                 boxShadow: genMode === mode ? '0 1px 4px rgba(0,0,0,0.08)' : 'none',
                               }}
                             >
-                              {mode === 'guided' ? 'Guided' : mode === 'raw' ? 'Raw Prompt' : 'From Plan'}
+                              {mode === 'guided' ? 'Guided' : mode === 'raw' ? 'Describe your practice' : 'Recommended'}
                             </button>
                           ))}
                         </div>
@@ -1166,11 +955,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                                       <span style={{ color: '#4A5A50', fontWeight: 400 }}>{' · '}{planSummary.weakLabels.join(' · ')}</span>
                                     )}
                                   </div>
-                                  {planSummary.confidence > 0 && (
-                                    <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', marginTop: 4 }}>
-                                      confidence {Math.round(planSummary.confidence * 100)}%
-                                    </div>
-                                  )}
+
                                 </div>
                               )}
                               {planError && (
@@ -1204,7 +989,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                           <div style={{ display: 'flex', borderRadius: 8, overflow: 'hidden', boxShadow: disabled ? 'none' : '0 2px 10px rgba(31,92,58,0.28)', transition: 'box-shadow 0.15s' }}>
                             {/* − */}
                             <button
-                              onClick={() => setCount(c => Math.max(1, c - 1))}
+                              onClick={() => setCount(c => Math.max(1, Math.min(c, maxCount) - 1))}
                               disabled={busy}
                               style={{ width: 44, background: bg, border: 'none', color: 'white', fontSize: 18, lineHeight: 1, cursor: busy ? 'not-allowed' : 'pointer', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.15s' }}
                             >−</button>
@@ -1302,97 +1087,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
             </div>
           )}
 
-            {/* §4 — Items per session */}
-            <div style={{ marginBottom: 40 }}>
-              <StepLabel n={useCustom ? 2 : 4} label="Items per session" />
-              <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 16 }}>
-                <button onClick={() => setCount(c => Math.max(useCustom ? 1 : 4, c - 1))} aria-label="Decrease item count" style={{ width: 40, height: 40, borderRadius: '50%', border: '1px solid #E2DDD8', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, color: '#4A5A50', cursor: 'pointer', fontFamily: 'var(--font-manrope)', lineHeight: 1 }}>−</button>
-                <span style={{ fontFamily: 'var(--font-fraunces), serif', fontWeight: 700, fontSize: 28, color: '#0B1E12', minWidth: 40, textAlign: 'center' }}>{Math.min(count, maxCount)}</span>
-                <button onClick={() => setCount(c => Math.min(maxCount, c + 1))} aria-label="Increase item count" style={{ width: 40, height: 40, borderRadius: '50%', border: '1px solid #E2DDD8', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, color: '#4A5A50', cursor: 'pointer', fontFamily: 'var(--font-manrope)', lineHeight: 1 }}>+</button>
-                <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, color: '#8CA090' }}>{useCustom ? `1 – ${maxCount}` : '4 – 20'} items</span>
-              </div>
-              <div style={{ display: 'flex', gap: 8 }}>
-                {[5, 10, 15, 20].filter(n => n <= maxCount).map(n => (
-                  <button key={n} onClick={() => setCount(n)} style={{ padding: '5px 14px', borderRadius: 20, border: Math.min(count, maxCount) === n ? '1px solid #0B1E12' : '1px solid #E2DDD8', background: Math.min(count, maxCount) === n ? '#0B1E12' : 'white', color: Math.min(count, maxCount) === n ? 'white' : '#4A5A50', fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, fontWeight: Math.min(count, maxCount) === n ? 600 : 400, cursor: 'pointer', transition: 'all 0.15s' }}>{n}</button>
-                ))}
-              </div>
-            </div>
-
-          </div>{/* end left column */}
-
-          {/* ── RIGHT PANEL (sticky) ─── */}
-          <div style={{ position: 'sticky', top: 80, alignSelf: 'start' }}>
-            <div style={{ background: 'white', border: '1px solid #E2DDD8', borderRadius: 16, padding: '28px 28px 24px', overflow: 'hidden' }}>
-
-              {/* Eyebrow */}
-              <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 10, letterSpacing: '1.4px', textTransform: 'uppercase', color: '#8CA090', marginBottom: 18 }}>
-                About to begin
-              </div>
-
-              {/* Editorial summary */}
-              <div style={{ fontFamily: 'var(--font-fraunces), serif', fontWeight: 700, fontSize: 22, lineHeight: 1.3, color: '#0B1E12', marginBottom: 24 }}>
-                <span style={{ background: 'linear-gradient(180deg, transparent 58%, #B8E0C2 58%, #B8E0C2 92%, transparent 92%)', padding: '0 2px' }}>{Math.min(count, maxCount)}</span>
-                {' '}
-                <em style={{ fontStyle: 'italic', color: '#0B1E12' }}>{useCustom ? 'custom' : drillType}</em>
-                {' drills in '}
-                <em style={{ fontStyle: 'italic', color: '#1F5C3A' }}>{LANGUAGES[language].native}.</em>
-              </div>
-
-              {/* Receipt ledger */}
-              <div style={{ borderTop: '1px solid #E2DDD8', borderBottom: '1px solid #E2DDD8', marginBottom: 20 }}>
-                {[
-                  { ref: '§1', label: 'Source', value: useCustom ? `Custom · ${customItems.length || genPreview.length} items` : 'Built-in' },
-                  ...(useCustom ? [] : [
-                    { ref: '§2', label: 'Topic', value: topic ? (TOPICS[topic]?.label ?? topic) : 'No theme' },
-                    { ref: '§3', label: 'Mode', value: DRILL_MODES.find(m => m.type === drillType)?.label ?? drillType },
-                  ]),
-                  { ref: useCustom ? '§2' : '§4', label: 'Items', value: String(Math.min(count, maxCount)) },
-                ].map(({ ref, label, value }, i, arr) => (
-                  <div key={ref} style={{ display: 'grid', gridTemplateColumns: '28px 1fr auto', alignItems: 'center', gap: 8, padding: '10px 0', borderBottom: i < arr.length - 1 ? '1px solid #F0EDE8' : 'none' }}>
-                    <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', letterSpacing: '0.04em' }}>{ref}</span>
-                    <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#4A5A50', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{label}</span>
-                    <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, color: '#0B1E12', fontWeight: 500, textAlign: 'right' }}>{value}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Duration estimate */}
-              <div style={{ marginBottom: 20, textAlign: 'center' }}>
-                {(() => {
-                  const secs = Math.min(count, maxCount) * TIMER_MAX
-                  const m = Math.floor(secs / 60)
-                  const s = secs % 60
-                  const dur = m > 0 ? `~${m}m${s > 0 ? ` ${s}s` : ''}` : `~${s}s`
-                  return (
-                    <>
-                      <span style={{ fontFamily: 'var(--font-fraunces), serif', fontStyle: 'italic', fontSize: 18, color: '#4A5A50', fontWeight: 400 }}>{dur}</span>
-                      <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 12, color: '#8CA090', marginLeft: 6 }}>estimated</span>
-                    </>
-                  )
-                })()}
-              </div>
-
-              {/* Begin button */}
-              <button
-                onClick={startSession}
-                disabled={useCustom && customItems.length === 0 && genPreview.length === 0}
-                data-testid="begin-session"
-                style={{ width: '100%', padding: '14px 0', borderRadius: 10, border: 'none', background: '#1F5C3A', fontFamily: 'var(--font-manrope), sans-serif', fontSize: 15, fontWeight: 600, color: 'white', cursor: (useCustom && customItems.length === 0 && genPreview.length === 0) ? 'not-allowed' : 'pointer', opacity: (useCustom && customItems.length === 0 && genPreview.length === 0) ? 0.5 : 1, boxShadow: '0 2px 12px rgba(31,92,58,0.25)', letterSpacing: '0.01em' }}
-              >
-                Begin session →
-              </button>
-
-              {/* Footnote */}
-              <div style={{ marginTop: 12, fontFamily: 'var(--font-manrope), sans-serif', fontSize: 11, color: '#8CA090', textAlign: 'center', lineHeight: 1.5 }}>
-                20s per item · errors shown immediately
-              </div>
-
-            </div>
-          </div>
-
-        </div>{/* end grid */}
-      </div>
-    )
+    </div>
   }
 
   if (!currentItem) return null
@@ -1402,7 +1097,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
 
   // ── Drill screen ──────────────────────────────────────────────
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
+    <div className="product-drill-card">
 
       {/* Status bar */}
       <div style={{ background: 'var(--surface-1)', borderBottom: '1px solid var(--border)', flexShrink: 0 }}>
@@ -1450,7 +1145,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
-          maxWidth: 800,
+          maxWidth: 1000,
           margin: '0 auto',
           width: '100%',
           padding: '48px 32px 32px',
@@ -1641,7 +1336,9 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
             </div>
             <FbRow label="Answer" value={expected} />
             {feedback !== 'correct' && <FbRow label="Submitted" value={submittedVal || '[skipped]'} wrong />}
+            {saveError && <p role="alert" style={{ color: 'var(--incorrect)', fontSize: 13 }}>{saveError}</p>}
             <button
+              disabled={saving}
               onClick={() => { void handleNext() }}
               autoFocus
               style={{
@@ -1657,7 +1354,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
                 borderRadius: 3,
               }}
             >
-              {index + 1 >= items.length ? 'View results →' : 'Next →'}
+              {index + 1 >= items.length ? (saving ? 'Saving…' : 'See session summary →') : 'Next →'}
             </button>
           </div>
         )}
@@ -1698,7 +1395,7 @@ export default function DrillClient({ initialType = 'sentence', initialCount = 1
 function BarCell({ label, value, valueColor }: { label: string; value: string; valueColor?: string }) {
   return (
     <div>
-      <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 600, fontSize: '0.5625rem', letterSpacing: '0.10em', textTransform: 'uppercase', color: '#4B5563', marginBottom: 2 }}>{label}</div>
+      <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 600, fontSize: '0.6875rem', letterSpacing: '0.10em', textTransform: 'uppercase', color: '#4B5563', marginBottom: 2 }}>{label}</div>
       <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 600, fontSize: '0.875rem', color: valueColor ?? 'var(--text-2)' }}>{value}</div>
     </div>
   )

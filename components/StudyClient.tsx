@@ -1,5 +1,8 @@
 'use client'
 
+import Link from 'next/link'
+import ExercisePreview from './ExercisePreview'
+import { reviewHref } from '@/lib/learningProgress'
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import type { Language, DrillTopic, DrillItem } from '@/lib/drills'
 import { LANGUAGES, TOPICS, getDB, shuffle } from '@/lib/drills'
@@ -26,7 +29,6 @@ function speak(text: string, lang: string, rate: SpeechRate = 1) {
 
 const FONT_CJK = '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", "Noto Sans JP", "Hiragino Kaku Gothic Pro", "Malgun Gothic", sans-serif'
 
-const RANDOM_PRESETS = [10, 25, 50]
 
 type Phase = 'select' | 'study'
 
@@ -100,48 +102,19 @@ async function callStudyAssist(
   return res.json()
 }
 
-// Render prompt text, wrapping [bracketed] cue words with a gold tint
-function PromptWithCues({ text, large }: { text: string; large?: boolean }) {
-  const parts = text.split(/(\[[^\]]+\])/)
-  return (
-    <>
-      {parts.map((part, i) => {
-        if (part.startsWith('[') && part.endsWith(']')) {
-          return (
-            <span
-              key={i}
-              style={{
-                background: '#FFF3D9',
-                color: '#B06528',
-                padding: large ? '1px 6px' : '0 3px',
-                borderRadius: 4,
-                fontStyle: 'normal',
-                fontSize: large ? '1.05em' : 'inherit',
-              }}
-            >
-              {part.slice(1, -1)}
-            </span>
-          )
-        }
-        return <span key={i}>{part}</span>
-      })}
-    </>
-  )
-}
-
 // ── Component ──────────────────────────────────────────────────────────────────
 
-export default function StudyClient() {
-  const [language,     setLanguage]     = useState<Language>(readLanguageSync)
+export default function StudyClient({ reviewItems, reviewLanguage, reviewSessionId }: { reviewItems?: DrillItem[]; reviewLanguage?: Language; reviewSessionId?: string } = {}) {
+  const [language,     setLanguage]     = useState<Language>(() => reviewLanguage ?? readLanguageSync())
   const [topic,        setTopic]        = useState<DrillTopic | null>(null)
   const [selectedIds,  setSelectedIds]  = useState<Set<string>>(new Set())
-  const [activeItemId, setActiveItemId] = useState<string | null>(null)
-  const [phase,        setPhase]        = useState<Phase>('select')
+  const [search, setSearch] = useState('')
+  const [previewId, setPreviewId] = useState<string | null>(null)
+  const [phase,        setPhase]        = useState<Phase>(reviewItems ? 'study' : 'select')
   const [isShuffled,   setIsShuffled]   = useState(false)
-  const [showHighlight, setShowHighlight] = useState(true)
 
   // Flashcard state
-  const [deck,       setDeck]      = useState<DrillItem[]>([])
+  const [deck,       setDeck]      = useState<DrillItem[]>(reviewItems ?? [])
   const [index,      setIndex]     = useState(0)
   const [flipped,    setFlipped]   = useState(false)
   const [autoPlay,   setAutoPlay]  = useState(false)
@@ -157,29 +130,15 @@ export default function StudyClient() {
   const [studyFeedbackState, setStudyFeedbackState] = useState<StudyFeedbackState>({ status: 'idle' })
 
   useEffect(() => {
-    loadLanguage().then(setLanguage).catch(ignoreClientAuthExpiredError)
-  }, [])
+    if (!reviewLanguage) loadLanguage().then(setLanguage).catch(ignoreClientAuthExpiredError)
+  }, [reviewLanguage])
 
   const allItems = useMemo(() => getDB(language), [language])
 
   const filteredItems = useMemo(() => {
-    if (topic) return allItems.filter(d => d.topic === topic)
-    return allItems
-  }, [allItems, topic])
-
-  // Group filtered items by topic, preserving encounter order
-  const grouped = useMemo(() => {
-    const seen = new Map<string, { topic: DrillTopic | null; label: string; icon: string; items: DrillItem[] }>()
-    for (const item of filteredItems) {
-      const key = item.topic ?? '__none__'
-      if (!seen.has(key)) {
-        const info = item.topic ? TOPICS[item.topic] : null
-        seen.set(key, { topic: item.topic ?? null, label: info?.label ?? 'General', icon: info?.icon ?? '', items: [] })
-      }
-      seen.get(key)!.items.push(item)
-    }
-    return Array.from(seen.values())
-  }, [filteredItems])
+    const query = search.trim().toLocaleLowerCase()
+    return allItems.filter(item => (!topic || item.topic === topic) && (!query || `${item.prompt} ${item.answer}`.toLocaleLowerCase().includes(query)))
+  }, [allItems, topic, search])
 
   // Per-topic counts across ALL items (for filter chip badges)
   const topicCounts = useMemo(() => {
@@ -195,8 +154,6 @@ export default function StudyClient() {
     () => Object.keys(TOPICS).filter(t => (topicCounts[t] ?? 0) > 0) as DrillTopic[],
     [topicCounts]
   )
-
-  const activeItem = activeItemId ? (allItems.find(d => d.id === activeItemId) ?? null) : null
 
   // ── Selection helpers ──────────────────────────────────────────────────────
 
@@ -262,396 +219,18 @@ export default function StudyClient() {
   // ─────────────────────────────────────────────────────────────────────────
 
   if (phase === 'select') {
-    const allFilteredSelected = filteredItems.length > 0 && filteredItems.every(d => selectedIds.has(d.id))
-
-    return (
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--bg)' }}>
-
-        {/* ── Hero + filters ─────────────────────────────────────── */}
-        <div style={{ borderBottom: '1px solid #E2DDD8', background: 'var(--bg)' }}>
-          <div style={{ maxWidth: 1280, margin: '0 auto', padding: '56px 32px 32px' }}>
-
-            {/* Eyebrow */}
-            <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1.2px', textTransform: 'uppercase', color: '#8CA090', marginBottom: 12 }}>
-              Flashcard Review · Select Cards
-            </div>
-
-            {/* Title row */}
-            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 32 }}>
-              <h1 style={{ fontFamily: 'var(--font-fraunces), serif', fontSize: 'clamp(2.25rem, 4vw, 3rem)', lineHeight: 1.1, color: '#0B1E12', letterSpacing: '-0.02em', margin: 0 }}>
-                <span style={{ fontWeight: 700 }}>{LANGUAGES[language].native} </span>
-                <span style={{ fontWeight: 700, fontStyle: 'italic', color: '#1F5C3A' }}>essentials.</span>
-              </h1>
-              <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 11, color: '#8CA090', paddingBottom: 8 }}>
-                {filteredItems.length} drills · {selectedIds.size} selected
-              </div>
-            </div>
-
-            {/* Topic filter chips */}
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', rowGap: 10 }}>
-              <button
-                onClick={() => setTopic(null)}
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 5,
-                  padding: '8px 16px', borderRadius: 20,
-                  background: topic === null ? '#0B1E12' : 'white',
-                  border: topic === null ? 'none' : '1px solid #E2DDD8',
-                  color: topic === null ? 'white' : '#4A5A50',
-                  fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13,
-                  fontWeight: topic === null ? 700 : 500, cursor: 'pointer',
-                }}
-              >
-                ALL
-                <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 11, opacity: 0.65 }}>
-                  {allItems.length}
-                </span>
-              </button>
-              {topicsWithItems.map(t => {
-                const info = TOPICS[t]
-                const count = topicCounts[t] ?? 0
-                const active = topic === t
-                return (
-                  <button
-                    key={t}
-                    onClick={() => setTopic(active ? null : t)}
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: 5,
-                      padding: '6px 14px', borderRadius: 20,
-                      background: active ? '#0B1E12' : 'white',
-                      border: active ? 'none' : '1px solid #E2DDD8',
-                      color: active ? 'white' : '#4A5A50',
-                      fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13,
-                      fontWeight: active ? 700 : 500, cursor: 'pointer',
-                    }}
-                  >
-                    <span style={{ fontSize: '0.8125rem' }}>{info.icon}</span>
-                    {info.label}
-                    <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 11, opacity: 0.65 }}>{count}</span>
-                  </button>
-                )
-              })}
-            </div>
-
-          </div>
-        </div>
-
-        {/* ── Two-pane body ──────────────────────────────────────── */}
-        <div style={{ flex: 1 }}>
-          <div
-            style={{
-              maxWidth: 1280, margin: '0 auto',
-              padding: '24px 32px 120px',
-              display: 'grid',
-              gridTemplateColumns: '1fr 380px',
-              gap: 28,
-              alignItems: 'start',
-            }}
-          >
-
-            {/* ── Left: drill list ──────────────────────────────── */}
-            <div>
-              {/* Selection controls */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-                <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#8CA090', marginRight: 4 }}>
-                  Random
-                </span>
-                {RANDOM_PRESETS.map(n => (
-                  <button
-                    key={n}
-                    onClick={() => pickRandom(n)}
-                    disabled={filteredItems.length === 0}
-                    style={{ padding: '5px 14px', borderRadius: 6, border: '1px solid #E2DDD8', background: 'white', fontFamily: 'var(--font-jetbrains), monospace', fontSize: 12, color: '#0B1E12', cursor: 'pointer', opacity: filteredItems.length === 0 ? 0.4 : 1 }}
-                  >
-                    {n}
-                  </button>
-                ))}
-                <button
-                  onClick={() => pickRandom(filteredItems.length)}
-                  disabled={filteredItems.length === 0}
-                  style={{ padding: '5px 14px', borderRadius: 6, border: '1px solid #E2DDD8', background: 'white', fontFamily: 'var(--font-jetbrains), monospace', fontSize: 12, color: '#0B1E12', cursor: 'pointer', opacity: filteredItems.length === 0 ? 0.4 : 1 }}
-                >
-                  All ({filteredItems.length})
-                </button>
-                <div style={{ flex: 1 }} />
-                <button
-                  onClick={allFilteredSelected ? clearAll : selectAll}
-                  style={{ padding: '5px 14px', borderRadius: 6, border: '1px solid #E2DDD8', background: 'white', fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, fontWeight: 500, color: '#0B1E12', cursor: 'pointer' }}
-                >
-                  {allFilteredSelected ? 'Deselect all' : 'Select all'}
-                </button>
-              </div>
-
-              {/* Counter */}
-              <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 11, color: '#8CA090', marginBottom: 14 }}>
-                {filteredItems.length} items · {selectedIds.size} selected
-              </div>
-
-              {/* Grouped list */}
-              {grouped.length === 0 ? (
-                <div style={{ padding: '40px 24px', textAlign: 'center', fontFamily: 'var(--font-jetbrains), monospace', fontSize: 12, color: '#8CA090', border: '1px solid #E2DDD8', borderRadius: 12, background: 'white' }}>
-                  No items match the selected filters.
-                </div>
-              ) : (
-                <div style={{ border: '1px solid #E2DDD8', borderRadius: 12, overflow: 'hidden', background: 'white' }}>
-                  {grouped.map((group, gi) => (
-                    <div key={group.topic ?? '__none__'}>
-                      {/* Group header */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 20px', background: '#F7F6F3', borderTop: gi > 0 ? '1px solid #E2DDD8' : 'none', borderBottom: '1px solid #E2DDD8' }}>
-                        <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', width: 18, flexShrink: 0 }}>
-                          {String(gi + 1).padStart(2, '0')}
-                        </span>
-                        <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1px', textTransform: 'uppercase', color: '#4A5A50' }}>
-                          {group.icon} {group.label}
-                        </span>
-                        <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090' }}>
-                          {group.items.length}
-                        </span>
-                      </div>
-
-                      {/* Item rows */}
-                      {group.items.map((item, ii) => {
-                        const checked = selectedIds.has(item.id)
-                        const isActive = activeItemId === item.id
-                        return (
-                          <div
-                            key={item.id}
-                            onClick={() => setActiveItemId(item.id)}
-                            style={{
-                              display: 'flex', alignItems: 'center', gap: 14,
-                              padding: '12px 20px',
-                              borderBottom: ii < group.items.length - 1 ? '1px solid #F0EDE8' : 'none',
-                              background: isActive ? '#FAF7F0' : 'white',
-                              borderLeft: isActive ? '3px solid #1F5C3A' : '3px solid transparent',
-                              cursor: 'pointer',
-                              transition: 'background 0.1s',
-                            }}
-                          >
-                            {/* Serial number */}
-                            <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', width: 36, flexShrink: 0 }}>
-                              §{gi + 1}.{String(ii + 1).padStart(2, '0')}
-                            </span>
-
-                            {/* Prompt + answer */}
-                            <div style={{ flex: 1, minWidth: 0 }}>
-                              <div style={{
-                                fontFamily: isActive ? 'var(--font-fraunces), serif' : 'var(--font-manrope), sans-serif',
-                                fontStyle: isActive ? 'italic' : 'normal',
-                                fontSize: 14, color: '#0B1E12', lineHeight: 1.4,
-                                whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                                marginBottom: 2,
-                              }}>
-                                {item.prompt}
-                              </div>
-                              <div style={{ fontFamily: 'var(--font-fraunces), serif', fontStyle: 'italic', fontWeight: 700, fontSize: 13, color: '#1F5C3A', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                {item.answer}
-                              </div>
-                            </div>
-
-                            {/* Checkbox */}
-                            <div
-                              onClick={e => { e.stopPropagation(); toggleItem(item.id) }}
-                              style={{
-                                width: 18, height: 18, borderRadius: 4, flexShrink: 0,
-                                border: checked ? 'none' : '1.5px solid #D4CFC4',
-                                background: checked ? '#1F5C3A' : 'transparent',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                cursor: 'pointer',
-                              }}
-                            >
-                              {checked && (
-                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                  <path d="M2 5.5l2.5 2.5L9 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                              )}
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* ── Right: detail panel (sticky) ─────────────────── */}
-            <div style={{ position: 'sticky', top: 76 }}>
-              {activeItem ? (
-                <div style={{ background: 'white', border: '1px solid #E2DDD8', borderRadius: 14, padding: 28, boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
-
-                  {/* Metadata header */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, paddingBottom: 18, marginBottom: 20, borderBottom: '1px solid #F0EDE8' }}>
-                    {[
-                      { label: 'ID', value: `#${activeItem.id.slice(-3).toUpperCase()}` },
-                      { label: 'TOPIC', value: activeItem.topic ? (TOPICS[activeItem.topic]?.label ?? '—') : '—' },
-                      { label: 'MODE', value: activeItem.type },
-                      { label: 'ALTS', value: String(activeItem.variants?.length ?? 0) },
-                    ].map(({ label, value }) => (
-                      <div key={label}>
-                        <div style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 9, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#8CA090', marginBottom: 4 }}>
-                          {label}
-                        </div>
-                        <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 12, fontWeight: 500, color: '#0B1E12', textTransform: label === 'MODE' ? 'capitalize' : undefined }}>
-                          {value}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Prompt */}
-                  <div style={{ marginBottom: 16 }}>
-                    <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase', color: '#8CA090', marginBottom: 10 }}>
-                      Prompt
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-fraunces), serif', fontStyle: 'italic', fontSize: 20, color: '#0B1E12', lineHeight: 1.4 }}>
-                      <PromptWithCues text={activeItem.prompt} large />
-                    </div>
-                  </div>
-
-                  {/* Arrow */}
-                  <div style={{ fontSize: 28, color: '#8CA090', margin: '16px 0', lineHeight: 1 }}>→</div>
-
-                  {/* Answer */}
-                  <div style={{ marginBottom: activeItem.variants?.length ? 16 : 24 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-                      <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase', color: '#8CA090' }}>
-                        Target
-                      </div>
-                      <button
-                        onClick={() => setShowHighlight(h => !h)}
-                        style={{
-                          display: 'inline-flex', alignItems: 'center', gap: 5,
-                          fontFamily: 'var(--font-jetbrains), monospace', fontSize: 9,
-                          letterSpacing: '0.06em', textTransform: 'uppercase',
-                          color: showHighlight ? '#2E7D52' : '#8CA090',
-                          background: showHighlight ? 'rgba(184,224,194,0.3)' : 'transparent',
-                          border: `1px solid ${showHighlight ? '#B8E0C2' : '#E2DDD8'}`,
-                          borderRadius: 4, padding: '2px 7px', cursor: 'pointer',
-                        }}
-                      >
-                        <span style={{ fontSize: 8 }}>■</span>
-                        {showHighlight ? 'Highlight on' : 'No highlight'}
-                      </button>
-                    </div>
-                    <div style={{ fontFamily: FONT_CJK, fontStyle: 'italic', fontWeight: 700, fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#0B1E12', lineHeight: 1.15 }}>
-                      <span style={{
-                        background: showHighlight ? 'linear-gradient(180deg, transparent 58%, #B8E0C2 58%, #B8E0C2 92%, transparent 92%)' : 'none',
-                        display: 'inline', fontFamily: 'var(--font-fraunces), serif',
-                      }}>
-                        {activeItem.answer}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Alts */}
-                  {activeItem.variants && activeItem.variants.length > 0 && (
-                    <div style={{ marginBottom: 20 }}>
-                      <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 10, color: '#8CA090', letterSpacing: '0.06em', textTransform: 'uppercase', marginRight: 8 }}>
-                        Also
-                      </span>
-                      {activeItem.variants.map((v, i) => (
-                        <span key={i} style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 11, color: '#4A5A50' }}>
-                          {v}{i < activeItem.variants!.length - 1 ? ' · ' : ''}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <div style={{ borderTop: '1px solid #F0EDE8', marginBottom: 16 }} />
-
-                  {/* Action buttons */}
-                  <div style={{ display: 'flex', gap: 8 }}>
-                    <button
-                      onClick={() => toggleItem(activeItem.id)}
-                      style={{
-                        flex: 1, padding: '9px 0', borderRadius: 8, border: 'none',
-                        background: selectedIds.has(activeItem.id) ? '#1F5C3A' : '#0B1E12',
-                        color: 'white', fontFamily: 'var(--font-manrope), sans-serif',
-                        fontSize: 13, fontWeight: 600, cursor: 'pointer',
-                      }}
-                    >
-                      {selectedIds.has(activeItem.id) ? '✓ In session' : '+ Add to session'}
-                    </button>
-                    <button
-                      onClick={() => startStudy([activeItem])}
-                      style={{
-                        flex: 1, padding: '9px 0', borderRadius: 8,
-                        border: '1px solid #E2DDD8', background: 'white',
-                        fontFamily: 'var(--font-manrope), sans-serif',
-                        fontSize: 13, fontWeight: 500, color: '#4A5A50', cursor: 'pointer',
-                      }}
-                    >
-                      Practice this one
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div style={{ background: 'white', border: '1px solid #E2DDD8', borderRadius: 14, padding: '48px 28px', boxShadow: '0 2px 12px rgba(0,0,0,0.05)', textAlign: 'center' }}>
-                  <div style={{ width: 44, height: 44, borderRadius: '50%', background: '#EAF3ED', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#1F5C3A" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-fraunces), serif', fontWeight: 700, fontStyle: 'italic', fontSize: '1.25rem', color: '#0B1E12', marginBottom: 8 }}>
-                    Select an item
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 13, color: '#8CA090', lineHeight: 1.6 }}>
-                    Click any drill to preview it here.
-                  </div>
-                </div>
-              )}
-            </div>
-
-          </div>
-        </div>
-
-        {/* ── Sticky bottom bar ─────────────────────────────────── */}
-        {selectedIds.size > 0 && (
-          <div style={{
-            position: 'fixed', bottom: 0, left: 0, right: 0,
-            background: '#0B1E12',
-            borderTop: '1px solid rgba(255,255,255,0.08)',
-            padding: '14px 32px',
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            zIndex: 40,
-            boxShadow: '0 -4px 24px rgba(0,0,0,0.2)',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.9)' }}>
-                {selectedIds.size} drill{selectedIds.size !== 1 ? 's' : ''} selected
-              </span>
-              <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
-                · estimated ~{selectedIds.size * 20}s session
-              </span>
-              <button
-                onClick={() => setIsShuffled(s => !s)}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: 6, padding: '4px 10px', borderRadius: 6,
-                  border: `1px solid ${isShuffled ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.12)'}`,
-                  background: isShuffled ? 'rgba(255,255,255,0.1)' : 'transparent',
-                  color: isShuffled ? 'white' : 'rgba(255,255,255,0.4)',
-                  fontFamily: 'var(--font-manrope), sans-serif', fontSize: 12,
-                  fontWeight: isShuffled ? 600 : 400, cursor: 'pointer',
-                }}
-              >
-                ⇄ {isShuffled ? 'Shuffled' : 'Shuffle'}
-              </button>
-            </div>
-            <button
-              onClick={() => startStudy()}
-              style={{
-                background: '#1F5C3A', color: 'white',
-                fontFamily: 'var(--font-manrope), sans-serif', fontSize: 14, fontWeight: 600,
-                padding: '10px 24px', borderRadius: 8, border: 'none',
-                cursor: 'pointer', boxShadow: '0 2px 10px rgba(31,92,58,0.4)',
-              }}
-            >
-              Use {selectedIds.size} in session →
-            </button>
-          </div>
-        )}
-
+    const previewItem = filteredItems.find(item => item.id === previewId) ?? filteredItems[0]
+    const allFilteredSelected = filteredItems.length > 0 && filteredItems.every(item => selectedIds.has(item.id))
+    return <div className="learning-page">
+      <header className="learning-header"><div><span className="product-eyebrow">Make room for the words</span><h1>Study <em>{LANGUAGES[language].name}.</em></h1><p>Review at your own pace. Choose the questions you want to learn.</p></div></header>
+      <div className="product-toolbar">
+        <label className="learning-select">Language<select aria-label="Language" value={language} onChange={e => { setLanguage(e.target.value as Language); setTopic(null); clearAll() }}>{Object.entries(LANGUAGES).map(([code, info]) => <option key={code} value={code}>{info.name}</option>)}</select></label>
+        <label className="learning-select">Topic<select aria-label="Topic" value={topic ?? ''} onChange={e => setTopic((e.target.value || null) as DrillTopic | null)}><option value="">All topics</option>{topicsWithItems.map(key => <option key={key} value={key}>{TOPICS[key].label}</option>)}</select></label>
+        <label className="learning-select product-search">Search questions<input type="search" placeholder="Search a word or phrase" value={search} onChange={e => setSearch(e.target.value)} /></label>
       </div>
-    )
+      <div className="product-selection-bar"><span aria-live="polite">{selectedIds.size} selected</span><div className="product-selection-actions"><button className="learning-link" disabled={!filteredItems.length} onClick={() => allFilteredSelected ? clearAll() : selectAll()}>{allFilteredSelected ? 'Clear selection' : 'Select all'}</button><button className="learning-link" disabled={!filteredItems.length} onClick={() => pickRandom(10)}>Choose 10 for me</button><label><input type="checkbox" checked={isShuffled} onChange={e => setIsShuffled(e.target.checked)} /> Shuffle</label><button className="btn-primary" disabled={!selectedIds.size} onClick={() => startStudy()}>Study selected →</button></div></div>
+      {!filteredItems.length ? <div className="product-empty"><h2>No matching questions</h2><p>Try another search or choose a different topic.</p></div> : <div className="product-study-workspace"><div className="product-study-list">{filteredItems.map(item => <label key={item.id}><input type="checkbox" checked={selectedIds.has(item.id)} onChange={() => { toggleItem(item.id); setPreviewId(item.id) }} /><span><small>{item.topic ? TOPICS[item.topic].label : 'General'} · {item.instruction}</small><strong>{item.prompt}</strong></span></label>)}</div><aside className="product-study-preview">{previewItem && <ExercisePreview item={previewItem} language={language} label="A closer look" />}<div className="product-study-note"><span>Take your time.</span><p>Listen to the pronunciation, turn the card, and give each new phrase a moment to settle.</p></div></aside></div>}
+    </div>
   }
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -681,14 +260,15 @@ export default function StudyClient() {
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
 
+        {reviewItems && <div className="review-banner"><div><strong>Review your mistakes</strong><p>{language === 'en' ? 'Read each answer, then ask your coach if you need help.' : 'Read each answer, then try these questions again from memory.'}</p></div><Link className="learning-link" href={reviewHref('/drill', language, reviewSessionId)}>Practice these questions →</Link></div>}
         {/* Study header */}
         <div style={{ borderBottom: '1px solid #E2DDD8', background: 'var(--bg)' }}>
-          <div style={{ maxWidth: 800, margin: '0 auto', padding: '16px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div className="study-session-header" style={{ maxWidth: 800, margin: '0 auto', padding: '16px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <button
-              onClick={() => setPhase('select')}
+              onClick={() => { if (reviewItems) window.location.href = '/study'; else setPhase('select') }}
               style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: 'none', fontFamily: 'var(--font-manrope), sans-serif', fontSize: '0.875rem', color: '#4A5A50', cursor: 'pointer', padding: '4px 0' }}
             >
-              ← Back to selection
+              {reviewItems ? 'Browse study cards' : '← Back to selection'}
             </button>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -705,13 +285,7 @@ export default function StudyClient() {
                 Auto-play
               </button>
 
-              <div style={{ display: 'flex', border: '1px solid #E2DDD8', borderRadius: 6, overflow: 'hidden' }}>
-                {SPEED_PRESETS.map(rate => (
-                  <button key={rate} onClick={() => setSpeechRate(rate)} style={{ padding: '4px 8px', border: 'none', borderRight: rate !== 1.5 ? '1px solid #E2DDD8' : 'none', background: speechRate === rate ? '#0B1E12' : 'transparent', color: speechRate === rate ? 'white' : '#8CA090', fontFamily: 'var(--font-jetbrains), monospace', fontSize: '0.5625rem', letterSpacing: '0.04em', cursor: 'pointer', fontWeight: speechRate === rate ? 700 : 400 }}>
-                    {rate === 1 ? '1×' : `${rate}×`}
-                  </button>
-                ))}
-              </div>
+              <select aria-label="Playback speed" value={speechRate} onChange={e => setSpeechRate(Number(e.target.value) as SpeechRate)} className="product-speed-select">{SPEED_PRESETS.map(rate => <option key={rate} value={rate}>{rate}× speed</option>)}</select>
 
               <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: '0.75rem', color: '#8CA090', letterSpacing: '0.04em' }}>
                 {deck.length > 0 ? `${index + 1} / ${deck.length}` : '—'}
@@ -728,11 +302,12 @@ export default function StudyClient() {
             </div>
           ) : (
             <>
+              <button className="btn-secondary" style={{ marginBottom: 16 }} onClick={() => setFlipped(f => !f)}>{flipped ? 'Show question' : 'Show answer'}</button>
               <div className="study-scene" style={{ width: '100%', height: 280, marginBottom: 28 }} onClick={() => setFlipped(f => !f)}>
                 <div key={index} className={`study-inner${flipped ? ' flipped' : ''}`}>
 
                   {/* Front — prompt */}
-                  <div className="study-face" style={{ background: 'white', border: '1px solid #E2DDD8', boxShadow: '0 2px 16px rgba(0,0,0,0.07)', gap: 16, textAlign: 'center' }}>
+                  <div className="study-face" style={{ background: 'white', border: '1px solid #E2DDD8', boxShadow: 'none', gap: 16, textAlign: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: '0.5625rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4A5A50', border: '1px solid #E2DDD8', padding: '2px 7px', borderRadius: 4 }}>
                         {card.type}
@@ -756,7 +331,7 @@ export default function StudyClient() {
                   </div>
 
                   {/* Back — answer */}
-                  <div className="study-face study-back" style={{ background: '#EAF3ED', border: '1px solid #C8DFD3', boxShadow: '0 2px 16px rgba(0,0,0,0.07)', gap: 16, textAlign: 'center' }}>
+                  <div className="study-face study-back" style={{ background: '#EAF3ED', border: '1px solid #C8DFD3', boxShadow: 'none', gap: 16, textAlign: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: '0.5625rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2E7D52' }}>Answer</span>
                       <button onClick={e => { e.stopPropagation(); speak(card.answer, SPEECH_LANG[language], speechRate) }} style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'rgba(31,92,58,0.1)', border: '1px solid rgba(31,92,58,0.25)', borderRadius: 20, padding: '4px 11px', cursor: 'pointer', color: '#1F5C3A', fontFamily: 'var(--font-manrope), sans-serif', fontSize: '0.75rem', fontWeight: 500 }}>
@@ -792,7 +367,7 @@ export default function StudyClient() {
                   ))}
                   {deck.length > 60 && <span style={{ fontFamily: 'var(--font-jetbrains), monospace', fontSize: '0.5rem', color: '#8CA090', flexShrink: 0, marginLeft: 4 }}>+{deck.length - 60}</span>}
                 </div>
-                <button onClick={goNext} disabled={index === deck.length - 1} className="btn-primary">Next →</button>
+                {reviewItems && index === deck.length - 1 ? <Link className="btn-primary" href={reviewHref('/drill', language, reviewSessionId)}>Practice these questions →</Link> : <button onClick={goNext} disabled={index === deck.length - 1} className="btn-primary">Next →</button>}
               </div>
 
               <div style={{ marginTop: 20, fontFamily: 'var(--font-jetbrains), monospace', fontSize: '0.5625rem', letterSpacing: '0.06em', color: '#8CA090', textAlign: 'center', opacity: 0.7 }}>
@@ -809,7 +384,7 @@ export default function StudyClient() {
                     {([
                       { action: 'explain_card'           as StudyAction, label: 'Explain this card' },
                       { action: 'show_similar_examples'  as StudyAction, label: 'Show similar examples' },
-                      { action: 'what_contrast_is_this'  as StudyAction, label: 'What contrast is this?' },
+                      { action: 'what_contrast_is_this'  as StudyAction, label: 'Explain the difference' },
                     ] as { action: StudyAction; label: string }[]).map(({ action, label }) => (
                       <button
                         key={action}

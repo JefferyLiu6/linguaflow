@@ -1498,17 +1498,7 @@ export function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-export function buildItems(
-  type: DrillType,
-  count: number,
-  language: Language = 'es',
-  customItems?: DrillItem[],
-  topic?: DrillTopic,
-): DrillItem[] {
-  if (type === 'custom') {
-    if (!customItems || customItems.length === 0) return []
-    return shuffle(customItems).slice(0, count)
-  }
+export function getPracticePool(type: DrillType, language: Language = 'es', topic?: DrillTopic): DrillItem[] {
   const db = getDB(language)
   let pool: DrillItem[]
   if (type === 'sentence')            pool = db.filter(d => !d.category || d.category === 'sentence')
@@ -1520,6 +1510,21 @@ export function buildItems(
   else if (type === 'transformation') pool = db.filter(d => d.type === 'transformation')
   else pool = db
   if (topic) pool = pool.filter(d => d.topic === topic)
+  return pool
+}
+
+export function buildItems(
+  type: DrillType,
+  count: number,
+  language: Language = 'es',
+  customItems?: DrillItem[],
+  topic?: DrillTopic,
+): DrillItem[] {
+  if (type === 'custom') {
+    if (!customItems || customItems.length === 0) return []
+    return shuffle(customItems).slice(0, count)
+  }
+  const pool = getPracticePool(type, language, topic)
   return shuffle(pool).slice(0, Math.min(count, pool.length))
 }
 

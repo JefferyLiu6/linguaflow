@@ -30,7 +30,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'LinguaFlow — AI Language Coaching System',
-  description: 'Audio-lingual drills. Timed. Unforgiving. Accuracy-first.',
+  description: 'Build your language skills with short practice sessions, helpful coaching, and review that builds on your progress.',
 }
 
 function serializeInlineScript(value: unknown) {

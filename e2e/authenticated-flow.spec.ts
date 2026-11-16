@@ -29,7 +29,7 @@ test.describe('authenticated flow', () => {
     await page.getByLabel('Password').fill(authPassword!)
     await page.getByRole('button', { name: 'Sign In' }).click()
 
-    await expect(page).toHaveURL(/\/dashboard$/)
+    await expect(page).toHaveURL(/\/today$/)
 
     await page.goto('/drill')
     await page.getByRole('button', { name: 'Select Phrase mode' }).click()
@@ -54,14 +54,14 @@ test.describe('authenticated flow', () => {
 
       const feedbackPanel = page.getByTestId('drill-feedback')
       await expect(feedbackPanel).toContainText('Correct.')
-      await feedbackPanel.getByRole('button', { name: index === 3 ? /View results/ : /^Next/ }).click()
+      await feedbackPanel.getByRole('button', { name: index === 3 ? /See session summary/ : /^Next/ }).click()
     }
 
-    await expect(page).toHaveURL(/\/dashboard$/)
-    await expect(page.getByText('across 1 sessions')).toBeVisible()
+    await expect(page).toHaveURL(/\/session\//)
+    await expect(page.getByText('Session saved to your account.', { exact: true })).toBeVisible()
 
     await page.reload()
-    await expect(page.getByRole('heading', { name: 'Training Results' })).toBeVisible()
-    await expect(page.getByText('across 1 sessions')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Practice complete.' })).toBeVisible()
+    await expect(page.getByText('Session saved to your account.', { exact: true })).toBeVisible()
   })
 })

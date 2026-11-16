@@ -35,7 +35,7 @@ export default function LoginPage() {
   }, [])
 
   const finishAuthFlow = () => {
-    window.location.href = '/dashboard'
+    window.location.href = '/today'
   }
 
   const handleAuthSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -338,7 +338,7 @@ export default function LoginPage() {
               textDecoration: 'none',
             }}
           >
-            Continue in demo
+            Continue without an account
           </Link>
           <button
             onClick={() => router.push('/')}
