@@ -1,0 +1,47 @@
+[
+  {
+    "file": "playfair-display-normal.woff2",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
+    "source_git_blob": "7a09eb71f10622fd083134ac9ed46f59b21bee18",
+    "source_sha256": "c40f2293766a503bc70cce9e512ef844a4ccb7cbcde792fe2ea31d191917d8d6",
+    "sha256": "4933f6fa9deb45f4835e6272acb54b7cb6e94538c6e9b06aa83e16335639aff0",
+    "optical_size": null,
+    "license": "playfairdisplay-OFL.txt"
+  },
+  {
+    "file": "playfair-display-italic.woff2",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/PlayfairDisplay-Italic%5Bwght%5D.ttf",
+    "source_git_blob": "94fae1f2853dd325b1a3602370780d154ffc8c89",
+    "source_sha256": "a5e26dc5e2e77fb2803a0bf02fd4f81ee136ec8dea863ccdb0c59a263b21378b",
+    "sha256": "f58b1e1dbc6a99770e443d954bf5676ac18f1c91fa9fea184f94efb437d34638",
+    "optical_size": null,
+    "license": "playfairdisplay-OFL.txt"
+  },
+  {
+    "file": "dm-sans-normal.woff2",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/DMSans%5Bopsz%2Cwght%5D.ttf",
+    "source_git_blob": "c672f98060af9b2c85fca704ebd5ad9a8717c1df",
+    "source_sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+    "sha256": "4fbb4a3fc17557f0d48b551e0aba9d4c54a165b2156e76c555cb3ae551930ce4",
+    "optical_size": 14,
+    "license": "dmsans-OFL.txt"
+  },
+  {
+    "file": "jetbrains-mono-normal.woff2",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf",
+    "source_git_blob": "aa310be8b717fe3774f9444dd89d5f4101cc6d10",
+    "source_sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda",
+    "sha256": "d8364d7c519b7f7198c7b2665c89c875444b05dc93928bb9fb4e315933252882",
+    "optical_size": null,
+    "license": "jetbrainsmono-OFL.txt"
+  },
+  {
+    "file": "jetbrains-mono-italic.woff2",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/JetBrainsMono-Italic%5Bwght%5D.ttf",
+    "source_git_blob": "5210f7350c95eef62d53de85b5953f4d5ff022ec",
+    "source_sha256": "85ae2a5cd3f56baf1ce1c21a851322c58e3d8fbe8e8ad4a4d090a820dd7fe558",
+    "sha256": "dc3d183a8bb8ce9d4ff8b49bd8eacaec2ba331230fe148f8f9c4bee7672bab92",
+    "optical_size": null,
+    "license": "jetbrainsmono-OFL.txt"
+  }
+]

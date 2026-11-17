@@ -1,31 +1,40 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import Script from 'next/script'
 import './globals.css'
 import { Nav } from '@/components/Nav'
 import { getAuthState } from '@/lib/auth'
 
-// Display / headings — Playfair Display per Grove design spec
-const playfair = Playfair_Display({
-  variable: '--font-fraunces',   // keep existing variable name — zero component changes needed
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
+// Keep the existing families and CSS variables, without build-time font downloads.
+const playfair = localFont({
+  variable: '--font-fraunces',
+  src: [
+    { path: './fonts/playfair-display-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/playfair-display-normal.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/playfair-display-italic.woff2', weight: '400', style: 'italic' },
+    { path: './fonts/playfair-display-italic.woff2', weight: '700', style: 'italic' },
+  ],
+  display: 'swap',
+  adjustFontFallback: 'Times New Roman',
 })
 
 // Body / UI — DM Sans per Grove design spec
-const dmSans = DM_Sans({
-  variable: '--font-manrope',    // keep existing variable name — zero component changes needed
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+const dmSans = localFont({
+  variable: '--font-manrope',
+  src: './fonts/dm-sans-normal.woff2',
+  weight: '300 700',
+  style: 'normal',
+  display: 'swap',
 })
 
 // Code / prompts — JetBrains Mono per Grove design spec
-const jetbrains = JetBrains_Mono({
+const jetbrains = localFont({
   variable: '--font-jetbrains',
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
+  src: [
+    { path: './fonts/jetbrains-mono-normal.woff2', weight: '300 600', style: 'normal' },
+    { path: './fonts/jetbrains-mono-italic.woff2', weight: '300 600', style: 'italic' },
+  ],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
