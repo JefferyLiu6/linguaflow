@@ -1,0 +1,3382 @@
+[
+  {
+    "case_id": "expansion_present_simple_habits",
+    "question": "Why do I say 'Maya walks to work every day' rather than 'Maya is walk to work'?",
+    "current_item": {
+      "id": "eval_expansion_present_simple_habits",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_simple_habits",
+    "description": "Authored positive development probe for Present simple for routines and general facts. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_third_person_s",
+    "question": "Why does 'the robot carry boxes' need carries?",
+    "current_item": {
+      "id": "eval_expansion_present_third_person_s",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_third_person_s",
+    "description": "Authored positive development probe for Third-person singular endings in the present simple. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_simple_negation",
+    "question": "Is 'he doesn't likes tea' correct?",
+    "current_item": {
+      "id": "eval_expansion_present_simple_negation",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_simple_negation",
+    "description": "Authored positive development probe for Do not and does not with base verbs. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_be_agreement",
+    "question": "Should I say 'the keys is on the table' or 'the keys are on the table'?",
+    "current_item": {
+      "id": "eval_expansion_present_be_agreement",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_be_agreement",
+    "description": "Authored positive development probe for Am, is and are for present states. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_continuous_now",
+    "question": "Why is 'they working upstairs' missing a word?",
+    "current_item": {
+      "id": "eval_expansion_present_continuous_now",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_continuous_now",
+    "description": "Authored positive development probe for Present continuous for an activity in progress. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_simple_vs_continuous",
+    "question": "How do 'I work in Leeds' and 'I am working in Leeds this month' differ?",
+    "current_item": {
+      "id": "eval_expansion_present_simple_vs_continuous",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_simple_vs_continuous",
+    "description": "Authored positive development probe for Regular routines versus temporary activities. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_stative_verbs",
+    "question": "Why is 'I know the answer' usual rather than 'I am knowing the answer'?",
+    "current_item": {
+      "id": "eval_expansion_stative_verbs",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_stative_verbs",
+    "description": "Authored positive development probe for States versus actions in continuous forms. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_state_action_meaning",
+    "question": "Why can I say 'I am having dinner' but usually not 'I am having a car'?",
+    "current_item": {
+      "id": "eval_expansion_state_action_meaning",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_state_action_meaning",
+    "description": "Authored positive development probe for Think and have: state meanings versus activity meanings. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_past_simple_finished",
+    "question": "Which tense fits 'we visit the museum last Saturday'?",
+    "current_item": {
+      "id": "eval_expansion_past_simple_finished",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_past_simple_finished",
+    "description": "Authored positive development probe for Past simple for finished events. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_past_simple_did",
+    "question": "Why is 'did you went home' incorrect?",
+    "current_item": {
+      "id": "eval_expansion_past_simple_did",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_past_simple_did",
+    "description": "Authored positive development probe for Did and did not with a base verb. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_past_continuous_background",
+    "question": "How do I describe reading when the telephone rang?",
+    "current_item": {
+      "id": "eval_expansion_past_continuous_background",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_past_continuous_background",
+    "description": "Authored positive development probe for Past continuous for background and interrupted actions. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_perfect_result",
+    "question": "Should 'I have sent it yesterday' use the present perfect?",
+    "current_item": {
+      "id": "eval_expansion_present_perfect_result",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_perfect_result",
+    "description": "Authored positive development probe for Present perfect for a past event with present relevance. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_perfect_experience",
+    "question": "Why is 'have you ever saw snow' incorrect?",
+    "current_item": {
+      "id": "eval_expansion_present_perfect_experience",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_perfect_experience",
+    "description": "Authored positive development probe for Life experience with ever, never and the present perfect. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_perfect_since_for",
+    "question": "What is the difference between 'since 2020' and 'for six years'?",
+    "current_item": {
+      "id": "eval_expansion_perfect_since_for",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_perfect_since_for",
+    "description": "Authored positive development probe for Since for a starting point; for for a duration. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_perfect_continuous",
+    "question": "How do I describe an activity that started two hours ago and is still happening?",
+    "current_item": {
+      "id": "eval_expansion_present_perfect_continuous",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_perfect_continuous",
+    "description": "Authored positive development probe for Present perfect continuous for duration and recent activity. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_perfect_simple_vs_continuous",
+    "question": "How do 'I have read three chapters' and 'I have been reading' differ?",
+    "current_item": {
+      "id": "eval_expansion_perfect_simple_vs_continuous",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_perfect_simple_vs_continuous",
+    "description": "Authored positive development probe for Completed quantity versus ongoing process in the perfect. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_past_perfect_sequence",
+    "question": "Why use 'had left' in 'when I arrived, the train had left'?",
+    "current_item": {
+      "id": "eval_expansion_past_perfect_sequence",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_past_perfect_sequence",
+    "description": "Authored positive development probe for Past perfect for the earlier of two past situations. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_past_perfect_continuous_duration",
+    "question": "How can I say that I was waiting for an hour before the bus arrived?",
+    "current_item": {
+      "id": "eval_expansion_past_perfect_continuous_duration",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_past_perfect_continuous_duration",
+    "description": "Authored positive development probe for Past perfect continuous before a past reference point. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_used_to_past",
+    "question": "How do I describe a habit I had as a child but no longer have?",
+    "current_item": {
+      "id": "eval_expansion_used_to_past",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_used_to_past",
+    "description": "Authored positive development probe for Used to for discontinued past habits and states. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_would_past_habit",
+    "question": "Can I replace 'used to own' with 'would own' when describing childhood?",
+    "current_item": {
+      "id": "eval_expansion_would_past_habit",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_would_past_habit",
+    "description": "Authored positive development probe for Would for repeated past actions, not simple past states. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_will_decisions_promises",
+    "question": "Why is 'I will to help you' wrong?",
+    "current_item": {
+      "id": "eval_expansion_will_decisions_promises",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_will_decisions_promises",
+    "description": "Authored positive development probe for Will for decisions, offers and promises. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_going_to_intentions",
+    "question": "How do I express a plan I decided on before this conversation?",
+    "current_item": {
+      "id": "eval_expansion_going_to_intentions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_going_to_intentions",
+    "description": "Authored positive development probe for Be going to for intentions and evidence-based predictions. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_continuous_arrangements",
+    "question": "Why can 'I am meeting a friend tomorrow' refer to the future?",
+    "current_item": {
+      "id": "eval_expansion_present_continuous_arrangements",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_continuous_arrangements",
+    "description": "Authored positive development probe for Present continuous for future arrangements. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_present_simple_timetables",
+    "question": "Can 'the train leaves tomorrow' be correct without will?",
+    "current_item": {
+      "id": "eval_expansion_present_simple_timetables",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_present_simple_timetables",
+    "description": "Authored positive development probe for Present simple for schedules and timetables. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_future_continuous_progress",
+    "question": "How do I say I will be in the middle of studying at nine tonight?",
+    "current_item": {
+      "id": "eval_expansion_future_continuous_progress",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_future_continuous_progress",
+    "description": "Authored positive development probe for Future continuous for activity at a future time. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_future_perfect_completion",
+    "question": "What does 'by noon, I will have finished' mean?",
+    "current_item": {
+      "id": "eval_expansion_future_perfect_completion",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_future_perfect_completion",
+    "description": "Authored positive development probe for Future perfect for completion before a future point. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "tense_aspect",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_yes_no_do_questions",
+    "question": "How do I turn 'the machine uses batteries' into a yes/no question?",
+    "current_item": {
+      "id": "eval_expansion_yes_no_do_questions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_yes_no_do_questions",
+    "description": "Authored positive development probe for Do-support in yes/no questions. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_subject_questions",
+    "question": "Why is 'who called you' different from 'who did you call'?",
+    "current_item": {
+      "id": "eval_expansion_subject_questions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_subject_questions",
+    "description": "Authored positive development probe for Subject questions without ordinary do-support. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_wh_object_questions",
+    "question": "How should I order the words in 'where you did buy it'?",
+    "current_item": {
+      "id": "eval_expansion_wh_object_questions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_wh_object_questions",
+    "description": "Authored positive development probe for Wh-questions about an object or circumstance. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_be_question_inversion",
+    "question": "Why is 'do you are ready' incorrect?",
+    "current_item": {
+      "id": "eval_expansion_be_question_inversion",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_be_question_inversion",
+    "description": "Authored positive development probe for Questions with be rather than do. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_short_answers_auxiliary",
+    "question": "Why do we say 'yes, I am' rather than 'yes, I'm'?",
+    "current_item": {
+      "id": "eval_expansion_short_answers_auxiliary",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_short_answers_auxiliary",
+    "description": "Authored positive development probe for Short answers repeat the relevant auxiliary. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_indirect_question_order",
+    "question": "Is 'do you know where does she work' correct?",
+    "current_item": {
+      "id": "eval_expansion_indirect_question_order",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_indirect_question_order",
+    "description": "Authored positive development probe for Statement order inside indirect questions. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_question_tags_polarity",
+    "question": "What tag follows 'you finished the report'?",
+    "current_item": {
+      "id": "eval_expansion_question_tags_polarity",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_question_tags_polarity",
+    "description": "Authored positive development probe for Confirmation tags with matching auxiliaries. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_negative_words_tags",
+    "question": "What tag belongs after 'nobody called'?",
+    "current_item": {
+      "id": "eval_expansion_negative_words_tags",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_negative_words_tags",
+    "description": "Authored positive development probe for Positive tags after negative-meaning clauses. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_imperative_base_form",
+    "question": "How do I make 'touch the wet paint' into a negative instruction?",
+    "current_item": {
+      "id": "eval_expansion_imperative_base_form",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_imperative_base_form",
+    "description": "Authored positive development probe for Imperatives for instructions and requests. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_lets_suggestions",
+    "question": "Is 'let's going now' correct?",
+    "current_item": {
+      "id": "eval_expansion_lets_suggestions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_lets_suggestions",
+    "description": "Authored positive development probe for Let's for a shared suggestion. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_modal_base_form",
+    "question": "Why is 'he must to leave' wrong?",
+    "current_item": {
+      "id": "eval_expansion_modal_base_form",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_modal_base_form",
+    "description": "Authored positive development probe for Core modals followed by a bare infinitive. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_can_ability",
+    "question": "How do I express future ability without 'will can'?",
+    "current_item": {
+      "id": "eval_expansion_can_ability",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_can_ability",
+    "description": "Authored positive development probe for Can and be able to for ability. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_could_past_ability",
+    "question": "Should I use could or managed to for finally opening a stuck door?",
+    "current_item": {
+      "id": "eval_expansion_could_past_ability",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_could_past_ability",
+    "description": "Authored positive development probe for General past ability versus one successful occasion. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_can_may_permission",
+    "question": "How can I politely ask permission to leave early?",
+    "current_item": {
+      "id": "eval_expansion_can_may_permission",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_can_may_permission",
+    "description": "Authored positive development probe for Can, could and may when asking permission. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_must_have_to",
+    "question": "What is the past form of 'I have to leave'?",
+    "current_item": {
+      "id": "eval_expansion_must_have_to",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_must_have_to",
+    "description": "Authored positive development probe for Must and have to for obligation. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_mustnt_vs_dont_have_to",
+    "question": "Does 'you don't have to come' mean you are forbidden to come?",
+    "current_item": {
+      "id": "eval_expansion_mustnt_vs_dont_have_to",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_mustnt_vs_dont_have_to",
+    "description": "Authored positive development probe for Prohibition versus absence of necessity. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_must_deduction",
+    "question": "Does 'he must be at home' mean he is required to be there?",
+    "current_item": {
+      "id": "eval_expansion_must_deduction",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_must_deduction",
+    "description": "Authored positive development probe for Must for a strong inference about the present. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_cant_deduction",
+    "question": "What is the negative deduction corresponding to 'it must be true'?",
+    "current_item": {
+      "id": "eval_expansion_cant_deduction",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_cant_deduction",
+    "description": "Authored positive development probe for Can't for a strong negative inference. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_may_might_possibility",
+    "question": "Can I use might when I am unsure whether a friend is home?",
+    "current_item": {
+      "id": "eval_expansion_may_might_possibility",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_may_might_possibility",
+    "description": "Authored positive development probe for May and might for uncertain possibilities. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_modal_perfect_deduction",
+    "question": "What does 'they must have forgotten' imply?",
+    "current_item": {
+      "id": "eval_expansion_modal_perfect_deduction",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_modal_perfect_deduction",
+    "description": "Authored positive development probe for Must have and might have for past inferences. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_should_advice",
+    "question": "What is the difference between should and ought to in form?",
+    "current_item": {
+      "id": "eval_expansion_should_advice",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_should_advice",
+    "description": "Authored positive development probe for Should and ought to for advice. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_should_have_regret",
+    "question": "How can I express regret about not booking earlier?",
+    "current_item": {
+      "id": "eval_expansion_should_have_regret",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_should_have_regret",
+    "description": "Authored positive development probe for Should have for an unfulfilled past recommendation. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_had_better_warning",
+    "question": "Why does 'you had better leave now' refer to the future, not the past?",
+    "current_item": {
+      "id": "eval_expansion_had_better_warning",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_had_better_warning",
+    "description": "Authored positive development probe for Had better for a specific strong recommendation. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "questions_modals",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_a_an_sound",
+    "question": "Why do we write 'a university' but 'an umbrella'?",
+    "current_item": {
+      "id": "eval_expansion_a_an_sound",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_a_an_sound",
+    "description": "Authored positive development probe for A versus an depends on the next sound. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_a_the_reference",
+    "question": "Why can I use 'the door' even if I have not mentioned it before?",
+    "current_item": {
+      "id": "eval_expansion_a_the_reference",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_a_the_reference",
+    "description": "Authored positive development probe for A new referent versus an identifiable referent. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_zero_article_general",
+    "question": "How do 'books are expensive' and 'the books are expensive' differ?",
+    "current_item": {
+      "id": "eval_expansion_zero_article_general",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_zero_article_general",
+    "description": "Authored positive development probe for No article for general plurals and mass nouns. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_articles_place_names",
+    "question": "Why do we say 'the Nile' but 'Japan'?",
+    "current_item": {
+      "id": "eval_expansion_articles_place_names",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_articles_place_names",
+    "description": "Authored positive development probe for Articles with geographical names. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_institution_articles",
+    "question": "How does 'at school' differ from 'at the school'?",
+    "current_item": {
+      "id": "eval_expansion_institution_articles",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_institution_articles",
+    "description": "Authored positive development probe for Institutional activity versus a particular building. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_countable_uncountable",
+    "question": "Why is 'an information' usually incorrect?",
+    "current_item": {
+      "id": "eval_expansion_countable_uncountable",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_countable_uncountable",
+    "description": "Authored positive development probe for Count nouns versus mass nouns. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_units_mass_nouns",
+    "question": "How can I count advice without saying 'advices'?",
+    "current_item": {
+      "id": "eval_expansion_units_mass_nouns",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_units_mass_nouns",
+    "description": "Authored positive development probe for Counting units of uncountable things. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_countability_meaning",
+    "question": "Why can I order 'two coffees' if coffee is uncountable?",
+    "current_item": {
+      "id": "eval_expansion_countability_meaning",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_countability_meaning",
+    "description": "Authored positive development probe for A noun can be countable or uncountable by meaning. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_regular_noun_plurals",
+    "question": "How do I make 'city' plural?",
+    "current_item": {
+      "id": "eval_expansion_regular_noun_plurals",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_regular_noun_plurals",
+    "description": "Authored positive development probe for Regular plural spelling without apostrophes. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_irregular_plurals",
+    "question": "Why is 'two childs' incorrect?",
+    "current_item": {
+      "id": "eval_expansion_irregular_plurals",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_irregular_plurals",
+    "description": "Authored positive development probe for Irregular and unchanged noun plurals. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_plural_only_nouns",
+    "question": "Should I say 'the scissors is' or 'the scissors are'?",
+    "current_item": {
+      "id": "eval_expansion_plural_only_nouns",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_plural_only_nouns",
+    "description": "Authored positive development probe for Plural-only nouns and a pair of. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_singular_possessive",
+    "question": "Where does the apostrophe go in 'one students notebook'?",
+    "current_item": {
+      "id": "eval_expansion_singular_possessive",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_singular_possessive",
+    "description": "Authored positive development probe for Apostrophe-s for a singular possessor. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_plural_possessive",
+    "question": "What is the difference between 'teacher's' and 'teachers''?",
+    "current_item": {
+      "id": "eval_expansion_plural_possessive",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_plural_possessive",
+    "description": "Authored positive development probe for Possessives of regular and irregular plurals. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_few_a_few",
+    "question": "Does removing 'a' from 'a few friends' change the meaning?",
+    "current_item": {
+      "id": "eval_expansion_few_a_few",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_few_a_few",
+    "description": "Authored positive development probe for Few versus a few with count nouns. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_little_a_little",
+    "question": "How do 'little time' and 'a little time' differ?",
+    "current_item": {
+      "id": "eval_expansion_little_a_little",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_little_a_little",
+    "description": "Authored positive development probe for Little versus a little with mass nouns. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_much_many",
+    "question": "Why is 'much people' incorrect?",
+    "current_item": {
+      "id": "eval_expansion_much_many",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_much_many",
+    "description": "Authored positive development probe for Much for amounts; many for numbers. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_fewer_less",
+    "question": "Should I write 'less mistakes' or 'fewer mistakes' in formal writing?",
+    "current_item": {
+      "id": "eval_expansion_fewer_less",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_fewer_less",
+    "description": "Authored positive development probe for Fewer for count items; less for amounts. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_some_any",
+    "question": "Why can I say 'would you like some tea'?",
+    "current_item": {
+      "id": "eval_expansion_some_any",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_some_any",
+    "description": "Authored positive development probe for Some, any and expected answers. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_any_free_choice",
+    "question": "Why is 'any student can join' affirmative?",
+    "current_item": {
+      "id": "eval_expansion_any_free_choice",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_any_free_choice",
+    "description": "Authored positive development probe for Any can mean unrestricted choice. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_each_every_singular",
+    "question": "Why does 'every student' take a singular verb?",
+    "current_item": {
+      "id": "eval_expansion_each_every_singular",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_each_every_singular",
+    "description": "Authored positive development probe for Each and every with singular noun phrases. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_both_either_neither",
+    "question": "How do both, either and neither differ?",
+    "current_item": {
+      "id": "eval_expansion_both_either_neither",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_both_either_neither",
+    "description": "Authored positive development probe for Both, either and neither for two alternatives. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_all_whole",
+    "question": "Should I write 'whole the day' or 'the whole day'?",
+    "current_item": {
+      "id": "eval_expansion_all_whole",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_all_whole",
+    "description": "Authored positive development probe for All and whole with noun phrases. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_other_another",
+    "question": "What is the difference between 'other students' and 'others'?",
+    "current_item": {
+      "id": "eval_expansion_other_another",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_other_another",
+    "description": "Authored positive development probe for Another versus other and others. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_the_other_the_others",
+    "question": "How do I refer to the remaining one of two tickets?",
+    "current_item": {
+      "id": "eval_expansion_the_other_the_others",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_the_other_the_others",
+    "description": "Authored positive development probe for The other and the others identify the remainder. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "nouns_determiners",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_subject_object_pronouns",
+    "question": "Is 'between you and I' the standard form?",
+    "current_item": {
+      "id": "eval_expansion_subject_object_pronouns",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_subject_object_pronouns",
+    "description": "Authored positive development probe for Subject pronouns versus object pronouns. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_singular_they",
+    "question": "Can they refer to just one person?",
+    "current_item": {
+      "id": "eval_expansion_singular_they",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_singular_they",
+    "description": "Authored positive development probe for Singular they for an individual. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_possessive_determiners_pronouns",
+    "question": "What is the difference between 'your' and 'yours'?",
+    "current_item": {
+      "id": "eval_expansion_possessive_determiners_pronouns",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_possessive_determiners_pronouns",
+    "description": "Authored positive development probe for My versus mine and other possessive forms. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_reflexive_objects",
+    "question": "Should an email say 'contact me' or 'contact myself'?",
+    "current_item": {
+      "id": "eval_expansion_reflexive_objects",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_reflexive_objects",
+    "description": "Authored positive development probe for Reflexive pronouns when subject and object coincide. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_emphatic_reflexives",
+    "question": "How do 'I did it myself' and 'I did it by myself' differ?",
+    "current_item": {
+      "id": "eval_expansion_emphatic_reflexives",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_emphatic_reflexives",
+    "description": "Authored positive development probe for Reflexives for emphasis and by oneself. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_each_other_reciprocal",
+    "question": "How do 'they looked at themselves' and 'they looked at each other' differ?",
+    "current_item": {
+      "id": "eval_expansion_each_other_reciprocal",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_each_other_reciprocal",
+    "description": "Authored positive development probe for Each other versus themselves. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_indefinite_pronoun_agreement",
+    "question": "Why is 'everybody is' used when everybody refers to many people?",
+    "current_item": {
+      "id": "eval_expansion_indefinite_pronoun_agreement",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_indefinite_pronoun_agreement",
+    "description": "Authored positive development probe for Everyone, someone and nobody take singular verbs. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_this_that_these_those",
+    "question": "When do I use this instead of these?",
+    "current_item": {
+      "id": "eval_expansion_this_that_these_those",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_this_that_these_those",
+    "description": "Authored positive development probe for Demonstratives mark number and contextual distance. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_one_ones_substitution",
+    "question": "Can I say 'the red one' instead of repeating 'the red bag'?",
+    "current_item": {
+      "id": "eval_expansion_one_ones_substitution",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_one_ones_substitution",
+    "description": "Authored positive development probe for One and ones replace count nouns. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_whose_relative_possession",
+    "question": "How do I choose between whose and who's in a relative clause?",
+    "current_item": {
+      "id": "eval_expansion_whose_relative_possession",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_whose_relative_possession",
+    "description": "Authored positive development probe for Whose introduces a possessive relative relationship. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_relative_object_omission",
+    "question": "Why can I omit that in 'the book that I read' but not 'the book that fell'?",
+    "current_item": {
+      "id": "eval_expansion_relative_object_omission",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_relative_object_omission",
+    "description": "Authored positive development probe for Omitting an object relative pronoun. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_relative_where_when",
+    "question": "Why is 'the city where I visited' usually wrong?",
+    "current_item": {
+      "id": "eval_expansion_relative_where_when",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_relative_where_when",
+    "description": "Authored positive development probe for Where and when in relative clauses. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_which_whole_clause",
+    "question": "What does which refer to in 'he arrived early, which surprised me'?",
+    "current_item": {
+      "id": "eval_expansion_which_whole_clause",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_which_whole_clause",
+    "description": "Authored positive development probe for Which can refer to the preceding situation. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_there_it_subjects",
+    "question": "How do 'there is a storm' and 'it is stormy' differ?",
+    "current_item": {
+      "id": "eval_expansion_there_it_subjects",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_there_it_subjects",
+    "description": "Authored positive development probe for Existential there versus referential or dummy it. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_agreement_head_noun",
+    "question": "Should 'a box of books' take is or are?",
+    "current_item": {
+      "id": "eval_expansion_agreement_head_noun",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_agreement_head_noun",
+    "description": "Authored positive development probe for Agree with the head of the subject phrase. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_collective_noun_agreement",
+    "question": "Is 'the team are playing well' always incorrect?",
+    "current_item": {
+      "id": "eval_expansion_collective_noun_agreement",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_collective_noun_agreement",
+    "description": "Authored positive development probe for Collective nouns and dialect-sensitive agreement. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "pronouns_agreement",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_adjective_adverb_roles",
+    "question": "Why do I need slowly in 'she speaks slowly'?",
+    "current_item": {
+      "id": "eval_expansion_adjective_adverb_roles",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_adjective_adverb_roles",
+    "description": "Authored positive development probe for Adjectives describe nouns; adverbs modify actions and qualities. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_linking_verb_adjectives",
+    "question": "Why is 'the soup tastes good' usual instead of 'tastes well'?",
+    "current_item": {
+      "id": "eval_expansion_linking_verb_adjectives",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_linking_verb_adjectives",
+    "description": "Authored positive development probe for Adjectives after linking verbs. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_ed_ing_feelings",
+    "question": "What is the difference between bored and boring?",
+    "current_item": {
+      "id": "eval_expansion_ed_ing_feelings",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_ed_ing_feelings",
+    "description": "Authored positive development probe for Interested versus interesting and similar adjective pairs. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_adjective_order",
+    "question": "What is the usual order in 'a wooden small beautiful table'?",
+    "current_item": {
+      "id": "eval_expansion_adjective_order",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_adjective_order",
+    "description": "Authored positive development probe for Usual ordering of several adjectives. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_comparative_forms",
+    "question": "Why is 'more easier' incorrect?",
+    "current_item": {
+      "id": "eval_expansion_comparative_forms",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_comparative_forms",
+    "description": "Authored positive development probe for Comparatives with -er or more. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_comparative_than",
+    "question": "Should I use than or then after bigger?",
+    "current_item": {
+      "id": "eval_expansion_comparative_than",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_comparative_than",
+    "description": "Authored positive development probe for Than introduces the comparison standard. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_superlative_group",
+    "question": "How do shorter and shortest differ?",
+    "current_item": {
+      "id": "eval_expansion_superlative_group",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_superlative_group",
+    "description": "Authored positive development probe for Superlatives within a defined comparison group. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_as_as_equality",
+    "question": "Why is 'as better as' wrong?",
+    "current_item": {
+      "id": "eval_expansion_as_as_equality",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_as_as_equality",
+    "description": "Authored positive development probe for As ... as for equality of degree. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_modify_comparatives",
+    "question": "Can I say 'very better'?",
+    "current_item": {
+      "id": "eval_expansion_modify_comparatives",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_modify_comparatives",
+    "description": "Authored positive development probe for Much, slightly and far before comparatives. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_increasing_comparison",
+    "question": "How do I say something is becoming increasingly expensive?",
+    "current_item": {
+      "id": "eval_expansion_increasing_comparison",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_increasing_comparison",
+    "description": "Authored positive development probe for Repeated comparatives for a developing trend. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_gradable_intensifiers",
+    "question": "Why is absolutely freezing more natural than very freezing?",
+    "current_item": {
+      "id": "eval_expansion_gradable_intensifiers",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_gradable_intensifiers",
+    "description": "Authored positive development probe for Intensifiers depend on adjective meaning. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_so_such",
+    "question": "Should I say 'so a good idea' or 'such a good idea'?",
+    "current_item": {
+      "id": "eval_expansion_so_such",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_so_such",
+    "description": "Authored positive development probe for So with adjectives; such with noun phrases. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_enough_position",
+    "question": "Where does enough go in 'warm enough'?",
+    "current_item": {
+      "id": "eval_expansion_enough_position",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_enough_position",
+    "description": "Authored positive development probe for Enough before nouns and after adjectives. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_too_degree",
+    "question": "Does 'too expensive' mean the same as 'very expensive'?",
+    "current_item": {
+      "id": "eval_expansion_too_degree",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_too_degree",
+    "description": "Authored positive development probe for Too expresses excess rather than simple intensity. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_frequency_adverb_position",
+    "question": "Where does usually go with the verb be?",
+    "current_item": {
+      "id": "eval_expansion_frequency_adverb_position",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_frequency_adverb_position",
+    "description": "Authored positive development probe for Usual positions of frequency adverbs. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_manner_adverb_position",
+    "question": "Where should carefully go in 'she checked the figures'?",
+    "current_item": {
+      "id": "eval_expansion_manner_adverb_position",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_manner_adverb_position",
+    "description": "Authored positive development probe for Manner adverbs and verb-object order. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_hard_hardly",
+    "question": "Does 'he hardly works' mean he works very hard?",
+    "current_item": {
+      "id": "eval_expansion_hard_hardly",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_hard_hardly",
+    "description": "Authored positive development probe for Hard and hardly have different meanings. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_late_lately",
+    "question": "What is the difference between late and lately?",
+    "current_item": {
+      "id": "eval_expansion_late_lately",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_late_lately",
+    "description": "Authored positive development probe for Late versus lately. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_already_yet_still",
+    "question": "How do already, yet and still differ?",
+    "current_item": {
+      "id": "eval_expansion_already_yet_still",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_already_yet_still",
+    "description": "Authored positive development probe for Already, yet and still convey different expectations. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_just_recent_completion",
+    "question": "Is 'I just ate' acceptable, or must it be 'I have just eaten'?",
+    "current_item": {
+      "id": "eval_expansion_just_recent_completion",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_just_recent_completion",
+    "description": "Authored positive development probe for Just for a very recent event. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "adjectives_adverbs",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_time_in_on_at",
+    "question": "Should I use in, on or at before Monday?",
+    "current_item": {
+      "id": "eval_expansion_time_in_on_at",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_time_in_on_at",
+    "description": "Authored positive development probe for In, on and at for time expressions. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_place_in_on_at",
+    "question": "How do I choose in, on and at for places?",
+    "current_item": {
+      "id": "eval_expansion_place_in_on_at",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_place_in_on_at",
+    "description": "Authored positive development probe for In, on and at for location. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_movement_into_onto",
+    "question": "What is the difference between walking in a room and walking into it?",
+    "current_item": {
+      "id": "eval_expansion_movement_into_onto",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_movement_into_onto",
+    "description": "Authored positive development probe for Into and onto emphasize movement to a new position. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_by_until_deadlines",
+    "question": "Does 'finish by five' mean the same as 'work until five'?",
+    "current_item": {
+      "id": "eval_expansion_by_until_deadlines",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_by_until_deadlines",
+    "description": "Authored positive development probe for By marks a deadline; until marks continuation. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_during_for_periods",
+    "question": "What is the difference between during and for?",
+    "current_item": {
+      "id": "eval_expansion_during_for_periods",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_during_for_periods",
+    "description": "Authored positive development probe for During identifies a period; for gives duration. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_since_from_starting_points",
+    "question": "Should I say 'since Monday' or 'from Monday to Friday'?",
+    "current_item": {
+      "id": "eval_expansion_since_from_starting_points",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_since_from_starting_points",
+    "description": "Authored positive development probe for Since versus from in time ranges. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_between_among",
+    "question": "Can I say 'between three countries'?",
+    "current_item": {
+      "id": "eval_expansion_between_among",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_between_among",
+    "description": "Authored positive development probe for Between for distinct relationships; among within a group. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_by_with_agent_instrument",
+    "question": "When should a passive sentence use by and when should it use with?",
+    "current_item": {
+      "id": "eval_expansion_by_with_agent_instrument",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_by_with_agent_instrument",
+    "description": "Authored positive development probe for By for an agent; with for an instrument. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_arrive_in_at",
+    "question": "Is 'arrive to the station' standard English?",
+    "current_item": {
+      "id": "eval_expansion_arrive_in_at",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_arrive_in_at",
+    "description": "Authored positive development probe for Arrive in or at, but usually not arrive to. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_dependent_verb_prepositions",
+    "question": "Why do we say 'listen to music' rather than 'listen music'?",
+    "current_item": {
+      "id": "eval_expansion_dependent_verb_prepositions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_dependent_verb_prepositions",
+    "description": "Authored positive development probe for Some verbs require a particular preposition. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_dependent_adjective_prepositions",
+    "question": "Should I say interested in or interested on?",
+    "current_item": {
+      "id": "eval_expansion_dependent_adjective_prepositions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_dependent_adjective_prepositions",
+    "description": "Authored positive development probe for Adjectives have conventional preposition partners. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_preposition_gerund",
+    "question": "Why is 'looking forward to seeing you' correct?",
+    "current_item": {
+      "id": "eval_expansion_preposition_gerund",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_preposition_gerund",
+    "description": "Authored positive development probe for An -ing form after a preposition. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_verbs_followed_ing",
+    "question": "Why is 'enjoy reading' correct instead of 'enjoy to read'?",
+    "current_item": {
+      "id": "eval_expansion_verbs_followed_ing",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_verbs_followed_ing",
+    "description": "Authored positive development probe for Verbs that commonly take an -ing complement. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_verbs_followed_to",
+    "question": "Should I say 'decided to go' or 'decided going'?",
+    "current_item": {
+      "id": "eval_expansion_verbs_followed_to",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_verbs_followed_to",
+    "description": "Authored positive development probe for Verbs that commonly take a to-infinitive. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_stop_ing_to",
+    "question": "What is the difference between 'stop smoking' and 'stop to smoke'?",
+    "current_item": {
+      "id": "eval_expansion_stop_ing_to",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_stop_ing_to",
+    "description": "Authored positive development probe for Stop doing versus stop to do. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_remember_ing_to",
+    "question": "How do 'remember locking' and 'remember to lock' differ?",
+    "current_item": {
+      "id": "eval_expansion_remember_ing_to",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_remember_ing_to",
+    "description": "Authored positive development probe for Remember doing versus remember to do. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_try_ing_to",
+    "question": "What does 'try turning it off' mean compared with 'try to turn it off'?",
+    "current_item": {
+      "id": "eval_expansion_try_ing_to",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_try_ing_to",
+    "description": "Authored positive development probe for Try doing versus try to do. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_let_make_bare_infinitive",
+    "question": "Why is 'let me to explain' wrong?",
+    "current_item": {
+      "id": "eval_expansion_let_make_bare_infinitive",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_let_make_bare_infinitive",
+    "description": "Authored positive development probe for Let and make with an object and base verb. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_help_infinitive",
+    "question": "Is 'help me understand' correct without to?",
+    "current_item": {
+      "id": "eval_expansion_help_infinitive",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_help_infinitive",
+    "description": "Authored positive development probe for Help permits a base verb with or without to. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_have_get_done",
+    "question": "How does 'I repaired my bike' differ from 'I had my bike repaired'?",
+    "current_item": {
+      "id": "eval_expansion_have_get_done",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_have_get_done",
+    "description": "Authored positive development probe for Have or get something done. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_be_get_used_to",
+    "question": "How do 'I used to drive' and 'I am used to driving' differ?",
+    "current_item": {
+      "id": "eval_expansion_be_get_used_to",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_be_get_used_to",
+    "description": "Authored positive development probe for Be used to versus get used to. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_separable_phrasal_verbs",
+    "question": "Why is 'pick it up' correct but 'pick up it' is not?",
+    "current_item": {
+      "id": "eval_expansion_separable_phrasal_verbs",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_separable_phrasal_verbs",
+    "description": "Authored positive development probe for Pronoun placement in separable phrasal verbs. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_inseparable_multiword_verbs",
+    "question": "Why can I say 'turn it off' but not 'look it after'?",
+    "current_item": {
+      "id": "eval_expansion_inseparable_multiword_verbs",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_inseparable_multiword_verbs",
+    "description": "Authored positive development probe for Keep inseparable verb-preposition combinations together. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_infinitive_purpose",
+    "question": "Why do we say 'I went out to buy milk' rather than 'for buy milk'?",
+    "current_item": {
+      "id": "eval_expansion_infinitive_purpose",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_infinitive_purpose",
+    "description": "Authored positive development probe for To-infinitives express the purpose of an action. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "prepositions_patterns",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_zero_conditional",
+    "question": "How do I express a result that happens every time a condition is met?",
+    "current_item": {
+      "id": "eval_expansion_zero_conditional",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_zero_conditional",
+    "description": "Authored positive development probe for Zero conditionals for recurring relationships. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_first_conditional",
+    "question": "Why do we say 'if it rains tomorrow' rather than 'if it will rain'?",
+    "current_item": {
+      "id": "eval_expansion_first_conditional",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_first_conditional",
+    "description": "Authored positive development probe for First conditionals for possible future outcomes. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_second_conditional",
+    "question": "Does 'if I had more time' have to describe the past?",
+    "current_item": {
+      "id": "eval_expansion_second_conditional",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_second_conditional",
+    "description": "Authored positive development probe for Second conditionals for hypothetical situations. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_third_conditional",
+    "question": "How do I describe an unreal past result of leaving home earlier?",
+    "current_item": {
+      "id": "eval_expansion_third_conditional",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_third_conditional",
+    "description": "Authored positive development probe for Third conditionals imagine a different past. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_mixed_conditionals",
+    "question": "How can a past decision have an imaginary result now?",
+    "current_item": {
+      "id": "eval_expansion_mixed_conditionals",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_mixed_conditionals",
+    "description": "Authored positive development probe for Mixed conditionals connect different times. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_unless_condition",
+    "question": "Does unless mean if not?",
+    "current_item": {
+      "id": "eval_expansion_unless_condition",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_unless_condition",
+    "description": "Authored positive development probe for Unless means except if. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_in_case_precaution",
+    "question": "How do 'take cash in case you need it' and 'take cash if you need it' differ?",
+    "current_item": {
+      "id": "eval_expansion_in_case_precaution",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_in_case_precaution",
+    "description": "Authored positive development probe for In case expresses a precaution, not a simple condition. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_future_time_clauses",
+    "question": "Why is 'I will call when I arrive' correct?",
+    "current_item": {
+      "id": "eval_expansion_future_time_clauses",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_future_time_clauses",
+    "description": "Authored positive development probe for Present forms in future time clauses. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_wish_present",
+    "question": "Why do we use a past form in 'I wish I knew'?",
+    "current_item": {
+      "id": "eval_expansion_wish_present",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_wish_present",
+    "description": "Authored positive development probe for Wish plus a past form for an unreal present. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_wish_past",
+    "question": "How do I express regret about forgetting my keys?",
+    "current_item": {
+      "id": "eval_expansion_wish_past",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_wish_past",
+    "description": "Authored positive development probe for Wish plus past perfect for regret. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_reported_speech_backshift",
+    "question": "Must 'the Earth is round' become past tense after 'she said'?",
+    "current_item": {
+      "id": "eval_expansion_reported_speech_backshift",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_reported_speech_backshift",
+    "description": "Authored positive development probe for Backshift in reported statements. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_reported_time_reference",
+    "question": "When should tomorrow become the next day in reported speech?",
+    "current_item": {
+      "id": "eval_expansion_reported_time_reference",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_reported_time_reference",
+    "description": "Authored positive development probe for Pronouns and time words in reported speech. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_reported_questions",
+    "question": "How do I report 'where do you live'?",
+    "current_item": {
+      "id": "eval_expansion_reported_questions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_reported_questions",
+    "description": "Authored positive development probe for Reported questions use statement word order. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_reported_commands",
+    "question": "How do I report 'don't open the window'?",
+    "current_item": {
+      "id": "eval_expansion_reported_commands",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_reported_commands",
+    "description": "Authored positive development probe for Report instructions with object plus to-infinitive. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_say_tell",
+    "question": "Why is 'she said me' usually wrong?",
+    "current_item": {
+      "id": "eval_expansion_say_tell",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_say_tell",
+    "description": "Authored positive development probe for Say something; tell someone something. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_because_because_of",
+    "question": "How do because and because of differ?",
+    "current_item": {
+      "id": "eval_expansion_because_because_of",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_because_because_of",
+    "description": "Authored positive development probe for Because takes a clause; because of takes a noun phrase. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_although_despite",
+    "question": "Why is 'despite it was raining' incomplete as a standard construction?",
+    "current_item": {
+      "id": "eval_expansion_although_despite",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_although_despite",
+    "description": "Authored positive development probe for Although takes a clause; despite takes a noun phrase. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_even_if_even_though",
+    "question": "What is the difference between even if and even though?",
+    "current_item": {
+      "id": "eval_expansion_even_if_even_though",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_even_if_even_though",
+    "description": "Authored positive development probe for Even if is hypothetical; even though presents a fact. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_so_result_clause",
+    "question": "Where does so go when joining a reason and a result?",
+    "current_item": {
+      "id": "eval_expansion_so_result_clause",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_so_result_clause",
+    "description": "Authored positive development probe for So links a cause to its result. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_so_that_purpose",
+    "question": "How do I express a purpose involving a different person?",
+    "current_item": {
+      "id": "eval_expansion_so_that_purpose",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_so_that_purpose",
+    "description": "Authored positive development probe for So that introduces an intended outcome. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_either_or_parallel",
+    "question": "How can I keep an either-or sentence parallel?",
+    "current_item": {
+      "id": "eval_expansion_either_or_parallel",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_either_or_parallel",
+    "description": "Authored positive development probe for Either ... or joins parallel alternatives. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_both_and_parallel",
+    "question": "Should 'both Alex and Mina' take is or are?",
+    "current_item": {
+      "id": "eval_expansion_both_and_parallel",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_both_and_parallel",
+    "description": "Authored positive development probe for Both ... and includes two parallel elements. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "clauses_reporting",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_sentence_fragments",
+    "question": "Why can 'because I was tired' be a fragment even though it has a verb?",
+    "current_item": {
+      "id": "eval_expansion_sentence_fragments",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_sentence_fragments",
+    "description": "Authored positive development probe for Dependent clauses are not normally standalone sentences. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_comma_splices",
+    "question": "How do I fix 'I was late, I missed the train'?",
+    "current_item": {
+      "id": "eval_expansion_comma_splices",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_comma_splices",
+    "description": "Authored positive development probe for A comma alone does not join independent clauses. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_semicolon_linking",
+    "question": "When can I use a semicolon instead of a comma?",
+    "current_item": {
+      "id": "eval_expansion_semicolon_linking",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_semicolon_linking",
+    "description": "Authored positive development probe for Semicolons join closely related independent clauses. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_colon_introductions",
+    "question": "Should I put a colon directly after 'includes'?",
+    "current_item": {
+      "id": "eval_expansion_colon_introductions",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_colon_introductions",
+    "description": "Authored positive development probe for Colons introduce an explanation or list. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_list_commas",
+    "question": "Is the comma before and always required in a list?",
+    "current_item": {
+      "id": "eval_expansion_list_commas",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_list_commas",
+    "description": "Authored positive development probe for Commas separate items in a series. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_its_it_is",
+    "question": "How do I choose between its and it's?",
+    "current_item": {
+      "id": "eval_expansion_its_it_is",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_its_it_is",
+    "description": "Authored positive development probe for Its is possessive; it's is a contraction. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_your_youre",
+    "question": "What is the difference between your and you're?",
+    "current_item": {
+      "id": "eval_expansion_your_youre",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_your_youre",
+    "description": "Authored positive development probe for Your versus you're. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_their_there_theyre",
+    "question": "How do I distinguish their, there and they're?",
+    "current_item": {
+      "id": "eval_expansion_their_there_theyre",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_their_there_theyre",
+    "description": "Authored positive development probe for Their, there and they're have different roles. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_parallel_structure",
+    "question": "How do I fix a list mixing 'reading' with 'to swim'?",
+    "current_item": {
+      "id": "eval_expansion_parallel_structure",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_parallel_structure",
+    "description": "Authored positive development probe for Parallel grammar for coordinated ideas. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_borrow_lend",
+    "question": "What is the difference between borrow and lend?",
+    "current_item": {
+      "id": "eval_expansion_borrow_lend",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_borrow_lend",
+    "description": "Authored positive development probe for Borrow receives; lend provides temporarily. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_bring_take_direction",
+    "question": "Why can I say 'bring a friend to your party' when I am not there?",
+    "current_item": {
+      "id": "eval_expansion_bring_take_direction",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_bring_take_direction",
+    "description": "Authored positive development probe for Bring and take depend on viewpoint. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_make_do_collocations",
+    "question": "Should I say make homework or do homework?",
+    "current_item": {
+      "id": "eval_expansion_make_do_collocations",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_make_do_collocations",
+    "description": "Authored positive development probe for Make and do follow conventional combinations. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_affect_effect",
+    "question": "How do affect and effect differ?",
+    "current_item": {
+      "id": "eval_expansion_affect_effect",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_affect_effect",
+    "description": "Authored positive development probe for Affect is usually a verb; effect is usually a noun. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  },
+  {
+    "case_id": "expansion_standard_negative_agreement",
+    "question": "How can I rewrite 'I don't know nothing' in standard formal English?",
+    "current_item": {
+      "id": "eval_expansion_standard_negative_agreement",
+      "type": "transformation",
+      "category": "sentence",
+      "topic": "daily",
+      "instruction": "Answer the English usage question.",
+      "prompt": "",
+      "answer": "",
+      "expected_answer": "",
+      "user_answer": ""
+    },
+    "expected_note_id": "en_standard_negative_agreement",
+    "description": "Authored positive development probe for Not with any versus a negative pronoun. Exact target is diagnostic; other notes may also contain useful evidence.",
+    "bucket": "writing_usage",
+    "provenance": "original_synthetic",
+    "split": "development"
+  }
+]

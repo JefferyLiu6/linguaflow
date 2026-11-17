@@ -66,7 +66,7 @@ python -m retrieval.validate_corpus
 python -m retrieval.sync_embeddings
 ```
 
-The sync CLI expects process environment variables; it does not load `agent/.env` automatically. Sync creates embeddings and atomically publishes the 31-note index. See [index publication](INDEX_PUBLICATION.md) for version checks and failure behavior.
+The sync CLI expects process environment variables; it does not load `agent/.env` automatically. Sync creates embeddings and atomically publishes the 200-note index. Coordinate application and index versions when deploying this expansion; see [the rollout plan](CORPUS_EXPANSION_200.md). See [index publication](INDEX_PUBLICATION.md) for version checks and failure behavior.
 
 **Freeform database, embedding or index failures return service errors.** They do not silently fall back to metadata retrieval. Card-based metadata actions remain a separate path. A successful search with no supporting reference permits general English help with an explicit disclosure.
 
@@ -116,4 +116,4 @@ Requires Google Chrome, ffmpeg and the project's installed Playwright package. S
 DEMO_GIF_BASE_URL=http://localhost:3000 pnpm demo:gif
 ```
 
-The recorder selects English through the UI, opens a passive-voice Study card and makes one real freeform request. It publishes `docs/demo/english-study-demo.gif` only after a successful response with the expected source. It also saves a still and capture metadata. No responses or session history are mocked. The GIF uses edited still-frame pauses and is not latency evidence. Pointing the command at a deployed URL uses that deployment's provider budget and rate limits.
+The recorder follows **Start practicing → Study → Work**, searches for and selects a passive-voice card, reveals its answer and makes one real freeform request. It publishes `docs/demo/english-study-demo.gif` only after a successful response with the expected source, clean browser console and mobile overflow check. It also saves landing, practice, card-selection, desktop answer and mobile answer screenshots, plus capture metadata with each scene's duration and URL. No responses or session history are mocked. The GIF uses edited still-frame pauses and is not latency evidence. Pointing the command at a deployed URL uses that deployment's provider budget and rate limits; it does not establish that unpublished local backend or corpus changes are deployed.

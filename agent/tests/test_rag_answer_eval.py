@@ -90,6 +90,7 @@ def test_langfuse_export_never_sends_raw_text():
 @pytest.mark.asyncio
 async def test_baselines_use_real_handler_without_gold_leakage(monkeypatch):
     from evals.rag import pipeline
+    from retrieval.loader import load_contrast_docs
     captured=[]
     async def generate(model,messages):
         captured.extend(m.content for m in messages)
@@ -99,7 +100,7 @@ async def test_baselines_use_real_handler_without_gold_leakage(monkeypatch):
     assert r['status']=='ok' and r['contexts']==[] and 'Gold secret' not in str(captured)
     captured.clear()
     r=await pipeline.run_pipeline(case(),'full_corpus')
-    assert r['status']=='ok' and len(r['contexts'])==31 and 'Gold secret' not in str(captured)
+    assert r['status']=='ok' and len(r['contexts'])==len(load_contrast_docs('en')) and 'Gold secret' not in str(captured)
 
 
 @pytest.mark.asyncio

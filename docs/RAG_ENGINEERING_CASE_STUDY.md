@@ -1,5 +1,7 @@
 # LinguaFlow: engineering a curriculum-grounded English tutor
 
+> Corpus update: the repository now contains 200 notes. Measurements and deployment evidence in this case study describe the original 31-note corpus. The expansion has a separate [100-question local evaluation](EXPANSION_EVALUATION_RESULTS.md), including documented source and judge errors. Production index publication remains pending; see [current status](CORPUS_EXPANSION_200.md).
+
 ## 1. Problem and product boundary
 
 A learner may know the correct drill answer without understanding why it works. A fluent explanation can still teach the wrong concept: a vocabulary question about register should not receive a lesson about tense merely because the card shares those words. The product needs short, useful explanations and an inspectable reference when its curriculum actually supports the answer.
@@ -12,7 +14,7 @@ The implementation and validation of the final serving changes are described in 
 
 General language models already know basic English grammar. Retrieval here serves curriculum alignment, bounded reference context, editable teaching notes and visible source attribution. It is not a claim that the model cannot answer without retrieval.
 
-The corpus has only 31 notes; its canonical embedding text measured 6,265 tokens in the data audit. Whole-corpus prompting is feasible. The [four-arm answer pilot](ANSWER_EVALUATION_01.md) compared card-only, whole-corpus, hybrid and verified retrieval, but nine failed judgments and mixed scores do not establish an answer-quality winner.
+The evaluated corpus had 31 notes; its canonical embedding text measured 6,265 tokens in the data audit. Whole-corpus prompting is feasible. The [four-arm answer pilot](ANSWER_EVALUATION_01.md) compared card-only, whole-corpus, hybrid and verified retrieval, but nine failed judgments and mixed scores do not establish an answer-quality winner.
 
 | Option | Advantage | Cost or limitation |
 |---|---|---|
@@ -48,7 +50,7 @@ At 31 notes, vector storage is not the primary problem. Query interpretation, so
 
 Embeddings are prepared before an atomic publication transaction. A manifest binds full note content, canonical chunks, model, dimensions and format version. Unchanged complete snapshots skip provider work; reads reject incomplete or incompatible versions. Integration tests use disposable PostgreSQL/pgvector and verify publication, rollback and concurrency behavior.
 
-The production migration and 31-note publication were verified previously; [deployment evidence](RELEASE_EVIDENCE_STATUS.md) identifies that historical revision. Serving changes in the current release do not alter the corpus or embedding space and do not require republishing the index.
+The production migration and 31-note publication were verified previously; [deployment evidence](RELEASE_EVIDENCE_STATUS.md) identifies that historical revision. Those source-policy changes did not alter the corpus or embedding space. The subsequent 200-note expansion does require republishing the index.
 
 The freeform query puts the question first and adds available card instruction, prompt and answer. That lets an elliptical question refer to its card, but a distracting card can contaminate retrieval. No query rewriting or multi-query expansion is claimed.
 

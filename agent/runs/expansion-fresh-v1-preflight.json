@@ -1,0 +1,24 @@
+{
+  "status": "ready_not_run",
+  "cases": 100,
+  "pipeline_jobs": 200,
+  "models": {
+    "generator": "gpt-4o-mini-2024-07-18",
+    "verifier": "gpt-4.1-2025-04-14",
+    "judge": "gpt-4.1-2025-04-14",
+    "embedding": "text-embedding-3-small"
+  },
+  "budget": {
+    "max_usd": 5.0,
+    "max_provider_requests": 900,
+    "pipeline_jobs": 200,
+    "max_pipeline_calls": 500,
+    "max_judge_calls": 400,
+    "concurrency": 1
+  },
+  "corpus_fingerprint": "1c26b8f08c966f2ac64b57093d3d2c6fc7d48cae32c141152080ee2bd9e417d6",
+  "dataset_sha256": "4bd763d8e99f65bc41c947ed98df98a5d76318b7dcd82b5f37097ae4deaa1f7d",
+  "provider_calls_made": 0,
+  "live_index": "not_checked",
+  "collection_requires": "--allow-paid and a matching database index"
+}

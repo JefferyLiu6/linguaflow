@@ -24,6 +24,7 @@ BUNDLE_FILES = {
     "structured": "agent/knowledge/evaluation/structured.json",
     "freeform": "agent/knowledge/evaluation/freeform.json",
     "challenge": "agent/knowledge/evaluation/challenge.json",
+    "expansion": "agent/knowledge/evaluation/expansion-v3.json",
 }
 
 
@@ -64,6 +65,8 @@ def validate_bundle(data: dict[str, Any]) -> dict:
     coverage = index(data["coverage"]["items"], "item_id", "coverage")
     require(set(coverage) == set(drills), "coverage: every drill must have exactly one disposition")
     require(len(notes) > 0, "notes: corpus must not be empty")
+    if "note_count" in data["dataset"]:
+        require(data["dataset"]["note_count"] == len(notes), "dataset: declared note count differs from corpus")
     require(data["dataset"].get("version") == "2.0.0", "dataset: unsupported version")
     allowed_topics = {"travel", "daily", "food", "sport", "tech", "work", "health", "money", "family", "nature", "education", "culture", "politics", "science", "shopping", "emergency"}
     allowed_groups = {"DB_EN", "DB_EN_VOCAB", "DB_EN_PHRASES", "DB_EN_SPORT", "DB_EN_TECH", "DB_EN_FOOD", "DB_EN_WORK", "DB_EN_HEALTH", "DB_EN_MONEY", "DB_EN_FAMILY", "DB_EN_NATURE", "DB_EN_EDUCATION", "DB_EN_CULTURE", "DB_EN_POLITICS", "DB_EN_SCIENCE", "DB_EN_SHOPPING", "DB_EN_EMERGENCY"}
@@ -133,7 +136,8 @@ def validate_bundle(data: dict[str, Any]) -> dict:
         require(bool(row.get("note_ids")) == (row.get("status") != "unsupported"), f"{id}: coverage state contradicts note list")
         if row.get("status") == "direct":
             require(all(id in notes[n].get("authoring_item_ids", []) for n in row["note_ids"]), f"{id}: direct coverage lacks authoring link")
-    cases = data["structured"] + data["freeform"] + data["challenge"]
+    # Keep historical sets intact; new concepts have separately identified development probes.
+    cases = data["structured"] + data["freeform"] + data["challenge"] + data["expansion"]
     index(cases, "case_id", "evaluation")
     positive_notes = set()
     for row in cases:
@@ -154,6 +158,14 @@ def validate_bundle(data: dict[str, Any]) -> dict:
             require(row.get("provenance") == "original_synthetic", f"{cid}: unknown provenance")
             require(str(item.get("id", "")).startswith("eval_") and item.get("id") not in drills, f"{cid}: synthetic ID collides with real drill namespace")
     require(positive_notes == set(notes), "evaluation: each note needs positive gold coverage")
+    expansion_questions = []
+    for row in data["expansion"]:
+        question = row.get("question", "").strip()
+        expansion_questions.append(question.casefold())
+        require(bool(question), f"{row['case_id']}: blank expansion question")
+        require(row.get("split") == "development", f"{row['case_id']}: authored expansion probes must remain development data")
+        require(bool(row.get("expected_note_id")), f"{row['case_id']}: expansion probe requires a target")
+    require(len(expansion_questions) == len(set(expansion_questions)), "expansion: duplicate questions")
     digest = hashlib.sha256(json.dumps(data, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
     return {
         "schema_version": 1, "dataset_version": data["dataset"].get("version"),

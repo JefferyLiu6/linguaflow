@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-16",
+  "kind": "supplemental_offline_audit",
+  "review_provenance": "AI-assisted inspection of saved outputs; independent human review pending",
+  "frozen_scores_or_labels_modified": false,
+  "records_sha256": "ea1760cf2d9b439915229df0e67f6a670087143ad7551e2cfb6dcdbd0b98b7b2",
+  "plan_sha256": "eaf0f758af711b0db6295d6cf7d5eeae96009c18802c2b1a1a0d5c7c9eedb8c3",
+  "literal_disclosure_marker": "I could not find a supporting reference",
+  "literal_check_limit": "Counts the application marker, not every possible paraphrase. Four listed mismatches were also inspected in full.",
+  "routing_reasons_by_bucket": {
+    "verified": {
+      "supported": {
+        "matched": 57,
+        "not_covered": 3
+      },
+      "uncovered": {
+        "not_covered": 14,
+        "matched": 1
+      },
+      "missing_context": {
+        "needs_context": 13,
+        "not_covered": 1,
+        "matched": 1
+      },
+      "out_of_scope": {
+        "out_of_scope": 10
+      }
+    },
+    "hybrid": {
+      "supported": {
+        "matched": 59,
+        "freeform_below_threshold": 1
+      },
+      "uncovered": {
+        "freeform_below_threshold": 3,
+        "matched": 12
+      },
+      "missing_context": {
+        "matched": 15
+      },
+      "out_of_scope": {
+        "freeform_below_threshold": 6,
+        "matched": 4
+      }
+    }
+  },
+  "uncovered_literal_disclosure": {
+    "verified": {
+      "present": 14,
+      "cases": 15
+    },
+    "hybrid": {
+      "present": 3,
+      "cases": 15
+    }
+  },
+  "judge_disclosure_mismatches": [
+    {
+      "case_id": "expansion_fresh1_063",
+      "arm": "hybrid",
+      "answer": "The idiom \"on the fence\" means that someone is undecided or unsure about a particular issue or choice. It suggests that the person is not committing to one side or the other, similar to someone sitting on a fence instead of choosing a side. In this context, it indicates that the person is weighing their options before making a decision about joining the club.",
+      "judge_reason": "All answer units correctly explain the idiom as indecision and do not treat it literally. No supporting reference is available, and this absence is disclosed. The explanation is clear, accurate, and suitable for B2 learners.",
+      "finding": "Judge reason credits a reference-gap disclosure absent from the answer.",
+      "judge_reference_gap_disclosed": true
+    },
+    {
+      "case_id": "expansion_fresh1_064",
+      "arm": "verified",
+      "answer": "\"Under the weather\" is an informal way to say that someone feels unwell or sick. It doesn't specify a particular illness but indicates that the person is not feeling their best. You can think of it as a general expression for feeling unwell.",
+      "judge_reason": "All units correctly explain the idiom as feeling unwell without inventing a diagnosis, and the answer discloses the lack of a supporting teaching reference. The explanation is clear and suitable for B2 learners.",
+      "finding": "Judge reason credits a reference-gap disclosure absent from the answer.",
+      "judge_reference_gap_disclosed": true
+    },
+    {
+      "case_id": "expansion_fresh1_068",
+      "arm": "hybrid",
+      "answer": "\"Economical\" refers to something that is cost-effective or efficient in terms of resources, such as a heater that saves money on energy bills. In contrast, \"economic\" relates to the economy as a whole, including broader financial systems and policies. So, an economical heater is one that helps you save money, while an economic heater would imply a connection to economic principles or the economy itself.",
+      "judge_reason": "All required distinctions are clearly explained and the lack of supporting reference is disclosed. The answer is accurate, clear, and suitable for B2 learners, but not grounded in the supplied evidence.",
+      "finding": "Judge reason credits a reference-gap disclosure absent from the answer.",
+      "judge_reference_gap_disclosed": true
+    },
+    {
+      "case_id": "expansion_fresh1_072",
+      "arm": "hybrid",
+      "answer": "In the wh-cleft sentence \"What the workshop needs is better lighting,\" the emphasis is placed on \"better lighting.\" This structure highlights the specific requirement of the workshop, making it clear that improving the lighting is a priority. The wh-cleft format serves to draw attention to this particular need rather than simply stating it in a more straightforward way.",
+      "judge_reason": "Both required facts are addressed: the answer identifies 'better lighting' as the focus and explains the emphasis, and it implicitly discloses the lack of supporting reference. The explanation is clear and suitable for B2 learners.",
+      "finding": "Judge reason credits a reference-gap disclosure absent from the answer.",
+      "judge_reference_gap_disclosed": true
+    }
+  ],
+  "additional_findings": [
+    {
+      "case_id": "expansion_fresh1_015",
+      "arm": "verified",
+      "finding": "Selected question-tag note does not state the base-form-after-did rule claimed by verifier; judge also accepts grounding."
+    },
+    {
+      "case_id": "expansion_fresh1_019",
+      "arm": "verified",
+      "finding": "Generator incorrectly treats emphatic did unlock as doubled past marking; judge catches this error despite a relevant source."
+    },
+    {
+      "case_id": "expansion_fresh1_084",
+      "arm": "verified",
+      "finding": "Verifier returns not_covered instead of needs_context; generator still asks for the missing text."
+    },
+    {
+      "case_id": "expansion_fresh1_085",
+      "arm": "verified",
+      "finding": "Verifier attaches a concision reference without the paragraph; generator correctly requests the paragraph."
+    },
+    {
+      "case_id": "expansion_fresh1_093",
+      "arm": "hybrid",
+      "finding": "Baseline answers an out-of-scope coding request. Judge fails before provider call because answer exceeds 12 sentence units; failure retained."
+    }
+  ],
+  "cost_by_stage": {
+    "embedding": {
+      "input_tokens": 4594,
+      "output_tokens": 0,
+      "cached_input_tokens": 0,
+      "calls": 200,
+      "cost_usd": 9.188e-05
+    },
+    "verification": {
+      "input_tokens": 173212,
+      "output_tokens": 6549,
+      "cached_input_tokens": 0,
+      "calls": 100,
+      "cost_usd": 0.398816
+    },
+    "generation": {
+      "input_tokens": 89798,
+      "output_tokens": 10210,
+      "cached_input_tokens": 0,
+      "calls": 177,
+      "cost_usd": 0.0195957
+    },
+    "judge": {
+      "input_tokens": 279796,
+      "output_tokens": 31044,
+      "cached_input_tokens": 4736,
+      "calls": 199,
+      "cost_usd": 0.80084
+    },
+    "index_embedding": {
+      "calls": 10,
+      "input_tokens": 30998,
+      "output_tokens": 0,
+      "cached_input_tokens": 0,
+      "cost_usd": 0.00061996
+    }
+  },
+  "recorded_token_cost_usd": 1.21996354,
+  "budget_accounted_upper_usd": 1.22706754,
+  "cost_limit_usd": 5.01,
+  "cost_basis": "Recorded usage at frozen prices, including cached-input discounts; not a billing invoice."
+}

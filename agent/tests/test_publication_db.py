@@ -41,9 +41,9 @@ def test_late_publication_failure_rolls_back_and_never_commits():
 def test_reader_rejects_unusable_indexes(defect, reason):
     notes = load_contrast_docs('en'); m = manifest_for(notes)
     conn, cur = connection()
-    row = [m['fingerprint'],31,31,31,notes[0].id,notes[0].concept_id,notes[0].title,[],[],1.0]
+    row = [m['fingerprint'],len(notes),len(notes),len(notes),notes[0].id,notes[0].concept_id,notes[0].title,[],[],1.0]
     if defect == 'stale': row[0] = 'old'
-    if defect == 'partial': row[3] = 30
+    if defect == 'partial': row[3] = len(notes) - 1
     cur.fetchall.return_value = [] if defect == 'missing' else [row]
     with patch('retrieval.db._get_conn', return_value=conn):
         with pytest.raises(db.IndexUnavailable, match=reason): db.query_by_vector([0.1] * 1536)

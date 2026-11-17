@@ -1,8 +1,12 @@
 # Release and deployment evidence
 
-## Latest source-policy validation
+## Current corpus expansion
 
-The current branch changes the actual freeform handler and adds reproducible three-layer validation. Fresh-v2 passed its fixed gates (11/11 source precision, 11/12 recall, 0/12 negative false references, 8/8 required clarification/redirect routes), and 269 local tests passed including disposable pgvector. Fresh-v1 failed and remains preserved. See [release results](RELEASE_VALIDATION_RESULTS.md) and the [frozen protocol](RELEASE_VALIDATION_PROTOCOL.md). A successful local/provider evaluation or PR check does not establish that Render runs this revision. The historical production observations below apply only to their named commit. No new migration or embedding rebuild is needed for the source-policy change.
+The repository now contains 200 notes. The expanded corpus passes offline validation and local database integration. Its [100-question provider-backed local comparison](EXPANSION_EVALUATION_RESULTS.md) is complete, with source-selection and judge errors documented; it has not been published to the live index. The 31-note source-policy results below remain historical. This content change **does require a coordinated index rebuild**; see [expansion status](CORPUS_EXPANSION_200.md).
+
+## Historical 31-note source-policy validation
+
+The source-policy release changed the actual freeform handler and adds reproducible three-layer validation. Fresh-v2 passed its fixed gates (11/11 source precision, 11/12 recall, 0/12 negative false references, 8/8 required clarification/redirect routes), and 269 local tests passed including disposable pgvector. Fresh-v1 failed and remains preserved. See [release results](RELEASE_VALIDATION_RESULTS.md) and the [frozen protocol](RELEASE_VALIDATION_PROTOCOL.md). A successful local/provider evaluation or PR check does not establish that Render runs this revision. The historical production observations below apply only to their named commit. No new migration or embedding rebuild is needed for the source-policy change.
 
 ## Historical deployment check: production RAG verified
 

@@ -1,0 +1,2274 @@
+{
+  "status": "development_diagnostic_only",
+  "quality_gate": false,
+  "corpus_revision": "2026-11-16.200",
+  "note_count": 200,
+  "corpus_sha256": "44381060e64e12e04a3fa2ceaa08ea3cc9d1c07dd8860275468c5437bf655391",
+  "cases_sha256": "933b7b2d554636facaeb4b3922fd221b273089bbf230b8b04a2f0c561a86d982",
+  "method": "BM25 question-only; k1=1.2, b=0.75, top_k=5",
+  "summary": {
+    "cases": 169,
+    "hit_at_1": 0.5621301775147929,
+    "hit_at_3": 0.7396449704142012,
+    "hit_at_5": 0.8224852071005917,
+    "mrr_at_5": 0.6626232741617357
+  },
+  "buckets": {
+    "adjectives_adverbs": {
+      "cases": 20,
+      "hit_at_1": 0.55,
+      "hit_at_3": 0.75,
+      "hit_at_5": 0.85,
+      "mrr_at_5": 0.6558333333333334
+    },
+    "clauses_reporting": {
+      "cases": 22,
+      "hit_at_1": 0.8181818181818182,
+      "hit_at_3": 0.8636363636363636,
+      "hit_at_5": 0.9545454545454546,
+      "mrr_at_5": 0.8636363636363636
+    },
+    "nouns_determiners": {
+      "cases": 24,
+      "hit_at_1": 0.8333333333333334,
+      "hit_at_3": 0.8333333333333334,
+      "hit_at_5": 0.875,
+      "mrr_at_5": 0.8416666666666667
+    },
+    "prepositions_patterns": {
+      "cases": 24,
+      "hit_at_1": 0.4583333333333333,
+      "hit_at_3": 0.75,
+      "hit_at_5": 0.875,
+      "mrr_at_5": 0.63125
+    },
+    "pronouns_agreement": {
+      "cases": 16,
+      "hit_at_1": 0.375,
+      "hit_at_3": 0.6875,
+      "hit_at_5": 0.6875,
+      "mrr_at_5": 0.5208333333333334
+    },
+    "questions_modals": {
+      "cases": 23,
+      "hit_at_1": 0.4782608695652174,
+      "hit_at_3": 0.6956521739130435,
+      "hit_at_5": 0.8260869565217391,
+      "mrr_at_5": 0.6079710144927536
+    },
+    "tense_aspect": {
+      "cases": 26,
+      "hit_at_1": 0.4230769230769231,
+      "hit_at_3": 0.5384615384615384,
+      "hit_at_5": 0.6538461538461539,
+      "mrr_at_5": 0.5012820512820513
+    },
+    "writing_usage": {
+      "cases": 14,
+      "hit_at_1": 0.5,
+      "hit_at_3": 0.8571428571428571,
+      "hit_at_5": 0.8571428571428571,
+      "mrr_at_5": 0.6547619047619048
+    }
+  },
+  "results": [
+    {
+      "case_id": "expansion_present_simple_habits",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_simple_habits",
+      "retrieved_note_ids": [
+        "en_say_tell",
+        "en_work_vocabulary_precision",
+        "en_verbs_followed_to",
+        "en_must_deduction",
+        "en_precise_adjective_choice"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_present_third_person_s",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_third_person_s",
+      "retrieved_note_ids": [
+        "en_help_infinitive",
+        "en_remember_ing_to",
+        "en_past_simple_did",
+        "en_present_third_person_s",
+        "en_will_decisions_promises"
+      ],
+      "target_rank": 4
+    },
+    {
+      "case_id": "expansion_present_simple_negation",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_simple_negation",
+      "retrieved_note_ids": [
+        "en_present_simple_negation",
+        "en_imperative_base_form",
+        "en_question_tags_polarity",
+        "en_present_be_agreement",
+        "en_present_third_person_s"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_present_be_agreement",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_be_agreement",
+      "retrieved_note_ids": [
+        "en_a_the_reference",
+        "en_say_tell",
+        "en_modal_base_form",
+        "en_past_continuous_background",
+        "en_countable_uncountable"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_present_continuous_now",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_continuous_now",
+      "retrieved_note_ids": [
+        "en_infinitive_purpose",
+        "en_the_other_the_others",
+        "en_money_vocabulary_precision",
+        "en_be_get_used_to",
+        "en_relative_object_omission"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_present_simple_vs_continuous",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_simple_vs_continuous",
+      "retrieved_note_ids": [
+        "en_be_get_used_to",
+        "en_non_restrictive_relative_clause",
+        "en_comparative_than",
+        "en_work_formal_register",
+        "en_finance_formal_register"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_stative_verbs",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_stative_verbs",
+      "retrieved_note_ids": [
+        "en_stative_verbs",
+        "en_short_answers_auxiliary",
+        "en_perfect_simple_vs_continuous",
+        "en_present_simple_vs_continuous",
+        "en_state_action_meaning"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_state_action_meaning",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_state_action_meaning",
+      "retrieved_note_ids": [
+        "en_state_action_meaning",
+        "en_present_continuous_arrangements",
+        "en_say_tell",
+        "en_present_simple_vs_continuous",
+        "en_make_do_collocations"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_past_simple_finished",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_past_simple_finished",
+      "retrieved_note_ids": [
+        "en_which_whole_clause",
+        "en_reported_speech_backshift",
+        "en_present_simple_vs_continuous",
+        "en_past_simple_finished",
+        "en_used_to_past"
+      ],
+      "target_rank": 4
+    },
+    {
+      "case_id": "expansion_past_simple_did",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_past_simple_did",
+      "retrieved_note_ids": [
+        "en_past_perfect_sequence",
+        "en_arrive_in_at",
+        "en_infinitive_purpose",
+        "en_present_perfect_experience",
+        "en_participle_clause_combination"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_past_continuous_background",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_past_continuous_background",
+      "retrieved_note_ids": [
+        "en_past_continuous_background",
+        "en_present_continuous_arrangements",
+        "en_all_whole",
+        "en_institution_articles",
+        "en_adjective_adverb_roles"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_present_perfect_result",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_perfect_result",
+      "retrieved_note_ids": [
+        "en_present_perfect_result",
+        "en_mixed_conditionals",
+        "en_wish_past",
+        "en_present_continuous_arrangements",
+        "en_present_perfect_experience"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_present_perfect_experience",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_perfect_experience",
+      "retrieved_note_ids": [
+        "en_present_perfect_experience",
+        "en_by_with_agent_instrument",
+        "en_standard_negative_agreement",
+        "en_just_recent_completion",
+        "en_this_that_these_those"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_perfect_since_for",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_perfect_since_for",
+      "retrieved_note_ids": [
+        "en_perfect_since_for",
+        "en_perfect_simple_vs_continuous",
+        "en_since_from_starting_points",
+        "en_modify_comparatives",
+        "en_between_among"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_present_perfect_continuous",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_perfect_continuous",
+      "retrieved_note_ids": [
+        "en_future_continuous_progress",
+        "en_past_perfect_continuous_duration",
+        "en_state_action_meaning",
+        "en_present_simple_habits",
+        "en_present_perfect_continuous"
+      ],
+      "target_rank": 5
+    },
+    {
+      "case_id": "expansion_perfect_simple_vs_continuous",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_perfect_simple_vs_continuous",
+      "retrieved_note_ids": [
+        "en_countable_uncountable",
+        "en_should_have_regret",
+        "en_can_ability",
+        "en_institution_articles",
+        "en_all_whole"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_past_perfect_sequence",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_past_perfect_sequence",
+      "retrieved_note_ids": [
+        "en_comparative_than",
+        "en_third_conditional",
+        "en_semicolon_linking",
+        "en_mixed_conditionals",
+        "en_other_another"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_past_perfect_continuous_duration",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_past_perfect_continuous_duration",
+      "retrieved_note_ids": [
+        "en_wh_object_questions",
+        "en_late_lately",
+        "en_say_tell",
+        "en_already_yet_still",
+        "en_a_an_sound"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_used_to_past",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_used_to_past",
+      "retrieved_note_ids": [
+        "en_increasing_comparison",
+        "en_used_to_past",
+        "en_time_in_on_at",
+        "en_would_past_habit",
+        "en_both_and_parallel"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_would_past_habit",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_would_past_habit",
+      "retrieved_note_ids": [
+        "en_would_past_habit",
+        "en_singular_they",
+        "en_because_because_of",
+        "en_be_get_used_to",
+        "en_used_to_past"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_will_decisions_promises",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_will_decisions_promises",
+      "retrieved_note_ids": [
+        "en_formal_register_precision",
+        "en_will_decisions_promises",
+        "en_help_infinitive",
+        "en_future_continuous_progress",
+        "en_future_perfect_completion"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_going_to_intentions",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_going_to_intentions",
+      "retrieved_note_ids": [
+        "en_verbs_followed_to",
+        "en_stop_ing_to",
+        "en_sentence_fragments",
+        "en_must_have_to",
+        "en_precise_adjective_choice"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_present_continuous_arrangements",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_continuous_arrangements",
+      "retrieved_note_ids": [
+        "en_present_continuous_arrangements",
+        "en_bring_take_direction",
+        "en_present_simple_timetables",
+        "en_remember_ing_to",
+        "en_first_conditional"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_present_simple_timetables",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_present_simple_timetables",
+      "retrieved_note_ids": [
+        "en_present_simple_timetables",
+        "en_future_continuous_progress",
+        "en_first_conditional",
+        "en_modal_perfect_deduction",
+        "en_even_if_even_though"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_future_continuous_progress",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_future_continuous_progress",
+      "retrieved_note_ids": [
+        "en_will_decisions_promises",
+        "en_say_tell",
+        "en_future_continuous_progress",
+        "en_future_perfect_completion",
+        "en_future_time_clauses"
+      ],
+      "target_rank": 3
+    },
+    {
+      "case_id": "expansion_future_perfect_completion",
+      "bucket": "tense_aspect",
+      "expected_note_id": "en_future_perfect_completion",
+      "retrieved_note_ids": [
+        "en_future_perfect_completion",
+        "en_precise_synonym_choice",
+        "en_must_have_to",
+        "en_unless_condition",
+        "en_past_simple_finished"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_yes_no_do_questions",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_yes_no_do_questions",
+      "retrieved_note_ids": [
+        "en_short_answers_auxiliary",
+        "en_indirect_question_order",
+        "en_reported_questions",
+        "en_yes_no_do_questions",
+        "en_separable_phrasal_verbs"
+      ],
+      "target_rank": 4
+    },
+    {
+      "case_id": "expansion_subject_questions",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_subject_questions",
+      "retrieved_note_ids": [
+        "en_formal_conditional",
+        "en_future_time_clauses",
+        "en_relative_clause_combination",
+        "en_either_or_parallel",
+        "en_whose_relative_possession"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_wh_object_questions",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_wh_object_questions",
+      "retrieved_note_ids": [
+        "en_comparative_than",
+        "en_negative_words_tags",
+        "en_reported_time_reference",
+        "en_past_simple_finished",
+        "en_indirect_question_order"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_be_question_inversion",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_be_question_inversion",
+      "retrieved_note_ids": [
+        "en_short_answers_auxiliary",
+        "en_both_and_parallel",
+        "en_collective_noun_agreement",
+        "en_present_be_agreement",
+        "en_present_perfect_result"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_short_answers_auxiliary",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_short_answers_auxiliary",
+      "retrieved_note_ids": [
+        "en_short_answers_auxiliary",
+        "en_say_tell",
+        "en_stative_verbs",
+        "en_state_action_meaning",
+        "en_yes_no_do_questions"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_indirect_question_order",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_indirect_question_order",
+      "retrieved_note_ids": [
+        "en_stative_verbs",
+        "en_borrow_lend",
+        "en_frequency_adverb_position",
+        "en_reported_time_reference",
+        "en_indirect_question_order"
+      ],
+      "target_rank": 5
+    },
+    {
+      "case_id": "expansion_question_tags_polarity",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_question_tags_polarity",
+      "retrieved_note_ids": [
+        "en_question_tags_polarity",
+        "en_past_simple_finished",
+        "en_present_perfect_result",
+        "en_just_recent_completion",
+        "en_negative_words_tags"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_negative_words_tags",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_negative_words_tags",
+      "retrieved_note_ids": [
+        "en_negative_words_tags",
+        "en_formal_conditional",
+        "en_question_tags_polarity",
+        "en_standard_negative_agreement",
+        "en_stative_verbs"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_imperative_base_form",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_imperative_base_form",
+      "retrieved_note_ids": [
+        "en_reported_commands",
+        "en_imperative_base_form",
+        "en_second_conditional",
+        "en_hard_hardly",
+        "en_present_be_agreement"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_lets_suggestions",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_lets_suggestions",
+      "retrieved_note_ids": [
+        "en_lets_suggestions",
+        "en_going_to_intentions",
+        "en_let_make_bare_infinitive",
+        "en_work_phrase_formal",
+        "en_mixed_conditionals"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_modal_base_form",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_modal_base_form",
+      "retrieved_note_ids": [
+        "en_must_have_to",
+        "en_some_any",
+        "en_must_deduction",
+        "en_had_better_warning",
+        "en_modal_perfect_deduction"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_can_ability",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_can_ability",
+      "retrieved_note_ids": [
+        "en_wish_present",
+        "en_future_continuous_progress",
+        "en_can_ability",
+        "en_will_decisions_promises",
+        "en_must_have_to"
+      ],
+      "target_rank": 3
+    },
+    {
+      "case_id": "expansion_could_past_ability",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_could_past_ability",
+      "retrieved_note_ids": [
+        "en_could_past_ability",
+        "en_should_advice",
+        "en_let_make_bare_infinitive",
+        "en_passive_vs_active_voice",
+        "en_wish_past"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_can_may_permission",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_can_may_permission",
+      "retrieved_note_ids": [
+        "en_can_may_permission",
+        "en_indirect_question_order",
+        "en_formal_register_precision",
+        "en_first_conditional",
+        "en_frequency_adverb_position"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_must_have_to",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_must_have_to",
+      "retrieved_note_ids": [
+        "en_past_simple_did",
+        "en_must_have_to",
+        "en_can_may_permission",
+        "en_reported_speech_backshift",
+        "en_past_simple_finished"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_mustnt_vs_dont_have_to",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_mustnt_vs_dont_have_to",
+      "retrieved_note_ids": [
+        "en_mustnt_vs_dont_have_to",
+        "en_imperative_base_form",
+        "en_present_simple_negation",
+        "en_should_advice",
+        "en_negative_words_tags"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_must_deduction",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_must_deduction",
+      "retrieved_note_ids": [
+        "en_mustnt_vs_dont_have_to",
+        "en_must_deduction",
+        "en_must_have_to",
+        "en_arrive_in_at",
+        "en_there_it_subjects"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_cant_deduction",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_cant_deduction",
+      "retrieved_note_ids": [
+        "en_cant_deduction",
+        "en_must_deduction",
+        "en_modal_perfect_deduction",
+        "en_reported_speech_backshift",
+        "en_must_have_to"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_may_might_possibility",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_may_might_possibility",
+      "retrieved_note_ids": [
+        "en_may_might_possibility",
+        "en_modal_perfect_deduction",
+        "en_articles_place_names",
+        "en_modal_base_form",
+        "en_arrive_in_at"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_modal_perfect_deduction",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_modal_perfect_deduction",
+      "retrieved_note_ids": [
+        "en_science_formal_register",
+        "en_must_deduction",
+        "en_must_have_to",
+        "en_past_perfect_sequence",
+        "en_modal_perfect_deduction"
+      ],
+      "target_rank": 5
+    },
+    {
+      "case_id": "expansion_should_advice",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_should_advice",
+      "retrieved_note_ids": [
+        "en_should_advice",
+        "en_modify_comparatives",
+        "en_modal_base_form",
+        "en_as_as_equality",
+        "en_between_among"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_should_have_regret",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_should_have_regret",
+      "retrieved_note_ids": [
+        "en_wish_past",
+        "en_should_have_regret",
+        "en_modal_perfect_deduction",
+        "en_must_deduction",
+        "en_already_yet_still"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_had_better_warning",
+      "bucket": "questions_modals",
+      "expected_note_id": "en_had_better_warning",
+      "retrieved_note_ids": [
+        "en_had_better_warning",
+        "en_present_simple_timetables",
+        "en_present_continuous_arrangements",
+        "en_wish_present",
+        "en_must_have_to"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_a_an_sound",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_a_an_sound",
+      "retrieved_note_ids": [
+        "en_singular_they",
+        "en_institution_articles",
+        "en_present_simple_vs_continuous",
+        "en_try_ing_to",
+        "en_this_that_these_those"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_a_the_reference",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_a_the_reference",
+      "retrieved_note_ids": [
+        "en_even_if_even_though",
+        "en_zero_conditional",
+        "en_reported_time_reference",
+        "en_whose_relative_possession",
+        "en_a_the_reference"
+      ],
+      "target_rank": 5
+    },
+    {
+      "case_id": "expansion_zero_article_general",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_zero_article_general",
+      "retrieved_note_ids": [
+        "en_modify_comparatives",
+        "en_bring_take_direction",
+        "en_be_get_used_to",
+        "en_singular_possessive",
+        "en_already_yet_still"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_articles_place_names",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_articles_place_names",
+      "retrieved_note_ids": [
+        "en_articles_place_names",
+        "en_say_tell",
+        "en_past_continuous_background",
+        "en_countable_uncountable",
+        "en_present_simple_vs_continuous"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_institution_articles",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_institution_articles",
+      "retrieved_note_ids": [
+        "en_institution_articles",
+        "en_used_to_past",
+        "en_be_get_used_to",
+        "en_singular_possessive",
+        "en_already_yet_still"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_countable_uncountable",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_countable_uncountable",
+      "retrieved_note_ids": [
+        "en_countable_uncountable",
+        "en_one_ones_substitution",
+        "en_relative_clause_combination",
+        "en_non_restrictive_relative_clause",
+        "en_indirect_question_order"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_units_mass_nouns",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_units_mass_nouns",
+      "retrieved_note_ids": [
+        "en_units_mass_nouns",
+        "en_should_advice",
+        "en_preposition_gerund",
+        "en_work_vocabulary_precision",
+        "en_had_better_warning"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_countability_meaning",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_countability_meaning",
+      "retrieved_note_ids": [
+        "en_countability_meaning",
+        "en_units_mass_nouns",
+        "en_indirect_question_order",
+        "en_reported_questions",
+        "en_either_or_parallel"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_regular_noun_plurals",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_regular_noun_plurals",
+      "retrieved_note_ids": [
+        "en_regular_noun_plurals",
+        "en_articles_place_names",
+        "en_present_be_agreement",
+        "en_units_mass_nouns",
+        "en_make_do_collocations"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_irregular_plurals",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_irregular_plurals",
+      "retrieved_note_ids": [
+        "en_both_and_parallel",
+        "en_both_either_neither",
+        "en_between_among",
+        "en_units_mass_nouns",
+        "en_comparative_forms"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_plural_only_nouns",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_plural_only_nouns",
+      "retrieved_note_ids": [
+        "en_plural_only_nouns",
+        "en_say_tell",
+        "en_past_continuous_background",
+        "en_countable_uncountable"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_singular_possessive",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_singular_possessive",
+      "retrieved_note_ids": [
+        "en_singular_possessive",
+        "en_regular_noun_plurals",
+        "en_plural_possessive",
+        "en_colon_introductions",
+        "en_education_formal_register"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_plural_possessive",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_plural_possessive",
+      "retrieved_note_ids": [
+        "en_plural_possessive",
+        "en_modify_comparatives",
+        "en_between_among",
+        "en_relative_where_when",
+        "en_as_as_equality"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_few_a_few",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_few_a_few",
+      "retrieved_note_ids": [
+        "en_few_a_few",
+        "en_little_a_little",
+        "en_countability_meaning",
+        "en_affect_effect",
+        "en_yes_no_do_questions"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_little_a_little",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_little_a_little",
+      "retrieved_note_ids": [
+        "en_little_a_little",
+        "en_few_a_few",
+        "en_affect_effect",
+        "en_be_get_used_to",
+        "en_singular_possessive"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_much_many",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_much_many",
+      "retrieved_note_ids": [
+        "en_much_many",
+        "en_modify_comparatives",
+        "en_be_get_used_to",
+        "en_indefinite_pronoun_agreement",
+        "en_whose_relative_possession"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_fewer_less",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_fewer_less",
+      "retrieved_note_ids": [
+        "en_fewer_less",
+        "en_affect_effect",
+        "en_sport_formal_sentence",
+        "en_finance_phrase_formal",
+        "en_sentence_fragments"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_some_any",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_some_any",
+      "retrieved_note_ids": [
+        "en_some_any",
+        "en_say_tell",
+        "en_past_continuous_background",
+        "en_countable_uncountable",
+        "en_should_have_regret"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_any_free_choice",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_any_free_choice",
+      "retrieved_note_ids": [
+        "en_any_free_choice",
+        "en_some_any",
+        "en_standard_negative_agreement",
+        "en_singular_possessive",
+        "en_both_and_parallel"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_each_every_singular",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_each_every_singular",
+      "retrieved_note_ids": [
+        "en_each_every_singular",
+        "en_singular_possessive",
+        "en_both_and_parallel",
+        "en_any_free_choice",
+        "en_indefinite_pronoun_agreement"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_both_either_neither",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_both_either_neither",
+      "retrieved_note_ids": [
+        "en_both_either_neither",
+        "en_few_a_few",
+        "en_be_get_used_to",
+        "en_either_or_parallel",
+        "en_help_infinitive"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_all_whole",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_all_whole",
+      "retrieved_note_ids": [
+        "en_all_whole",
+        "en_reported_time_reference",
+        "en_which_whole_clause",
+        "en_time_in_on_at",
+        "en_relative_where_when"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_other_another",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_other_another",
+      "retrieved_note_ids": [
+        "en_other_another",
+        "en_the_other_the_others",
+        "en_each_other_reciprocal",
+        "en_modify_comparatives",
+        "en_education_formal_register"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_the_other_the_others",
+      "bucket": "nouns_determiners",
+      "expected_note_id": "en_the_other_the_others",
+      "retrieved_note_ids": [
+        "en_the_other_the_others",
+        "en_singular_they",
+        "en_between_among",
+        "en_both_either_neither",
+        "en_regular_noun_plurals"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_subject_object_pronouns",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_subject_object_pronouns",
+      "retrieved_note_ids": [
+        "en_standard_negative_agreement",
+        "en_help_infinitive",
+        "en_as_as_equality",
+        "en_between_among",
+        "en_comparative_forms"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_singular_they",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_singular_they",
+      "retrieved_note_ids": [
+        "en_singular_they",
+        "en_which_whole_clause",
+        "en_singular_possessive",
+        "en_just_recent_completion",
+        "en_other_another"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_possessive_determiners_pronouns",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_possessive_determiners_pronouns",
+      "retrieved_note_ids": [
+        "en_modify_comparatives",
+        "en_between_among",
+        "en_as_as_equality",
+        "en_separable_phrasal_verbs",
+        "en_their_there_theyre"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_reflexive_objects",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_reflexive_objects",
+      "retrieved_note_ids": [
+        "en_reflexive_objects",
+        "en_say_tell",
+        "en_either_or_parallel",
+        "en_emphatic_reflexives",
+        "en_past_continuous_background"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_emphatic_reflexives",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_emphatic_reflexives",
+      "retrieved_note_ids": [
+        "en_reflexive_objects",
+        "en_emphatic_reflexives",
+        "en_be_get_used_to",
+        "en_singular_possessive",
+        "en_already_yet_still"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_each_other_reciprocal",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_each_other_reciprocal",
+      "retrieved_note_ids": [
+        "en_each_other_reciprocal",
+        "en_perfect_since_for",
+        "en_each_every_singular",
+        "en_perfect_simple_vs_continuous",
+        "en_reflexive_objects"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_indefinite_pronoun_agreement",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_indefinite_pronoun_agreement",
+      "retrieved_note_ids": [
+        "en_be_get_used_to",
+        "en_used_to_past",
+        "en_much_many",
+        "en_would_past_habit",
+        "en_by_with_agent_instrument"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_this_that_these_those",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_this_that_these_those",
+      "retrieved_note_ids": [
+        "en_yes_no_do_questions",
+        "en_during_for_periods",
+        "en_infinitive_purpose",
+        "en_verbs_followed_to",
+        "en_negative_words_tags"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_one_ones_substitution",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_one_ones_substitution",
+      "retrieved_note_ids": [
+        "en_one_ones_substitution",
+        "en_colon_introductions",
+        "en_say_tell",
+        "en_in_case_precaution",
+        "en_comparative_than"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_whose_relative_possession",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_whose_relative_possession",
+      "retrieved_note_ids": [
+        "en_whose_relative_possession",
+        "en_relative_where_when",
+        "en_relative_clause_combination",
+        "en_non_restrictive_relative_clause",
+        "en_relative_object_omission"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_relative_object_omission",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_relative_object_omission",
+      "retrieved_note_ids": [
+        "en_hard_hardly",
+        "en_relative_object_omission",
+        "en_should_have_regret",
+        "en_can_ability",
+        "en_any_free_choice"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_relative_where_when",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_relative_where_when",
+      "retrieved_note_ids": [
+        "en_articles_place_names",
+        "en_frequency_adverb_position",
+        "en_regular_noun_plurals",
+        "en_some_any",
+        "en_present_perfect_experience"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_which_whole_clause",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_which_whole_clause",
+      "retrieved_note_ids": [
+        "en_which_whole_clause",
+        "en_arrive_in_at",
+        "en_non_restrictive_relative_clause",
+        "en_be_get_used_to",
+        "en_other_another"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_there_it_subjects",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_there_it_subjects",
+      "retrieved_note_ids": [
+        "en_because_because_of",
+        "en_there_it_subjects",
+        "en_their_there_theyre",
+        "en_be_get_used_to",
+        "en_singular_possessive"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_agreement_head_noun",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_agreement_head_noun",
+      "retrieved_note_ids": [
+        "en_bring_take_direction",
+        "en_adjective_order",
+        "en_agreement_head_noun",
+        "en_regular_noun_plurals",
+        "en_too_degree"
+      ],
+      "target_rank": 3
+    },
+    {
+      "case_id": "expansion_collective_noun_agreement",
+      "bucket": "pronouns_agreement",
+      "expected_note_id": "en_collective_noun_agreement",
+      "retrieved_note_ids": [
+        "en_sport_formal_sentence",
+        "en_collective_noun_agreement",
+        "en_preposition_gerund",
+        "en_present_simple_vs_continuous",
+        "en_commentary_and_domain_register"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_adjective_adverb_roles",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_adjective_adverb_roles",
+      "retrieved_note_ids": [
+        "en_relative_clause_combination",
+        "en_sentence_fragments",
+        "en_infinitive_purpose",
+        "en_negative_words_tags",
+        "en_formal_conditional"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_linking_verb_adjectives",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_linking_verb_adjectives",
+      "retrieved_note_ids": [
+        "en_food_formal_register",
+        "en_sport_vocabulary_precision",
+        "en_linking_verb_adjectives",
+        "en_sport_formal_sentence",
+        "en_dependent_adjective_prepositions"
+      ],
+      "target_rank": 3
+    },
+    {
+      "case_id": "expansion_ed_ing_feelings",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_ed_ing_feelings",
+      "retrieved_note_ids": [
+        "en_ed_ing_feelings",
+        "en_modify_comparatives",
+        "en_between_among",
+        "en_as_as_equality",
+        "en_separable_phrasal_verbs"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_adjective_order",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_adjective_order",
+      "retrieved_note_ids": [
+        "en_adjective_order",
+        "en_frequency_adverb_position",
+        "en_too_degree",
+        "en_little_a_little",
+        "en_modal_base_form"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_comparative_forms",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_comparative_forms",
+      "retrieved_note_ids": [
+        "en_parallel_structure",
+        "en_increasing_comparison",
+        "en_comparative_forms",
+        "en_can_may_permission",
+        "en_second_conditional"
+      ],
+      "target_rank": 3
+    },
+    {
+      "case_id": "expansion_comparative_than",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_comparative_than",
+      "retrieved_note_ids": [
+        "en_comparative_than",
+        "en_wh_object_questions",
+        "en_participle_clause_combination",
+        "en_preposition_gerund",
+        "en_make_do_collocations"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_superlative_group",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_superlative_group",
+      "retrieved_note_ids": [
+        "en_superlative_group",
+        "en_modify_comparatives",
+        "en_be_get_used_to",
+        "en_singular_possessive",
+        "en_semicolon_linking"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_as_as_equality",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_as_as_equality",
+      "retrieved_note_ids": [
+        "en_had_better_warning",
+        "en_comparative_forms",
+        "en_some_any",
+        "en_collective_noun_agreement",
+        "en_should_have_regret"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_modify_comparatives",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_modify_comparatives",
+      "retrieved_note_ids": [
+        "en_had_better_warning",
+        "en_say_tell",
+        "en_comparative_forms",
+        "en_modify_comparatives",
+        "en_too_degree"
+      ],
+      "target_rank": 4
+    },
+    {
+      "case_id": "expansion_increasing_comparison",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_increasing_comparison",
+      "retrieved_note_ids": [
+        "en_say_tell",
+        "en_modify_comparatives",
+        "en_be_get_used_to",
+        "en_past_continuous_background",
+        "en_countable_uncountable"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_gradable_intensifiers",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_gradable_intensifiers",
+      "retrieved_note_ids": [
+        "en_too_degree",
+        "en_gradable_intensifiers",
+        "en_modify_comparatives",
+        "en_precise_synonym_choice",
+        "en_much_many"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_so_such",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_so_such",
+      "retrieved_note_ids": [
+        "en_say_tell",
+        "en_countable_uncountable",
+        "en_dependent_adjective_prepositions",
+        "en_work_phrase_formal",
+        "en_so_such"
+      ],
+      "target_rank": 5
+    },
+    {
+      "case_id": "expansion_enough_position",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_enough_position",
+      "retrieved_note_ids": [
+        "en_enough_position",
+        "en_tech_vocabulary_precision"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_too_degree",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_too_degree",
+      "retrieved_note_ids": [
+        "en_too_degree",
+        "en_modify_comparatives",
+        "en_try_ing_to",
+        "en_sport_formal_sentence",
+        "en_each_other_reciprocal"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_frequency_adverb_position",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_frequency_adverb_position",
+      "retrieved_note_ids": [
+        "en_frequency_adverb_position",
+        "en_affect_effect",
+        "en_present_third_person_s",
+        "en_imperative_base_form",
+        "en_arrive_in_at"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_manner_adverb_position",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_manner_adverb_position",
+      "retrieved_note_ids": [
+        "en_manner_adverb_position",
+        "en_relative_clause_combination",
+        "en_should_have_regret",
+        "en_adjective_adverb_roles",
+        "en_passive_vs_active_voice"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_hard_hardly",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_hard_hardly",
+      "retrieved_note_ids": [
+        "en_hard_hardly",
+        "en_negative_words_tags",
+        "en_education_formal_register",
+        "en_academic_formal_register",
+        "en_modify_comparatives"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_late_lately",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_late_lately",
+      "retrieved_note_ids": [
+        "en_late_lately",
+        "en_modify_comparatives",
+        "en_although_despite",
+        "en_between_among",
+        "en_as_as_equality"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_already_yet_still",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_already_yet_still",
+      "retrieved_note_ids": [
+        "en_already_yet_still",
+        "en_irregular_plurals",
+        "en_reported_speech_backshift",
+        "en_should_advice",
+        "en_question_tags_polarity"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_just_recent_completion",
+      "bucket": "adjectives_adverbs",
+      "expected_note_id": "en_just_recent_completion",
+      "retrieved_note_ids": [
+        "en_reported_speech_backshift",
+        "en_just_recent_completion",
+        "en_must_deduction",
+        "en_must_have_to",
+        "en_modal_perfect_deduction"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_time_in_on_at",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_time_in_on_at",
+      "retrieved_note_ids": [
+        "en_may_might_possibility",
+        "en_either_or_parallel",
+        "en_present_simple_timetables",
+        "en_since_from_starting_points",
+        "en_past_perfect_continuous_duration"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_place_in_on_at",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_place_in_on_at",
+      "retrieved_note_ids": [
+        "en_wish_past",
+        "en_past_perfect_sequence",
+        "en_a_an_sound",
+        "en_any_free_choice",
+        "en_gradable_intensifiers"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_movement_into_onto",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_movement_into_onto",
+      "retrieved_note_ids": [
+        "en_comma_splices",
+        "en_inseparable_multiword_verbs",
+        "en_modify_comparatives",
+        "en_as_as_equality",
+        "en_movement_into_onto"
+      ],
+      "target_rank": 5
+    },
+    {
+      "case_id": "expansion_by_until_deadlines",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_by_until_deadlines",
+      "retrieved_note_ids": [
+        "en_by_until_deadlines",
+        "en_commentary_and_domain_register",
+        "en_formal_register_precision",
+        "en_work_phrase_formal",
+        "en_be_get_used_to"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_during_for_periods",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_during_for_periods",
+      "retrieved_note_ids": [
+        "en_during_for_periods",
+        "en_modify_comparatives",
+        "en_between_among",
+        "en_commentary_and_domain_register",
+        "en_past_continuous_background"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_since_from_starting_points",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_since_from_starting_points",
+      "retrieved_note_ids": [
+        "en_since_from_starting_points",
+        "en_perfect_since_for",
+        "en_say_tell",
+        "en_by_until_deadlines",
+        "en_may_might_possibility"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_between_among",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_between_among",
+      "retrieved_note_ids": [
+        "en_countable_uncountable",
+        "en_between_among",
+        "en_say_tell",
+        "en_their_there_theyre",
+        "en_colon_introductions"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_by_with_agent_instrument",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_by_with_agent_instrument",
+      "retrieved_note_ids": [
+        "en_passive_vs_active_voice",
+        "en_formal_rewrite_sentence",
+        "en_nominalization",
+        "en_by_with_agent_instrument",
+        "en_let_make_bare_infinitive"
+      ],
+      "target_rank": 4
+    },
+    {
+      "case_id": "expansion_arrive_in_at",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_arrive_in_at",
+      "retrieved_note_ids": [
+        "en_arrive_in_at",
+        "en_future_time_clauses",
+        "en_present_continuous_arrangements",
+        "en_may_might_possibility",
+        "en_standard_negative_agreement"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_dependent_verb_prepositions",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_dependent_verb_prepositions",
+      "retrieved_note_ids": [
+        "en_dependent_verb_prepositions",
+        "en_say_tell",
+        "en_could_past_ability",
+        "en_past_continuous_background",
+        "en_too_degree"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_dependent_adjective_prepositions",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_dependent_adjective_prepositions",
+      "retrieved_note_ids": [
+        "en_dependent_adjective_prepositions",
+        "en_say_tell",
+        "en_ed_ing_feelings",
+        "en_past_continuous_background",
+        "en_countable_uncountable"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_preposition_gerund",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_preposition_gerund",
+      "retrieved_note_ids": [
+        "en_preposition_gerund",
+        "en_borrow_lend",
+        "en_frequency_adverb_position",
+        "en_reported_time_reference"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_verbs_followed_ing",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_verbs_followed_ing",
+      "retrieved_note_ids": [
+        "en_verbs_followed_ing",
+        "en_verbs_followed_to",
+        "en_would_past_habit",
+        "en_should_have_regret",
+        "en_borrow_lend"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_verbs_followed_to",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_verbs_followed_to",
+      "retrieved_note_ids": [
+        "en_going_to_intentions",
+        "en_verbs_followed_to",
+        "en_say_tell",
+        "en_past_continuous_background",
+        "en_countable_uncountable"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_stop_ing_to",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_stop_ing_to",
+      "retrieved_note_ids": [
+        "en_modify_comparatives",
+        "en_stop_ing_to",
+        "en_comma_splices",
+        "en_wh_object_questions",
+        "en_between_among"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_remember_ing_to",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_remember_ing_to",
+      "retrieved_note_ids": [
+        "en_remember_ing_to",
+        "en_must_have_to",
+        "en_relative_where_when",
+        "en_be_get_used_to",
+        "en_singular_possessive"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_try_ing_to",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_try_ing_to",
+      "retrieved_note_ids": [
+        "en_separable_phrasal_verbs",
+        "en_try_ing_to",
+        "en_zero_conditional",
+        "en_hard_hardly",
+        "en_modify_comparatives"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_let_make_bare_infinitive",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_let_make_bare_infinitive",
+      "retrieved_note_ids": [
+        "en_lets_suggestions",
+        "en_let_make_bare_infinitive",
+        "en_collective_noun_agreement",
+        "en_work_phrase_formal",
+        "en_some_any"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_help_infinitive",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_help_infinitive",
+      "retrieved_note_ids": [
+        "en_education_formal_register",
+        "en_help_infinitive",
+        "en_formal_phrase_rephrasing",
+        "en_emphatic_reflexives",
+        "en_borrow_lend"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_have_get_done",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_have_get_done",
+      "retrieved_note_ids": [
+        "en_have_get_done",
+        "en_emphatic_reflexives",
+        "en_be_get_used_to",
+        "en_singular_possessive",
+        "en_present_perfect_experience"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_be_get_used_to",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_be_get_used_to",
+      "retrieved_note_ids": [
+        "en_be_get_used_to",
+        "en_negative_words_tags",
+        "en_used_to_past",
+        "en_would_past_habit",
+        "en_present_be_agreement"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_separable_phrasal_verbs",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_separable_phrasal_verbs",
+      "retrieved_note_ids": [
+        "en_reported_time_reference",
+        "en_borrow_lend",
+        "en_frequency_adverb_position",
+        "en_present_simple_vs_continuous",
+        "en_past_perfect_continuous_duration"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_inseparable_multiword_verbs",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_inseparable_multiword_verbs",
+      "retrieved_note_ids": [
+        "en_separable_phrasal_verbs",
+        "en_inseparable_multiword_verbs",
+        "en_preposition_gerund",
+        "en_say_tell",
+        "en_linking_verb_adjectives"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_infinitive_purpose",
+      "bucket": "prepositions_patterns",
+      "expected_note_id": "en_infinitive_purpose",
+      "retrieved_note_ids": [
+        "en_past_continuous_background",
+        "en_say_tell",
+        "en_remember_ing_to",
+        "en_past_simple_finished",
+        "en_infinitive_purpose"
+      ],
+      "target_rank": 5
+    },
+    {
+      "case_id": "expansion_zero_conditional",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_zero_conditional",
+      "retrieved_note_ids": [
+        "en_mixed_conditionals",
+        "en_zero_conditional",
+        "en_concise_formal_rewrite",
+        "en_unless_condition",
+        "en_relative_where_when"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_first_conditional",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_first_conditional",
+      "retrieved_note_ids": [
+        "en_first_conditional",
+        "en_unless_condition",
+        "en_even_if_even_though",
+        "en_future_continuous_progress",
+        "en_concise_formal_rewrite"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_second_conditional",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_second_conditional",
+      "retrieved_note_ids": [
+        "en_second_conditional",
+        "en_mixed_conditionals",
+        "en_increasing_comparison",
+        "en_formal_conditional",
+        "en_future_perfect_completion"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_third_conditional",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_third_conditional",
+      "retrieved_note_ids": [
+        "en_third_conditional",
+        "en_mixed_conditionals",
+        "en_past_perfect_sequence",
+        "en_participle_clause_combination",
+        "en_modal_perfect_deduction"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_mixed_conditionals",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_mixed_conditionals",
+      "retrieved_note_ids": [
+        "en_mixed_conditionals",
+        "en_present_perfect_result",
+        "en_third_conditional",
+        "en_concise_formal_rewrite",
+        "en_present_perfect_continuous"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_unless_condition",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_unless_condition",
+      "retrieved_note_ids": [
+        "en_unless_condition",
+        "en_affect_effect",
+        "en_even_if_even_though",
+        "en_formal_conditional",
+        "en_would_past_habit"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_in_case_precaution",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_in_case_precaution",
+      "retrieved_note_ids": [
+        "en_in_case_precaution",
+        "en_formal_conditional",
+        "en_first_conditional",
+        "en_be_get_used_to",
+        "en_concise_formal_rewrite"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_future_time_clauses",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_future_time_clauses",
+      "retrieved_note_ids": [
+        "en_future_time_clauses",
+        "en_future_continuous_progress",
+        "en_future_perfect_completion",
+        "en_first_conditional",
+        "en_arrive_in_at"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_wish_present",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_wish_present",
+      "retrieved_note_ids": [
+        "en_wish_present",
+        "en_wish_past",
+        "en_past_simple_did",
+        "en_reported_speech_backshift",
+        "en_past_simple_finished"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_wish_past",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_wish_past",
+      "retrieved_note_ids": [
+        "en_wish_past",
+        "en_should_have_regret",
+        "en_a_the_reference",
+        "en_must_deduction",
+        "en_wish_present"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_reported_speech_backshift",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_reported_speech_backshift",
+      "retrieved_note_ids": [
+        "en_reported_speech_backshift",
+        "en_reported_time_reference",
+        "en_must_have_to",
+        "en_past_simple_did",
+        "en_modal_perfect_deduction"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_reported_time_reference",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_reported_time_reference",
+      "retrieved_note_ids": [
+        "en_reported_time_reference",
+        "en_reported_speech_backshift",
+        "en_present_simple_timetables",
+        "en_time_in_on_at",
+        "en_present_continuous_arrangements"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_reported_questions",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_reported_questions",
+      "retrieved_note_ids": [
+        "en_mixed_conditionals",
+        "en_present_simple_habits",
+        "en_reported_commands",
+        "en_reported_questions",
+        "en_finance_formal_register"
+      ],
+      "target_rank": 4
+    },
+    {
+      "case_id": "expansion_reported_commands",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_reported_commands",
+      "retrieved_note_ids": [
+        "en_mustnt_vs_dont_have_to",
+        "en_imperative_base_form",
+        "en_present_simple_negation",
+        "en_subject_questions",
+        "en_negative_words_tags"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_say_tell",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_say_tell",
+      "retrieved_note_ids": [
+        "en_say_tell",
+        "en_reported_speech_backshift",
+        "en_singular_they",
+        "en_reported_time_reference",
+        "en_some_any"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_because_because_of",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_because_because_of",
+      "retrieved_note_ids": [
+        "en_because_because_of",
+        "en_sentence_fragments",
+        "en_be_get_used_to",
+        "en_singular_possessive",
+        "en_already_yet_still"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_although_despite",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_although_despite",
+      "retrieved_note_ids": [
+        "en_although_despite",
+        "en_increasing_comparison",
+        "en_used_to_past",
+        "en_its_it_is",
+        "en_standard_negative_agreement"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_even_if_even_though",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_even_if_even_though",
+      "retrieved_note_ids": [
+        "en_even_if_even_though",
+        "en_although_despite",
+        "en_modify_comparatives",
+        "en_negative_words_tags",
+        "en_relative_where_when"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_so_result_clause",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_so_result_clause",
+      "retrieved_note_ids": [
+        "en_so_result_clause",
+        "en_because_because_of",
+        "en_so_that_purpose",
+        "en_so_such",
+        "en_science_formal_register"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_so_that_purpose",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_so_that_purpose",
+      "retrieved_note_ids": [
+        "en_infinitive_purpose",
+        "en_lets_suggestions",
+        "en_present_continuous_arrangements",
+        "en_so_that_purpose",
+        "en_work_vocabulary_precision"
+      ],
+      "target_rank": 4
+    },
+    {
+      "case_id": "expansion_either_or_parallel",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_either_or_parallel",
+      "retrieved_note_ids": [
+        "en_either_or_parallel",
+        "en_comparative_than",
+        "en_both_either_neither",
+        "en_both_and_parallel",
+        "en_parallel_structure"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_both_and_parallel",
+      "bucket": "clauses_reporting",
+      "expected_note_id": "en_both_and_parallel",
+      "retrieved_note_ids": [
+        "en_both_and_parallel",
+        "en_singular_they",
+        "en_both_either_neither",
+        "en_verbs_followed_ing",
+        "en_singular_possessive"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_sentence_fragments",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_sentence_fragments",
+      "retrieved_note_ids": [
+        "en_even_if_even_though",
+        "en_sentence_fragments",
+        "en_negative_words_tags",
+        "en_reported_speech_backshift",
+        "en_although_despite"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_comma_splices",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_comma_splices",
+      "retrieved_note_ids": [
+        "en_should_have_regret",
+        "en_third_conditional",
+        "en_late_lately",
+        "en_modal_perfect_deduction",
+        "en_concise_formal_rewrite"
+      ],
+      "target_rank": null
+    },
+    {
+      "case_id": "expansion_semicolon_linking",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_semicolon_linking",
+      "retrieved_note_ids": [
+        "en_comma_splices",
+        "en_semicolon_linking",
+        "en_list_commas",
+        "en_which_whole_clause",
+        "en_so_result_clause"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_colon_introductions",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_colon_introductions",
+      "retrieved_note_ids": [
+        "en_colon_introductions",
+        "en_enough_position",
+        "en_past_simple_did",
+        "en_although_despite",
+        "en_past_perfect_sequence"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_list_commas",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_list_commas",
+      "retrieved_note_ids": [
+        "en_list_commas",
+        "en_comma_splices",
+        "en_mustnt_vs_dont_have_to",
+        "en_past_simple_finished",
+        "en_so_result_clause"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_its_it_is",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_its_it_is",
+      "retrieved_note_ids": [
+        "en_relative_where_when",
+        "en_between_among",
+        "en_its_it_is",
+        "en_their_there_theyre",
+        "en_bring_take_direction"
+      ],
+      "target_rank": 3
+    },
+    {
+      "case_id": "expansion_your_youre",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_your_youre",
+      "retrieved_note_ids": [
+        "en_their_there_theyre",
+        "en_modify_comparatives",
+        "en_your_youre",
+        "en_between_among",
+        "en_as_as_equality"
+      ],
+      "target_rank": 3
+    },
+    {
+      "case_id": "expansion_their_there_theyre",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_their_there_theyre",
+      "retrieved_note_ids": [
+        "en_their_there_theyre",
+        "en_your_youre",
+        "en_there_it_subjects",
+        "en_affect_effect",
+        "en_state_action_meaning"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_parallel_structure",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_parallel_structure",
+      "retrieved_note_ids": [
+        "en_list_commas",
+        "en_parallel_structure",
+        "en_colon_introductions",
+        "en_would_past_habit",
+        "en_mixed_conditionals"
+      ],
+      "target_rank": 2
+    },
+    {
+      "case_id": "expansion_borrow_lend",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_borrow_lend",
+      "retrieved_note_ids": [
+        "en_borrow_lend",
+        "en_modify_comparatives",
+        "en_between_among",
+        "en_as_as_equality",
+        "en_separable_phrasal_verbs"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_bring_take_direction",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_bring_take_direction",
+      "retrieved_note_ids": [
+        "en_bring_take_direction",
+        "en_state_action_meaning",
+        "en_say_tell",
+        "en_affect_effect",
+        "en_colon_introductions"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_make_do_collocations",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_make_do_collocations",
+      "retrieved_note_ids": [
+        "en_make_do_collocations",
+        "en_say_tell",
+        "en_let_make_bare_infinitive",
+        "en_past_continuous_background",
+        "en_countable_uncountable"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_affect_effect",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_affect_effect",
+      "retrieved_note_ids": [
+        "en_affect_effect",
+        "en_ed_ing_feelings",
+        "en_imperative_base_form",
+        "en_manner_adverb_position",
+        "en_be_get_used_to"
+      ],
+      "target_rank": 1
+    },
+    {
+      "case_id": "expansion_standard_negative_agreement",
+      "bucket": "writing_usage",
+      "expected_note_id": "en_standard_negative_agreement",
+      "retrieved_note_ids": [
+        "en_formal_phrase_rephrasing",
+        "en_mustnt_vs_dont_have_to",
+        "en_imperative_base_form",
+        "en_future_time_clauses",
+        "en_science_formal_register"
+      ],
+      "target_rank": null
+    }
+  ],
+  "limitations": [
+    "Questions were authored alongside notes; scores are not held-out generalization evidence.",
+    "Exact target labels are not exhaustive judgments of all relevant notes.",
+    "Offline BM25 is not the production vector/hybrid retriever.",
+    "No provider, database, generated answer, latency, cost or learning outcome was evaluated."
+  ]
+}

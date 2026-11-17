@@ -50,7 +50,7 @@ def test_publish_query_rollback_conflict_and_version_guard(database):
     with pytest.raises(db.IndexUnavailable, match='index_missing'):
         db.query_by_vector(vectors(notes)[0])
     outcome = db.publish_corpus(notes, vectors(notes), expected_generation=None)
-    assert outcome['inserted'] == 31
+    assert outcome['inserted'] == len(notes)
     previous = db.read_manifest('en')
     assert len(db.query_by_vector(vectors(notes)[0], limit=5)) == 5
     # SQL failure after earlier rows have been modified must roll everything back.
@@ -94,13 +94,13 @@ def test_reader_sees_old_snapshot_until_commit_and_missing_notes_deactivate(data
                 cur.execute('SELECT fingerprint FROM retrieval_index_manifest WHERE language=%s', ('en',))
                 assert cur.fetchone()[0] == previous['fingerprint']
                 cur.execute('SELECT count(*) FROM retrieval_doc WHERE active=true')
-                assert cur.fetchone()[0] == 31
+                assert cur.fetchone()[0] == len(notes)
             reader.close()
             self.conn.commit()
     monkeypatch.setattr(db, '_get_conn', ObserveCommit)
     assert db.publish_corpus(changed, vectors(changed), expected_generation=previous['generation'])['deactivated'] == 1
     monkeypatch.setattr(db, '_get_conn', database)
-    assert db.read_manifest('en')['note_count'] == 30
+    assert db.read_manifest('en')['note_count'] == len(notes) - 1
 
 
 def test_vector_ranking_uses_stored_embeddings(database):
@@ -138,14 +138,14 @@ def test_incomplete_index_is_rejected_then_repaired_by_sync(database, monkeypatc
         return vectors(texts)
     monkeypatch.setattr('retrieval.sync_embeddings.embed_texts', embed)
     repaired = sync_language('en')
-    assert repaired.failed == 0 and repaired.updated == 31
-    assert batches == [20, 11]
+    assert repaired.failed == 0 and repaired.updated == len(notes)
+    assert batches == [len(notes[i:i + 20]) for i in range(0, len(notes), 20)]
     assert db.read_manifest('en')['complete'] is True
     batches.clear()
-    assert sync_language('en').skipped == 31
+    assert sync_language('en').skipped == len(notes)
     assert batches == []
-    assert sync_language('en', rebuild=True).updated == 31
-    assert batches == [20, 11]
+    assert sync_language('en', rebuild=True).updated == len(notes)
+    assert batches == [len(notes[i:i + 20]) for i in range(0, len(notes), 20)]
 
 
 def test_simultaneous_publishers_have_exactly_one_winner(database):
@@ -245,14 +245,14 @@ def test_local_operations_benchmark(database):
         'created_at_utc': datetime.now(timezone.utc).isoformat(),
         'environment': {'python': platform.python_version(), 'platform': platform.platform()},
         'corpus_fingerprint': manifest_for(notes)['fingerprint'],
-        'vector_fixture': '31 distinct orthogonal 1536-dimensional synthetic vectors; not provider embeddings',
+        'vector_fixture': 'One-per-note orthogonal 1536-dimensional synthetic vectors; not provider embeddings',
         'first_query_after_publication': first, 'warmup_queries': 10, 'scenarios': results,
         'source_sha256': {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
         'limitations': ['Local disposable PostgreSQL only, no external API calls or application endpoint.',
             'Times include corpus loading, fingerprinting, fresh connection, fixture search_path setup, SQL and result conversion; exclude executor queue time.',
             'Concurrency is a bounded closed-loop worker pool, not an arrival-rate or saturation test.',
             'One first query after publication is not a cold process/database measurement.',
-            'Synthetic vectors test ranking and guards, not semantic quality; corpus has only 31 notes.',
+            'Synthetic vectors test ranking and guards, not semantic quality.',
             'No provider outage, remote network, HTTP timeout, multi-instance or end-to-end generation load was measured.']}
     target = Path(output); target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(report, indent=2)+'\n')

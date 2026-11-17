@@ -8,7 +8,7 @@ from retrieval.loader import load_contrast_docs
 
 
 def test_data_validation_rejects_taxonomy_leakage_and_bad_gold():
-    data=h.read(h.DATA);notes=load_contrast_docs('en')
+    data=h.read(h.DATA);notes=historical_notes(data)
     assert h.validate_dataset(data,notes)['cases']==93
     bad=copy.deepcopy(data);bad['cases'][0]['current_item']['id']='en03'
     with pytest.raises(ValueError,match='taxonomy'):h.validate_dataset(bad,notes)
@@ -17,6 +17,8 @@ def test_data_validation_rejects_taxonomy_leakage_and_bad_gold():
 
 
 def test_frozen_inputs_reject_drift(monkeypatch):
+    notes = historical_notes(h.read(h.DATA))
+    monkeypatch.setattr(h, 'load_contrast_docs', lambda _: notes)
     data,notes,obj,audit=h.identity()
     monkeypatch.setattr(h,'read',lambda _: {'identity_sha256':'different'})
     monkeypatch.setattr(h,'identity',lambda:(data,notes,obj,audit))
@@ -48,3 +50,14 @@ def test_output_is_never_silently_overwritten(tmp_path):
     path=tmp_path/'report.json';h.write_new(path,{'first':True})
     with pytest.raises(FileExistsError):h.write_new(path,{'first':False})
     assert h.read(path)=={'first':True}
+
+
+def historical_notes(data):
+    # This frozen 93-case study belongs to the original corpus, not the expansion.
+    ids = {case['primary_note_id'] for case in data['cases']} - {None}
+    return [note for note in load_contrast_docs('en') if note.id in ids]
+
+
+def test_historical_protocol_rejects_expanded_corpus():
+    with pytest.raises(ValueError, match='two positives per note'):
+        h.validate_dataset(h.read(h.DATA), load_contrast_docs('en'))

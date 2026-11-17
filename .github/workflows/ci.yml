@@ -85,7 +85,28 @@ jobs:
 
       - name: Provider comparison preflight (offline)
         working-directory: agent
-        run: python -m retrieval.retrieval_comparison plan --output runs/retrieval-comparison-plan.json
+        run: python -m retrieval.retrieval_comparison plan --max-requests 20 --max-input-bytes 500000 --output runs/retrieval-comparison-plan.json
+
+      - name: Expanded corpus development diagnostic (offline)
+        working-directory: agent
+        run: python -m retrieval.expansion_benchmark --output runs/expansion-development.json
+
+      - name: Expanded corpus evaluation preflight (offline)
+        working-directory: agent
+        run: python -m evals.expansion.runner preflight --plan runs/expansion-fresh-v1-plan.json --output runs/ci-expansion-preflight.json
+
+      - name: Expanded corpus paired evaluation replay (offline)
+        working-directory: agent
+        run: |
+          python -m evals.expansion.runner replay --plan runs/expansion-fresh-v1-plan.json --records runs/expansion-fresh-v1-records.jsonl --output runs/ci-expansion-replay.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          saved = json.loads(Path('runs/expansion-fresh-v1-results.json').read_text())
+          replay = json.loads(Path('runs/ci-expansion-replay.json').read_text())
+          for key in ('summaries', 'paired_differences', 'per_case', 'diagnostic_gates'):
+              assert saved[key] == replay[key], f'Expansion replay differs: {key}'
+          PY
 
       - name: Release development history replay (offline)
         working-directory: agent
@@ -101,12 +122,12 @@ jobs:
           python ../scripts/replay_release_snapshot.py --plan runs/release-fresh-v1-plan.json --records runs/release-fresh-v1-records.jsonl --output runs/ci-release-retired-v1.json
           python ../scripts/compare_eval_reports.py runs/release-fresh-v1-results.json runs/ci-release-retired-v1.json
 
-      - name: Current serving release evaluation replay (offline)
+      - name: Original 31-note release evaluation replay (historical)
         working-directory: agent
         run: |
-          python -m evals.release.runner replay --plan runs/release-fresh-v2-plan.json --records runs/release-fresh-v2-records.jsonl --output runs/ci-release-fresh-v2.json
+          python ../scripts/replay_release_snapshot.py --plan runs/release-fresh-v2-plan.json --records runs/release-fresh-v2-records.jsonl --output runs/ci-release-fresh-v2.json
           python ../scripts/compare_eval_reports.py runs/release-fresh-v2-results.json runs/ci-release-fresh-v2.json
-          python -c "import json; assert json.load(open('runs/ci-release-fresh-v2.json'))['acceptance_pass'], 'Current serving release gate failed'"
+          python -c "import json; assert json.load(open('runs/ci-release-fresh-v2.json'))['acceptance_pass'], 'Historical release replay failed'"
 
       - name: Context-sufficiency probes replay (offline)
         working-directory: agent
@@ -140,6 +161,9 @@ jobs:
             agent/runs/lexical-evidence.json
             agent/runs/relevance-review.json
             agent/runs/retrieval-comparison-plan.json
+            agent/runs/expansion-development.json
+            agent/runs/ci-expansion-preflight.json
+            agent/runs/ci-expansion-replay.json
             agent/runs/ci-answer-eval.json
             agent/runs/ci-release-*.json
           if-no-files-found: warn

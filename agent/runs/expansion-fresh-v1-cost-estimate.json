@@ -1,0 +1,163 @@
+{
+  "status": "offline_cost_estimate_not_an_evaluation_result",
+  "currency": "USD",
+  "price_source": "https://developers.openai.com/api/docs/pricing",
+  "price_checked_on": "2026-11-16",
+  "base_scenario": {
+    "stages": {
+      "index_embedding": {
+        "model": "text-embedding-3-small",
+        "calls": 10,
+        "input_tokens": 30998,
+        "output_tokens": 0,
+        "mean_input_tokens": 3099.8,
+        "mean_output_tokens": 0.0,
+        "estimated_usd": 0.00061996
+      },
+      "query_embedding": {
+        "model": "text-embedding-3-small",
+        "calls": 200,
+        "input_tokens": 4594,
+        "output_tokens": 0,
+        "mean_input_tokens": 23.0,
+        "mean_output_tokens": 0.0,
+        "estimated_usd": 9.188e-05
+      },
+      "verification": {
+        "model": "gpt-4.1-2025-04-14",
+        "calls": 100,
+        "input_tokens": 183520,
+        "output_tokens": 10000,
+        "mean_input_tokens": 1835.2,
+        "mean_output_tokens": 100.0,
+        "estimated_usd": 0.44704
+      },
+      "generation": {
+        "model": "gpt-4o-mini-2024-07-18",
+        "calls": 175,
+        "input_tokens": 109827,
+        "output_tokens": 14000,
+        "mean_input_tokens": 627.6,
+        "mean_output_tokens": 80.0,
+        "estimated_usd": 0.024874049999999998
+      },
+      "judging": {
+        "model": "gpt-4.1-2025-04-14",
+        "calls": 200,
+        "input_tokens": 354882,
+        "output_tokens": 50000,
+        "mean_input_tokens": 1774.4,
+        "mean_output_tokens": 250.0,
+        "estimated_usd": 1.109764
+      }
+    },
+    "total_estimated_usd": 1.58238989,
+    "arm_prompt_counts": {
+      "verified": {
+        "generation_calls": 75,
+        "generation_input_tokens": 45780,
+        "judge_input_tokens": 165624
+      },
+      "hybrid": {
+        "generation_calls": 100,
+        "generation_input_tokens": 64047,
+        "judge_input_tokens": 189258
+      }
+    }
+  },
+  "higher_usage_scenario": {
+    "stages": {
+      "index_embedding": {
+        "model": "text-embedding-3-small",
+        "calls": 10,
+        "input_tokens": 30998,
+        "output_tokens": 0,
+        "mean_input_tokens": 3099.8,
+        "mean_output_tokens": 0.0,
+        "estimated_usd": 0.00061996
+      },
+      "query_embedding": {
+        "model": "text-embedding-3-small",
+        "calls": 200,
+        "input_tokens": 4594,
+        "output_tokens": 0,
+        "mean_input_tokens": 23.0,
+        "mean_output_tokens": 0.0,
+        "estimated_usd": 9.188e-05
+      },
+      "verification": {
+        "model": "gpt-4.1-2025-04-14",
+        "calls": 100,
+        "input_tokens": 219520,
+        "output_tokens": 15000,
+        "mean_input_tokens": 2195.2,
+        "mean_output_tokens": 150.0,
+        "estimated_usd": 0.55904
+      },
+      "generation": {
+        "model": "gpt-4o-mini-2024-07-18",
+        "calls": 200,
+        "input_tokens": 141094,
+        "output_tokens": 30000,
+        "mean_input_tokens": 705.5,
+        "mean_output_tokens": 150.0,
+        "estimated_usd": 0.0391641
+      },
+      "judging": {
+        "model": "gpt-4.1-2025-04-14",
+        "calls": 200,
+        "input_tokens": 481692,
+        "output_tokens": 100000,
+        "mean_input_tokens": 2408.5,
+        "mean_output_tokens": 500.0,
+        "estimated_usd": 1.763384
+      }
+    },
+    "total_estimated_usd": 2.36229994,
+    "arm_prompt_counts": {
+      "verified": {
+        "generation_calls": 100,
+        "generation_input_tokens": 70547,
+        "judge_input_tokens": 240846
+      },
+      "hybrid": {
+        "generation_calls": 100,
+        "generation_input_tokens": 70547,
+        "judge_input_tokens": 240846
+      }
+    }
+  },
+  "historical_31_note_run_usage": {
+    "verification": {
+      "calls": 24,
+      "mean_input_tokens": 1873.4166666666667,
+      "mean_output_tokens": 63.541666666666664
+    },
+    "generation": {
+      "calls": 16,
+      "mean_input_tokens": 509.5,
+      "mean_output_tokens": 54.4375
+    },
+    "judge": {
+      "calls": 24,
+      "mean_input_tokens": 1251.5,
+      "mean_output_tokens": 154.375
+    }
+  },
+  "assumptions": [
+    "Token counts use current templates, 100 frozen questions and 200 current notes; no retrieval, model generation or grading occurred.",
+    "Embedding text token counts are local cl100k_base counts; API framing may differ.",
+    "Chat text/schema counts use o200k_base plus 128 framing tokens per request; server billing can differ.",
+    "Base verifier context uses five median-size notes; generator/judge use one median-size note when a source is assumed. These are length proxies, not predicted retrieval results.",
+    "Base assumes correct verified routing: 75 generated answers and 25 fixed clarification/redirect responses; hybrid generates all 100. All 200 responses are judged.",
+    "Base outputs: 100 tokens/verifier, 80/generator, 250/judge, no retries or caching discounts.",
+    "Higher-usage scenario: largest notes, all 200 generations, extra answer-unit schema, 150-token verifier/generator outputs, 500-token judge outputs with no retries. This is a scenario, not a statistical confidence interval or hard worst case.",
+    "No retries are assumed; the current guard stops collection when a failed request has unknown billed usage.",
+    "No hosting upgrade, production database access, paid model call or live evaluation result."
+  ],
+  "configured_limits_usd": {
+    "index_embedding": 0.01,
+    "collection": 5,
+    "combined": 5.01
+  }
+}

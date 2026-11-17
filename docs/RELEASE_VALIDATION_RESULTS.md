@@ -1,5 +1,7 @@
 # Serving-path release validation
 
+> These measurements describe the original 31-note corpus. The repository now contains 200 notes; the expansion has separate [100-question provider-backed local results](EXPANSION_EVALUATION_RESULTS.md). Production index publication remains pending. See [current corpus status](CORPUS_EXPANSION_200.md).
+
 ## Outcome and scope
 
 This evaluation exercises the current English Study freeform handler with live read-only pgvector, real query embeddings, one source-verification call and bounded answer generation. It is a **small AI-authored synthetic test**, not independent expert validation or production traffic. The evaluator instruments provider calls and disables optional cloud tracing; it does not exercise the public HTTP proxy, browser or every selectable generator model. Its embedding adapter uses a 12-second timeout/no retry and its generation adapter uses 18 seconds/500 tokens/no retry. Production provider wrappers use different defaults under the existing 20-second generation deadline. Routing, prompts, source policy and disclosure are shared, but these timings/failures do not certify the exact production provider configuration.

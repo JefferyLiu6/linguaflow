@@ -1,3 +1,7 @@
+# Corpus expansion — 2026-11-16
+
+Expanded from 31 to 200 notes, preserving the original notes unchanged. Added 169 original grammar/usage notes, 507 examples, 169 counterexamples, 103 reference records and 169 explicitly development-only questions. The schema stays at 2.0.0; the corpus revision is `2026-11-16.200`. The [100-question provider-backed local evaluation](EXPANSION_EVALUATION_RESULTS.md) is complete. Independent human review and production index publication remain pending. See [expansion details](CORPUS_EXPANSION_200.md).
+
 # Data release 2.0.0 — 2026-09-15
 
 ## What changed and why

@@ -7,11 +7,15 @@ import pytest
 from retrieval import answer_study as study
 from retrieval.reviewed_dataset import freeze
 from retrieval.fusion_experiment import fuse
+from retrieval.benchmark import fingerprint
+from retrieval.loader import load_contrast_docs
 
 
 @pytest.fixture(scope='module')
 def plan():
     report=json.loads((study.ROOT/'agent/runs/retrieval-comparison.json').read_text())
+    # Mock report identity for plan plumbing only; saved provider evidence stays immutable.
+    report['provenance']['experiment_sha256'] = fingerprint(study.experiment_inputs()[2])
     return study.build_plan(report)
 
 
@@ -23,13 +27,15 @@ def test_pilot_has_paired_cases_and_bounded_exposure(plan):
         assert len({j['question'] for j in jobs})==1
         assert len({j['messages'][0]['content'] for j in jobs})==1
     for job in plan['jobs']:
-        if job['arm']=='whole_corpus':assert len(job['references'])==31
+        if job['arm']=='whole_corpus':assert len(job['references'])==len(load_contrast_docs('en'))
         if job['arm']=='card_only':assert job['references']==[]
         if job['case_id'].startswith('scope_') and job['arm']=='gold':assert job['references']==[]
 
 
 def test_stale_retrieval_report_is_rejected():
     with pytest.raises(ValueError):study.build_plan({'status':'synthetic_test_only'})
+    historical = json.loads((study.ROOT/'agent/runs/retrieval-comparison.json').read_text())
+    with pytest.raises(ValueError, match='matching'):study.build_plan(historical)
 
 
 def test_citation_identity_is_not_claim_support():

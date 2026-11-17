@@ -20,17 +20,17 @@ def synthetic(identity):
 
 def test_preflight_is_offline_and_budgeted(inputs):
     _,_,identity=inputs
-    plan=experiment.preflight(identity)
-    assert plan['cases']==68 and plan['documents']==31
-    assert plan['planned_requests']<=10
-    for args in ({'max_requests':1},{'max_utf8_bytes':1}):
+    plan=experiment.preflight(identity, max_requests=20, max_utf8_bytes=500000)
+    assert plan['cases']==68 and plan['documents']==len(inputs[0])
+    assert plan['planned_requests']<=20
+    for args in ({}, {'max_requests':1},{'max_utf8_bytes':1}):
         with pytest.raises(ValueError,match='budget'):experiment.preflight(identity,**args)
 
 
 def test_missing_credentials_fails_before_client_creation(inputs,monkeypatch):
     monkeypatch.delenv('OPENAI_API_KEY',raising=False)
     with patch('openai.OpenAI') as client:
-        with pytest.raises(ValueError,match='not configured'):experiment.collect(inputs[2])
+        with pytest.raises(ValueError,match='not configured'):experiment.collect(inputs[2], max_requests=20, max_utf8_bytes=500000)
     client.assert_not_called()
 
 

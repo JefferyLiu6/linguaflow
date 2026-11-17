@@ -85,7 +85,7 @@ For a controlled release, use the project's normal Prisma migration process in a
 
 ## Tradeoffs and remaining work
 
-- **Full snapshot rebuild:** changed releases embed all 31 notes. This is simple and auditable at current scale; no per-document cache is claimed. Unchanged complete releases skip provider calls entirely.
+- **Full snapshot rebuild:** changed releases embed the full corpus (currently 200 notes). This is simple and auditable at current scale; no per-document cache is claimed. Unchanged complete releases skip provider calls entirely.
 - **One active version:** transactions preserve the previous snapshot on failure, but successful publications overwrite it. There is no retained snapshot history or instant rollback pointer. Rollback requires restoring the prior corpus/configuration and republishing, with the matching app revision.
 - **Generation guard:** prevents a publisher that prepared against an older observed generation from winning later. It cannot identify which Git branch the operator intended to publish; pin the release checkout operationally.
 - **Version mismatch:** an older app does not consume a newer index; it falls back explicitly. Serving several app versions concurrently without degraded retrieval requires retained versioned snapshots or coordinated deployment.

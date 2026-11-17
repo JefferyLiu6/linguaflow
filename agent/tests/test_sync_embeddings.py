@@ -9,14 +9,14 @@ from retrieval.db import IndexUnavailable
 
 def test_dry_run_is_offline():
     with patch('retrieval.sync_embeddings.read_manifest') as read, patch('retrieval.sync_embeddings.publish_corpus') as publish, patch('retrieval.sync_embeddings.embed_texts') as embed:
-        assert sync_language('en', dry_run=True).skipped == 31
+        assert sync_language('en', dry_run=True).skipped == len(load_contrast_docs('en'))
     read.assert_not_called(); publish.assert_not_called(); embed.assert_not_called()
 
 
 def test_unchanged_snapshot_skips_provider_and_publication():
     m = manifest_for(load_contrast_docs('en'))
     with patch('retrieval.sync_embeddings.read_manifest', return_value={**m, 'generation': 'old', 'complete': True}), patch('retrieval.sync_embeddings.publish_corpus') as publish, patch('retrieval.sync_embeddings.embed_texts') as embed:
-        assert sync_language('en').skipped == 31
+        assert sync_language('en').skipped == len(load_contrast_docs('en'))
     publish.assert_not_called(); embed.assert_not_called()
 
 
@@ -27,31 +27,31 @@ def test_rebuild_prepares_all_batches_before_single_publication():
         events.append('embed'); return [[0.1] * 1536 for _ in texts]
     def publish(notes, vectors, *, expected_generation):
         events.append('publish')
-        assert len(vectors) == len(notes) == 31
+        assert len(vectors) == len(notes) == len(load_contrast_docs('en'))
         assert expected_generation == 'old'
-        return {'updated': 31}
+        return {'updated': len(notes)}
     with patch('retrieval.sync_embeddings.read_manifest', return_value={**m, 'generation': 'old', 'complete': True}), patch('retrieval.sync_embeddings.publish_corpus', side_effect=publish), patch('retrieval.sync_embeddings.embed_texts', side_effect=embed):
-        assert sync_language('en', rebuild=True).updated == 31
-    assert events == ['embed', 'embed', 'publish']
+        assert sync_language('en', rebuild=True).updated == len(load_contrast_docs('en'))
+    assert events == ['embed'] * ((len(notes) + 19) // 20) + ['publish']
 
 
 @pytest.mark.parametrize('vectors', [None, [], [[0.1]], [[float('nan')] * 1536], [[0.0] * 1536]])
 def test_bad_batch_cannot_publish(vectors):
     with patch('retrieval.sync_embeddings.read_manifest', return_value=None), patch('retrieval.sync_embeddings.publish_corpus') as publish, patch('retrieval.sync_embeddings.embed_texts', return_value=vectors):
-        assert sync_language('en', batch_size=1).failed == 31
+        assert sync_language('en', batch_size=1).failed == len(load_contrast_docs('en'))
     publish.assert_not_called()
 
 
 def test_unavailable_database_fails_before_spending_on_embeddings():
     with patch('retrieval.sync_embeddings.read_manifest', side_effect=IndexUnavailable()), patch('retrieval.sync_embeddings.embed_texts') as embed:
-        assert sync_language('en').failed == 31
+        assert sync_language('en').failed == len(load_contrast_docs('en'))
     embed.assert_not_called()
 
 
 def test_publish_failure_is_not_counted_as_partial_success():
     with patch('retrieval.sync_embeddings.read_manifest', return_value=None), patch('retrieval.sync_embeddings.publish_corpus', side_effect=IndexUnavailable('index_publication_conflict')), patch('retrieval.sync_embeddings.embed_texts', side_effect=lambda texts: [[0.1] * 1536 for _ in texts]):
         stats = sync_language('en')
-    assert stats.failed == 31 and stats.updated == stats.inserted == 0
+    assert stats.failed == len(load_contrast_docs('en')) and stats.updated == stats.inserted == 0
     assert stats.errors == ['index_publication_conflict']
 
 
