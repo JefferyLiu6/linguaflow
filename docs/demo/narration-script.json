@@ -1,0 +1,126 @@
+{
+  "voice": {
+    "language": "en",
+    "speaker": "ryan",
+    "pipeline": "ai-video-pipeline",
+    "backend": "local Qwen3-TTS CustomVoice bf16"
+  },
+  "product": [
+    {
+      "id": 1,
+      "text": "Build your English with focused practice and clear feedback."
+    },
+    {
+      "id": 2,
+      "text": "Choose English, then set the length of your practice session."
+    },
+    {
+      "id": 3,
+      "text": "Read the prompt and type your answer."
+    },
+    {
+      "id": 4,
+      "text": "Submit to see the correct answer and immediate feedback."
+    },
+    {
+      "id": 5,
+      "text": "Your session is saved on this device, ready for your next visit."
+    },
+    {
+      "id": 6,
+      "text": "In Study, filter by topic and choose a sentence to review."
+    },
+    {
+      "id": 7,
+      "text": "Try rewriting the sentence yourself before revealing the answer."
+    },
+    {
+      "id": 8,
+      "text": "The answer shows how the active sentence changes to passive voice."
+    },
+    {
+      "id": 9,
+      "text": "Ask why it works."
+    },
+    {
+      "id": 10,
+      "text": "The study helper explains the transformation and names its teaching reference, so you can see the rule behind the answer."
+    },
+    {
+      "id": 11,
+      "text": "Practice, review, and understand with LinguaFlow."
+    }
+  ],
+  "engineering": [
+    {
+      "id": 12,
+      "eyebrow": "Evidence before fluency",
+      "title": "LinguaFlow: the AI engineering walkthrough",
+      "text": "LinguaFlow is an English tutor built around a distinction: a model may know an answer without having a supporting teaching reference. This walkthrough focuses on the Study freeform system.",
+      "source": "docs/RAG_ENGINEERING_CASE_STUDY.md"
+    },
+    {
+      "id": 13,
+      "eyebrow": "A small, inspectable corpus",
+      "title": "One concept. One retrieval chunk.",
+      "text": "The repository contains two hundred teaching notes and one hundred seventy one English drills. Each note keeps its rule, examples, and boundaries together. Content validation and fingerprints make the index reproducible.",
+      "source": "agent/knowledge/en/contrasts.jsonl"
+    },
+    {
+      "id": 14,
+      "eyebrow": "Retrieval, then selection",
+      "title": "10 vector candidates \u2192 5 verifier candidates",
+      "text": "A question and optional card become a query embedding. Postgres retrieves ten vector candidates. A heuristic reranker combines cosine similarity with normalized metadata, then sends the top five to verification. This is not B M twenty five fusion.",
+      "source": "agent/retrieval/hybrid.py"
+    },
+    {
+      "id": 15,
+      "eyebrow": "A source is a claim",
+      "title": "Verify scope, context, and evidence.",
+      "text": "One verifier checks scope, missing context, and evidence support. It selects a supplied evidence identifier; the server restores the exact source text. Supported questions get a reference. Uncovered questions get a disclosure. Missing text triggers clarification.",
+      "source": "agent/study_assist/source_policy.py"
+    },
+    {
+      "id": 16,
+      "eyebrow": "Fail explicitly",
+      "title": "Service errors are not successful abstentions.",
+      "text": "Embeddings are prepared before atomic index publication. Readers check the active corpus fingerprint. In the freeform path, index and provider failures remain explicit service errors. Timeouts and bounded calls control failure behavior, without promising a production latency guarantee.",
+      "source": "agent/retrieval/manifest.py"
+    },
+    {
+      "id": 17,
+      "eyebrow": "Freeze the comparison",
+      "title": "100 questions. Two arms. Saved outputs.",
+      "text": "The new evaluation compares verified and raw hybrid retrieval on one hundred frozen synthetic questions. Both arms use the same two hundred notes. Plans pin models, prompts, labels, and budgets. Offline replay reproduces scoring without new model calls.",
+      "source": "agent/runs/expansion-fresh-v1-plan.json"
+    },
+    {
+      "id": 18,
+      "eyebrow": "Measure the trade-off",
+      "title": "Source selection improves; it is not perfect.",
+      "text": "Using the frozen source labels, precision improves from thirty five point six percent to eighty six point four percent. The AI judge's correctness score improves from three point three seven to three point nine eight out of four. One baseline answer could not be graded.",
+      "source": "agent/runs/expansion-fresh-v1-results.json"
+    },
+    {
+      "id": 19,
+      "eyebrow": "Account for every stage",
+      "title": "Quality has a latency and token cost.",
+      "text": "Local pipeline p ninety five increases from two point two two to three point two zero seconds. Verified inference costs about four dollars and seven cents per thousand questions at this case mix. The entire evaluation cost about one dollar and twenty two cents, including judging.",
+      "source": "agent/runs/expansion-fresh-v1-audit.json"
+    },
+    {
+      "id": 20,
+      "eyebrow": "Keep the failures visible",
+      "title": "Related evidence is not sufficient evidence.",
+      "text": "In one saved case, the verifier accepts a generic health note for the idiom under the weather. The judge also credits a disclosure that is absent. Shared models can make correlated mistakes. Frozen scores stay unchanged, with the audit alongside them.",
+      "source": "agent/runs/expansion-fresh-v1-records.jsonl"
+    },
+    {
+      "id": 21,
+      "eyebrow": "What this demonstrates",
+      "title": "Reproducible engineering, with clear limits.",
+      "text": "The evidence demonstrates an implemented retrieval system, explicit failure handling, and a reproducible comparison. It does not establish learning gains or real user accuracy. Human review is pending, and the expanded corpus still needs coordinated production index publication.",
+      "source": "docs/EXPANSION_EVALUATION_RESULTS.md"
+    }
+  ]
+}

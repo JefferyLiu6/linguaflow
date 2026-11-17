@@ -6,9 +6,11 @@ Built with Next.js, FastAPI, LangGraph and PostgreSQL/pgvector. The engineering 
 
 [Try the demo](https://linguaflow-demo.vercel.app) · [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) · [Evaluation results](docs/RELEASE_VALIDATION_RESULTS.md)
 
-![Updated LinguaFlow walkthrough: start practicing, select an English Study card, reveal the answer and ask for an explanation with a teaching reference](docs/demo/english-study-demo.gif)
+![LinguaFlow walkthrough: complete practice, review feedback, study a card and understand its answer with a teaching reference](docs/demo/english-study-demo.gif)
 
-*Recorded from the updated live interface. Pauses are edited; [desktop preview](docs/demo/english-study.png), [mobile preview](docs/demo/english-study-mobile.png) and [capture details](docs/demo/english-study-capture.json). This product walkthrough does not validate the pending 200-note index rollout.*
+[Product walkthrough with narration](docs/demo/english-study-demo.mp4) · [AI engineering walkthrough](docs/demo/ai-system-walkthrough.mp4) · [Screenshots, chapters and captions](docs/demo/README.md)
+
+*Recorded from the live interface: complete a practice question, review feedback, then study a card and read a real AI explanation with its teaching reference. The MP4 includes narration and synchronized subtitles; the GIF runs at 20 fps. Loading gaps are edited. [Capture details](docs/demo/english-study-capture.json). This product walkthrough does not validate the pending 200-note index rollout.*
 
 ## The problem
 

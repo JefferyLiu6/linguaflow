@@ -116,4 +116,28 @@ Requires Google Chrome, ffmpeg and the project's installed Playwright package. S
 DEMO_GIF_BASE_URL=http://localhost:3000 pnpm demo:gif
 ```
 
-The recorder follows **Start practicing → Study → Work**, searches for and selects a passive-voice card, reveals its answer and makes one real freeform request. It publishes `docs/demo/english-study-demo.gif` only after a successful response with the expected source, clean browser console and mobile overflow check. It also saves landing, practice, card-selection, desktop answer and mobile answer screenshots, plus capture metadata with each scene's duration and URL. No responses or session history are mocked. The GIF uses edited still-frame pauses and is not latency evidence. Pointing the command at a deployed URL uses that deployment's provider budget and rate limits; it does not establish that unpublished local backend or corpus changes are deployed.
+The recorder follows **landing → one-question English practice → correct feedback → saved session → Study → select a passive-voice card → reveal → Explain this card**. It types a canonical sample answer through the UI and makes one real card-explanation request. It does not mock responses or inject session history.
+
+Outputs in `docs/demo/` include an H.264 MP4, a smaller looping GIF, WebVTT captions, desktop/mobile screenshots and scene metadata. It records actual browser motion as native 2× high-quality JPEG frames with measured timing and types at a readable pace. MP4 and GIF exports are 2560 × 1800, including a caption strip. Desktop screenshots are 2560 × 1600; mobile screenshots are 780 pixels wide. Capture targets 20 fps; both MP4 and GIF exports run at 20 fps. Actual capture throughput is recorded in the metadata. Still screenshots remain lossless PNGs. Editorial captions sit below the app; the product design stays unchanged. Long loading gaps are cut, so the result is not latency evidence. Publication occurs only after the expected reference, console/overflow checks and both encoders succeed. A failed run retains temporary capture files for recovery and leaves previous published assets intact.
+
+The recorder defaults to a macOS Arial font. Set `DEMO_FONT` to an installed font file on another platform. Google Chrome, the installed Playwright package and ffmpeg must be available. No browser dependency installation is part of this command.
+
+Pointing the command at a deployed URL uses that deployment's provider budget and rate limits. It does not establish that unpublished backend or corpus changes are deployed. See the [demo assets and walkthrough](demo/README.md).
+
+## Narrated product and AI engineering walkthroughs
+
+The existing local `ai-video-pipeline` supplies Qwen3-TTS narration and Whisper alignment. Its cached models and installed audio environment are required; no packages are installed or models downloaded by these scripts. The engineering tour uses repository evidence and custom diagrams, rather than generative video of a simulated product.
+
+After refreshing the product capture, run from this repository:
+
+```bash
+python scripts/narrate-demos.py \
+  --pipeline-root /path/to/ai-video-pipeline \
+  --work-dir /tmp/linguaflow-narrated-demos
+```
+
+The orchestrator reads `docs/demo/narration-script.json`, renders 2× engineering visuals, synthesizes or reuses narration, aligns subtitles, and composes both MP4s. It uses the pipeline's existing English voice configuration and model cache. GPU access may be required on macOS. Edit narration in that JSON; edit technical visuals in `scripts/render-ai-walkthrough.mjs`. Inspect transcripts in the final metadata and rerun any garbled segment before publishing.
+
+`english-study-silent.mp4` preserves the source capture so repeated narration exports do not stack edits. The final product video replaces `english-study-demo.mp4`; the technical tour is `ai-system-walkthrough.mp4`. Both have AAC narration, subtitles burned below the content, and embedded chapters. WebVTT files are also saved. The GIF remains silent, uses 20 fps, and retains the shorter capture timing. Refresh the guide's chapter table after changing narration or pacing.
+
+Use the saved `--work-dir` to reuse TTS and Whisper caches. All composition is local. The technical tour documents the saved evaluation, not a production deployment or a new paid model run.

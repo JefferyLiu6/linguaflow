@@ -1,15 +1,121 @@
 {
-  "recordedAt": "2026-09-16T18:15:57.971Z",
+  "recordedAt": "2026-11-17T04:33:46.469Z",
   "baseUrl": "https://linguaflow-demo.vercel.app",
-  "page": "https://linguaflow-demo.vercel.app/study",
   "viewport": {
     "width": 1280,
-    "height": 1000
+    "height": 800
   },
-  "flow": "Select English → Study → Work → passive card → reveal → ask → reference-backed answer",
-  "question": "Why does the passive answer use \"was reviewed\"?",
+  "deviceScaleFactor": 2,
+  "output": {
+    "width": 2560,
+    "height": 1800
+  },
+  "nativeFrames": 1027,
+  "captureTargetFps": 20,
+  "exportFps": 20,
+  "measuredCaptureFps": 19.6,
+  "flow": "Landing → one-question English practice → feedback → saved summary → Study → select card → reveal → explanation and reference",
+  "scenes": [
+    {
+      "label": "Start here",
+      "caption": "01  /  PRACTICE     A short session. A little more fluent.",
+      "start": 0.257,
+      "end": 3.759,
+      "url": "https://linguaflow-demo.vercel.app/"
+    },
+    {
+      "label": "Choose a session",
+      "caption": "Choose English practice. Set the length to fit your day.",
+      "start": 3.852,
+      "end": 8.203,
+      "url": "https://linguaflow-demo.vercel.app/drill?language=en&type=mixed&count=5"
+    },
+    {
+      "label": "Write an answer",
+      "caption": "Read the prompt, then write your answer.",
+      "start": 8.273,
+      "end": 13.617,
+      "url": "https://linguaflow-demo.vercel.app/drill?language=en&type=mixed&count=5"
+    },
+    {
+      "label": "Immediate feedback",
+      "caption": "Submit your answer and get immediate feedback.",
+      "start": 13.715,
+      "end": 17.519,
+      "url": "https://linguaflow-demo.vercel.app/drill?language=en&type=mixed&count=5"
+    },
+    {
+      "label": "Saved practice",
+      "caption": "Your session is saved on this device. Keep your progress.",
+      "start": 17.613,
+      "end": 21.332,
+      "url": "https://linguaflow-demo.vercel.app/session/589872aa-100d-427a-a9c3-9c2595ffc05f"
+    },
+    {
+      "label": "Find a card",
+      "caption": "02  /  STUDY     Pick a topic. Focus on one sentence.",
+      "start": 21.416,
+      "end": 26.585,
+      "url": "https://linguaflow-demo.vercel.app/study"
+    },
+    {
+      "label": "Recall first",
+      "caption": "Try the rewrite yourself before revealing the answer.",
+      "start": 26.668,
+      "end": 30.732,
+      "url": "https://linguaflow-demo.vercel.app/study"
+    },
+    {
+      "label": "Reveal the answer",
+      "caption": "Active to passive: the proposal becomes the subject.",
+      "start": 30.801,
+      "end": 35.351,
+      "url": "https://linguaflow-demo.vercel.app/study"
+    },
+    {
+      "label": "Ask for the reason",
+      "caption": "03  /  UNDERSTAND     Ask why this rewrite works.",
+      "start": 35.415,
+      "end": 37.404,
+      "url": "https://linguaflow-demo.vercel.app/study"
+    },
+    {
+      "label": "Explanation and source",
+      "caption": "Read the explanation and see the teaching reference behind it.",
+      "start": 39.334,
+      "end": 48.338,
+      "url": "https://linguaflow-demo.vercel.app/study"
+    },
+    {
+      "label": "Keep learning",
+      "caption": "Practice. Review. Understand.   /   LinguaFlow",
+      "start": 48.576,
+      "end": 52.368,
+      "url": "https://linguaflow-demo.vercel.app/study"
+    }
+  ],
+  "screenshots": [
+    "landing.png",
+    "practice.png",
+    "practice-answer.png",
+    "practice-feedback.png",
+    "session-summary.png",
+    "study-selection.png",
+    "study-question.png",
+    "study-answer.png",
+    "english-study.png",
+    "english-study-full.png",
+    "english-study-mobile.png",
+    "english-study-mobile-detail.png"
+  ],
+  "practice": {
+    "id": "en_t5",
+    "prompt": "The system broke because of too much traffic.",
+    "answer": "The system failure was attributed to excessive traffic load."
+  },
+  "action": "explain_card",
   "status": 200,
-  "answer": "The passive answer uses \"was reviewed\" to indicate that the action of reviewing happened in the past. In passive voice, the focus shifts from the doer (the committee) to the action and the object (the proposal). This structure is used to emphasize the proposal rather than the committee that performed the action.",
+  "answer": "This card is testing your understanding of transforming a sentence from active voice to passive voice. In the active voice, the subject (the committee) performs the action (reviewed) on the object (the proposal). In the passive voice, the focus shifts to the object, making it the subject of the sentence, while the original subject can be included with \"by\" or omitted if it's not necessary. In this case, \"The proposal was reviewed by the committee\" maintains the original meaning while changing the focus.",
   "retrievedSources": [
     {
       "id": "en_passive_vs_active_voice",
@@ -20,7 +126,7 @@
   "mobile": {
     "width": 390,
     "height": 844,
-    "horizontalOverflow": true
+    "horizontalOverflow": false
   },
-  "note": "Real UI and API response. Edited still-frame walkthrough; pauses are not measured latency. No mocked responses or injected session history."
+  "note": "Native 2x high-quality JPEG browser frames with measured timing, captured and encoded at a target of 20 fps, with editorial captions below the app. Loading gaps are cut; timing is not latency evidence. One real card-explanation request. No mocked responses, modified product UI, or injected session history. Practice uses a canonical sample answer."
 }

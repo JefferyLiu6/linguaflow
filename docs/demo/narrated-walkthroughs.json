@@ -1,0 +1,223 @@
+{
+  "voice": {
+    "language": "en",
+    "speaker": "ryan",
+    "pipeline": "ai-video-pipeline",
+    "backend": "local Qwen3-TTS CustomVoice bf16"
+  },
+  "pipeline_model": "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-bf16",
+  "cloud_tts_calls": 0,
+  "videos": {
+    "product": {
+      "filename": "english-study-demo.mp4",
+      "width": 2560,
+      "height": 1800,
+      "fps": 20,
+      "duration_seconds": 52.671333,
+      "audio": "AAC stereo 48 kHz; normalized narration",
+      "chapters": [
+        {
+          "start": 0.0,
+          "end": 3.75,
+          "title": "Start here",
+          "text": "Build your English with focused practice and clear feedback.",
+          "heard": "Build your English with focused practice and clear feedback.",
+          "source": null,
+          "audio_seconds": 3.173
+        },
+        {
+          "start": 3.75,
+          "end": 8.1,
+          "title": "Choose a session",
+          "text": "Choose English, then set the length of your practice session.",
+          "heard": "Choose English, then set the length of your practice session.",
+          "source": null,
+          "audio_seconds": 3.592
+        },
+        {
+          "start": 8.1,
+          "end": 13.4,
+          "title": "Write an answer",
+          "text": "Read the prompt and type your answer.",
+          "heard": "Read the prompt and type your answer.",
+          "source": null,
+          "audio_seconds": 2.316
+        },
+        {
+          "start": 13.4,
+          "end": 18.35,
+          "title": "Immediate feedback",
+          "text": "Submit to see the correct answer and immediate feedback.",
+          "heard": "Submit to see the correct answer and immediate feedback.",
+          "source": null,
+          "audio_seconds": 4.394
+        },
+        {
+          "start": 18.35,
+          "end": 22.45,
+          "title": "Saved practice",
+          "text": "Your session is saved on this device, ready for your next visit.",
+          "heard": "Your session is saved on this device, ready for your next visit.",
+          "source": null,
+          "audio_seconds": 3.503
+        },
+        {
+          "start": 22.45,
+          "end": 27.6,
+          "title": "Find a card",
+          "text": "In Study, filter by topic and choose a sentence to review.",
+          "heard": "In Study, filter by topic and choose a sentence to review.",
+          "source": null,
+          "audio_seconds": 4.543
+        },
+        {
+          "start": 27.6,
+          "end": 31.85,
+          "title": "Recall first",
+          "text": "Try rewriting the sentence yourself before revealing the answer.",
+          "heard": "Try rewriting the sentence yourself before revealing the answer.",
+          "source": null,
+          "audio_seconds": 3.678
+        },
+        {
+          "start": 31.85,
+          "end": 36.4,
+          "title": "Reveal the answer",
+          "text": "The answer shows how the active sentence changes to passive voice.",
+          "heard": "The answer shows how the active sentence changes to passive voice.",
+          "source": null,
+          "audio_seconds": 3.436
+        },
+        {
+          "start": 36.4,
+          "end": 38.5,
+          "title": "Ask for the reason",
+          "text": "Ask why it works.",
+          "heard": "Ask why it works.",
+          "source": null,
+          "audio_seconds": 1.511
+        },
+        {
+          "start": 38.5,
+          "end": 47.5,
+          "title": "Explanation and source",
+          "text": "The study helper explains the transformation and names its teaching reference, so you can see the rule behind the answer.",
+          "heard": "The study helper explains the transformation and names its teaching reference, so you can see the rule behind the answer.",
+          "source": null,
+          "audio_seconds": 6.798
+        },
+        {
+          "start": 47.5,
+          "end": 52.65,
+          "title": "Keep learning",
+          "text": "Practice, review, and understand with LinguaFlow.",
+          "heard": "Practice, review, and understand with LinguaFlow.",
+          "source": null,
+          "audio_seconds": 4.552
+        }
+      ],
+      "sha256": "e1abc6339c40ab9cb978ca5384ac62f75bc9f6c41d138af428d3915f58b5e267"
+    },
+    "engineering": {
+      "filename": "ai-system-walkthrough.mp4",
+      "width": 2560,
+      "height": 1600,
+      "fps": 30,
+      "duration_seconds": 176.554362,
+      "audio": "AAC stereo 48 kHz; normalized narration",
+      "chapters": [
+        {
+          "start": 0.0,
+          "end": 11.333,
+          "title": "Evidence before fluency",
+          "text": "LinguaFlow is an English tutor built around a distinction: a model may know an answer without having a supporting teaching reference. This walkthrough focuses on the Study freeform system.",
+          "heard": "LinguaFlow is an English tutor built around a distinction. A model may know an answer without having a supporting teaching reference. This walkthrough focuses on the Study freeform system.",
+          "source": "docs/RAG_ENGINEERING_CASE_STUDY.md",
+          "audio_seconds": 10.521
+        },
+        {
+          "start": 11.333,
+          "end": 26.433,
+          "title": "A small, inspectable corpus",
+          "text": "The repository contains two hundred teaching notes and one hundred seventy one English drills. Each note keeps its rule, examples, and boundaries together. Content validation and fingerprints make the index reproducible.",
+          "heard": "The repository contains two hundred teaching notes and one hundred seventy one English drills. Each note keeps its rule, examples, and boundaries together. Content validation and fingerprints make the index reproducible.",
+          "source": "agent/knowledge/en/contrasts.jsonl",
+          "audio_seconds": 14.299
+        },
+        {
+          "start": 26.433,
+          "end": 48.5,
+          "title": "Retrieval, then selection",
+          "text": "A question and optional card become a query embedding. Postgres retrieves ten vector candidates. A heuristic reranker combines cosine similarity with normalized metadata, then sends the top five to verification. This is not B M twenty five fusion.",
+          "heard": "A question and optional card become a query embedding. Postgres retrieves ten vector candidates. A heuristic reranker combines cosine similarity with normalized metadata, then sends the top five to verification. This is not B M twenty five fusion.",
+          "source": "agent/retrieval/hybrid.py",
+          "audio_seconds": 21.259
+        },
+        {
+          "start": 48.5,
+          "end": 65.867,
+          "title": "A source is a claim",
+          "text": "One verifier checks scope, missing context, and evidence support. It selects a supplied evidence identifier; the server restores the exact source text. Supported questions get a reference. Uncovered questions get a disclosure. Missing text triggers clarification.",
+          "heard": "One verifier checks scope, missing context, and evidence support. It selects a supplied evidence identifier. The server restores the exact source text. Supported questions get a reference. Uncovered questions get a disclosure. Missing text triggers clarification.",
+          "source": "agent/study_assist/source_policy.py",
+          "audio_seconds": 16.549
+        },
+        {
+          "start": 65.867,
+          "end": 85.0,
+          "title": "Fail explicitly",
+          "text": "Embeddings are prepared before atomic index publication. Readers check the active corpus fingerprint. In the freeform path, index and provider failures remain explicit service errors. Timeouts and bounded calls control failure behavior, without promising a production latency guarantee.",
+          "heard": "Embeddings are prepared before atomic index publication. Readers check the active corpus fingerprint. In the freeform path, index and provider failures remain explicit service errors. Timeouts and bounded calls control failure behavior, without promising a production latency guarantee.",
+          "source": "agent/retrieval/manifest.py",
+          "audio_seconds": 18.305
+        },
+        {
+          "start": 85.0,
+          "end": 103.9,
+          "title": "Freeze the comparison",
+          "text": "The new evaluation compares verified and raw hybrid retrieval on one hundred frozen synthetic questions. Both arms use the same two hundred notes. Plans pin models, prompts, labels, and budgets. Offline replay reproduces scoring without new model calls.",
+          "heard": "The new evaluation compares verified and raw hybrid retrieval on one hundred frozen synthetic questions. Both arms use the same two hundred notes. Plans pin models, prompts, labels, and budgets. Offline replay reproduces scoring without new model calls.",
+          "source": "agent/runs/expansion-fresh-v1-plan.json",
+          "audio_seconds": 18.068
+        },
+        {
+          "start": 103.9,
+          "end": 120.067,
+          "title": "Measure the trade-off",
+          "text": "Using the frozen source labels, precision improves from thirty five point six percent to eighty six point four percent. The AI judge's correctness score improves from three point three seven to three point nine eight out of four. One baseline answer could not be graded.",
+          "heard": "Using the frozen source labels, precision improves from thirty five point six percent to eighty six point four percent. The AI judge's correctness score improves from three point three seven to three point nine eight out of four. One baseline answer could not be graded.",
+          "source": "agent/runs/expansion-fresh-v1-results.json",
+          "audio_seconds": 15.349
+        },
+        {
+          "start": 120.067,
+          "end": 141.667,
+          "title": "Account for every stage",
+          "text": "Local pipeline p ninety five increases from two point two two to three point two zero seconds. Verified inference costs about four dollars and seven cents per thousand questions at this case mix. The entire evaluation cost about one dollar and twenty two cents, including judging.",
+          "heard": "Local pipeline p ninety five increases from two point two two to three point two zero seconds. Verified inference costs about four dollars and seven cents per thousand questions at this case mix. If the entire evaluation cost about one dollar and twenty two cents, including judging.",
+          "source": "agent/runs/expansion-fresh-v1-audit.json",
+          "audio_seconds": 20.79
+        },
+        {
+          "start": 141.667,
+          "end": 158.3,
+          "title": "Keep the failures visible",
+          "text": "In one saved case, the verifier accepts a generic health note for the idiom under the weather. The judge also credits a disclosure that is absent. Shared models can make correlated mistakes. Frozen scores stay unchanged, with the audit alongside them.",
+          "heard": "In one saved case, the verifier accepts a generic health note for the idiom under the weather. The judge also credits a disclosure that is absent. Shared models can make correlated mistakes. Frozen scores stay unchanged, with the audit alongside them.",
+          "source": "agent/runs/expansion-fresh-v1-records.jsonl",
+          "audio_seconds": 15.823
+        },
+        {
+          "start": 158.3,
+          "end": 176.533,
+          "title": "What this demonstrates",
+          "text": "The evidence demonstrates an implemented retrieval system, explicit failure handling, and a reproducible comparison. It does not establish learning gains or real user accuracy. Human review is pending, and the expanded corpus still needs coordinated production index publication.",
+          "heard": "The evidence demonstrates an implemented retrieval system, explicit failure handling, and a reproducible comparison. It does not establish learning gains or real user accuracy. Human review is pending, and the expanded corpus still needs coordinated production index publication.",
+          "source": "docs/EXPANSION_EVALUATION_RESULTS.md",
+          "audio_seconds": 17.424
+        }
+      ],
+      "sha256": "225dcc39325a15999d3195cb618f8ae1039c6fa9375ba6f4264a544098236f85"
+    }
+  }
+}
