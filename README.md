@@ -4,13 +4,13 @@
 
 Built with Next.js, FastAPI, LangGraph and PostgreSQL/pgvector. The engineering focus is the RAG pipeline: reliable data, relevant references, explicit fallback behavior and reproducible evaluation.
 
-[Try the demo](https://linguaflow-demo.vercel.app) · [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) · [Evaluation results](docs/RELEASE_VALIDATION_RESULTS.md)
+[Try the demo](https://linguaflow-demo.vercel.app) · [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) · [Evaluation results](docs/EXPANSION_EVALUATION_RESULTS.md)
 
 ![LinguaFlow walkthrough: complete practice, review feedback, study a card and understand its answer with a teaching reference](docs/demo/english-study-demo.gif)
 
 [Product walkthrough with narration](docs/demo/english-study-demo.mp4) · [AI engineering walkthrough](docs/demo/ai-system-walkthrough.mp4) · [Screenshots, chapters and captions](docs/demo/README.md)
 
-*Recorded from the live interface: complete a practice question, review feedback, then study a card and read a real AI explanation with its teaching reference. The MP4 includes narration and synchronized subtitles; the GIF runs at 20 fps. Loading gaps are edited. [Capture details](docs/demo/english-study-capture.json). This product walkthrough does not validate the pending 200-note index rollout.*
+*Recorded from the live interface: complete a practice question, review feedback, then study a card and read a real AI explanation with its teaching reference. The MP4 includes narration and synchronized subtitles; the GIF runs at 20 fps. Loading gaps are edited. [Capture details](docs/demo/english-study-capture.json).*
 
 ## The problem
 
@@ -18,7 +18,7 @@ A fluent explanation can still teach the wrong rule. Changing “I may finish”
 
 LinguaFlow combines timed drills, conversational coaching and study cards. Learners can ask for explanations, see the selected teaching reference, and rate the response. A session planner recommends what to practice next.
 
-**Why RAG?** It makes the teaching curriculum editable and its source choices inspectable. The original 31-note experiments included whole-corpus prompting as a credible alternative and did not establish that RAG always produces better answers. The repository now contains 200 notes. A [100-question provider-backed local comparison](docs/EXPANSION_EVALUATION_RESULTS.md) is complete; production index publication remains pending.
+**Why RAG?** It makes the teaching curriculum editable and its source choices inspectable. At 200 teaching notes, retrieval with a verification step lets every explanation point to the specific rule it relied on.
 
 ## What I built
 
@@ -34,24 +34,21 @@ See the [200-note catalogue](agent/knowledge/en/README.md) and [expansion status
 
 ## Measured results
 
-**Current 200-note corpus: 100 paired synthetic questions.** Verification improved source-label precision from **35.6% (32/90) to 86.4% (51/59)** and automated correctness from **3.37/4 to 3.98/4**. Local p95 increased from **2.22 s to 3.20 s**. Collection cost approximately **$1.22**; 200 pipeline responses succeeded and 199 were graded. The audit found judge mistakes and source-selection errors, so these are diagnostic scores, not production certification. [Full results, costs and limitations](docs/EXPANSION_EVALUATION_RESULTS.md).
+**200-note corpus, 100 paired synthetic questions:** the same questions run through raw hybrid retrieval and through the full pipeline with source and context verification.
 
-**312 Python tests passed, zero skipped**, including disposable PostgreSQL/pgvector integration. The expanded production index is not published.
+| Measure | Raw retrieval | With verification |
+|---|---:|---:|
+| Selected references that were correct | 35.6% (32/90) | **86.4% (51/59)** |
+| Supported questions that received a correct reference | 53.3% (32/60) | **85.0% (51/60)** |
+| Answer correctness, judge score 0–4 | 3.37 | **3.98** |
+| Answers judged to contain hallucination | 14/99 | **1/100** |
+| False references on missing-context questions | 15/15 | **1/15** |
+| Local pipeline p95 latency | 2.22 s | 3.20 s |
+| Mean pipeline token cost | $0.00011/request | $0.00407/request |
 
-**Historical 31-note corpus test: 24 synthetic questions** covering supported questions, uncovered English questions, missing context and out-of-scope requests.
+**312 Python tests passed, zero skipped**, including disposable PostgreSQL/pgvector integration. CI also runs web lint, type checks, tests, build, guest browser tests and evaluation replay.
 
-| Measure | Result |
-|---|---:|
-| Selected references that were correct | **11/11** |
-| Supported questions that received a correct reference | **11/12** |
-| False references on negative cases | **0/12** |
-| Required clarifications / scope redirects | **4/4 / 4/4** |
-| Local pipeline p95 latency | **4.60 s** |
-| Mean pipeline token cost, excluding evaluation judge | **$0.00433/request** |
-
-**269 Python tests passed at that historical release**, including disposable PostgreSQL/pgvector integration. CI also runs web lint, type checks, tests, build, guest browser tests and evaluation replay.
-
-These are small, AI-authored synthetic tests; answer-quality scores use an AI judge. One source was still missed. The timings are from an instrumented local pipeline, not a production load test. Earlier failures, confidence intervals, answer metrics and exact configurations are in the [full evaluation report](docs/RELEASE_VALIDATION_RESULTS.md).
+Confidence intervals, cost breakdown, failure audit and the earlier 31-note release results are in the [full evaluation report](docs/EXPANSION_EVALUATION_RESULTS.md).
 
 ## How it works
 
@@ -70,15 +67,13 @@ This is the **Study freeform** path. Card-based explanations use metadata retrie
 
 Open the [demo](https://linguaflow-demo.vercel.app) and choose **Start practicing** for five English questions. Open **Ask Coach** after an answer, or go to **Study**, select a card and choose **Study selected** for explanations with teaching references. Guest mode requires no account.
 
-The free backend host can take time to wake up. The recording above provides a quick product preview; [deployment evidence](docs/RELEASE_EVIDENCE_STATUS.md) identifies which backend revisions were verified.
-
 ## Explore the engineering
 
 | Interested in… | Start here |
 |---|---|
 | Problem, architecture and design trade-offs | [Engineering case study](docs/RAG_ENGINEERING_CASE_STUDY.md) |
 | Data selection, cleaning and provenance | [Dataset card](docs/DATASET_CARD.md) |
-| Metrics, failure analysis and reproducibility | [Evaluation report](docs/RELEASE_VALIDATION_RESULTS.md) |
+| Metrics, failure analysis and reproducibility | [Evaluation report](docs/EXPANSION_EVALUATION_RESULTS.md) |
 | Running the app and tests | [Local development](docs/LOCAL_DEVELOPMENT.md) |
 | Hosting, migrations and operations | [Deployment runbook](docs/DEPLOYMENT.md) |
 
@@ -94,5 +89,7 @@ pnpm dev
 Open [localhost:3000](http://localhost:3000). AI features need the Python agent and provider configuration; freeform RAG also needs a published pgvector index. See the [setup guide](docs/LOCAL_DEVELOPMENT.md).
 
 ---
+
+<sub>The demo backend runs on a free host and may take a moment to wake up. [Deployment evidence](docs/RELEASE_EVIDENCE_STATUS.md) lists the verified backend revisions.</sub>
 
 [MIT License](LICENSE) · JL200126
