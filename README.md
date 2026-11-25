@@ -53,15 +53,23 @@ Confidence intervals, cost breakdown, failure audit and the earlier 31-note rele
 ## How it works
 
 ```mermaid
-flowchart LR
-    UI[Next.js app] --> API[FastAPI agent]
-    API --> R[pgvector + metadata retrieval]
-    R --> V[Scope, context and source checks]
-    V --> A[Answer with reference or disclosure]
-    V --> C[Clarify or redirect]
+flowchart TD
+    subgraph IDX["Offline indexing"]
+        direction LR
+        N[200 teaching notes] --> VAL[Schema, ID and<br/>link checks] --> EMB[One note = one chunk<br/>text-embedding-3-small] --> PUB[(pgvector index<br/>atomic publish)]
+    end
+
+    IDX -.-> RET
+    Q[Learner question + optional card] --> RET[Top 10 vector candidates]
+    RET --> RR[Rerank: cosine + card metadata<br/>keep top 5]
+    RR --> VER{GPT-4.1 verifier<br/>scope · context · evidence}
+    VER -->|Rule supports it| A[Answer citing<br/>the selected note]
+    VER -->|No matching rule| D[General answer +<br/>coverage disclosure]
+    VER -->|Missing learner text| C[Ask for<br/>clarification]
+    VER -->|Not an English task| R[Redirect to<br/>English help]
 ```
 
-This is the **Study freeform** path. Card-based explanations use metadata retrieval; the conversational tutor uses LangGraph routing. Supabase handles authentication and persistence. [Read the design decisions and trade-offs →](docs/RAG_ENGINEERING_CASE_STUDY.md)
+The verifier only picks an evidence ID; the backend then inserts that note's exact text, so learners see the real source, never a model paraphrase. Coverage disclosure is added by the backend, not left to the prompt. Index, embedding or verification failures return an explicit 503 instead of silently answering without a source. [Read the design decisions and trade-offs →](docs/RAG_ENGINEERING_CASE_STUDY.md)
 
 ## Try it
 
