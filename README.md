@@ -40,7 +40,7 @@ See the [200-note catalogue](agent/knowledge/en/README.md) and [expansion status
 |---|---:|---:|
 | Selected references that were correct | 35.6% (32/90) | **86.4% (51/59)** |
 | Supported questions that received a correct reference | 53.3% (32/60) | **85.0% (51/60)** |
-| Answer correctness, judge score 0–4 | 3.37 | **3.98** |
+| Answer correctness, judge score 0–4 | 3.37/4 | **3.98/4** |
 | Answers judged to contain hallucination | 14/99 | **1/100** |
 | False references on missing-context questions | 15/15 | **1/15** |
 | Local pipeline p95 latency | 2.22 s | 3.20 s |
